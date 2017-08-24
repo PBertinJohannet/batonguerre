@@ -13,6 +13,6 @@ struct texture_list {
     sfTexture* assault;
     sfTexture* retreat;
 };
-texture_list* texture_list_init();
+texture_list* texture_list_load();
 int texture_list_destroy(texture_list*);
 #endif //STICKWAR_TEXTURES_H

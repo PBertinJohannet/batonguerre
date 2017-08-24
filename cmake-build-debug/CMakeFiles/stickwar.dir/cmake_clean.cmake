@@ -25,6 +25,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/stickwar.dir/archer.c.o"
   "CMakeFiles/stickwar.dir/projectile.c.o"
   "CMakeFiles/stickwar.dir/arrow.c.o"
+  "CMakeFiles/stickwar.dir/global.c.o"
+  "CMakeFiles/stickwar.dir/game_interact.c.o"
   "stickwar.pdb"
   "stickwar"
 )

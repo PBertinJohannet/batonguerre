@@ -528,6 +528,33 @@ game_end_state.c.s:
 	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/game_end_state.c.s
 .PHONY : game_end_state.c.s
 
+game_interact.o: game_interact.c.o
+
+.PHONY : game_interact.o
+
+# target to build an object file
+game_interact.c.o:
+	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/game_interact.c.o
+.PHONY : game_interact.c.o
+
+game_interact.i: game_interact.c.i
+
+.PHONY : game_interact.i
+
+# target to preprocess a source file
+game_interact.c.i:
+	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/game_interact.c.i
+.PHONY : game_interact.c.i
+
+game_interact.s: game_interact.c.s
+
+.PHONY : game_interact.s
+
+# target to generate assembly for a file
+game_interact.c.s:
+	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/game_interact.c.s
+.PHONY : game_interact.c.s
+
 game_params.o: game_params.c.o
 
 .PHONY : game_params.o
@@ -581,6 +608,33 @@ game_state.s: game_state.c.s
 game_state.c.s:
 	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/game_state.c.s
 .PHONY : game_state.c.s
+
+global.o: global.c.o
+
+.PHONY : global.o
+
+# target to build an object file
+global.c.o:
+	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/global.c.o
+.PHONY : global.c.o
+
+global.i: global.c.i
+
+.PHONY : global.i
+
+# target to preprocess a source file
+global.c.i:
+	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/global.c.i
+.PHONY : global.c.i
+
+global.s: global.c.s
+
+.PHONY : global.s
+
+# target to generate assembly for a file
+global.c.s:
+	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/global.c.s
+.PHONY : global.c.s
 
 json_frame.o: json_frame.c.o
 
@@ -879,12 +933,18 @@ help:
 	@echo "... game_end_state.o"
 	@echo "... game_end_state.i"
 	@echo "... game_end_state.s"
+	@echo "... game_interact.o"
+	@echo "... game_interact.i"
+	@echo "... game_interact.s"
 	@echo "... game_params.o"
 	@echo "... game_params.i"
 	@echo "... game_params.s"
 	@echo "... game_state.o"
 	@echo "... game_state.i"
 	@echo "... game_state.s"
+	@echo "... global.o"
+	@echo "... global.i"
+	@echo "... global.s"
 	@echo "... json_frame.o"
 	@echo "... json_frame.i"
 	@echo "... json_frame.s"

@@ -3,7 +3,7 @@
 //
 #include "texture_list.h"
 
-texture_list* texture_list_init() {
+texture_list* texture_list_load() {
     texture_list *t = malloc(sizeof(texture_list));
     t->background = sfTexture_createFromFile("background.png", NULL);
     t->assault = sfTexture_createFromFile("assault.png", NULL);

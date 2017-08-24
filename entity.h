@@ -9,14 +9,10 @@
 #include "entity_type.h"
 typedef struct entity entity;
 typedef enum entity_state entity_state;
-typedef struct entity_stats entity_stats;
 struct entity {
-    entity_stats* stats;
     drawable_entity* drawable;
     struct entity_type* type;
     entity* target;
-};
-struct entity_stats{
     int hp;
     float speed;
     int team;

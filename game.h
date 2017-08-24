@@ -27,7 +27,6 @@ struct game{
     game_state* state;
     team* player;
     team* ennemy;
-    animation_list* anims;
     struct view * view;
     list* entities;
     list* projectiles;
@@ -44,8 +43,6 @@ list* game_get_drawables(game* g);
 void game_next_loop(game* g) ;
 void game_add_entity(game* g, entity* ent);
 team* game_get_team(game* g, int team_id);
-void game_order_retreat(game* g, int team_id);
-void game_order_assault(game* g, int team_id);
 void game_init_team(game* g, team* t, int team_id);
 void end_update(game* g);
 void game_destroy(game* g);

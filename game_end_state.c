@@ -27,7 +27,7 @@ void game_end_next_loop(game_end_state* ps){
     if (!game_end_update(ps)) {
         for (int i = 0; i < ps->ended_game->entities->size; i++) {
             entity *ent = list_at(ps->ended_game->entities, i);
-            if (game_get_team(ps->ended_game, ent->stats->team) != ps->winning_team &&
+            if (game_get_team(ps->ended_game, ent->team) != ps->winning_team &&
                 ent->drawable->anim->frame == ent->drawable->anim->anim->nb_frames - 2) {
                 ent->drawable->anim->frame -= 1;
             }

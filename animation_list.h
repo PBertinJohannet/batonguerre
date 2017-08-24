@@ -27,6 +27,6 @@ struct animation_list{
     animation* arrow;
 
 };
-animation_list* anims_load();
+animation_list* animation_list_load();
 void animation_list_destroy(animation_list* anims);
 #endif //STICKWAR_ANIMATION_LIST_H

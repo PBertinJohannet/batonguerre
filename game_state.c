@@ -58,8 +58,8 @@ void playing_state_to_game_end_state(game_state* state, team* winner){
     state->next_loop = game_end_state_next_loop;
     for (int i = 0;i<new_state->ended_game->entities->size;i++){
         entity* ent = list_at(new_state->ended_game->entities,i);
-        if (game_get_team(new_state->ended_game, ent->stats->team)!=new_state->winning_team){
-            ent->type->to_dying(ent, new_state->ended_game->anims);
+        if (game_get_team(new_state->ended_game, ent->team)!=new_state->winning_team){
+            ent->type->to_dying(ent);
         }
     }
 }

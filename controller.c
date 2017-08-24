@@ -5,7 +5,7 @@
 #include "controller.h"
 #include "view.h"
 #include "game_state.h"
-
+#include "game_interact.h"
 void controller_process_events( game* g){
     sfVector2i mouse = sfMouse_getPositionRenderWindow(game_get_view_window(g));
     if (mouse.x>WINDOW_WIDTH-100.0){

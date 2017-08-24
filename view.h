@@ -17,7 +17,6 @@ struct view{
     sfFont* font;
     sfText* text;
     int camera_position;
-    texture_list* textures;
 };
 view* view_init(sfRenderWindow*);
 void view_play_music(view* v, char* name);

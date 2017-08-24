@@ -23,13 +23,13 @@ struct archer{
     int attack_type;
 };
 archer* archer_init(int level);
-void archer_retreating(entity* ent, struct animation_list* anims);
+void archer_retreating(entity* ent);
 void set_archer_class(entity*, int level);
-void archer_play(entity* player, list* entities, struct animation_list* anims);
+void archer_play(entity* player, list* entities);
 void archer_attack(entity* ent, game* g);
 int archer_get_current_range(entity*);
-void archer_to_attack(entity* ent,entity* target, struct animation_list* anims);
-void archer_to_dying(entity* ent, struct animation_list* anims);
-void archer_to_aggro(entity* ent, struct animation_list* anims);
+void archer_to_attack(entity* ent,entity* target);
+void archer_to_dying(entity* ent);
+void archer_to_aggro(entity* ent);
 
 #endif //STICKWAR_ARCHER_H

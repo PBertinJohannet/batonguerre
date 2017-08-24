@@ -3,6 +3,7 @@
 //
 #include "kicker.h"
 #include "time.h"
+#include "global.h"
 kicker* kicker_init(int level){
     kicker* k = malloc(sizeof(kicker));
     k->range = KICKER_RANGE;
@@ -24,31 +25,31 @@ void set_kicker_class(entity* ent, int level){
     ent->type = c;
 }
 
-void kicker_retreating(entity* ent, struct animation_list* anims){
-    if (ent->drawable->anim->anim != anims->stick_walk){
+void kicker_retreating(entity* ent ){
+    if (ent->drawable->anim->anim !=  get_animations()->stick_walk){
         animation_frame_destroy(ent->drawable->anim);
-        ent->drawable->anim = animation_frame_init(anims->stick_walk);
+        ent->drawable->anim = animation_frame_init( get_animations()->stick_walk);
     }
-    //int team_coeff = 1000*ent->stats->team - (2*ent->stats->team+1)*RETREAT_PLAYER;
-    if ((int)(abs(ent->stats->pos-ent->stats->team*MAP_SIZE))>RETREAT_PLAYER){
-        ent->stats->facing = !ent->stats->team;
-        ent->stats->pos -= ent->stats->speed * (2 * ent->stats->facing - 1) ;
+    //int team_coeff = 1000*ent->team - (2*ent->team+1)*RETREAT_PLAYER;
+    if ((int)(abs(ent->pos-ent->team*MAP_SIZE))>RETREAT_PLAYER){
+        ent->facing = !ent->team;
+        ent->pos -= ent->speed * (2 * ent->facing - 1) ;
     } else {
-        ent->stats->facing = ent->stats->team;
+        ent->facing = ent->team;
     }
 }
 
 
-void kicker_to_dying(entity* ent, struct animation_list* anims){
-    ent->stats->state = DYING;
+void kicker_to_dying(entity* ent ){
+    ent->state = DYING;
     animation_frame* new_anim;
-    if (ent->stats->state == AGG_MOVING
+    if (ent->state == AGG_MOVING
         || ent->drawable->anim->frame < 6
         || ent->drawable->anim->frame > 16){
-        new_anim = animation_frame_init(anims->stick_walk_death);
-        ent->stats->pos += 60 * (ent->stats->facing * 2 - 1);
+        new_anim = animation_frame_init( get_animations()->stick_walk_death);
+        ent->pos += 60 * (ent->facing * 2 - 1);
     } else {
-        new_anim = animation_frame_init(anims->stick_kick_death);
+        new_anim = animation_frame_init( get_animations()->stick_kick_death);
         new_anim->frame = ent->drawable->anim->frame;
     }
     animation_frame_destroy(ent->drawable->anim);
@@ -56,12 +57,12 @@ void kicker_to_dying(entity* ent, struct animation_list* anims){
 }
 
 void kicker_attack(entity* ent, game* g){
-    if (!(ent->stats->state == ATTACK_FAILING) && ent->drawable->anim->frame == 11){
+    if (!(ent->state == ATTACK_FAILING) && ent->drawable->anim->frame == 11){
         int damage = KICKER_KICK_DAMAGE;
         if (((kicker*)ent->type->type_stats)->attack_type == PUNCH){
             damage = KICKER_PUNCH_DAMAGE;
         }
-        ent->target->stats->hp-=((kicker*)ent->type->type_stats)->damage + damage;
+        ent->target->hp-=((kicker*)ent->type->type_stats)->damage + damage;
 
     }
 }
@@ -71,21 +72,21 @@ int kicker_get_current_range(entity* ent){
     return k->range;
 }
 
-void kicker_to_attack(entity* ent,entity* target, animation_list* anims){
-    ent->stats->state = ATTACKING;
+void kicker_to_attack(entity* ent,entity* target){
+    ent->state = ATTACKING;
     animation_frame_destroy(ent->drawable->anim);
     ent->target = target;
     if (rand()%KICKER_PUNCH_CHANCE) {
         ((kicker *) (ent->type->type_stats))->attack_type = PUNCH;
-        ent->drawable->anim = animation_frame_init(anims->kicker_punch);
+        ent->drawable->anim = animation_frame_init( get_animations()->kicker_punch);
     } else {
         ((kicker *) (ent->type->type_stats))->attack_type = KICK;
-        ent->drawable->anim = animation_frame_init(anims->stick_kick);
+        ent->drawable->anim = animation_frame_init( get_animations()->stick_kick);
     }
 }
 
-void kicker_to_aggro(entity* ent, animation_list* anims){
-    ent->stats->state = AGG_MOVING;
+void kicker_to_aggro(entity* ent){
+    ent->state = AGG_MOVING;
     animation_frame_destroy(ent->drawable->anim);
-    ent->drawable->anim = animation_frame_init(anims->stick_walk);
+    ent->drawable->anim = animation_frame_init( get_animations()->stick_walk);
 }

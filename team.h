@@ -24,7 +24,7 @@ struct team {
     int right;
 };
 team* team_init(int team_number);
-void team_init_spawners(team* t, struct animation_list* anims, int team_id);
+void team_init_spawners(team* t, int team_id);
 void team_launch_entity(team* t,struct game* g, int id);
 void team_play(team* t, int frame);
 

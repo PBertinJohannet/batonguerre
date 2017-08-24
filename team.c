@@ -3,7 +3,7 @@
 //
 #include "team.h"
 #include "entity_launcher.h"
-
+#include "global.h"
 team* team_init(int team_number){
     team* t = malloc(sizeof(team));
     t->gold = GOLD_START;
@@ -14,10 +14,10 @@ team* team_init(int team_number){
 }
 
 
-void team_init_spawners(team* t, animation_list* anims, int team_id){
-    list_add(t->spawners,entity_launcher_init(NINJA,2,NINJA_COST,NINJA_COOLDOWN*FPS,anims->ninja_icon,team_id));
-    list_add(t->spawners,entity_launcher_init(KICKER,2,KICKER_COST,KICKER_COOLDOWN*FPS,anims->kicker_icon,team_id));
-    list_add(t->spawners,entity_launcher_init(ARCHER,2,ARCHER_COST,ARCHER_COOLDOWN*FPS,anims->kicker_icon,team_id));
+void team_init_spawners(team* t, int team_id){
+    list_add(t->spawners,entity_launcher_init(NINJA,2,NINJA_COST,NINJA_COOLDOWN*FPS,get_animations()->ninja_icon,team_id));
+    list_add(t->spawners,entity_launcher_init(KICKER,2,KICKER_COST,KICKER_COOLDOWN*FPS,get_animations()->kicker_icon,team_id));
+    list_add(t->spawners,entity_launcher_init(ARCHER,2,ARCHER_COST,ARCHER_COOLDOWN*FPS,get_animations()->kicker_icon,team_id));
 }
 
 void team_launch_entity(team* t,game* g, int id){

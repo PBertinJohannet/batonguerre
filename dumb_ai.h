@@ -8,6 +8,7 @@
 #include "game.h"
 #include "team.h"
 #include "entity_launcher.h"
+#include "game_interact.h"
 
 typedef struct team team;
 typedef struct dumb_ai dumb_ai;

@@ -681,6 +681,54 @@ CMakeFiles/stickwar.dir/arrow.c.o.provides: CMakeFiles/stickwar.dir/arrow.c.o.re
 CMakeFiles/stickwar.dir/arrow.c.o.provides.build: CMakeFiles/stickwar.dir/arrow.c.o
 
 
+CMakeFiles/stickwar.dir/global.c.o: CMakeFiles/stickwar.dir/flags.make
+CMakeFiles/stickwar.dir/global.c.o: ../global.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object CMakeFiles/stickwar.dir/global.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/global.c.o   -c /home/pierre/CLionProjects/batonguerre/global.c
+
+CMakeFiles/stickwar.dir/global.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/stickwar.dir/global.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/batonguerre/global.c > CMakeFiles/stickwar.dir/global.c.i
+
+CMakeFiles/stickwar.dir/global.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/stickwar.dir/global.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/batonguerre/global.c -o CMakeFiles/stickwar.dir/global.c.s
+
+CMakeFiles/stickwar.dir/global.c.o.requires:
+
+.PHONY : CMakeFiles/stickwar.dir/global.c.o.requires
+
+CMakeFiles/stickwar.dir/global.c.o.provides: CMakeFiles/stickwar.dir/global.c.o.requires
+	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/global.c.o.provides.build
+.PHONY : CMakeFiles/stickwar.dir/global.c.o.provides
+
+CMakeFiles/stickwar.dir/global.c.o.provides.build: CMakeFiles/stickwar.dir/global.c.o
+
+
+CMakeFiles/stickwar.dir/game_interact.c.o: CMakeFiles/stickwar.dir/flags.make
+CMakeFiles/stickwar.dir/game_interact.c.o: ../game_interact.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building C object CMakeFiles/stickwar.dir/game_interact.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/game_interact.c.o   -c /home/pierre/CLionProjects/batonguerre/game_interact.c
+
+CMakeFiles/stickwar.dir/game_interact.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/stickwar.dir/game_interact.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/batonguerre/game_interact.c > CMakeFiles/stickwar.dir/game_interact.c.i
+
+CMakeFiles/stickwar.dir/game_interact.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/stickwar.dir/game_interact.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/batonguerre/game_interact.c -o CMakeFiles/stickwar.dir/game_interact.c.s
+
+CMakeFiles/stickwar.dir/game_interact.c.o.requires:
+
+.PHONY : CMakeFiles/stickwar.dir/game_interact.c.o.requires
+
+CMakeFiles/stickwar.dir/game_interact.c.o.provides: CMakeFiles/stickwar.dir/game_interact.c.o.requires
+	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/game_interact.c.o.provides.build
+.PHONY : CMakeFiles/stickwar.dir/game_interact.c.o.provides
+
+CMakeFiles/stickwar.dir/game_interact.c.o.provides.build: CMakeFiles/stickwar.dir/game_interact.c.o
+
+
 # Object files for target stickwar
 stickwar_OBJECTS = \
 "CMakeFiles/stickwar.dir/main.c.o" \
@@ -708,7 +756,9 @@ stickwar_OBJECTS = \
 "CMakeFiles/stickwar.dir/game_end_state.c.o" \
 "CMakeFiles/stickwar.dir/archer.c.o" \
 "CMakeFiles/stickwar.dir/projectile.c.o" \
-"CMakeFiles/stickwar.dir/arrow.c.o"
+"CMakeFiles/stickwar.dir/arrow.c.o" \
+"CMakeFiles/stickwar.dir/global.c.o" \
+"CMakeFiles/stickwar.dir/game_interact.c.o"
 
 # External object files for target stickwar
 stickwar_EXTERNAL_OBJECTS =
@@ -739,9 +789,11 @@ stickwar: CMakeFiles/stickwar.dir/game_end_state.c.o
 stickwar: CMakeFiles/stickwar.dir/archer.c.o
 stickwar: CMakeFiles/stickwar.dir/projectile.c.o
 stickwar: CMakeFiles/stickwar.dir/arrow.c.o
+stickwar: CMakeFiles/stickwar.dir/global.c.o
+stickwar: CMakeFiles/stickwar.dir/game_interact.c.o
 stickwar: CMakeFiles/stickwar.dir/build.make
 stickwar: CMakeFiles/stickwar.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Linking C executable stickwar"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Linking C executable stickwar"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/stickwar.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -775,6 +827,8 @@ CMakeFiles/stickwar.dir/requires: CMakeFiles/stickwar.dir/game_end_state.c.o.req
 CMakeFiles/stickwar.dir/requires: CMakeFiles/stickwar.dir/archer.c.o.requires
 CMakeFiles/stickwar.dir/requires: CMakeFiles/stickwar.dir/projectile.c.o.requires
 CMakeFiles/stickwar.dir/requires: CMakeFiles/stickwar.dir/arrow.c.o.requires
+CMakeFiles/stickwar.dir/requires: CMakeFiles/stickwar.dir/global.c.o.requires
+CMakeFiles/stickwar.dir/requires: CMakeFiles/stickwar.dir/game_interact.c.o.requires
 
 .PHONY : CMakeFiles/stickwar.dir/requires
 

@@ -176,6 +176,12 @@
 		<Unit filename="/home/pierre/CLionProjects/batonguerre/game_end_state.h">
 			<Option target="stickwar"/>
 		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/batonguerre/game_interact.c">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/batonguerre/game_interact.h">
+			<Option target="stickwar"/>
+		</Unit>
 		<Unit filename="/home/pierre/CLionProjects/batonguerre/game_params.c">
 			<Option target="stickwar"/>
 		</Unit>
@@ -186,6 +192,12 @@
 			<Option target="stickwar"/>
 		</Unit>
 		<Unit filename="/home/pierre/CLionProjects/batonguerre/game_state.h">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/batonguerre/global.c">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/batonguerre/global.h">
 			<Option target="stickwar"/>
 		</Unit>
 		<Unit filename="/home/pierre/CLionProjects/batonguerre/json_frame.c">

@@ -18,7 +18,7 @@ game_state.c:    state->state = new_state;
 game_state.c:    state->next_loop = game_end_state_next_loop;
 game_state.c:    for (int i = 0;i<new_state->ended_game->entities->size;i++){
 game_state.c:        entity* ent = list_at(new_state->ended_game->entities,i);
-game_state.c:        if (game_get_team(new_state->ended_game, ent->stats->team)!=new_state->winning_team){
+game_state.c:        if (game_get_team(new_state->ended_game, ent->team)!=new_state->winning_team){
 game_state.c:            ent->type->to_dying(ent, new_state->ended_game->anims);
 game_state.c:    game_end_state* old = state->state;
 game_state.c:    game* g = old->ended_game;
@@ -56,25 +56,25 @@ ninjastrike.tps:            <int>-1</int>
 Fichier binaire team.o correspondant
 entity_type.c:    int range = player->type->get_current_range(player);
 entity_type.c:    for (int i = 0; i < entities->size; i++) {
-entity_type.c:        if (player->stats->team != ent->stats->team
-entity_type.c:            && abs(player->stats->pos - ent->stats->pos) < range
-entity_type.c:            && ent->stats->state != DYING) {
+entity_type.c:        if (player->team != ent->team
+entity_type.c:            && abs(player->pos - ent->pos) < range
+entity_type.c:            && ent->state != DYING) {
 entity_type.c:    if (in_range->size>0){
 entity_type.c:        player->type->to_attack(player, list_random(in_range), anims);
-entity_type.c:    player->stats->facing = player->stats->team;
-entity_type.c:    player->stats->pos -= player->stats->speed * (2 * player->stats->facing - 1);
+entity_type.c:    player->facing = player->team;
+entity_type.c:    player->pos -= player->speed * (2 * player->facing - 1);
 entity_type.c:    if (player->drawable->anim->frame == player->drawable->anim->anim->nb_frames - 1) {
 entity_type.c:        player->type->to_aggro(player, anims);
-entity_type.c:    } else if (player->target->stats->state == DYING){
-entity_type.c:        player->stats->state = ATTACK_FAILING;
+entity_type.c:    } else if (player->target->state == DYING){
+entity_type.c:        player->state = ATTACK_FAILING;
 entity_type.c:    player->type->attack(player);
 entity_type.c:    if (player->drawable->anim->frame == player->drawable->anim->anim->nb_frames - 1){
 entity_type.c:    if (player->drawable->anim->frame == player->drawable->anim->anim->nb_frames - 1) {
 entity_type.c:        player->type->to_aggro(player, anims);
 entity_type.c:    player->type->retreating(player, anims);
-entity_type.c:    if (player->stats->state != DYING && player->stats->hp<1){
+entity_type.c:    if (player->state != DYING && player->hp<1){
 entity_type.c:        player->type->to_dying(player, anims);
-entity_type.c:    switch (player->stats->state) {
+entity_type.c:    switch (player->state) {
 entity_type.c:    free(ent->type_stats);
 Fichier binaire archer_short_hit.png correspondant
 entity_factory.c:    int order = game_get_team(g,team)->order;
@@ -99,30 +99,30 @@ archer.c:    ent->type = c;
 archer.c:    if (ent->drawable->anim->anim != anims->archer_walk){
 archer.c:        animation_frame_destroy(ent->drawable->anim);
 archer.c:        ent->drawable->anim = animation_frame_init(anims->archer_walk);
-archer.c:    if ((int)(abs(ent->stats->pos-ent->stats->team*MAP_SIZE))>RETREAT_PLAYER){
-archer.c:        ent->stats->facing = !ent->stats->team;
-archer.c:        ent->stats->pos -= ent->stats->speed * (2 * ent->stats->facing - 1);
-archer.c:        ent->stats->facing = ent->stats->team;
-archer.c:    ent->stats->state = DYING;
+archer.c:    if ((int)(abs(ent->pos-ent->team*MAP_SIZE))>RETREAT_PLAYER){
+archer.c:        ent->facing = !ent->team;
+archer.c:        ent->pos -= ent->speed * (2 * ent->facing - 1);
+archer.c:        ent->facing = ent->team;
+archer.c:    ent->state = DYING;
 archer.c:    ent->drawable->anim = animation_frame_init(anims->archer_death);
-archer.c:    if (!(ent->stats->state == ATTACK_FAILING) && ent->drawable->anim->frame == 12){
+archer.c:    if (!(ent->state == ATTACK_FAILING) && ent->drawable->anim->frame == 12){
 archer.c:        if (((kicker*)ent->type->type_stats)->attack_type == ARCHER_SHORT_HIT){
 archer.c:        } else if (((kicker*)ent->type->type_stats)->attack_type == ARCHER_CRIT){
-archer.c:        ent->target->stats->hp-=((archer*)ent->type->type_stats)->damage + damage;
+archer.c:        ent->target->hp-=((archer*)ent->type->type_stats)->damage + damage;
 archer.c:    archer* k = (archer*)(ent->type->type_stats);
 archer.c:    return k->range;
 archer.c:    archer * player = ent->type->type_stats;
-archer.c:    ent->stats->state = ATTACKING;
+archer.c:    ent->state = ATTACKING;
 archer.c:    animation_frame_destroy(ent->drawable->anim);
 archer.c:    ent->target = target;
-archer.c:    if (abs(ent->stats->pos  - target->stats->pos)<player->range_short){
+archer.c:    if (abs(ent->pos  - target->pos)<player->range_short){
 archer.c:        player->attack_type = ARCHER_SHORT_HIT;
 archer.c:        ent->drawable->anim = animation_frame_init(anims->archer_short_hit);
 archer.c:            player->attack_type = ARCHER_NORMAL;
 archer.c:            ent->drawable->anim = animation_frame_init(anims->archer_hit);
 archer.c:            player->attack_type = ARCHER_CRIT;
 archer.c:            ent->drawable->anim = animation_frame_init(anims->archer_critical_hit);
-archer.c:    ent->stats->state = AGG_MOVING;
+archer.c:    ent->state = AGG_MOVING;
 archer.c:    animation_frame_destroy(ent->drawable->anim);
 archer.c:    ent->drawable->anim = animation_frame_init(anims->archer_walk);
 Fichier binaire ninja_strike.png correspondant
@@ -141,7 +141,7 @@ ninjawalk.tps:            <int>-1</int>
 ninjawalk.tps:            <int>-1</int>
 Fichier binaire kicker.o correspondant
 cmake-build-debug/CMakeCache.txt:# For build in directory: /home/pierre/CLionProjects/stickwar/cmake-build-debug
-cmake-build-debug/CMakeCache.txt:# It was generated by CMake: /home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/bin/cmake
+cmake-build-debug/CMakeCache.txt:# It was generated by CMake: /home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/bin/cmake
 cmake-build-debug/CMakeCache.txt:CMAKE_CODEBLOCKS_EXECUTABLE:FILEPATH=CMAKE_CODEBLOCKS_EXECUTABLE-NOTFOUND
 cmake-build-debug/CMakeCache.txt:// Enter e.g. -j<some_number> to get parallel builds
 cmake-build-debug/CMakeCache.txt:CMAKE_CODEBLOCKS_MAKE_ARGUMENTS:STRING=-j8
@@ -158,9 +158,9 @@ cmake-build-debug/CMakeCache.txt:stickwar_BINARY_DIR:STATIC=/home/pierre/CLionPr
 cmake-build-debug/CMakeCache.txt:CMAKE_AR-ADVANCED:INTERNAL=1
 cmake-build-debug/CMakeCache.txt:CMAKE_CACHEFILE_DIR:INTERNAL=/home/pierre/CLionProjects/stickwar/cmake-build-debug
 cmake-build-debug/CMakeCache.txt:CMAKE_COLOR_MAKEFILE-ADVANCED:INTERNAL=1
-cmake-build-debug/CMakeCache.txt:CMAKE_COMMAND:INTERNAL=/home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/bin/cmake
-cmake-build-debug/CMakeCache.txt:CMAKE_CPACK_COMMAND:INTERNAL=/home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/bin/cpack
-cmake-build-debug/CMakeCache.txt:CMAKE_CTEST_COMMAND:INTERNAL=/home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/bin/ctest
+cmake-build-debug/CMakeCache.txt:CMAKE_COMMAND:INTERNAL=/home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/bin/cmake
+cmake-build-debug/CMakeCache.txt:CMAKE_CPACK_COMMAND:INTERNAL=/home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/bin/cpack
+cmake-build-debug/CMakeCache.txt:CMAKE_CTEST_COMMAND:INTERNAL=/home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/bin/ctest
 cmake-build-debug/CMakeCache.txt:CMAKE_CXX_COMPILER-ADVANCED:INTERNAL=1
 cmake-build-debug/CMakeCache.txt:CMAKE_CXX_FLAGS-ADVANCED:INTERNAL=1
 cmake-build-debug/CMakeCache.txt:CMAKE_CXX_FLAGS_DEBUG-ADVANCED:INTERNAL=1
@@ -194,7 +194,7 @@ cmake-build-debug/CMakeCache.txt:CMAKE_NM-ADVANCED:INTERNAL=1
 cmake-build-debug/CMakeCache.txt:CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 cmake-build-debug/CMakeCache.txt:CMAKE_OBJDUMP-ADVANCED:INTERNAL=1
 cmake-build-debug/CMakeCache.txt:CMAKE_RANLIB-ADVANCED:INTERNAL=1
-cmake-build-debug/CMakeCache.txt:CMAKE_ROOT:INTERNAL=/home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/share/cmake-3.8
+cmake-build-debug/CMakeCache.txt:CMAKE_ROOT:INTERNAL=/home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/share/cmake-3.8
 cmake-build-debug/CMakeCache.txt:CMAKE_SHARED_LINKER_FLAGS-ADVANCED:INTERNAL=1
 cmake-build-debug/CMakeCache.txt:CMAKE_SHARED_LINKER_FLAGS_DEBUG-ADVANCED:INTERNAL=1
 cmake-build-debug/CMakeCache.txt:CMAKE_SHARED_LINKER_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
@@ -214,15 +214,15 @@ cmake-build-debug/CMakeCache.txt:ProcessorCount_cmd_sysctl-ADVANCED:INTERNAL=1
 cmake-build-debug/cmake_install.cmake:    string(REGEX REPLACE "^[^A-Za-z0-9_]+" ""
 cmake-build-debug/cmake_install.cmake:file(WRITE "/home/pierre/CLionProjects/stickwar/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
 cmake-build-debug/Makefile:# Allow only one "make -f Makefile2" at a time, but pass parallelism.
-cmake-build-debug/Makefile:CMAKE_COMMAND = /home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/bin/cmake
-cmake-build-debug/Makefile:RM = /home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/bin/cmake -E remove -f
+cmake-build-debug/Makefile:CMAKE_COMMAND = /home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/bin/cmake
+cmake-build-debug/Makefile:RM = /home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/bin/cmake -E remove -f
 cmake-build-debug/Makefile:# The top-level source directory on which CMake was run.
 cmake-build-debug/Makefile:# The top-level build directory on which CMake was run.
 cmake-build-debug/Makefile:CMAKE_BINARY_DIR = /home/pierre/CLionProjects/stickwar/cmake-build-debug
 cmake-build-debug/Makefile:	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-cmake-build-debug/Makefile:	/home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+cmake-build-debug/Makefile:	/home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 cmake-build-debug/Makefile:	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-cmake-build-debug/Makefile:	/home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+cmake-build-debug/Makefile:	/home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 cmake-build-debug/Makefile:	$(CMAKE_COMMAND) -E cmake_progress_start /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/progress.marks
 cmake-build-debug/Makefile:	$(MAKE) -f CMakeFiles/Makefile2 all
 cmake-build-debug/Makefile:	$(CMAKE_COMMAND) -E cmake_progress_start /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles 0
@@ -350,8 +350,8 @@ cmake-build-debug/CMakeFiles/stickwar.dir/flags.make:C_FLAGS = -g
 cmake-build-debug/CMakeFiles/stickwar.dir/flags.make:C_INCLUDES = -I/usr/include/SDL2 
 cmake-build-debug/CMakeFiles/stickwar.dir/link.txt:/usr/bin/cc -g   CMakeFiles/stickwar.dir/main.c.o CMakeFiles/stickwar.dir/json_frame.c.o CMakeFiles/stickwar.dir/animation.c.o CMakeFiles/stickwar.dir/drawable_entity.c.o CMakeFiles/stickwar.dir/array_list.c.o CMakeFiles/stickwar.dir/view.c.o CMakeFiles/stickwar.dir/entity.c.o CMakeFiles/stickwar.dir/entity_type.c.o CMakeFiles/stickwar.dir/game.c.o CMakeFiles/stickwar.dir/kicker.c.o CMakeFiles/stickwar.dir/controller.c.o CMakeFiles/stickwar.dir/animation_list.c.o CMakeFiles/stickwar.dir/entity_factory.c.o CMakeFiles/stickwar.dir/game_params.c.o CMakeFiles/stickwar.dir/ninja.c.o CMakeFiles/stickwar.dir/base.c.o CMakeFiles/stickwar.dir/team.c.o CMakeFiles/stickwar.dir/entity_launcher.c.o CMakeFiles/stickwar.dir/texture_list.c.o CMakeFiles/stickwar.dir/dumb_ai.c.o CMakeFiles/stickwar.dir/game_state.c.o CMakeFiles/stickwar.dir/paused_state.c.o CMakeFiles/stickwar.dir/game_end_state.c.o CMakeFiles/stickwar.dir/archer.c.o  -o stickwar 
 Fichier binaire cmake-build-debug/CMakeFiles/stickwar.dir/main.c.o correspondant
-cmake-build-debug/CMakeFiles/stickwar.dir/build.make:CMAKE_COMMAND = /home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/bin/cmake
-cmake-build-debug/CMakeFiles/stickwar.dir/build.make:RM = /home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/bin/cmake -E remove -f
+cmake-build-debug/CMakeFiles/stickwar.dir/build.make:CMAKE_COMMAND = /home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/bin/cmake
+cmake-build-debug/CMakeFiles/stickwar.dir/build.make:RM = /home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/bin/cmake -E remove -f
 cmake-build-debug/CMakeFiles/stickwar.dir/build.make:# The top-level source directory on which CMake was run.
 cmake-build-debug/CMakeFiles/stickwar.dir/build.make:# The top-level build directory on which CMake was run.
 cmake-build-debug/CMakeFiles/stickwar.dir/build.make:CMAKE_BINARY_DIR = /home/pierre/CLionProjects/stickwar/cmake-build-debug
@@ -583,16 +583,16 @@ cmake-build-debug/CMakeFiles/CMakeOutput.log:The C compiler identification is GN
 cmake-build-debug/CMakeFiles/CMakeOutput.log:The CXX compiler identification is GNU, found in "/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/3.8.2/CompilerIdCXX/a.out"
 cmake-build-debug/CMakeFiles/CMakeOutput.log:Change Dir: /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp
 cmake-build-debug/CMakeFiles/CMakeOutput.log:/usr/bin/make -f CMakeFiles/cmTC_64e07.dir/build.make CMakeFiles/cmTC_64e07.dir/build
-cmake-build-debug/CMakeFiles/CMakeOutput.log:make[1] : on entre dans le répertoire « /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp »
+cmake-build-debug/CMakeFiles/CMakeOutput.log:make[1]??: on entre dans le r??pertoire ????/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp????
 cmake-build-debug/CMakeFiles/CMakeOutput.log:/usr/bin/cc    -o CMakeFiles/cmTC_64e07.dir/testCCompiler.c.o   -c /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp/testCCompiler.c
-cmake-build-debug/CMakeFiles/CMakeOutput.log:/home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_64e07.dir/link.txt --verbose=1
+cmake-build-debug/CMakeFiles/CMakeOutput.log:/home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_64e07.dir/link.txt --verbose=1
 cmake-build-debug/CMakeFiles/CMakeOutput.log:/usr/bin/cc      CMakeFiles/cmTC_64e07.dir/testCCompiler.c.o  -o cmTC_64e07 
-cmake-build-debug/CMakeFiles/CMakeOutput.log:make[1] : on quitte le répertoire « /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp »
+cmake-build-debug/CMakeFiles/CMakeOutput.log:make[1]??: on quitte le r??pertoire ????/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp????
 cmake-build-debug/CMakeFiles/CMakeOutput.log:Change Dir: /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp
 cmake-build-debug/CMakeFiles/CMakeOutput.log:/usr/bin/make -f CMakeFiles/cmTC_37d8a.dir/build.make CMakeFiles/cmTC_37d8a.dir/build
-cmake-build-debug/CMakeFiles/CMakeOutput.log:make[1] : on entre dans le répertoire « /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp »
-cmake-build-debug/CMakeFiles/CMakeOutput.log:/usr/bin/cc    -o CMakeFiles/cmTC_37d8a.dir/CMakeCCompilerABI.c.o   -c /home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/share/cmake-3.8/Modules/CMakeCCompilerABI.c
-cmake-build-debug/CMakeFiles/CMakeOutput.log:/home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_37d8a.dir/link.txt --verbose=1
+cmake-build-debug/CMakeFiles/CMakeOutput.log:make[1]??: on entre dans le r??pertoire ????/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp????
+cmake-build-debug/CMakeFiles/CMakeOutput.log:/usr/bin/cc    -o CMakeFiles/cmTC_37d8a.dir/CMakeCCompilerABI.c.o   -c /home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/share/cmake-3.8/Modules/CMakeCCompilerABI.c
+cmake-build-debug/CMakeFiles/CMakeOutput.log:/home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_37d8a.dir/link.txt --verbose=1
 cmake-build-debug/CMakeFiles/CMakeOutput.log:/usr/bin/cc     -v CMakeFiles/cmTC_37d8a.dir/CMakeCCompilerABI.c.o  -o cmTC_37d8a 
 cmake-build-debug/CMakeFiles/CMakeOutput.log:Using built-in specs.
 cmake-build-debug/CMakeFiles/CMakeOutput.log:COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/6/lto-wrapper
@@ -604,13 +604,13 @@ cmake-build-debug/CMakeFiles/CMakeOutput.log:LIBRARY_PATH=/usr/lib/gcc/x86_64-li
 cmake-build-debug/CMakeFiles/CMakeOutput.log:COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_37d8a' '-mtune=generic' '-march=x86-64'
 cmake-build-debug/CMakeFiles/CMakeOutput.log: /usr/lib/gcc/x86_64-linux-gnu/6/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/6/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/6/lto-wrapper -plugin-opt=-fresolution=/tmp/ccqaZpnZ.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_37d8a /usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/6/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/6 -L/usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/6/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/6/../../.. CMakeFiles/cmTC_37d8a.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/6/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/crtn.o
 cmake-build-debug/CMakeFiles/CMakeOutput.log:COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_37d8a' '-mtune=generic' '-march=x86-64'
-cmake-build-debug/CMakeFiles/CMakeOutput.log:make[1] : on quitte le répertoire « /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp »
+cmake-build-debug/CMakeFiles/CMakeOutput.log:make[1]??: on quitte le r??pertoire ????/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp????
 cmake-build-debug/CMakeFiles/CMakeOutput.log:  link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
 cmake-build-debug/CMakeFiles/CMakeOutput.log:  ignore line: [Change Dir: /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp]
 cmake-build-debug/CMakeFiles/CMakeOutput.log:  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_37d8a.dir/build.make CMakeFiles/cmTC_37d8a.dir/build]
-cmake-build-debug/CMakeFiles/CMakeOutput.log:  ignore line: [make[1] : on entre dans le répertoire « /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp »]
-cmake-build-debug/CMakeFiles/CMakeOutput.log:  ignore line: [/usr/bin/cc    -o CMakeFiles/cmTC_37d8a.dir/CMakeCCompilerABI.c.o   -c /home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/share/cmake-3.8/Modules/CMakeCCompilerABI.c]
-cmake-build-debug/CMakeFiles/CMakeOutput.log:  ignore line: [/home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_37d8a.dir/link.txt --verbose=1]
+cmake-build-debug/CMakeFiles/CMakeOutput.log:  ignore line: [make[1]??: on entre dans le r??pertoire ????/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp????]
+cmake-build-debug/CMakeFiles/CMakeOutput.log:  ignore line: [/usr/bin/cc    -o CMakeFiles/cmTC_37d8a.dir/CMakeCCompilerABI.c.o   -c /home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/share/cmake-3.8/Modules/CMakeCCompilerABI.c]
+cmake-build-debug/CMakeFiles/CMakeOutput.log:  ignore line: [/home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_37d8a.dir/link.txt --verbose=1]
 cmake-build-debug/CMakeFiles/CMakeOutput.log:  ignore line: [/usr/bin/cc     -v CMakeFiles/cmTC_37d8a.dir/CMakeCCompilerABI.c.o  -o cmTC_37d8a ]
 cmake-build-debug/CMakeFiles/CMakeOutput.log:  ignore line: [Using built-in specs.]
 cmake-build-debug/CMakeFiles/CMakeOutput.log:  ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/6/lto-wrapper]
@@ -675,39 +675,39 @@ cmake-build-debug/CMakeFiles/CMakeOutput.log:  implicit dirs: [/usr/lib/gcc/x86_
 cmake-build-debug/CMakeFiles/CMakeOutput.log:Detecting C [-std=c11] compiler features compiled with the following output:
 cmake-build-debug/CMakeFiles/CMakeOutput.log:Change Dir: /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp
 cmake-build-debug/CMakeFiles/CMakeOutput.log:/usr/bin/make -f CMakeFiles/cmTC_23e69.dir/build.make CMakeFiles/cmTC_23e69.dir/build
-cmake-build-debug/CMakeFiles/CMakeOutput.log:make[1] : on entre dans le répertoire « /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp »
+cmake-build-debug/CMakeFiles/CMakeOutput.log:make[1]??: on entre dans le r??pertoire ????/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp????
 cmake-build-debug/CMakeFiles/CMakeOutput.log:/usr/bin/cc   -std=c11 -o CMakeFiles/cmTC_23e69.dir/feature_tests.c.o   -c /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/feature_tests.c
-cmake-build-debug/CMakeFiles/CMakeOutput.log:/home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_23e69.dir/link.txt --verbose=1
+cmake-build-debug/CMakeFiles/CMakeOutput.log:/home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_23e69.dir/link.txt --verbose=1
 cmake-build-debug/CMakeFiles/CMakeOutput.log:/usr/bin/cc      CMakeFiles/cmTC_23e69.dir/feature_tests.c.o  -o cmTC_23e69 
-cmake-build-debug/CMakeFiles/CMakeOutput.log:make[1] : on quitte le répertoire « /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp »
+cmake-build-debug/CMakeFiles/CMakeOutput.log:make[1]??: on quitte le r??pertoire ????/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp????
 cmake-build-debug/CMakeFiles/CMakeOutput.log:Detecting C [-std=c99] compiler features compiled with the following output:
 cmake-build-debug/CMakeFiles/CMakeOutput.log:Change Dir: /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp
 cmake-build-debug/CMakeFiles/CMakeOutput.log:/usr/bin/make -f CMakeFiles/cmTC_9accf.dir/build.make CMakeFiles/cmTC_9accf.dir/build
-cmake-build-debug/CMakeFiles/CMakeOutput.log:make[1] : on entre dans le répertoire « /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp »
+cmake-build-debug/CMakeFiles/CMakeOutput.log:make[1]??: on entre dans le r??pertoire ????/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp????
 cmake-build-debug/CMakeFiles/CMakeOutput.log:/usr/bin/cc   -std=c99 -o CMakeFiles/cmTC_9accf.dir/feature_tests.c.o   -c /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/feature_tests.c
-cmake-build-debug/CMakeFiles/CMakeOutput.log:/home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9accf.dir/link.txt --verbose=1
+cmake-build-debug/CMakeFiles/CMakeOutput.log:/home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9accf.dir/link.txt --verbose=1
 cmake-build-debug/CMakeFiles/CMakeOutput.log:/usr/bin/cc      CMakeFiles/cmTC_9accf.dir/feature_tests.c.o  -o cmTC_9accf 
-cmake-build-debug/CMakeFiles/CMakeOutput.log:make[1] : on quitte le répertoire « /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp »
+cmake-build-debug/CMakeFiles/CMakeOutput.log:make[1]??: on quitte le r??pertoire ????/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp????
 cmake-build-debug/CMakeFiles/CMakeOutput.log:Detecting C [-std=c90] compiler features compiled with the following output:
 cmake-build-debug/CMakeFiles/CMakeOutput.log:Change Dir: /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp
 cmake-build-debug/CMakeFiles/CMakeOutput.log:/usr/bin/make -f CMakeFiles/cmTC_6f435.dir/build.make CMakeFiles/cmTC_6f435.dir/build
-cmake-build-debug/CMakeFiles/CMakeOutput.log:make[1] : on entre dans le répertoire « /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp »
+cmake-build-debug/CMakeFiles/CMakeOutput.log:make[1]??: on entre dans le r??pertoire ????/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp????
 cmake-build-debug/CMakeFiles/CMakeOutput.log:/usr/bin/cc   -std=c90 -o CMakeFiles/cmTC_6f435.dir/feature_tests.c.o   -c /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/feature_tests.c
-cmake-build-debug/CMakeFiles/CMakeOutput.log:/home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6f435.dir/link.txt --verbose=1
+cmake-build-debug/CMakeFiles/CMakeOutput.log:/home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6f435.dir/link.txt --verbose=1
 cmake-build-debug/CMakeFiles/CMakeOutput.log:/usr/bin/cc      CMakeFiles/cmTC_6f435.dir/feature_tests.c.o  -o cmTC_6f435 
-cmake-build-debug/CMakeFiles/CMakeOutput.log:make[1] : on quitte le répertoire « /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp »
+cmake-build-debug/CMakeFiles/CMakeOutput.log:make[1]??: on quitte le r??pertoire ????/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp????
 cmake-build-debug/CMakeFiles/CMakeOutput.log:Change Dir: /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp
 cmake-build-debug/CMakeFiles/CMakeOutput.log:/usr/bin/make -f CMakeFiles/cmTC_70220.dir/build.make CMakeFiles/cmTC_70220.dir/build
-cmake-build-debug/CMakeFiles/CMakeOutput.log:make[1] : on entre dans le répertoire « /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp »
+cmake-build-debug/CMakeFiles/CMakeOutput.log:make[1]??: on entre dans le r??pertoire ????/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp????
 cmake-build-debug/CMakeFiles/CMakeOutput.log:/usr/bin/c++     -o CMakeFiles/cmTC_70220.dir/testCXXCompiler.cxx.o -c /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-cmake-build-debug/CMakeFiles/CMakeOutput.log:/home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_70220.dir/link.txt --verbose=1
+cmake-build-debug/CMakeFiles/CMakeOutput.log:/home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_70220.dir/link.txt --verbose=1
 cmake-build-debug/CMakeFiles/CMakeOutput.log:/usr/bin/c++       CMakeFiles/cmTC_70220.dir/testCXXCompiler.cxx.o  -o cmTC_70220 
-cmake-build-debug/CMakeFiles/CMakeOutput.log:make[1] : on quitte le répertoire « /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp »
+cmake-build-debug/CMakeFiles/CMakeOutput.log:make[1]??: on quitte le r??pertoire ????/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp????
 cmake-build-debug/CMakeFiles/CMakeOutput.log:Change Dir: /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp
 cmake-build-debug/CMakeFiles/CMakeOutput.log:/usr/bin/make -f CMakeFiles/cmTC_3e5d4.dir/build.make CMakeFiles/cmTC_3e5d4.dir/build
-cmake-build-debug/CMakeFiles/CMakeOutput.log:make[1] : on entre dans le répertoire « /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp »
-cmake-build-debug/CMakeFiles/CMakeOutput.log:/usr/bin/c++     -o CMakeFiles/cmTC_3e5d4.dir/CMakeCXXCompilerABI.cpp.o -c /home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/share/cmake-3.8/Modules/CMakeCXXCompilerABI.cpp
-cmake-build-debug/CMakeFiles/CMakeOutput.log:/home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3e5d4.dir/link.txt --verbose=1
+cmake-build-debug/CMakeFiles/CMakeOutput.log:make[1]??: on entre dans le r??pertoire ????/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp????
+cmake-build-debug/CMakeFiles/CMakeOutput.log:/usr/bin/c++     -o CMakeFiles/cmTC_3e5d4.dir/CMakeCXXCompilerABI.cpp.o -c /home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/share/cmake-3.8/Modules/CMakeCXXCompilerABI.cpp
+cmake-build-debug/CMakeFiles/CMakeOutput.log:/home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3e5d4.dir/link.txt --verbose=1
 cmake-build-debug/CMakeFiles/CMakeOutput.log:/usr/bin/c++      -v CMakeFiles/cmTC_3e5d4.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_3e5d4 
 cmake-build-debug/CMakeFiles/CMakeOutput.log:Using built-in specs.
 cmake-build-debug/CMakeFiles/CMakeOutput.log:COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/6/lto-wrapper
@@ -719,13 +719,13 @@ cmake-build-debug/CMakeFiles/CMakeOutput.log:LIBRARY_PATH=/usr/lib/gcc/x86_64-li
 cmake-build-debug/CMakeFiles/CMakeOutput.log:COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_3e5d4' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
 cmake-build-debug/CMakeFiles/CMakeOutput.log: /usr/lib/gcc/x86_64-linux-gnu/6/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/6/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/6/lto-wrapper -plugin-opt=-fresolution=/tmp/cc599uyj.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_3e5d4 /usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/6/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/6 -L/usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/6/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/6/../../.. CMakeFiles/cmTC_3e5d4.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/6/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/6/../../../x86_64-linux-gnu/crtn.o
 cmake-build-debug/CMakeFiles/CMakeOutput.log:COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_3e5d4' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
-cmake-build-debug/CMakeFiles/CMakeOutput.log:make[1] : on quitte le répertoire « /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp »
+cmake-build-debug/CMakeFiles/CMakeOutput.log:make[1]??: on quitte le r??pertoire ????/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp????
 cmake-build-debug/CMakeFiles/CMakeOutput.log:  link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
 cmake-build-debug/CMakeFiles/CMakeOutput.log:  ignore line: [Change Dir: /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp]
 cmake-build-debug/CMakeFiles/CMakeOutput.log:  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_3e5d4.dir/build.make CMakeFiles/cmTC_3e5d4.dir/build]
-cmake-build-debug/CMakeFiles/CMakeOutput.log:  ignore line: [make[1] : on entre dans le répertoire « /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp »]
-cmake-build-debug/CMakeFiles/CMakeOutput.log:  ignore line: [/usr/bin/c++     -o CMakeFiles/cmTC_3e5d4.dir/CMakeCXXCompilerABI.cpp.o -c /home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/share/cmake-3.8/Modules/CMakeCXXCompilerABI.cpp]
-cmake-build-debug/CMakeFiles/CMakeOutput.log:  ignore line: [/home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3e5d4.dir/link.txt --verbose=1]
+cmake-build-debug/CMakeFiles/CMakeOutput.log:  ignore line: [make[1]??: on entre dans le r??pertoire ????/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp????]
+cmake-build-debug/CMakeFiles/CMakeOutput.log:  ignore line: [/usr/bin/c++     -o CMakeFiles/cmTC_3e5d4.dir/CMakeCXXCompilerABI.cpp.o -c /home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/share/cmake-3.8/Modules/CMakeCXXCompilerABI.cpp]
+cmake-build-debug/CMakeFiles/CMakeOutput.log:  ignore line: [/home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3e5d4.dir/link.txt --verbose=1]
 cmake-build-debug/CMakeFiles/CMakeOutput.log:  ignore line: [/usr/bin/c++      -v CMakeFiles/cmTC_3e5d4.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_3e5d4 ]
 cmake-build-debug/CMakeFiles/CMakeOutput.log:  ignore line: [Using built-in specs.]
 cmake-build-debug/CMakeFiles/CMakeOutput.log:  ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/6/lto-wrapper]
@@ -788,61 +788,61 @@ cmake-build-debug/CMakeFiles/CMakeOutput.log:  implicit dirs: [/usr/lib/gcc/x86_
 cmake-build-debug/CMakeFiles/CMakeOutput.log:Detecting CXX [-std=c++1z] compiler features compiled with the following output:
 cmake-build-debug/CMakeFiles/CMakeOutput.log:Change Dir: /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp
 cmake-build-debug/CMakeFiles/CMakeOutput.log:/usr/bin/make -f CMakeFiles/cmTC_a5e89.dir/build.make CMakeFiles/cmTC_a5e89.dir/build
-cmake-build-debug/CMakeFiles/CMakeOutput.log:make[1] : on entre dans le répertoire « /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp »
+cmake-build-debug/CMakeFiles/CMakeOutput.log:make[1]??: on entre dans le r??pertoire ????/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp????
 cmake-build-debug/CMakeFiles/CMakeOutput.log:/usr/bin/c++    -std=c++1z -o CMakeFiles/cmTC_a5e89.dir/feature_tests.cxx.o -c /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/feature_tests.cxx
-cmake-build-debug/CMakeFiles/CMakeOutput.log:/home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a5e89.dir/link.txt --verbose=1
+cmake-build-debug/CMakeFiles/CMakeOutput.log:/home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a5e89.dir/link.txt --verbose=1
 cmake-build-debug/CMakeFiles/CMakeOutput.log:/usr/bin/c++       CMakeFiles/cmTC_a5e89.dir/feature_tests.cxx.o  -o cmTC_a5e89 
-cmake-build-debug/CMakeFiles/CMakeOutput.log:make[1] : on quitte le répertoire « /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp »
+cmake-build-debug/CMakeFiles/CMakeOutput.log:make[1]??: on quitte le r??pertoire ????/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp????
 cmake-build-debug/CMakeFiles/CMakeOutput.log:Detecting CXX [-std=c++14] compiler features compiled with the following output:
 cmake-build-debug/CMakeFiles/CMakeOutput.log:Change Dir: /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp
 cmake-build-debug/CMakeFiles/CMakeOutput.log:/usr/bin/make -f CMakeFiles/cmTC_36c37.dir/build.make CMakeFiles/cmTC_36c37.dir/build
-cmake-build-debug/CMakeFiles/CMakeOutput.log:make[1] : on entre dans le répertoire « /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp »
+cmake-build-debug/CMakeFiles/CMakeOutput.log:make[1]??: on entre dans le r??pertoire ????/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp????
 cmake-build-debug/CMakeFiles/CMakeOutput.log:/usr/bin/c++    -std=c++14 -o CMakeFiles/cmTC_36c37.dir/feature_tests.cxx.o -c /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/feature_tests.cxx
-cmake-build-debug/CMakeFiles/CMakeOutput.log:/home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_36c37.dir/link.txt --verbose=1
+cmake-build-debug/CMakeFiles/CMakeOutput.log:/home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_36c37.dir/link.txt --verbose=1
 cmake-build-debug/CMakeFiles/CMakeOutput.log:/usr/bin/c++       CMakeFiles/cmTC_36c37.dir/feature_tests.cxx.o  -o cmTC_36c37 
-cmake-build-debug/CMakeFiles/CMakeOutput.log:make[1] : on quitte le répertoire « /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp »
+cmake-build-debug/CMakeFiles/CMakeOutput.log:make[1]??: on quitte le r??pertoire ????/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp????
 cmake-build-debug/CMakeFiles/CMakeOutput.log:Detecting CXX [-std=c++11] compiler features compiled with the following output:
 cmake-build-debug/CMakeFiles/CMakeOutput.log:Change Dir: /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp
 cmake-build-debug/CMakeFiles/CMakeOutput.log:/usr/bin/make -f CMakeFiles/cmTC_e3e66.dir/build.make CMakeFiles/cmTC_e3e66.dir/build
-cmake-build-debug/CMakeFiles/CMakeOutput.log:make[1] : on entre dans le répertoire « /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp »
+cmake-build-debug/CMakeFiles/CMakeOutput.log:make[1]??: on entre dans le r??pertoire ????/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp????
 cmake-build-debug/CMakeFiles/CMakeOutput.log:/usr/bin/c++    -std=c++11 -o CMakeFiles/cmTC_e3e66.dir/feature_tests.cxx.o -c /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/feature_tests.cxx
-cmake-build-debug/CMakeFiles/CMakeOutput.log:/home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e3e66.dir/link.txt --verbose=1
+cmake-build-debug/CMakeFiles/CMakeOutput.log:/home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e3e66.dir/link.txt --verbose=1
 cmake-build-debug/CMakeFiles/CMakeOutput.log:/usr/bin/c++       CMakeFiles/cmTC_e3e66.dir/feature_tests.cxx.o  -o cmTC_e3e66 
-cmake-build-debug/CMakeFiles/CMakeOutput.log:make[1] : on quitte le répertoire « /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp »
+cmake-build-debug/CMakeFiles/CMakeOutput.log:make[1]??: on quitte le r??pertoire ????/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp????
 cmake-build-debug/CMakeFiles/CMakeOutput.log:Detecting CXX [-std=c++98] compiler features compiled with the following output:
 cmake-build-debug/CMakeFiles/CMakeOutput.log:Change Dir: /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp
 cmake-build-debug/CMakeFiles/CMakeOutput.log:/usr/bin/make -f CMakeFiles/cmTC_c63f2.dir/build.make CMakeFiles/cmTC_c63f2.dir/build
-cmake-build-debug/CMakeFiles/CMakeOutput.log:make[1] : on entre dans le répertoire « /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp »
+cmake-build-debug/CMakeFiles/CMakeOutput.log:make[1]??: on entre dans le r??pertoire ????/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp????
 cmake-build-debug/CMakeFiles/CMakeOutput.log:/usr/bin/c++    -std=c++98 -o CMakeFiles/cmTC_c63f2.dir/feature_tests.cxx.o -c /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/feature_tests.cxx
-cmake-build-debug/CMakeFiles/CMakeOutput.log:/home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c63f2.dir/link.txt --verbose=1
+cmake-build-debug/CMakeFiles/CMakeOutput.log:/home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c63f2.dir/link.txt --verbose=1
 cmake-build-debug/CMakeFiles/CMakeOutput.log:/usr/bin/c++       CMakeFiles/cmTC_c63f2.dir/feature_tests.cxx.o  -o cmTC_c63f2 
-cmake-build-debug/CMakeFiles/CMakeOutput.log:make[1] : on quitte le répertoire « /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp »
-cmake-build-debug/CMakeFiles/clion-log.txt:/home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/pierre/CLionProjects/stickwar
+cmake-build-debug/CMakeFiles/CMakeOutput.log:make[1]??: on quitte le r??pertoire ????/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/CMakeTmp????
+cmake-build-debug/CMakeFiles/clion-log.txt:/home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/pierre/CLionProjects/stickwar
 cmake-build-debug/CMakeFiles/clion-log.txt:-- Configuring done
 cmake-build-debug/CMakeFiles/clion-log.txt:-- Generating done
 cmake-build-debug/CMakeFiles/clion-log.txt:-- Build files have been written to: /home/pierre/CLionProjects/stickwar/cmake-build-debug
-cmake-build-debug/CMakeFiles/clion-environment.txt:CMake: 3.8.2@/home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/bin/cmake
-cmake-build-debug/CMakeFiles/Makefile.cmake:  "/home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/share/cmake-3.8/Modules/CMakeCInformation.cmake"
-cmake-build-debug/CMakeFiles/Makefile.cmake:  "/home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/share/cmake-3.8/Modules/CMakeCXXInformation.cmake"
-cmake-build-debug/CMakeFiles/Makefile.cmake:  "/home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/share/cmake-3.8/Modules/CMakeCommonLanguageInclude.cmake"
-cmake-build-debug/CMakeFiles/Makefile.cmake:  "/home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/share/cmake-3.8/Modules/CMakeExtraGeneratorDetermineCompilerMacrosAndIncludeDirs.cmake"
-cmake-build-debug/CMakeFiles/Makefile.cmake:  "/home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/share/cmake-3.8/Modules/CMakeFindCodeBlocks.cmake"
-cmake-build-debug/CMakeFiles/Makefile.cmake:  "/home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/share/cmake-3.8/Modules/CMakeGenericSystem.cmake"
-cmake-build-debug/CMakeFiles/Makefile.cmake:  "/home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/share/cmake-3.8/Modules/CMakeLanguageInformation.cmake"
-cmake-build-debug/CMakeFiles/Makefile.cmake:  "/home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/share/cmake-3.8/Modules/CMakeSystemSpecificInformation.cmake"
-cmake-build-debug/CMakeFiles/Makefile.cmake:  "/home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/share/cmake-3.8/Modules/CMakeSystemSpecificInitialize.cmake"
-cmake-build-debug/CMakeFiles/Makefile.cmake:  "/home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/share/cmake-3.8/Modules/Compiler/GNU-C.cmake"
-cmake-build-debug/CMakeFiles/Makefile.cmake:  "/home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/share/cmake-3.8/Modules/Compiler/GNU-CXX.cmake"
-cmake-build-debug/CMakeFiles/Makefile.cmake:  "/home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/share/cmake-3.8/Modules/Compiler/GNU.cmake"
-cmake-build-debug/CMakeFiles/Makefile.cmake:  "/home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/share/cmake-3.8/Modules/Platform/Linux-GNU-C.cmake"
-cmake-build-debug/CMakeFiles/Makefile.cmake:  "/home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/share/cmake-3.8/Modules/Platform/Linux-GNU-CXX.cmake"
-cmake-build-debug/CMakeFiles/Makefile.cmake:  "/home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/share/cmake-3.8/Modules/Platform/Linux-GNU.cmake"
-cmake-build-debug/CMakeFiles/Makefile.cmake:  "/home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/share/cmake-3.8/Modules/Platform/Linux.cmake"
-cmake-build-debug/CMakeFiles/Makefile.cmake:  "/home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/share/cmake-3.8/Modules/Platform/UnixPaths.cmake"
-cmake-build-debug/CMakeFiles/Makefile.cmake:  "/home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/share/cmake-3.8/Modules/ProcessorCount.cmake"
+cmake-build-debug/CMakeFiles/clion-environment.txt:CMake: 3.8.2@/home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/bin/cmake
+cmake-build-debug/CMakeFiles/Makefile.cmake:  "/home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/share/cmake-3.8/Modules/CMakeCInformation.cmake"
+cmake-build-debug/CMakeFiles/Makefile.cmake:  "/home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/share/cmake-3.8/Modules/CMakeCXXInformation.cmake"
+cmake-build-debug/CMakeFiles/Makefile.cmake:  "/home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/share/cmake-3.8/Modules/CMakeCommonLanguageInclude.cmake"
+cmake-build-debug/CMakeFiles/Makefile.cmake:  "/home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/share/cmake-3.8/Modules/CMakeExtraGeneratorDetermineCompilerMacrosAndIncludeDirs.cmake"
+cmake-build-debug/CMakeFiles/Makefile.cmake:  "/home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/share/cmake-3.8/Modules/CMakeFindCodeBlocks.cmake"
+cmake-build-debug/CMakeFiles/Makefile.cmake:  "/home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/share/cmake-3.8/Modules/CMakeGenericSystem.cmake"
+cmake-build-debug/CMakeFiles/Makefile.cmake:  "/home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/share/cmake-3.8/Modules/CMakeLanguageInformation.cmake"
+cmake-build-debug/CMakeFiles/Makefile.cmake:  "/home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/share/cmake-3.8/Modules/CMakeSystemSpecificInformation.cmake"
+cmake-build-debug/CMakeFiles/Makefile.cmake:  "/home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/share/cmake-3.8/Modules/CMakeSystemSpecificInitialize.cmake"
+cmake-build-debug/CMakeFiles/Makefile.cmake:  "/home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/share/cmake-3.8/Modules/Compiler/GNU-C.cmake"
+cmake-build-debug/CMakeFiles/Makefile.cmake:  "/home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/share/cmake-3.8/Modules/Compiler/GNU-CXX.cmake"
+cmake-build-debug/CMakeFiles/Makefile.cmake:  "/home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/share/cmake-3.8/Modules/Compiler/GNU.cmake"
+cmake-build-debug/CMakeFiles/Makefile.cmake:  "/home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/share/cmake-3.8/Modules/Platform/Linux-GNU-C.cmake"
+cmake-build-debug/CMakeFiles/Makefile.cmake:  "/home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/share/cmake-3.8/Modules/Platform/Linux-GNU-CXX.cmake"
+cmake-build-debug/CMakeFiles/Makefile.cmake:  "/home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/share/cmake-3.8/Modules/Platform/Linux-GNU.cmake"
+cmake-build-debug/CMakeFiles/Makefile.cmake:  "/home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/share/cmake-3.8/Modules/Platform/Linux.cmake"
+cmake-build-debug/CMakeFiles/Makefile.cmake:  "/home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/share/cmake-3.8/Modules/Platform/UnixPaths.cmake"
+cmake-build-debug/CMakeFiles/Makefile.cmake:  "/home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/share/cmake-3.8/Modules/ProcessorCount.cmake"
 cmake-build-debug/CMakeFiles/Makefile.cmake:  "/usr/lib/x86_64-linux-gnu/cmake/SDL2/sdl2-config.cmake"
-cmake-build-debug/CMakeFiles/Makefile2:CMAKE_COMMAND = /home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/bin/cmake
-cmake-build-debug/CMakeFiles/Makefile2:RM = /home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/bin/cmake -E remove -f
+cmake-build-debug/CMakeFiles/Makefile2:CMAKE_COMMAND = /home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/bin/cmake
+cmake-build-debug/CMakeFiles/Makefile2:RM = /home/pierre/T??l??chargements/clion-2017.2.1/bin/cmake/bin/cmake -E remove -f
 cmake-build-debug/CMakeFiles/Makefile2:# The top-level source directory on which CMake was run.
 cmake-build-debug/CMakeFiles/Makefile2:# The top-level build directory on which CMake was run.
 cmake-build-debug/CMakeFiles/Makefile2:CMAKE_BINARY_DIR = /home/pierre/CLionProjects/stickwar/cmake-build-debug
@@ -1148,21 +1148,21 @@ game.c:    view_draw_map(g->view);
 game.c:    view_draw_launchers(g->view, g->player->spawners);
 game.c:    view_draw_gold(g->view, g->player->gold);
 game.c:    view_draw_entities(g->view, game_get_drawables(g));
-game.c:    if (g->player->base->stats->hp < 1 ){
+game.c:    if (g->player->base->hp < 1 ){
 game.c:        playing_state_to_game_end_state(g->state, g->ennemy);
-game.c:    if (g->ennemy->base->stats->hp < 1) {
+game.c:    if (g->ennemy->base->hp < 1) {
 game.c:        playing_state_to_game_end_state(g->state, g->player);
 game.c:    return !team_id?g->player:g->ennemy;
 game.c:    game_get_team(g,team_id)->order = RETREAT;
 game.c:    for (int i =0;i<g->entities->size;i++) {
 game.c:        entity *ent = (entity *) (list_at(g->entities, i));
-game.c:        if (ent->stats->team == team_id) {
-game.c:            ent->stats->state = RETREATING;
+game.c:        if (ent->team == team_id) {
+game.c:            ent->state = RETREATING;
 game.c:    game_get_team(g,team_id)->order = ATTACK;
 game.c:    for (int i =0;i<g->entities->size;i++) {
 game.c:        entity *ent = (entity *) (list_at(g->entities, i));
-game.c:        if (ent->stats->team == team_id) {
-game.c:            ent->stats->state = AGG_MOVING;
+game.c:        if (ent->team == team_id) {
+game.c:            ent->state = AGG_MOVING;
 game.c:    g->frame+=1;
 game.c:    dumb_ai_play(g->ennemy_ai, g);
 game.c:    team_play(g->player, g->frame);
@@ -1268,34 +1268,34 @@ kicker.c:    ent->type = c;
 kicker.c:    if (ent->drawable->anim->anim != anims->stick_walk){
 kicker.c:        animation_frame_destroy(ent->drawable->anim);
 kicker.c:        ent->drawable->anim = animation_frame_init(anims->stick_walk);
-kicker.c:    //int team_coeff = 1000*ent->stats->team - (2*ent->stats->team+1)*RETREAT_PLAYER;
-kicker.c:    if ((int)(abs(ent->stats->pos-ent->stats->team*MAP_SIZE))>RETREAT_PLAYER){
-kicker.c:        ent->stats->facing = !ent->stats->team;
-kicker.c:        ent->stats->pos -= ent->stats->speed * (2 * ent->stats->facing - 1);
-kicker.c:        ent->stats->facing = ent->stats->team;
-kicker.c:    ent->stats->state = DYING;
-kicker.c:    if (ent->stats->state == AGG_MOVING
+kicker.c:    //int team_coeff = 1000*ent->team - (2*ent->team+1)*RETREAT_PLAYER;
+kicker.c:    if ((int)(abs(ent->pos-ent->team*MAP_SIZE))>RETREAT_PLAYER){
+kicker.c:        ent->facing = !ent->team;
+kicker.c:        ent->pos -= ent->speed * (2 * ent->facing - 1);
+kicker.c:        ent->facing = ent->team;
+kicker.c:    ent->state = DYING;
+kicker.c:    if (ent->state == AGG_MOVING
 kicker.c:        || ent->drawable->anim->frame < 6
 kicker.c:        || ent->drawable->anim->frame > 16){
 kicker.c:        new_anim = animation_frame_init(anims->stick_walk_death);
-kicker.c:        ent->stats->pos += 60 * (ent->stats->facing * 2 - 1);
+kicker.c:        ent->pos += 60 * (ent->facing * 2 - 1);
 kicker.c:        new_anim = animation_frame_init(anims->stick_kick_death);
 kicker.c:        new_anim->frame = ent->drawable->anim->frame;
 kicker.c:    animation_frame_destroy(ent->drawable->anim);
 kicker.c:    ent->drawable->anim = new_anim;
-kicker.c:    if (!(ent->stats->state == ATTACK_FAILING) && ent->drawable->anim->frame == 11){
+kicker.c:    if (!(ent->state == ATTACK_FAILING) && ent->drawable->anim->frame == 11){
 kicker.c:        if (((kicker*)ent->type->type_stats)->attack_type == PUNCH){
-kicker.c:        ent->target->stats->hp-=((kicker*)ent->type->type_stats)->damage + damage;
+kicker.c:        ent->target->hp-=((kicker*)ent->type->type_stats)->damage + damage;
 kicker.c:    kicker* k = (kicker*)(ent->type->type_stats);
 kicker.c:    return k->range;
-kicker.c:    ent->stats->state = ATTACKING;
+kicker.c:    ent->state = ATTACKING;
 kicker.c:    animation_frame_destroy(ent->drawable->anim);
 kicker.c:    ent->target = target;
 kicker.c:        ((kicker *) (ent->type->type_stats))->attack_type = PUNCH;
 kicker.c:        ent->drawable->anim = animation_frame_init(anims->kicker_punch);
 kicker.c:        ((kicker *) (ent->type->type_stats))->attack_type = KICK;
 kicker.c:        ent->drawable->anim = animation_frame_init(anims->stick_kick);
-kicker.c:    ent->stats->state = AGG_MOVING;
+kicker.c:    ent->state = AGG_MOVING;
 kicker.c:    animation_frame_destroy(ent->drawable->anim);
 kicker.c:    ent->drawable->anim = animation_frame_init(anims->stick_walk);
 game_end_state.c:    view* v = g->ended_game->view;
@@ -1310,7 +1310,7 @@ game_end_state.c:    sfText_setColor(v->text, sfRed);
 game_end_state.c:    sfRenderWindow_drawText(v->window, v->text, NULL);
 game_end_state.c:        for (int i = 0; i < ps->ended_game->entities->size; i++) {
 game_end_state.c:            entity *ent = list_at(ps->ended_game->entities, i);
-game_end_state.c:            if (game_get_team(ps->ended_game, ent->stats->team) != ps->winning_team &&
+game_end_state.c:            if (game_get_team(ps->ended_game, ent->team) != ps->winning_team &&
 game_end_state.c:                ent->drawable->anim->frame == ent->drawable->anim->anim->nb_frames - 2) {
 game_end_state.c:                ent->drawable->anim->frame -= 1;
 game_end_state.c:        view_draw_map(ps->ended_game->view);
@@ -1366,8 +1366,8 @@ dumb_ai.c:        dai->last_ass = 0;
 dumb_ai.c:        if (!dai->last_ass) {
 dumb_ai.c:        dai->last_ass = 1;
 dumb_ai.c:    for (int i = 0;i<entities->size;i++){
-dumb_ai.c:        if (ent->stats->team == 0){
-dumb_ai.c:            if ((POP_PLAYER_TWO - ent->stats->pos) <200){
+dumb_ai.c:        if (ent->team == 0){
+dumb_ai.c:            if ((POP_PLAYER_TWO - ent->pos) <200){
 Fichier binaire game_state.o correspondant
 archerhit.tps:<?xml version="1.0" encoding="UTF-8"?>
 archerhit.tps:                    <int>-1</int>
@@ -1597,26 +1597,26 @@ ninja.c:    ent->type = c;
 ninja.c:    if (ent->drawable->anim->anim != anims->ninja_walk){
 ninja.c:        animation_frame_destroy(ent->drawable->anim);
 ninja.c:        ent->drawable->anim = animation_frame_init(anims->ninja_walk);
-ninja.c:    //int team_coeff = 1000*ent->stats->team + (2*ent->stats->team+1)*RETREAT_PLAYER;
-ninja.c:    if ((int)(abs(ent->stats->pos-ent->stats->team*MAP_SIZE))>RETREAT_PLAYER){
-ninja.c:        ent->stats->facing = !ent->stats->team;
-ninja.c:        ent->stats->pos -= ent->stats->speed * (2 * ent->stats->facing - 1);
-ninja.c:        ent->stats->facing = ent->stats->team;
-ninja.c:    ent->stats->state = DYING;
+ninja.c:    //int team_coeff = 1000*ent->team + (2*ent->team+1)*RETREAT_PLAYER;
+ninja.c:    if ((int)(abs(ent->pos-ent->team*MAP_SIZE))>RETREAT_PLAYER){
+ninja.c:        ent->facing = !ent->team;
+ninja.c:        ent->pos -= ent->speed * (2 * ent->facing - 1);
+ninja.c:        ent->facing = ent->team;
+ninja.c:    ent->state = DYING;
 ninja.c:    ent->drawable->anim = animation_frame_init(anims->ninja_death);
-ninja.c:    if (!(ent->stats->state == ATTACK_FAILING) && ent->drawable->anim->frame == 12){
+ninja.c:    if (!(ent->state == ATTACK_FAILING) && ent->drawable->anim->frame == 12){
 ninja.c:        if (((kicker*)ent->type->type_stats)->attack_type == HIT){
-ninja.c:        ent->target->stats->hp-=((kicker*)ent->type->type_stats)->damage + damage;
+ninja.c:        ent->target->hp-=((kicker*)ent->type->type_stats)->damage + damage;
 ninja.c:    ninja* k = (ninja*)(ent->type->type_stats);
 ninja.c:    return k->range;
-ninja.c:    ent->stats->state = ATTACKING;
+ninja.c:    ent->state = ATTACKING;
 ninja.c:    animation_frame_destroy(ent->drawable->anim);
 ninja.c:    ent->target = target;
 ninja.c:        ((kicker *) (ent->type->type_stats))->attack_type = HIT;
 ninja.c:        ent->drawable->anim = animation_frame_init(anims->ninja_strike);
 ninja.c:        ((kicker *) (ent->type->type_stats))->attack_type = SLASH;
 ninja.c:        ent->drawable->anim = animation_frame_init(anims->ninja_slash);
-ninja.c:    ent->stats->state = AGG_MOVING;
+ninja.c:    ent->state = AGG_MOVING;
 ninja.c:    animation_frame_destroy(ent->drawable->anim);
 ninja.c:    ent->drawable->anim = animation_frame_init(anims->ninja_walk);
 kickericon.tps:<?xml version="1.0" encoding="UTF-8"?>

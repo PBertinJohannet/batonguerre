@@ -5,7 +5,7 @@
 #include "animation_list.h"
 
 
-animation_list* anims_load(){
+animation_list* animation_list_load(){
     animation_list* anim = malloc(sizeof(animation_list));
     anim->stick_walk = animation_init("walk_stick");
     anim->stick_kick = animation_init("kick_stick");

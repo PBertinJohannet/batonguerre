@@ -32,9 +32,9 @@ int choose_mode(dumb_ai* ai, list* entities){
     int my_units = 0, his_units = 0;
     for (int i = 0;i<entities->size;i++){
         entity* ent = (entity*)(list_at(entities,i));
-        if (ent->stats->team == 0){
+        if (ent->team == 0){
             his_units++;
-            if ((POP_PLAYER_TWO - ent->stats->pos) <500){
+            if ((POP_PLAYER_TWO - ent->pos) <500){
                 return 1;
             }
         } else {

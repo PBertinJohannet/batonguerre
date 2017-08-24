@@ -12,6 +12,7 @@ projectile* arrow_create(int pos, int team, int facing, int damage){
     proj->drawable = drawable_entity_init(animation_frame_init(animation_init("arrow")),&proj->pos, &proj->facing,ARROW_SIZE);
     proj->play = arrow_projectile_play;
     proj->self = arrow;
+    proj->facing = facing;
     proj->destroy = arrow_projectile_destroy;
     return proj;
 }
@@ -22,15 +23,14 @@ int arrow_projectile_play(void* proj, list* entities){
     arrow* p_arr = pj->self;
     for (int i = 0;i<entities->size;i++){
         entity* ent = list_at(entities,i);
-        if (ent->stats->team != pj->team
-                && ent->stats->hp>0
-                && abs(ent->stats->pos - pj->pos) < 20){
-                ent->stats->hp-= p_arr->damage;
+        if (ent->team != pj->team
+                && ent->hp>0
+                && abs(ent->pos - pj->pos) < 20){
+                ent->hp-= p_arr->damage;
                 return 1;
         }
     }
-    printf("arrow at : %f\n",pj->pos);
-    pj->pos+=(2*pj->facing+1)*ARROW_SPEED/FPS;
+    pj->pos-=(2*pj->facing-1)*ARROW_SPEED/FPS;
     p_arr->lifetime--;
     if (p_arr->lifetime<1){
         return 1;

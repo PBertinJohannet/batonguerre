@@ -4,7 +4,7 @@
 #include <SFML/Graphics/Rect.h>
 #include "view.h"
 #include "entity_launcher.h"
-
+#include "global.h"
 view* view_init(sfRenderWindow* window){
     view* v = malloc(sizeof(view));
     v->window = window;
@@ -12,7 +12,6 @@ view* view_init(sfRenderWindow* window){
     v->font = sfFont_createFromFile("fonts/OpenSans-Bold.ttf");
     v->text = sfText_create();
     v->camera_position = 50;
-    v->textures = texture_list_init();
     return v;
 }
 void view_play_music(view* v, char* name){
@@ -57,21 +56,21 @@ void view_draw_map(view* v){
 
 void view_draw_background(view* v){
     sfSprite* image = sfSprite_create();
-    sfSprite_setTexture(image, v->textures->background,0);
+    sfSprite_setTexture(image, get_textures()->background,0);
     sfVector2f new_scale = {MAP_SIZE/1.75,WINDOW_HEIGHT};
     sfVector2f position = {0 - v->camera_position, 0};
     view_draw_sprite(v,image,position,new_scale,0);
 }
 void view_draw_assault(view* v){
     sfSprite* image = sfSprite_create();
-    sfSprite_setTexture(image, v->textures->assault,0);
+    sfSprite_setTexture(image, get_textures()->assault,0);
     sfVector2f new_scale = {200.0,200.0};
     sfVector2f position = {200,-50};
     view_draw_sprite(v,image,position,new_scale,0);
 }
 void view_draw_retreat(view* v){
     sfSprite* image = sfSprite_create();
-    sfSprite_setTexture(image, v->textures->retreat,0);
+    sfSprite_setTexture(image, get_textures()->retreat,0);
     sfVector2f new_scale = {200.0,200.0};
     sfVector2f position = {100,-50};
     view_draw_sprite(v,image,position,new_scale,0);
@@ -147,6 +146,6 @@ void win_screen(view* v) {
 void view_destroy(view* v){
     sfText_destroy(v->text);
     sfFont_destroy(v->font);
-    texture_list_destroy(v->textures);
+    texture_list_destroy(get_textures());
     free(v);
 }
