@@ -1,0 +1,4 @@
+stickwar/cmake-build-debug/*
+stickwar/*.o
+stickwar/CmakeList.txt
+
