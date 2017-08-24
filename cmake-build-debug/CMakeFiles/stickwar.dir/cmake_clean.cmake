@@ -23,6 +23,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/stickwar.dir/paused_state.c.o"
   "CMakeFiles/stickwar.dir/game_end_state.c.o"
   "CMakeFiles/stickwar.dir/archer.c.o"
+  "CMakeFiles/stickwar.dir/projectile.c.o"
+  "CMakeFiles/stickwar.dir/arrow.c.o"
   "stickwar.pdb"
   "stickwar"
 )

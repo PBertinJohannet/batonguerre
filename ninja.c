@@ -6,7 +6,7 @@
 
 ninja* ninja_init(int level){
     ninja* k = malloc(sizeof(ninja));
-    k->range = 40;
+    k->range = NINJA_RANGE;
     k->damage = level;
     k->attack_type = NINJA_NONE;
     return k;
@@ -45,7 +45,7 @@ void ninja_to_dying(entity* ent, struct animation_list* anims){
     ent->drawable->anim = animation_frame_init(anims->ninja_death);
 }
 
-void ninja_attack(entity* ent){
+void ninja_attack(entity* ent, game* g){
     if (!(ent->stats->state == ATTACK_FAILING) && ent->drawable->anim->frame == 12){
         int damage = NINJA_SLASH_DAMAGE;
         if (((kicker*)ent->type->type_stats)->attack_type == HIT){

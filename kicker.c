@@ -5,7 +5,7 @@
 #include "time.h"
 kicker* kicker_init(int level){
     kicker* k = malloc(sizeof(kicker));
-    k->range = 40;
+    k->range = KICKER_RANGE;
     k->damage = level;
     k->attack_type = KICKER_NONE;
     return k;
@@ -55,7 +55,7 @@ void kicker_to_dying(entity* ent, struct animation_list* anims){
     ent->drawable->anim = new_anim;
 }
 
-void kicker_attack(entity* ent){
+void kicker_attack(entity* ent, game* g){
     if (!(ent->stats->state == ATTACK_FAILING) && ent->drawable->anim->frame == 11){
         int damage = KICKER_KICK_DAMAGE;
         if (((kicker*)ent->type->type_stats)->attack_type == PUNCH){

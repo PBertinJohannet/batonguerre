@@ -24,6 +24,7 @@ struct animation_list{
     animation* archer_hit;
     animation* archer_death;
     animation* archer_short_hit;
+    animation* arrow;
 
 };
 animation_list* anims_load();

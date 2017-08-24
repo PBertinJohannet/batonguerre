@@ -1,3 +1,3 @@
-/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/stickwar.dir
+/home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles/stickwar.dir

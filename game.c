@@ -6,6 +6,8 @@
 #include "entity_factory.h"
 #include "stdio.h"
 #include "stdlib.h"
+#include "projectile.h"
+
 game* game_init(game_state* state){
     game* g = malloc(sizeof(game));
     g->state = state;
@@ -14,6 +16,7 @@ game* game_init(game_state* state){
     g->anims = anims_load();
     g->view = view_init(state->window);
     g->entities = list_create();
+    g->projectiles = list_create();
     g->frame = 0;
     game_init_teams(g);
     return g;
@@ -33,6 +36,9 @@ void game_init_team(game* g, team* t, int team_id){
 void game_add_entity(game* g, entity* ent){
     list_add(g->entities,ent);
 }
+void game_add_projectile(game* g, projectile* proj){
+    list_add(g->projectiles,proj);
+}
 
 sfRenderWindow* game_get_view_window(game* g){
     return g->view->window;
@@ -42,6 +48,10 @@ list* game_get_drawables(game* g){
     list* drawables = list_create();
     for (int i =0;i<g->entities->size;i++){
         entity* ent = (entity*)(list_at(g->entities,i));
+        list_add(drawables,ent->drawable);
+    }
+    for (int i =0;i<g->projectiles->size;i++){
+        projectile* ent = (projectile*)(list_at(g->projectiles,i));
         list_add(drawables,ent->drawable);
     }
     return drawables;
@@ -70,7 +80,7 @@ void game_order_retreat(game* g, int team_id){
     game_get_team(g,team_id)->order = RETREAT;
     for (int i =0;i<g->entities->size;i++) {
         entity *ent = (entity *) (list_at(g->entities, i));
-        if (ent->stats->team == team_id) {
+        if (ent->stats->team == team_id && ent->stats->state != DYING) {
             ent->stats->state = RETREATING;
         }
     }
@@ -79,7 +89,7 @@ void game_order_assault(game* g, int team_id){
     game_get_team(g,team_id)->order = ATTACK;
     for (int i =0;i<g->entities->size;i++) {
         entity *ent = (entity *) (list_at(g->entities, i));
-        if (ent->stats->team == team_id) {
+        if (ent->stats->team == team_id && ent->stats->state != DYING) {
             ent->stats->state = AGG_MOVING;
         }
     }
@@ -93,8 +103,15 @@ void game_update(game* g){
     controller_process_events( g);
     for (int i =0;i<g->entities->size;i++){
         entity* ent = (entity*)(list_at(g->entities,i));
-        if (ent->type->play(ent,g->entities, g->anims)){
+        if (ent->type->play(g, ent,g->entities, g->anims)){
             list_rm_at(g->entities,i);
+            i--;
+        }
+    }
+    for (int i =0;i<g->projectiles->size;i++){
+        projectile* ent = (projectile*)(list_at(g->projectiles,i));
+        if (ent->play(ent,g->entities)){
+            list_rm_at(g->projectiles,i);
             i--;
         }
     }

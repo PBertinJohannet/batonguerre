@@ -4,11 +4,11 @@
 
 
 #include "archer.h"
-
+#include "arrow.h"
 archer* archer_init(int level){
     archer* k = malloc(sizeof(archer));
-    k->range = 400;
-    k->range_short = 40;
+    k->range = ARCHER_LONG_RANGE;
+    k->range_short = ARCHER_SHORT_RANGE;
     k->damage = level;
     k->attack_type = ARCHER_NONE;
     return k;
@@ -46,16 +46,17 @@ void archer_to_dying(entity* ent, struct animation_list* anims){
     ent->drawable->anim = animation_frame_init(anims->archer_death);
 }
 
-void archer_attack(entity* ent){
+void archer_attack(entity* ent, game* g){
     if (!(ent->stats->state == ATTACK_FAILING) && ent->drawable->anim->frame == 12){
-        int damage = ARCHER_NORMAL_DAMAGE;
-        if (((kicker*)ent->type->type_stats)->attack_type == ARCHER_SHORT_HIT){
-            damage = ARCHER_SHORT_HIT_DAMAGE;
-        } else if (((kicker*)ent->type->type_stats)->attack_type == ARCHER_CRIT){
-            damage = ARCHER_CRIT_DAMAGE;
+        switch (((kicker*)ent->type->type_stats)->attack_type){
+            case ARCHER_SHORT_HIT:
+                ent->target->stats->hp-=((archer*)ent->type->type_stats)->damage + ARCHER_SHORT_HIT_DAMAGE;
+                break;
+            case ARCHER_CRIT:
+                game_add_projectile(g,arrow_create(ent->stats->pos, ent->stats->team, ent->stats->facing, ARCHER_CRIT_DAMAGE));
+            case ARCHER_NORMAL:
+                game_add_projectile(g,arrow_create(ent->stats->pos, ent->stats->team, ent->stats->facing, ARCHER_NORMAL_DAMAGE));
         }
-        ent->target->stats->hp-=((archer*)ent->type->type_stats)->damage + damage;
-
     }
 }
 

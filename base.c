@@ -28,12 +28,12 @@ void base_to_dying(entity* ent, struct animation_list* anims){
     ent->drawable->anim = animation_frame_init(anims->stick_walk_death);
 }
 
-int base_play(entity* player, list* entities, animation_list* anims){
+int base_play(game* g, entity* player, list* entities, animation_list* anims){
     player->drawable->anim->frame =player->drawable->anim->anim->nb_frames-3;
     return 0;
 }
 
-void base_attack(entity* ent){
+void base_attack(entity* ent, game* g){
     ent->drawable->anim->frame = 0;
 }
 

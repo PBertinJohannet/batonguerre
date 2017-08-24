@@ -23,8 +23,8 @@ struct ninja{
 ninja* ninja_init(int level);
 void ninja_retreating(entity* ent, struct animation_list* anims);
 void set_ninja_class(entity*, int level);
-void ninja_play(entity* player, list* entities, struct animation_list* anims);
-void ninja_attack(entity* ent);
+void ninja_play(game* g, entity* player, list* entities, struct animation_list* anims);
+void ninja_attack(entity* ent, game* g);
 int ninja_get_current_range(entity*);
 void ninja_to_attack(entity* ent,entity* target, struct animation_list* anims);
 void ninja_to_dying(entity* ent, struct animation_list* anims);

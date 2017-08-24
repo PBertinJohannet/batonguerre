@@ -1,0 +1,21 @@
+{"frames": [
+
+{
+	"filename": "flèche.png",
+	"frame": {"x":0,"y":0,"w":550,"h":400},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":550,"h":400},
+	"sourceSize": {"w":550,"h":400},
+	"pivot": {"x":0.5,"y":0.5}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "arrow.png",
+	"format": "RGBA8888",
+	"size": {"w":550,"h":400},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:efb751ac41fddc17bf68d0408d86a0eb:60e56d40c5a6e6e5651683667010a9f4:da7b7f302b584bc2843bb50b1ff3bd62$"
+}
+}

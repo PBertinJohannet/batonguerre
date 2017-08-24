@@ -1,4 +1,4 @@
-# Install script for directory: /home/pierre/CLionProjects/stickwar
+# Install script for directory: /home/pierre/CLionProjects/batonguerre
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/pierre/CLionProjects/stickwar/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/pierre/CLionProjects/batonguerre/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

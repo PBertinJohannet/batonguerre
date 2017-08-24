@@ -26,7 +26,7 @@ archer* archer_init(int level);
 void archer_retreating(entity* ent, struct animation_list* anims);
 void set_archer_class(entity*, int level);
 void archer_play(entity* player, list* entities, struct animation_list* anims);
-void archer_attack(entity* ent);
+void archer_attack(entity* ent, game* g);
 int archer_get_current_range(entity*);
 void archer_to_attack(entity* ent,entity* target, struct animation_list* anims);
 void archer_to_dying(entity* ent, struct animation_list* anims);

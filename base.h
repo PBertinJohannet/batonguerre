@@ -15,8 +15,8 @@ struct base{
 };
 base* base_init(int level);
 void set_base_class(entity*, int level);
-int base_play(entity* player, list* entities, struct animation_list* anims);
-void base_attack(entity* ent);
+int base_play(game* g, entity* player, list* entities, struct animation_list* anims);
+void base_attack(entity* ent, game* g);
 int base_get_current_range(entity*);
 void base_to_attack(entity* ent,entity* target, struct animation_list* anims);
 void base_to_dying(entity* ent, struct animation_list* anims);

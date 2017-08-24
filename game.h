@@ -16,6 +16,7 @@
 #include "team.h"
 #include "dumb_ai.h"
 #include "game_state.h"
+#include "projectile.h"
 
 typedef struct game game;
 typedef struct game_state game_state;
@@ -29,6 +30,7 @@ struct game{
     animation_list* anims;
     struct view * view;
     list* entities;
+    list* projectiles;
     int frame;
     dumb_ai* ennemy_ai;
 };
@@ -47,4 +49,5 @@ void game_order_assault(game* g, int team_id);
 void game_init_team(game* g, team* t, int team_id);
 void end_update(game* g);
 void game_destroy(game* g);
+void game_add_projectile(game* g, projectile* proj);
 #endif //STICKWAR_GAME_H

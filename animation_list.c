@@ -23,6 +23,7 @@ animation_list* anims_load(){
     anim->archer_hit = animation_init ("archer_hit");
     anim->archer_walk = animation_init("archer_walk");
     anim->archer_short_hit = animation_init("archer_short_hit");
+    anim->arrow = animation_init("arrow");
     return anim;
 }
 

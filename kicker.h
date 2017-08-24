@@ -22,8 +22,8 @@ enum kicker_attack{
 kicker* kicker_init(int level);
 void set_kicker_class(entity*, int level);
 void kicker_retreating(entity* ent, struct animation_list* anims);
-void kicker_play(entity* player, list* entities, struct animation_list* anims);
-void kicker_attack(entity* ent);
+void kicker_play(game* g, entity* player, list* entities, struct animation_list* anims);
+void kicker_attack(entity* ent, game* g);
 int kicker_get_current_range(entity*);
 void kicker_to_attack(entity* ent,entity* target, struct animation_list* anims);
 void kicker_to_dying(entity* ent, struct animation_list* anims);

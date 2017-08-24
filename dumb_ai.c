@@ -34,7 +34,7 @@ int choose_mode(dumb_ai* ai, list* entities){
         entity* ent = (entity*)(list_at(entities,i));
         if (ent->stats->team == 0){
             his_units++;
-            if ((POP_PLAYER_TWO - ent->stats->pos) <200){
+            if ((POP_PLAYER_TWO - ent->stats->pos) <500){
                 return 1;
             }
         } else {

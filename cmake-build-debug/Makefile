@@ -48,10 +48,10 @@ RM = /home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/bin/cmake -E remove
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pierre/CLionProjects/stickwar
+CMAKE_SOURCE_DIR = /home/pierre/CLionProjects/batonguerre
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pierre/CLionProjects/stickwar/cmake-build-debug
+CMAKE_BINARY_DIR = /home/pierre/CLionProjects/batonguerre/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles /home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -230,6 +230,33 @@ array_list.s: array_list.c.s
 array_list.c.s:
 	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/array_list.c.s
 .PHONY : array_list.c.s
+
+arrow.o: arrow.c.o
+
+.PHONY : arrow.o
+
+# target to build an object file
+arrow.c.o:
+	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/arrow.c.o
+.PHONY : arrow.c.o
+
+arrow.i: arrow.c.i
+
+.PHONY : arrow.i
+
+# target to preprocess a source file
+arrow.c.i:
+	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/arrow.c.i
+.PHONY : arrow.c.i
+
+arrow.s: arrow.c.s
+
+.PHONY : arrow.s
+
+# target to generate assembly for a file
+arrow.c.s:
+	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/arrow.c.s
+.PHONY : arrow.c.s
 
 base.o: base.c.o
 
@@ -690,6 +717,33 @@ paused_state.c.s:
 	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/paused_state.c.s
 .PHONY : paused_state.c.s
 
+projectile.o: projectile.c.o
+
+.PHONY : projectile.o
+
+# target to build an object file
+projectile.c.o:
+	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/projectile.c.o
+.PHONY : projectile.c.o
+
+projectile.i: projectile.c.i
+
+.PHONY : projectile.i
+
+# target to preprocess a source file
+projectile.c.i:
+	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/projectile.c.i
+.PHONY : projectile.c.i
+
+projectile.s: projectile.c.s
+
+.PHONY : projectile.s
+
+# target to generate assembly for a file
+projectile.c.s:
+	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/projectile.c.s
+.PHONY : projectile.c.s
+
 team.o: team.c.o
 
 .PHONY : team.o
@@ -792,6 +846,9 @@ help:
 	@echo "... array_list.o"
 	@echo "... array_list.i"
 	@echo "... array_list.s"
+	@echo "... arrow.o"
+	@echo "... arrow.i"
+	@echo "... arrow.s"
 	@echo "... base.o"
 	@echo "... base.i"
 	@echo "... base.s"
@@ -843,6 +900,9 @@ help:
 	@echo "... paused_state.o"
 	@echo "... paused_state.i"
 	@echo "... paused_state.s"
+	@echo "... projectile.o"
+	@echo "... projectile.i"
+	@echo "... projectile.s"
 	@echo "... team.o"
 	@echo "... team.i"
 	@echo "... team.s"

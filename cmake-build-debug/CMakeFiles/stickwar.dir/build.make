@@ -43,10 +43,10 @@ RM = /home/pierre/Téléchargements/clion-2017.2.1/bin/cmake/bin/cmake -E remove
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pierre/CLionProjects/stickwar
+CMAKE_SOURCE_DIR = /home/pierre/CLionProjects/batonguerre
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pierre/CLionProjects/stickwar/cmake-build-debug
+CMAKE_BINARY_DIR = /home/pierre/CLionProjects/batonguerre/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/stickwar.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/stickwar.dir/flags.make
 
 CMakeFiles/stickwar.dir/main.c.o: CMakeFiles/stickwar.dir/flags.make
 CMakeFiles/stickwar.dir/main.c.o: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/stickwar.dir/main.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/main.c.o   -c /home/pierre/CLionProjects/stickwar/main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/stickwar.dir/main.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/main.c.o   -c /home/pierre/CLionProjects/batonguerre/main.c
 
 CMakeFiles/stickwar.dir/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/stickwar.dir/main.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/stickwar/main.c > CMakeFiles/stickwar.dir/main.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/batonguerre/main.c > CMakeFiles/stickwar.dir/main.c.i
 
 CMakeFiles/stickwar.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/stickwar.dir/main.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/stickwar/main.c -o CMakeFiles/stickwar.dir/main.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/batonguerre/main.c -o CMakeFiles/stickwar.dir/main.c.s
 
 CMakeFiles/stickwar.dir/main.c.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/stickwar.dir/main.c.o.provides.build: CMakeFiles/stickwar.dir/main.c.
 
 CMakeFiles/stickwar.dir/json_frame.c.o: CMakeFiles/stickwar.dir/flags.make
 CMakeFiles/stickwar.dir/json_frame.c.o: ../json_frame.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/stickwar.dir/json_frame.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/json_frame.c.o   -c /home/pierre/CLionProjects/stickwar/json_frame.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/stickwar.dir/json_frame.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/json_frame.c.o   -c /home/pierre/CLionProjects/batonguerre/json_frame.c
 
 CMakeFiles/stickwar.dir/json_frame.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/stickwar.dir/json_frame.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/stickwar/json_frame.c > CMakeFiles/stickwar.dir/json_frame.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/batonguerre/json_frame.c > CMakeFiles/stickwar.dir/json_frame.c.i
 
 CMakeFiles/stickwar.dir/json_frame.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/stickwar.dir/json_frame.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/stickwar/json_frame.c -o CMakeFiles/stickwar.dir/json_frame.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/batonguerre/json_frame.c -o CMakeFiles/stickwar.dir/json_frame.c.s
 
 CMakeFiles/stickwar.dir/json_frame.c.o.requires:
 
@@ -107,16 +107,16 @@ CMakeFiles/stickwar.dir/json_frame.c.o.provides.build: CMakeFiles/stickwar.dir/j
 
 CMakeFiles/stickwar.dir/animation.c.o: CMakeFiles/stickwar.dir/flags.make
 CMakeFiles/stickwar.dir/animation.c.o: ../animation.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/stickwar.dir/animation.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/animation.c.o   -c /home/pierre/CLionProjects/stickwar/animation.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/stickwar.dir/animation.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/animation.c.o   -c /home/pierre/CLionProjects/batonguerre/animation.c
 
 CMakeFiles/stickwar.dir/animation.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/stickwar.dir/animation.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/stickwar/animation.c > CMakeFiles/stickwar.dir/animation.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/batonguerre/animation.c > CMakeFiles/stickwar.dir/animation.c.i
 
 CMakeFiles/stickwar.dir/animation.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/stickwar.dir/animation.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/stickwar/animation.c -o CMakeFiles/stickwar.dir/animation.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/batonguerre/animation.c -o CMakeFiles/stickwar.dir/animation.c.s
 
 CMakeFiles/stickwar.dir/animation.c.o.requires:
 
@@ -131,16 +131,16 @@ CMakeFiles/stickwar.dir/animation.c.o.provides.build: CMakeFiles/stickwar.dir/an
 
 CMakeFiles/stickwar.dir/drawable_entity.c.o: CMakeFiles/stickwar.dir/flags.make
 CMakeFiles/stickwar.dir/drawable_entity.c.o: ../drawable_entity.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/stickwar.dir/drawable_entity.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/drawable_entity.c.o   -c /home/pierre/CLionProjects/stickwar/drawable_entity.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/stickwar.dir/drawable_entity.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/drawable_entity.c.o   -c /home/pierre/CLionProjects/batonguerre/drawable_entity.c
 
 CMakeFiles/stickwar.dir/drawable_entity.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/stickwar.dir/drawable_entity.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/stickwar/drawable_entity.c > CMakeFiles/stickwar.dir/drawable_entity.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/batonguerre/drawable_entity.c > CMakeFiles/stickwar.dir/drawable_entity.c.i
 
 CMakeFiles/stickwar.dir/drawable_entity.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/stickwar.dir/drawable_entity.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/stickwar/drawable_entity.c -o CMakeFiles/stickwar.dir/drawable_entity.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/batonguerre/drawable_entity.c -o CMakeFiles/stickwar.dir/drawable_entity.c.s
 
 CMakeFiles/stickwar.dir/drawable_entity.c.o.requires:
 
@@ -155,16 +155,16 @@ CMakeFiles/stickwar.dir/drawable_entity.c.o.provides.build: CMakeFiles/stickwar.
 
 CMakeFiles/stickwar.dir/array_list.c.o: CMakeFiles/stickwar.dir/flags.make
 CMakeFiles/stickwar.dir/array_list.c.o: ../array_list.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/stickwar.dir/array_list.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/array_list.c.o   -c /home/pierre/CLionProjects/stickwar/array_list.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/stickwar.dir/array_list.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/array_list.c.o   -c /home/pierre/CLionProjects/batonguerre/array_list.c
 
 CMakeFiles/stickwar.dir/array_list.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/stickwar.dir/array_list.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/stickwar/array_list.c > CMakeFiles/stickwar.dir/array_list.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/batonguerre/array_list.c > CMakeFiles/stickwar.dir/array_list.c.i
 
 CMakeFiles/stickwar.dir/array_list.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/stickwar.dir/array_list.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/stickwar/array_list.c -o CMakeFiles/stickwar.dir/array_list.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/batonguerre/array_list.c -o CMakeFiles/stickwar.dir/array_list.c.s
 
 CMakeFiles/stickwar.dir/array_list.c.o.requires:
 
@@ -179,16 +179,16 @@ CMakeFiles/stickwar.dir/array_list.c.o.provides.build: CMakeFiles/stickwar.dir/a
 
 CMakeFiles/stickwar.dir/view.c.o: CMakeFiles/stickwar.dir/flags.make
 CMakeFiles/stickwar.dir/view.c.o: ../view.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/stickwar.dir/view.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/view.c.o   -c /home/pierre/CLionProjects/stickwar/view.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/stickwar.dir/view.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/view.c.o   -c /home/pierre/CLionProjects/batonguerre/view.c
 
 CMakeFiles/stickwar.dir/view.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/stickwar.dir/view.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/stickwar/view.c > CMakeFiles/stickwar.dir/view.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/batonguerre/view.c > CMakeFiles/stickwar.dir/view.c.i
 
 CMakeFiles/stickwar.dir/view.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/stickwar.dir/view.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/stickwar/view.c -o CMakeFiles/stickwar.dir/view.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/batonguerre/view.c -o CMakeFiles/stickwar.dir/view.c.s
 
 CMakeFiles/stickwar.dir/view.c.o.requires:
 
@@ -203,16 +203,16 @@ CMakeFiles/stickwar.dir/view.c.o.provides.build: CMakeFiles/stickwar.dir/view.c.
 
 CMakeFiles/stickwar.dir/entity.c.o: CMakeFiles/stickwar.dir/flags.make
 CMakeFiles/stickwar.dir/entity.c.o: ../entity.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/stickwar.dir/entity.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/entity.c.o   -c /home/pierre/CLionProjects/stickwar/entity.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/stickwar.dir/entity.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/entity.c.o   -c /home/pierre/CLionProjects/batonguerre/entity.c
 
 CMakeFiles/stickwar.dir/entity.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/stickwar.dir/entity.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/stickwar/entity.c > CMakeFiles/stickwar.dir/entity.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/batonguerre/entity.c > CMakeFiles/stickwar.dir/entity.c.i
 
 CMakeFiles/stickwar.dir/entity.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/stickwar.dir/entity.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/stickwar/entity.c -o CMakeFiles/stickwar.dir/entity.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/batonguerre/entity.c -o CMakeFiles/stickwar.dir/entity.c.s
 
 CMakeFiles/stickwar.dir/entity.c.o.requires:
 
@@ -227,16 +227,16 @@ CMakeFiles/stickwar.dir/entity.c.o.provides.build: CMakeFiles/stickwar.dir/entit
 
 CMakeFiles/stickwar.dir/entity_type.c.o: CMakeFiles/stickwar.dir/flags.make
 CMakeFiles/stickwar.dir/entity_type.c.o: ../entity_type.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/stickwar.dir/entity_type.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/entity_type.c.o   -c /home/pierre/CLionProjects/stickwar/entity_type.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/stickwar.dir/entity_type.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/entity_type.c.o   -c /home/pierre/CLionProjects/batonguerre/entity_type.c
 
 CMakeFiles/stickwar.dir/entity_type.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/stickwar.dir/entity_type.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/stickwar/entity_type.c > CMakeFiles/stickwar.dir/entity_type.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/batonguerre/entity_type.c > CMakeFiles/stickwar.dir/entity_type.c.i
 
 CMakeFiles/stickwar.dir/entity_type.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/stickwar.dir/entity_type.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/stickwar/entity_type.c -o CMakeFiles/stickwar.dir/entity_type.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/batonguerre/entity_type.c -o CMakeFiles/stickwar.dir/entity_type.c.s
 
 CMakeFiles/stickwar.dir/entity_type.c.o.requires:
 
@@ -251,16 +251,16 @@ CMakeFiles/stickwar.dir/entity_type.c.o.provides.build: CMakeFiles/stickwar.dir/
 
 CMakeFiles/stickwar.dir/game.c.o: CMakeFiles/stickwar.dir/flags.make
 CMakeFiles/stickwar.dir/game.c.o: ../game.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/stickwar.dir/game.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/game.c.o   -c /home/pierre/CLionProjects/stickwar/game.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/stickwar.dir/game.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/game.c.o   -c /home/pierre/CLionProjects/batonguerre/game.c
 
 CMakeFiles/stickwar.dir/game.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/stickwar.dir/game.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/stickwar/game.c > CMakeFiles/stickwar.dir/game.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/batonguerre/game.c > CMakeFiles/stickwar.dir/game.c.i
 
 CMakeFiles/stickwar.dir/game.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/stickwar.dir/game.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/stickwar/game.c -o CMakeFiles/stickwar.dir/game.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/batonguerre/game.c -o CMakeFiles/stickwar.dir/game.c.s
 
 CMakeFiles/stickwar.dir/game.c.o.requires:
 
@@ -275,16 +275,16 @@ CMakeFiles/stickwar.dir/game.c.o.provides.build: CMakeFiles/stickwar.dir/game.c.
 
 CMakeFiles/stickwar.dir/kicker.c.o: CMakeFiles/stickwar.dir/flags.make
 CMakeFiles/stickwar.dir/kicker.c.o: ../kicker.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/stickwar.dir/kicker.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/kicker.c.o   -c /home/pierre/CLionProjects/stickwar/kicker.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/stickwar.dir/kicker.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/kicker.c.o   -c /home/pierre/CLionProjects/batonguerre/kicker.c
 
 CMakeFiles/stickwar.dir/kicker.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/stickwar.dir/kicker.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/stickwar/kicker.c > CMakeFiles/stickwar.dir/kicker.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/batonguerre/kicker.c > CMakeFiles/stickwar.dir/kicker.c.i
 
 CMakeFiles/stickwar.dir/kicker.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/stickwar.dir/kicker.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/stickwar/kicker.c -o CMakeFiles/stickwar.dir/kicker.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/batonguerre/kicker.c -o CMakeFiles/stickwar.dir/kicker.c.s
 
 CMakeFiles/stickwar.dir/kicker.c.o.requires:
 
@@ -299,16 +299,16 @@ CMakeFiles/stickwar.dir/kicker.c.o.provides.build: CMakeFiles/stickwar.dir/kicke
 
 CMakeFiles/stickwar.dir/controller.c.o: CMakeFiles/stickwar.dir/flags.make
 CMakeFiles/stickwar.dir/controller.c.o: ../controller.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/stickwar.dir/controller.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/controller.c.o   -c /home/pierre/CLionProjects/stickwar/controller.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/stickwar.dir/controller.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/controller.c.o   -c /home/pierre/CLionProjects/batonguerre/controller.c
 
 CMakeFiles/stickwar.dir/controller.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/stickwar.dir/controller.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/stickwar/controller.c > CMakeFiles/stickwar.dir/controller.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/batonguerre/controller.c > CMakeFiles/stickwar.dir/controller.c.i
 
 CMakeFiles/stickwar.dir/controller.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/stickwar.dir/controller.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/stickwar/controller.c -o CMakeFiles/stickwar.dir/controller.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/batonguerre/controller.c -o CMakeFiles/stickwar.dir/controller.c.s
 
 CMakeFiles/stickwar.dir/controller.c.o.requires:
 
@@ -323,16 +323,16 @@ CMakeFiles/stickwar.dir/controller.c.o.provides.build: CMakeFiles/stickwar.dir/c
 
 CMakeFiles/stickwar.dir/animation_list.c.o: CMakeFiles/stickwar.dir/flags.make
 CMakeFiles/stickwar.dir/animation_list.c.o: ../animation_list.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/stickwar.dir/animation_list.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/animation_list.c.o   -c /home/pierre/CLionProjects/stickwar/animation_list.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/stickwar.dir/animation_list.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/animation_list.c.o   -c /home/pierre/CLionProjects/batonguerre/animation_list.c
 
 CMakeFiles/stickwar.dir/animation_list.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/stickwar.dir/animation_list.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/stickwar/animation_list.c > CMakeFiles/stickwar.dir/animation_list.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/batonguerre/animation_list.c > CMakeFiles/stickwar.dir/animation_list.c.i
 
 CMakeFiles/stickwar.dir/animation_list.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/stickwar.dir/animation_list.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/stickwar/animation_list.c -o CMakeFiles/stickwar.dir/animation_list.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/batonguerre/animation_list.c -o CMakeFiles/stickwar.dir/animation_list.c.s
 
 CMakeFiles/stickwar.dir/animation_list.c.o.requires:
 
@@ -347,16 +347,16 @@ CMakeFiles/stickwar.dir/animation_list.c.o.provides.build: CMakeFiles/stickwar.d
 
 CMakeFiles/stickwar.dir/entity_factory.c.o: CMakeFiles/stickwar.dir/flags.make
 CMakeFiles/stickwar.dir/entity_factory.c.o: ../entity_factory.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/stickwar.dir/entity_factory.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/entity_factory.c.o   -c /home/pierre/CLionProjects/stickwar/entity_factory.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/stickwar.dir/entity_factory.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/entity_factory.c.o   -c /home/pierre/CLionProjects/batonguerre/entity_factory.c
 
 CMakeFiles/stickwar.dir/entity_factory.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/stickwar.dir/entity_factory.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/stickwar/entity_factory.c > CMakeFiles/stickwar.dir/entity_factory.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/batonguerre/entity_factory.c > CMakeFiles/stickwar.dir/entity_factory.c.i
 
 CMakeFiles/stickwar.dir/entity_factory.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/stickwar.dir/entity_factory.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/stickwar/entity_factory.c -o CMakeFiles/stickwar.dir/entity_factory.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/batonguerre/entity_factory.c -o CMakeFiles/stickwar.dir/entity_factory.c.s
 
 CMakeFiles/stickwar.dir/entity_factory.c.o.requires:
 
@@ -371,16 +371,16 @@ CMakeFiles/stickwar.dir/entity_factory.c.o.provides.build: CMakeFiles/stickwar.d
 
 CMakeFiles/stickwar.dir/game_params.c.o: CMakeFiles/stickwar.dir/flags.make
 CMakeFiles/stickwar.dir/game_params.c.o: ../game_params.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/stickwar.dir/game_params.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/game_params.c.o   -c /home/pierre/CLionProjects/stickwar/game_params.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/stickwar.dir/game_params.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/game_params.c.o   -c /home/pierre/CLionProjects/batonguerre/game_params.c
 
 CMakeFiles/stickwar.dir/game_params.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/stickwar.dir/game_params.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/stickwar/game_params.c > CMakeFiles/stickwar.dir/game_params.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/batonguerre/game_params.c > CMakeFiles/stickwar.dir/game_params.c.i
 
 CMakeFiles/stickwar.dir/game_params.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/stickwar.dir/game_params.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/stickwar/game_params.c -o CMakeFiles/stickwar.dir/game_params.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/batonguerre/game_params.c -o CMakeFiles/stickwar.dir/game_params.c.s
 
 CMakeFiles/stickwar.dir/game_params.c.o.requires:
 
@@ -395,16 +395,16 @@ CMakeFiles/stickwar.dir/game_params.c.o.provides.build: CMakeFiles/stickwar.dir/
 
 CMakeFiles/stickwar.dir/ninja.c.o: CMakeFiles/stickwar.dir/flags.make
 CMakeFiles/stickwar.dir/ninja.c.o: ../ninja.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/stickwar.dir/ninja.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/ninja.c.o   -c /home/pierre/CLionProjects/stickwar/ninja.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/stickwar.dir/ninja.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/ninja.c.o   -c /home/pierre/CLionProjects/batonguerre/ninja.c
 
 CMakeFiles/stickwar.dir/ninja.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/stickwar.dir/ninja.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/stickwar/ninja.c > CMakeFiles/stickwar.dir/ninja.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/batonguerre/ninja.c > CMakeFiles/stickwar.dir/ninja.c.i
 
 CMakeFiles/stickwar.dir/ninja.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/stickwar.dir/ninja.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/stickwar/ninja.c -o CMakeFiles/stickwar.dir/ninja.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/batonguerre/ninja.c -o CMakeFiles/stickwar.dir/ninja.c.s
 
 CMakeFiles/stickwar.dir/ninja.c.o.requires:
 
@@ -419,16 +419,16 @@ CMakeFiles/stickwar.dir/ninja.c.o.provides.build: CMakeFiles/stickwar.dir/ninja.
 
 CMakeFiles/stickwar.dir/base.c.o: CMakeFiles/stickwar.dir/flags.make
 CMakeFiles/stickwar.dir/base.c.o: ../base.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/stickwar.dir/base.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/base.c.o   -c /home/pierre/CLionProjects/stickwar/base.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/stickwar.dir/base.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/base.c.o   -c /home/pierre/CLionProjects/batonguerre/base.c
 
 CMakeFiles/stickwar.dir/base.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/stickwar.dir/base.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/stickwar/base.c > CMakeFiles/stickwar.dir/base.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/batonguerre/base.c > CMakeFiles/stickwar.dir/base.c.i
 
 CMakeFiles/stickwar.dir/base.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/stickwar.dir/base.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/stickwar/base.c -o CMakeFiles/stickwar.dir/base.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/batonguerre/base.c -o CMakeFiles/stickwar.dir/base.c.s
 
 CMakeFiles/stickwar.dir/base.c.o.requires:
 
@@ -443,16 +443,16 @@ CMakeFiles/stickwar.dir/base.c.o.provides.build: CMakeFiles/stickwar.dir/base.c.
 
 CMakeFiles/stickwar.dir/team.c.o: CMakeFiles/stickwar.dir/flags.make
 CMakeFiles/stickwar.dir/team.c.o: ../team.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/stickwar.dir/team.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/team.c.o   -c /home/pierre/CLionProjects/stickwar/team.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/stickwar.dir/team.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/team.c.o   -c /home/pierre/CLionProjects/batonguerre/team.c
 
 CMakeFiles/stickwar.dir/team.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/stickwar.dir/team.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/stickwar/team.c > CMakeFiles/stickwar.dir/team.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/batonguerre/team.c > CMakeFiles/stickwar.dir/team.c.i
 
 CMakeFiles/stickwar.dir/team.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/stickwar.dir/team.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/stickwar/team.c -o CMakeFiles/stickwar.dir/team.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/batonguerre/team.c -o CMakeFiles/stickwar.dir/team.c.s
 
 CMakeFiles/stickwar.dir/team.c.o.requires:
 
@@ -467,16 +467,16 @@ CMakeFiles/stickwar.dir/team.c.o.provides.build: CMakeFiles/stickwar.dir/team.c.
 
 CMakeFiles/stickwar.dir/entity_launcher.c.o: CMakeFiles/stickwar.dir/flags.make
 CMakeFiles/stickwar.dir/entity_launcher.c.o: ../entity_launcher.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/stickwar.dir/entity_launcher.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/entity_launcher.c.o   -c /home/pierre/CLionProjects/stickwar/entity_launcher.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/stickwar.dir/entity_launcher.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/entity_launcher.c.o   -c /home/pierre/CLionProjects/batonguerre/entity_launcher.c
 
 CMakeFiles/stickwar.dir/entity_launcher.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/stickwar.dir/entity_launcher.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/stickwar/entity_launcher.c > CMakeFiles/stickwar.dir/entity_launcher.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/batonguerre/entity_launcher.c > CMakeFiles/stickwar.dir/entity_launcher.c.i
 
 CMakeFiles/stickwar.dir/entity_launcher.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/stickwar.dir/entity_launcher.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/stickwar/entity_launcher.c -o CMakeFiles/stickwar.dir/entity_launcher.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/batonguerre/entity_launcher.c -o CMakeFiles/stickwar.dir/entity_launcher.c.s
 
 CMakeFiles/stickwar.dir/entity_launcher.c.o.requires:
 
@@ -491,16 +491,16 @@ CMakeFiles/stickwar.dir/entity_launcher.c.o.provides.build: CMakeFiles/stickwar.
 
 CMakeFiles/stickwar.dir/texture_list.c.o: CMakeFiles/stickwar.dir/flags.make
 CMakeFiles/stickwar.dir/texture_list.c.o: ../texture_list.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/stickwar.dir/texture_list.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/texture_list.c.o   -c /home/pierre/CLionProjects/stickwar/texture_list.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/stickwar.dir/texture_list.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/texture_list.c.o   -c /home/pierre/CLionProjects/batonguerre/texture_list.c
 
 CMakeFiles/stickwar.dir/texture_list.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/stickwar.dir/texture_list.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/stickwar/texture_list.c > CMakeFiles/stickwar.dir/texture_list.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/batonguerre/texture_list.c > CMakeFiles/stickwar.dir/texture_list.c.i
 
 CMakeFiles/stickwar.dir/texture_list.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/stickwar.dir/texture_list.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/stickwar/texture_list.c -o CMakeFiles/stickwar.dir/texture_list.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/batonguerre/texture_list.c -o CMakeFiles/stickwar.dir/texture_list.c.s
 
 CMakeFiles/stickwar.dir/texture_list.c.o.requires:
 
@@ -515,16 +515,16 @@ CMakeFiles/stickwar.dir/texture_list.c.o.provides.build: CMakeFiles/stickwar.dir
 
 CMakeFiles/stickwar.dir/dumb_ai.c.o: CMakeFiles/stickwar.dir/flags.make
 CMakeFiles/stickwar.dir/dumb_ai.c.o: ../dumb_ai.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/stickwar.dir/dumb_ai.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/dumb_ai.c.o   -c /home/pierre/CLionProjects/stickwar/dumb_ai.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/stickwar.dir/dumb_ai.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/dumb_ai.c.o   -c /home/pierre/CLionProjects/batonguerre/dumb_ai.c
 
 CMakeFiles/stickwar.dir/dumb_ai.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/stickwar.dir/dumb_ai.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/stickwar/dumb_ai.c > CMakeFiles/stickwar.dir/dumb_ai.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/batonguerre/dumb_ai.c > CMakeFiles/stickwar.dir/dumb_ai.c.i
 
 CMakeFiles/stickwar.dir/dumb_ai.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/stickwar.dir/dumb_ai.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/stickwar/dumb_ai.c -o CMakeFiles/stickwar.dir/dumb_ai.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/batonguerre/dumb_ai.c -o CMakeFiles/stickwar.dir/dumb_ai.c.s
 
 CMakeFiles/stickwar.dir/dumb_ai.c.o.requires:
 
@@ -539,16 +539,16 @@ CMakeFiles/stickwar.dir/dumb_ai.c.o.provides.build: CMakeFiles/stickwar.dir/dumb
 
 CMakeFiles/stickwar.dir/game_state.c.o: CMakeFiles/stickwar.dir/flags.make
 CMakeFiles/stickwar.dir/game_state.c.o: ../game_state.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/stickwar.dir/game_state.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/game_state.c.o   -c /home/pierre/CLionProjects/stickwar/game_state.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/stickwar.dir/game_state.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/game_state.c.o   -c /home/pierre/CLionProjects/batonguerre/game_state.c
 
 CMakeFiles/stickwar.dir/game_state.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/stickwar.dir/game_state.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/stickwar/game_state.c > CMakeFiles/stickwar.dir/game_state.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/batonguerre/game_state.c > CMakeFiles/stickwar.dir/game_state.c.i
 
 CMakeFiles/stickwar.dir/game_state.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/stickwar.dir/game_state.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/stickwar/game_state.c -o CMakeFiles/stickwar.dir/game_state.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/batonguerre/game_state.c -o CMakeFiles/stickwar.dir/game_state.c.s
 
 CMakeFiles/stickwar.dir/game_state.c.o.requires:
 
@@ -563,16 +563,16 @@ CMakeFiles/stickwar.dir/game_state.c.o.provides.build: CMakeFiles/stickwar.dir/g
 
 CMakeFiles/stickwar.dir/paused_state.c.o: CMakeFiles/stickwar.dir/flags.make
 CMakeFiles/stickwar.dir/paused_state.c.o: ../paused_state.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/stickwar.dir/paused_state.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/paused_state.c.o   -c /home/pierre/CLionProjects/stickwar/paused_state.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/stickwar.dir/paused_state.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/paused_state.c.o   -c /home/pierre/CLionProjects/batonguerre/paused_state.c
 
 CMakeFiles/stickwar.dir/paused_state.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/stickwar.dir/paused_state.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/stickwar/paused_state.c > CMakeFiles/stickwar.dir/paused_state.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/batonguerre/paused_state.c > CMakeFiles/stickwar.dir/paused_state.c.i
 
 CMakeFiles/stickwar.dir/paused_state.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/stickwar.dir/paused_state.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/stickwar/paused_state.c -o CMakeFiles/stickwar.dir/paused_state.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/batonguerre/paused_state.c -o CMakeFiles/stickwar.dir/paused_state.c.s
 
 CMakeFiles/stickwar.dir/paused_state.c.o.requires:
 
@@ -587,16 +587,16 @@ CMakeFiles/stickwar.dir/paused_state.c.o.provides.build: CMakeFiles/stickwar.dir
 
 CMakeFiles/stickwar.dir/game_end_state.c.o: CMakeFiles/stickwar.dir/flags.make
 CMakeFiles/stickwar.dir/game_end_state.c.o: ../game_end_state.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object CMakeFiles/stickwar.dir/game_end_state.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/game_end_state.c.o   -c /home/pierre/CLionProjects/stickwar/game_end_state.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object CMakeFiles/stickwar.dir/game_end_state.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/game_end_state.c.o   -c /home/pierre/CLionProjects/batonguerre/game_end_state.c
 
 CMakeFiles/stickwar.dir/game_end_state.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/stickwar.dir/game_end_state.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/stickwar/game_end_state.c > CMakeFiles/stickwar.dir/game_end_state.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/batonguerre/game_end_state.c > CMakeFiles/stickwar.dir/game_end_state.c.i
 
 CMakeFiles/stickwar.dir/game_end_state.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/stickwar.dir/game_end_state.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/stickwar/game_end_state.c -o CMakeFiles/stickwar.dir/game_end_state.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/batonguerre/game_end_state.c -o CMakeFiles/stickwar.dir/game_end_state.c.s
 
 CMakeFiles/stickwar.dir/game_end_state.c.o.requires:
 
@@ -611,16 +611,16 @@ CMakeFiles/stickwar.dir/game_end_state.c.o.provides.build: CMakeFiles/stickwar.d
 
 CMakeFiles/stickwar.dir/archer.c.o: CMakeFiles/stickwar.dir/flags.make
 CMakeFiles/stickwar.dir/archer.c.o: ../archer.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/stickwar.dir/archer.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/archer.c.o   -c /home/pierre/CLionProjects/stickwar/archer.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/stickwar.dir/archer.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/archer.c.o   -c /home/pierre/CLionProjects/batonguerre/archer.c
 
 CMakeFiles/stickwar.dir/archer.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/stickwar.dir/archer.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/stickwar/archer.c > CMakeFiles/stickwar.dir/archer.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/batonguerre/archer.c > CMakeFiles/stickwar.dir/archer.c.i
 
 CMakeFiles/stickwar.dir/archer.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/stickwar.dir/archer.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/stickwar/archer.c -o CMakeFiles/stickwar.dir/archer.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/batonguerre/archer.c -o CMakeFiles/stickwar.dir/archer.c.s
 
 CMakeFiles/stickwar.dir/archer.c.o.requires:
 
@@ -631,6 +631,54 @@ CMakeFiles/stickwar.dir/archer.c.o.provides: CMakeFiles/stickwar.dir/archer.c.o.
 .PHONY : CMakeFiles/stickwar.dir/archer.c.o.provides
 
 CMakeFiles/stickwar.dir/archer.c.o.provides.build: CMakeFiles/stickwar.dir/archer.c.o
+
+
+CMakeFiles/stickwar.dir/projectile.c.o: CMakeFiles/stickwar.dir/flags.make
+CMakeFiles/stickwar.dir/projectile.c.o: ../projectile.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building C object CMakeFiles/stickwar.dir/projectile.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/projectile.c.o   -c /home/pierre/CLionProjects/batonguerre/projectile.c
+
+CMakeFiles/stickwar.dir/projectile.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/stickwar.dir/projectile.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/batonguerre/projectile.c > CMakeFiles/stickwar.dir/projectile.c.i
+
+CMakeFiles/stickwar.dir/projectile.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/stickwar.dir/projectile.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/batonguerre/projectile.c -o CMakeFiles/stickwar.dir/projectile.c.s
+
+CMakeFiles/stickwar.dir/projectile.c.o.requires:
+
+.PHONY : CMakeFiles/stickwar.dir/projectile.c.o.requires
+
+CMakeFiles/stickwar.dir/projectile.c.o.provides: CMakeFiles/stickwar.dir/projectile.c.o.requires
+	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/projectile.c.o.provides.build
+.PHONY : CMakeFiles/stickwar.dir/projectile.c.o.provides
+
+CMakeFiles/stickwar.dir/projectile.c.o.provides.build: CMakeFiles/stickwar.dir/projectile.c.o
+
+
+CMakeFiles/stickwar.dir/arrow.c.o: CMakeFiles/stickwar.dir/flags.make
+CMakeFiles/stickwar.dir/arrow.c.o: ../arrow.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building C object CMakeFiles/stickwar.dir/arrow.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/arrow.c.o   -c /home/pierre/CLionProjects/batonguerre/arrow.c
+
+CMakeFiles/stickwar.dir/arrow.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/stickwar.dir/arrow.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/batonguerre/arrow.c > CMakeFiles/stickwar.dir/arrow.c.i
+
+CMakeFiles/stickwar.dir/arrow.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/stickwar.dir/arrow.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/batonguerre/arrow.c -o CMakeFiles/stickwar.dir/arrow.c.s
+
+CMakeFiles/stickwar.dir/arrow.c.o.requires:
+
+.PHONY : CMakeFiles/stickwar.dir/arrow.c.o.requires
+
+CMakeFiles/stickwar.dir/arrow.c.o.provides: CMakeFiles/stickwar.dir/arrow.c.o.requires
+	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/arrow.c.o.provides.build
+.PHONY : CMakeFiles/stickwar.dir/arrow.c.o.provides
+
+CMakeFiles/stickwar.dir/arrow.c.o.provides.build: CMakeFiles/stickwar.dir/arrow.c.o
 
 
 # Object files for target stickwar
@@ -658,7 +706,9 @@ stickwar_OBJECTS = \
 "CMakeFiles/stickwar.dir/game_state.c.o" \
 "CMakeFiles/stickwar.dir/paused_state.c.o" \
 "CMakeFiles/stickwar.dir/game_end_state.c.o" \
-"CMakeFiles/stickwar.dir/archer.c.o"
+"CMakeFiles/stickwar.dir/archer.c.o" \
+"CMakeFiles/stickwar.dir/projectile.c.o" \
+"CMakeFiles/stickwar.dir/arrow.c.o"
 
 # External object files for target stickwar
 stickwar_EXTERNAL_OBJECTS =
@@ -687,9 +737,11 @@ stickwar: CMakeFiles/stickwar.dir/game_state.c.o
 stickwar: CMakeFiles/stickwar.dir/paused_state.c.o
 stickwar: CMakeFiles/stickwar.dir/game_end_state.c.o
 stickwar: CMakeFiles/stickwar.dir/archer.c.o
+stickwar: CMakeFiles/stickwar.dir/projectile.c.o
+stickwar: CMakeFiles/stickwar.dir/arrow.c.o
 stickwar: CMakeFiles/stickwar.dir/build.make
 stickwar: CMakeFiles/stickwar.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Linking C executable stickwar"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Linking C executable stickwar"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/stickwar.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -721,6 +773,8 @@ CMakeFiles/stickwar.dir/requires: CMakeFiles/stickwar.dir/game_state.c.o.require
 CMakeFiles/stickwar.dir/requires: CMakeFiles/stickwar.dir/paused_state.c.o.requires
 CMakeFiles/stickwar.dir/requires: CMakeFiles/stickwar.dir/game_end_state.c.o.requires
 CMakeFiles/stickwar.dir/requires: CMakeFiles/stickwar.dir/archer.c.o.requires
+CMakeFiles/stickwar.dir/requires: CMakeFiles/stickwar.dir/projectile.c.o.requires
+CMakeFiles/stickwar.dir/requires: CMakeFiles/stickwar.dir/arrow.c.o.requires
 
 .PHONY : CMakeFiles/stickwar.dir/requires
 
@@ -729,6 +783,6 @@ CMakeFiles/stickwar.dir/clean:
 .PHONY : CMakeFiles/stickwar.dir/clean
 
 CMakeFiles/stickwar.dir/depend:
-	cd /home/pierre/CLionProjects/stickwar/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pierre/CLionProjects/stickwar /home/pierre/CLionProjects/stickwar /home/pierre/CLionProjects/stickwar/cmake-build-debug /home/pierre/CLionProjects/stickwar/cmake-build-debug /home/pierre/CLionProjects/stickwar/cmake-build-debug/CMakeFiles/stickwar.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/pierre/CLionProjects/batonguerre/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pierre/CLionProjects/batonguerre /home/pierre/CLionProjects/batonguerre /home/pierre/CLionProjects/batonguerre/cmake-build-debug /home/pierre/CLionProjects/batonguerre/cmake-build-debug /home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles/stickwar.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/stickwar.dir/depend
 
