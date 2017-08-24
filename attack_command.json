@@ -1,0 +1,21 @@
+{"frames": [
+
+{
+	"filename": "logos 1.png",
+	"frame": {"x":0,"y":0,"w":550,"h":400},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":550,"h":400},
+	"sourceSize": {"w":550,"h":400},
+	"pivot": {"x":0.5,"y":0.5}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "attack_command.png",
+	"format": "RGBA8888",
+	"size": {"w":550,"h":400},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:65ab817b1ecc0232bda53be189281309:16e4ef0b4262216af63dc7743e4feb38:963976ebd070f93923569dcdb73d8b46$"
+}
+}

@@ -1,0 +1,55 @@
+//
+// Created by pierre on 22/08/17.
+//
+
+#ifndef STICKWAR_GAME_PARAMS_H
+#define STICKWAR_GAME_PARAMS_H
+
+#include "stdlib.h"
+#define MAP_SIZE 2400
+#define RETREAT_PLAYER 100
+#define POP_PLAYER_ONE 50
+#define GROUND_POS 950.0
+#define WINDOW_WIDTH 1800
+#define POP_PLAYER_TWO MAP_SIZE-POP_PLAYER_ONE
+#define WINDOW_HEIGHT 1000
+#define FPS 10
+#define GOLD_PER_SEC 5
+#define GOLD_START 200
+
+
+
+// kicker
+
+#define KICKER_PUNCH_CHANCE 4
+#define KICKER_PUNCH_DAMAGE 2
+#define KICKER_KICK_DAMAGE 4
+#define KICKER_BASE_LIFE 30+3*level
+#define KICKER_BASE_SPEED 40+rand()%20
+#define KICKER_BASE_SIZE 1.8
+#define KICKER_COST 20
+#define KICKER_COOLDOWN 1
+// ninja
+
+#define NINJA_HIT_CHANCE 4
+#define NINJA_HIT_DAMAGE 6
+#define NINJA_SLASH_DAMAGE 15
+#define NINJA_BASE_LIFE 15+2*level
+#define NINJA_BASE_SPEED 120+rand()%60
+#define NINJA_BASE_SIZE 1.8
+#define  NINJA_COST 50
+#define NINJA_COOLDOWN 5
+
+// archer
+
+#define ARCHER_BASE_LIFE 10
+#define ARCHER_BASE_SPEED 30+rand()%3
+#define ARCHER_BASE_SIZE 2.4
+#define ARCHER_NORMAL_DAMAGE 2
+#define ARCHER_SHORT_HIT_DAMAGE 2
+#define ARCHER_CRIT_DAMAGE 4
+#define ARCHER_CRIT_CHANCE 9
+#define ARCHER_COST 40
+#define ARCHER_COOLDOWN 3
+
+#endif //STICKWAR_GAME_PARAMS_H

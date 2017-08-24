@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="stickwar"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\usr\;CMake Files\..\..\..\..\usr\lib\;CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\;CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\;CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SDL2\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/pierre/CLionProjects/stickwar/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/pierre/CLionProjects/stickwar/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/pierre/CLionProjects/stickwar/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/pierre/CLionProjects/stickwar/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/pierre/CLionProjects/stickwar/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/pierre/CLionProjects/stickwar/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/pierre/CLionProjects/stickwar/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/pierre/CLionProjects/stickwar/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/pierre/CLionProjects/stickwar/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/pierre/CLionProjects/stickwar/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/pierre/CLionProjects/stickwar/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/pierre/CLionProjects/stickwar/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/pierre/CLionProjects/stickwar/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/pierre/CLionProjects/stickwar/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/pierre/CLionProjects/stickwar/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="stickwar">
+				<Option output="/home/pierre/CLionProjects/stickwar/cmake-build-debug/stickwar" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/pierre/CLionProjects/stickwar/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/SDL2"/>
+					<Add directory="/usr/include/c++/6"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
+					<Add directory="/usr/include/c++/6/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/pierre/CLionProjects/stickwar/cmake-build-debug/Makefile&quot;  VERBOSE=1 stickwar"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/pierre/CLionProjects/stickwar/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/pierre/CLionProjects/stickwar/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/pierre/CLionProjects/stickwar/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="stickwar/fast">
+				<Option output="/home/pierre/CLionProjects/stickwar/cmake-build-debug/stickwar" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/pierre/CLionProjects/stickwar/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/SDL2"/>
+					<Add directory="/usr/include/c++/6"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
+					<Add directory="/usr/include/c++/6/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/pierre/CLionProjects/stickwar/cmake-build-debug/Makefile&quot;  VERBOSE=1 stickwar/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/pierre/CLionProjects/stickwar/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/pierre/CLionProjects/stickwar/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/pierre/CLionProjects/stickwar/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/pierre/CLionProjects/stickwar/animation.c">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/stickwar/animation.h">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/stickwar/animation_list.c">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/stickwar/animation_list.h">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/stickwar/archer.c">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/stickwar/archer.h">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/stickwar/array_list.c">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/stickwar/array_list.h">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/stickwar/base.c">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/stickwar/base.h">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/stickwar/controller.c">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/stickwar/controller.h">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/stickwar/drawable_entity.c">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/stickwar/drawable_entity.h">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/stickwar/dumb_ai.c">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/stickwar/dumb_ai.h">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/stickwar/entity.c">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/stickwar/entity.h">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/stickwar/entity_factory.c">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/stickwar/entity_factory.h">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/stickwar/entity_launcher.c">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/stickwar/entity_launcher.h">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/stickwar/entity_type.c">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/stickwar/entity_type.h">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/stickwar/game.c">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/stickwar/game.h">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/stickwar/game_end_state.c">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/stickwar/game_end_state.h">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/stickwar/game_params.c">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/stickwar/game_params.h">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/stickwar/game_state.c">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/stickwar/game_state.h">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/stickwar/json_frame.c">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/stickwar/json_frame.h">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/stickwar/kicker.c">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/stickwar/kicker.h">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/stickwar/main.c">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/stickwar/ninja.c">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/stickwar/ninja.h">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/stickwar/paused_state.c">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/stickwar/paused_state.h">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/stickwar/team.c">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/stickwar/team.h">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/stickwar/texture_list.c">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/stickwar/texture_list.h">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/stickwar/view.c">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/stickwar/view.h">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/stickwar/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/stickwar/../../../../usr/lib/x86_64-linux-gnu/cmake/SDL2/sdl2-config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SDL2\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
