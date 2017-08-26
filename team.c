@@ -9,7 +9,6 @@ team* team_init(int team_number){
     t->gold = GOLD_START;
     t->spawners = list_create();
     t->right = team_number;
-    t->order = RETREAT;
     return t;
 }
 

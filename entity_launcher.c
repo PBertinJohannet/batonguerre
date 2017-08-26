@@ -12,6 +12,8 @@ entity_launcher* entity_launcher_init(int ent_type, int level,int cost, int cd, 
     ent->team = team;
     ent->anim = animation_frame_init(anim);
     ent->curr_cd = ent->cd;
+    ent->command = ENTITY_STATE_RETREATING;
+    ent->target_command = team*MAP_SIZE;
     return ent;
 }
 void entity_launcher_update(entity_launcher* ent){
@@ -34,7 +36,7 @@ void entity_launcher_launch(entity_launcher* launcher, game* g){
     if (launcher->curr_cd == launcher->cd && game_get_team(g,launcher->team)->gold > launcher->cost) {
         launcher->curr_cd = 0;
         game_get_team(g,launcher->team)->gold-=launcher->cost;
-        game_add_entity(g, factory_new_entity(launcher->ent_type, launcher->team, launcher->level, g));
+        game_add_entity(g, factory_new_entity(launcher->ent_type, launcher->team, launcher->level, launcher->command, launcher->target_command, g));
     } else {
         // refused
     }

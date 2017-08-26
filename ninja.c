@@ -7,13 +7,14 @@
 ninja* ninja_init(int level){
     ninja* k = malloc(sizeof(ninja));
     k->range = NINJA_RANGE;
-    k->damage = level;
     k->attack_type = NINJA_NONE;
+    k->will_jump = rand()%2;
     return k;
 }
 
 void set_ninja_class(entity* ent, int level){
     entity_type* c = malloc(sizeof(entity_type));
+    c->type = NINJA;
     c->type_stats = ninja_init(level);
     c->play = entity_base_play;
     c->get_current_range = ninja_get_current_range;
@@ -26,7 +27,7 @@ void set_ninja_class(entity* ent, int level){
 }
 
 
-void ninja_retreating(entity* ent){
+void ninja_retreating(entity* ent, list* entities){
     if (ent->drawable->anim->anim != get_animations()->ninja_walk){
         animation_frame_destroy(ent->drawable->anim);
         ent->drawable->anim = animation_frame_init(get_animations()->ninja_walk);
@@ -36,46 +37,92 @@ void ninja_retreating(entity* ent){
         ent->facing = !ent->team;
         ent->pos -= ent->speed * (2 * ent->facing - 1);
     } else {
-        ent->facing = ent->team;
+        entity_base_find_target(ent, entities);
     }
 }
 
 void ninja_to_dying(entity* ent){
-    ent->state = DYING;
+    ent->state = ENTITY_STATE_DYING;
     ent->drawable->anim = animation_frame_init(get_animations()->ninja_death);
 }
 
-void ninja_attack(entity* ent, game* g){
-    if (!(ent->state == ATTACK_FAILING) && ent->drawable->anim->frame == 12){
-        int damage = NINJA_SLASH_DAMAGE;
-        if (((kicker*)ent->type->type_stats)->attack_type == HIT){
-            damage = NINJA_HIT_DAMAGE;
-        }
-        ent->target->hp-=((kicker*)ent->type->type_stats)->damage + damage;
+void ninja_attack(entity* ent, game* g) {
+    switch (((ninja *) ent->type->type_stats)->attack_type) {
+        case HIT :
+            if (ent->drawable->anim->frame == 12) {
+                if (ent->state != ENTITY_STATE_ATTACK_FAILING){
+                    ent->target->hp -= NINJA_HIT_DAMAGE;
+                }
+                ((ninja *) ent->type->type_stats)->will_jump = rand() % 2;
+            }
+            break;
+        case SLASH :
+            if (ent->drawable->anim->frame == 12) {
+                if (ent->state != ENTITY_STATE_ATTACK_FAILING) {
+                    ent->target->hp -= NINJA_SLASH_DAMAGE;
+                }
+                ((ninja *) ent->type->type_stats)->will_jump = rand() % 2;
+            }
+            break;
+        case NINJA_JUMP :
+            ninja_jumping(ent);
+        default:
+            break;
+    }
+}
 
+void ninja_jumping(entity* ent){
+    if (ent->drawable->anim->frame > 22 && ent->drawable->anim->frame < 33) {
+        float moving_by = ent->speed  * 3;
+        if (ent->state != ENTITY_STATE_ATTACK_FAILING) {
+            int nb_frame_remaining = 33 - ent->drawable->anim->frame;
+            moving_by = abs(ent->pos-ent->target->pos)/nb_frame_remaining;
+        }
+        ent->pos -= moving_by * (2 * ent->facing - 1);
+    }
+    if (ent->drawable->anim->frame == 33) {
+        if (ent->state != ENTITY_STATE_ATTACK_FAILING) {
+            ent->target->hp -= NINJA_SLASH_DAMAGE;
+        }
+        ((ninja *) ent->type->type_stats)->will_jump = rand() % 2;
     }
 }
 
 int ninja_get_current_range(entity* ent){
     ninja* k = (ninja*)(ent->type->type_stats);
-    return k->range;
+    return k->will_jump?NINJA_RANGE:NINJA_JUMP_RANGE;
 }
 
 void ninja_to_attack(entity* ent,entity* target){
-    ent->state = ATTACKING;
-    animation_frame_destroy(ent->drawable->anim);
-    ent->target = target;
-    if (rand()%NINJA_HIT_CHANCE) {
-        ((kicker *) (ent->type->type_stats))->attack_type = HIT;
-        ent->drawable->anim = animation_frame_init(get_animations()->ninja_strike);
+    if (abs(ent->pos-target->pos)>NINJA_RANGE){
+        ninja_to_jump_attack(ent, target);
     } else {
-        ((kicker *) (ent->type->type_stats))->attack_type = SLASH;
-        ent->drawable->anim = animation_frame_init(get_animations()->ninja_slash);
+        ninja_to_short_attack(ent, target);
     }
 }
 
+void ninja_to_short_attack(entity* ent, entity* target){
+    ent->state = ENTITY_STATE_ATTACKING;
+    animation_frame_destroy(ent->drawable->anim);
+    ent->target = target;
+    if (rand()%NINJA_HIT_CHANCE) {
+        ((ninja *) (ent->type->type_stats))->attack_type = HIT;
+        ent->drawable->anim = animation_frame_init(get_animations()->ninja_strike);
+    } else {
+        ((ninja *) (ent->type->type_stats))->attack_type = SLASH;
+        ent->drawable->anim = animation_frame_init(get_animations()->ninja_slash);
+    }
+}
+void ninja_to_jump_attack(entity* ent, entity* target){
+    ent->state = ENTITY_STATE_ATTACKING;
+    animation_frame_destroy(ent->drawable->anim);
+    ent->target = target;
+    ((ninja *) (ent->type->type_stats))->attack_type = NINJA_JUMP;
+    ent->drawable->anim = animation_frame_init(get_animations()->ninja_jump);
+}
+
 void ninja_to_aggro(entity* ent) {
-    ent->state = AGG_MOVING;
+    ent->state = ENTITY_STATE_ASSAULT;
     animation_frame_destroy(ent->drawable->anim);
     ent->drawable->anim = animation_frame_init(get_animations()->ninja_walk);
 }

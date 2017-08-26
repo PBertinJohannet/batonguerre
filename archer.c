@@ -16,6 +16,7 @@ archer* archer_init(int level){
 
 void set_archer_class(entity* ent, int level){
     entity_type* c = malloc(sizeof(entity_type));
+    c->type = ARCHER;
     c->type_stats = archer_init(level);
     c->play = entity_base_play;
     c->get_current_range = archer_get_current_range;
@@ -28,7 +29,7 @@ void set_archer_class(entity* ent, int level){
 }
 
 
-void archer_retreating(entity* ent){
+void archer_retreating(entity* ent, list* entities){
     if (ent->drawable->anim->anim != get_animations()->archer_walk){
         animation_frame_destroy(ent->drawable->anim);
         ent->drawable->anim = animation_frame_init(get_animations()->archer_walk);
@@ -37,18 +38,18 @@ void archer_retreating(entity* ent){
         ent->facing = !ent->team;
         ent->pos -= ent->speed * (2 * ent->facing - 1);
     } else {
-        ent->facing = ent->team;
+        entity_base_find_target(ent, entities);
     }
 }
 
 void archer_to_dying(entity* ent){
-    ent->state = DYING;
+    ent->state = ENTITY_STATE_DYING;
     ent->drawable->anim = animation_frame_init(get_animations()->archer_death);
 }
 
 void archer_attack(entity* ent, game* g){
-    if (!(ent->state == ATTACK_FAILING) && ent->drawable->anim->frame == 12){
-        switch (((kicker*)ent->type->type_stats)->attack_type){
+    if (!(ent->state == ENTITY_STATE_ATTACK_FAILING) && ent->drawable->anim->frame == 12){
+        switch (((archer*)ent->type->type_stats)->attack_type){
             case ARCHER_SHORT_HIT:
                 ent->target->hp-=((archer*)ent->type->type_stats)->damage + ARCHER_SHORT_HIT_DAMAGE;
                 break;
@@ -67,7 +68,7 @@ int archer_get_current_range(entity* ent){
 
 void archer_to_attack(entity* ent,entity* target){
     archer * player = ent->type->type_stats;
-    ent->state = ATTACKING;
+    ent->state = ENTITY_STATE_ATTACKING;
     animation_frame_destroy(ent->drawable->anim);
     ent->target = target;
     if (abs(ent->pos  - target->pos)<player->range_short){
@@ -85,7 +86,7 @@ void archer_to_attack(entity* ent,entity* target){
 }
 
 void archer_to_aggro(entity* ent) {
-    ent->state = AGG_MOVING;
+    ent->state = ENTITY_STATE_ASSAULT;
     animation_frame_destroy(ent->drawable->anim);
     ent->drawable->anim = animation_frame_init(get_animations()->archer_walk);
 }

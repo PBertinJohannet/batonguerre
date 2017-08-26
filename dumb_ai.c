@@ -18,7 +18,7 @@ void dumb_ai_play(dumb_ai* dai, game* g){
         dai->target_id = rand()%dai->team->spawners->size;
     }
     if (!choose_mode(dai, g->entities)){
-        game_order_retreat(g,1);
+        game_command_one(g,1,NINJA,MAP_SIZE/2);
         dai->last_ass = 0;
     } else {
         if (!dai->last_ass) {

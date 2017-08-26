@@ -146,6 +146,5 @@ void win_screen(view* v) {
 void view_destroy(view* v){
     sfText_destroy(v->text);
     sfFont_destroy(v->font);
-    texture_list_destroy(get_textures());
     free(v);
 }

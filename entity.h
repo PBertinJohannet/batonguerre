@@ -13,6 +13,7 @@ struct entity {
     drawable_entity* drawable;
     struct entity_type* type;
     entity* target;
+    int commanded_target;
     int hp;
     float speed;
     int team;
@@ -21,13 +22,13 @@ struct entity {
     int state;
 };
 enum entity_state{
-    AGG_MOVING,
-    ATTACKING,
-    ATTACK_FAILING,
-    RETREATING,
-    DYING
+    ENTITY_STATE_ASSAULT,
+    ENTITY_STATE_ATTACKING,
+    ENTITY_STATE_ATTACK_FAILING,
+    ENTITY_STATE_RETREATING,
+    ENTITY_STATE_DYING
 };
-entity* entity_init(int hp, float speed, int team, float size, float pos, int state, animation_frame* frame);
+entity* entity_init(int hp, float speed, int team, float size, float pos, int state, int command, animation_frame* frame);
 void set_entity_type(entity* ent, struct entity_type* type);
 void entity_destroy(entity* ent);
 int entity_destroy_void(void* ent);

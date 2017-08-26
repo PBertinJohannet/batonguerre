@@ -23,7 +23,7 @@ struct archer{
     int attack_type;
 };
 archer* archer_init(int level);
-void archer_retreating(entity* ent);
+void archer_retreating(entity* ent, list*);
 void set_archer_class(entity*, int level);
 void archer_play(entity* player, list* entities);
 void archer_attack(entity* ent, game* g);

@@ -19,6 +19,7 @@ struct animation_list{
     animation* kicker_icon;
     animation* kicker_punch;
     animation* ninja_slash;
+    animation* ninja_jump;
     animation* archer_critical_hit;
     animation* archer_walk;
     animation* archer_hit;

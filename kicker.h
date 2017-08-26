@@ -11,7 +11,6 @@ typedef struct entity_type entity_type;
 typedef struct entity entity;
 struct kicker{
     int range;
-    int damage;
     int attack_type;
 };
 enum kicker_attack{
@@ -21,7 +20,7 @@ enum kicker_attack{
 };
 kicker* kicker_init(int level);
 void set_kicker_class(entity*, int level);
-void kicker_retreating(entity* ent );
+void kicker_retreating(entity* ent, list*);
 void kicker_play(game* g, entity* player, list* entities );
 void kicker_attack(entity* ent, game* g);
 int kicker_get_current_range(entity*);

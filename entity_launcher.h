@@ -15,9 +15,13 @@ struct entity_launcher{
     int cost;
     int cd;
     int curr_cd;
+    int target_command;
+    int command;
     int team;
     animation_frame* anim;
 };
+
+
 
 entity_launcher* entity_launcher_init(int ent_type, int level, int cost, int cd, animation* anim, int team);
 sfSprite* entity_launcher_get_icon(entity_launcher* ent);

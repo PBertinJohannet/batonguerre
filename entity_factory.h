@@ -18,5 +18,5 @@ enum entity_class{
     ARCHER,
     BASE,
 };
-entity* factory_new_entity(int type, int team, int level, game* g);
+entity* factory_new_entity(int type, int team, int level, int state, int command, game* g);
 #endif //STICKWAR_ENTITY_FACTORY_H

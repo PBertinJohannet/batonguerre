@@ -3,7 +3,7 @@
 //
 #include "entity.h"
 
-entity* entity_init(int hp, float speed, int team, float size, float pos, int state, animation_frame* frame){
+entity* entity_init(int hp, float speed, int team, float size, float pos, int state, int command, animation_frame* frame){
     entity* ent = malloc(sizeof(entity));
     ent->pos = pos;
     ent->hp = hp;
@@ -12,6 +12,7 @@ entity* entity_init(int hp, float speed, int team, float size, float pos, int st
     ent->facing = team;
     ent->drawable = drawable_entity_init(frame,&ent->pos,&ent->facing,size);
     ent->state = state;
+    ent->commanded_target = command;
     return ent;
 }
 

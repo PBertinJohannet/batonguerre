@@ -28,7 +28,7 @@ void game_init_teams(game* g){
 }
 void game_init_team(game* g, team* t, int team_id){
     team_init_spawners(t, team_id);
-    entity* base = factory_new_entity(BASE,team_id,1,g);
+    entity* base = factory_new_entity(BASE,team_id,1,ENTITY_STATE_RETREATING, team_id*MAP_SIZE,g);
     t->base = base;
     list_add(g->entities,base);
 }

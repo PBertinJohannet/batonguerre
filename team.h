@@ -11,16 +11,10 @@
 
 typedef struct team team;
 typedef struct animation_list animation_list;
-enum order {
-    ATTACK,
-    RETREAT,
-    DEFEND,
-};
 struct team {
     int gold;
     list* spawners;
     entity* base;
-    int order;
     int right;
 };
 team* team_init(int team_number);
