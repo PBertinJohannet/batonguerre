@@ -17,13 +17,15 @@
 #include "dumb_ai.h"
 #include "game_state.h"
 #include "projectile.h"
-
 typedef struct game game;
 typedef struct game_state game_state;
 typedef struct entity entity;
 typedef struct team team;
 typedef struct dumb_ai dumb_ai;
+typedef struct projectile projectile;
+typedef struct controller controller;
 struct game{
+    controller* controller;
     game_state* state;
     team* player;
     team* ennemy;
@@ -43,7 +45,7 @@ list* game_get_drawables(game* g);
 void game_next_loop(game* g) ;
 void game_add_entity(game* g, entity* ent);
 team* game_get_team(game* g, int team_id);
-void game_init_team(game* g, team* t, int team_id);
+void game_init_team(game* g, team* t);
 void end_update(game* g);
 void game_destroy(game* g);
 void game_add_projectile(game* g, projectile* proj);

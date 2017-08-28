@@ -8,7 +8,7 @@
 #include "array_list.h"
 #include "animation.h"
 #include "drawable_entity.h"
-
+#include "team.h"
 typedef struct projectile projectile;
 enum projectile_type {
     PROJECTILE_ARROW,
@@ -17,13 +17,13 @@ enum projectile_type {
 struct projectile {
     float pos;
     int facing;
-    int team;
+    team* team;
     int(*play)(void* ,list*);
     int(*destroy)(projectile*);
     drawable_entity* drawable;
     void* self;
 };
-projectile* projectile_create(int pos, int team, int facing);
+projectile* projectile_create(int pos, team* team, int facing);
 
 
 #endif //STICKWAR_PROJECTILE_H

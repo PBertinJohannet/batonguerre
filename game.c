@@ -17,18 +17,19 @@ game* game_init(game_state* state){
     g->entities = list_create();
     g->projectiles = list_create();
     g->frame = 0;
+    g->controller = controller_init(g);
     game_init_teams(g);
     return g;
 }
 
 void game_init_teams(game* g){
-    game_init_team(g,g->player,0);
-    game_init_team(g,g->ennemy,1);
+    game_init_team(g,g->player);
+    game_init_team(g,g->ennemy);
     g->ennemy_ai = dumb_ai_init(g->ennemy);
 }
-void game_init_team(game* g, team* t, int team_id){
-    team_init_spawners(t, team_id);
-    entity* base = factory_new_entity(BASE,team_id,1,ENTITY_STATE_RETREATING, team_id*MAP_SIZE,g);
+void game_init_team(game* g, team* t){
+    team_init_brigades(t);
+    entity* base = factory_new_entity(BASE,t,1,g);
     t->base = base;
     list_add(g->entities,base);
 }
@@ -59,8 +60,9 @@ list* game_get_drawables(game* g){
 void game_next_loop(game* g) {
     game_update(g);
     view_draw_map(g->view);
-    view_draw_launchers(g->view, g->player->spawners);
+    view_draw_launchers(g->view, g->player->brigades);
     view_draw_gold(g->view, g->player->gold);
+    view_draw_cursor(g->view, g->controller->commanding_brigade);
     view_draw_entities(g->view, game_get_drawables(g));
     if (g->player->base->hp < 1 ){
         playing_state_to_game_end_state(g->state, g->ennemy);
@@ -80,10 +82,12 @@ void game_update(game* g){
     dumb_ai_play(g->ennemy_ai, g);
     team_play(g->player, g->frame);
     team_play(g->ennemy, g->frame);
-    controller_process_events( g);
+    controller_process_events( g->controller);
     for (int i =0;i<g->entities->size;i++){
-        entity* ent = (entity*)(list_at(g->entities,i));
-        if (ent->type->play(g, ent,g->entities)){
+        entity *ent = (entity *) (list_at(g->entities, i));
+        ent->type->play(g, ent,g->entities);
+        if (ent->state == ENTITY_STATE_DEAD){
+            entity_destroy(ent);
             list_rm_at(g->entities,i);
             i--;
         }

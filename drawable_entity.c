@@ -12,6 +12,16 @@ drawable_entity* drawable_entity_init(animation_frame* anim_frame, float* pos, i
     return ent;
 }
 
+void drawable_entity_animation_forward(drawable_entity* ent, float forward){
+    ent->anim->frame+=forward;
+    if (drawable_entity_get_frame(ent)==ent->anim->anim->nb_frames){
+        ent->anim->frame = 0;
+    }
+}
+
+int drawable_entity_get_frame(drawable_entity* ent){
+    return (int)(ent->anim->frame);
+}
 
 void drawable_entity_destroy(drawable_entity* ent){
     animation_frame_destroy(ent->anim);

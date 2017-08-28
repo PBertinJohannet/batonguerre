@@ -3,7 +3,7 @@
 //
 #include "arrow.h"
 #include "entity.h"
-projectile* arrow_create(int pos, int team, int facing, int damage){
+projectile* arrow_create(int pos, team* team, int facing, int damage){
     arrow* arrow = malloc(sizeof(arrow));
     projectile* proj = projectile_create(pos, team, facing);
     arrow->damage = damage;

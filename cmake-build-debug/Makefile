@@ -285,6 +285,60 @@ base.c.s:
 	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/base.c.s
 .PHONY : base.c.s
 
+brigade.o: brigade.c.o
+
+.PHONY : brigade.o
+
+# target to build an object file
+brigade.c.o:
+	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/brigade.c.o
+.PHONY : brigade.c.o
+
+brigade.i: brigade.c.i
+
+.PHONY : brigade.i
+
+# target to preprocess a source file
+brigade.c.i:
+	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/brigade.c.i
+.PHONY : brigade.c.i
+
+brigade.s: brigade.c.s
+
+.PHONY : brigade.s
+
+# target to generate assembly for a file
+brigade.c.s:
+	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/brigade.c.s
+.PHONY : brigade.c.s
+
+command.o: command.c.o
+
+.PHONY : command.o
+
+# target to build an object file
+command.c.o:
+	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/command.c.o
+.PHONY : command.c.o
+
+command.i: command.c.i
+
+.PHONY : command.i
+
+# target to preprocess a source file
+command.c.i:
+	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/command.c.i
+.PHONY : command.c.i
+
+command.s: command.c.s
+
+.PHONY : command.s
+
+# target to generate assembly for a file
+command.c.s:
+	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/command.c.s
+.PHONY : command.c.s
+
 controller.o: controller.c.o
 
 .PHONY : controller.o
@@ -393,6 +447,33 @@ entity.c.s:
 	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/entity.c.s
 .PHONY : entity.c.s
 
+entity_behaviour.o: entity_behaviour.c.o
+
+.PHONY : entity_behaviour.o
+
+# target to build an object file
+entity_behaviour.c.o:
+	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/entity_behaviour.c.o
+.PHONY : entity_behaviour.c.o
+
+entity_behaviour.i: entity_behaviour.c.i
+
+.PHONY : entity_behaviour.i
+
+# target to preprocess a source file
+entity_behaviour.c.i:
+	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/entity_behaviour.c.i
+.PHONY : entity_behaviour.c.i
+
+entity_behaviour.s: entity_behaviour.c.s
+
+.PHONY : entity_behaviour.s
+
+# target to generate assembly for a file
+entity_behaviour.c.s:
+	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/entity_behaviour.c.s
+.PHONY : entity_behaviour.c.s
+
 entity_factory.o: entity_factory.c.o
 
 .PHONY : entity_factory.o
@@ -446,33 +527,6 @@ entity_launcher.s: entity_launcher.c.s
 entity_launcher.c.s:
 	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/entity_launcher.c.s
 .PHONY : entity_launcher.c.s
-
-entity_type.o: entity_type.c.o
-
-.PHONY : entity_type.o
-
-# target to build an object file
-entity_type.c.o:
-	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/entity_type.c.o
-.PHONY : entity_type.c.o
-
-entity_type.i: entity_type.c.i
-
-.PHONY : entity_type.i
-
-# target to preprocess a source file
-entity_type.c.i:
-	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/entity_type.c.i
-.PHONY : entity_type.c.i
-
-entity_type.s: entity_type.c.s
-
-.PHONY : entity_type.s
-
-# target to generate assembly for a file
-entity_type.c.s:
-	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/entity_type.c.s
-.PHONY : entity_type.c.s
 
 game.o: game.c.o
 
@@ -906,6 +960,12 @@ help:
 	@echo "... base.o"
 	@echo "... base.i"
 	@echo "... base.s"
+	@echo "... brigade.o"
+	@echo "... brigade.i"
+	@echo "... brigade.s"
+	@echo "... command.o"
+	@echo "... command.i"
+	@echo "... command.s"
 	@echo "... controller.o"
 	@echo "... controller.i"
 	@echo "... controller.s"
@@ -918,15 +978,15 @@ help:
 	@echo "... entity.o"
 	@echo "... entity.i"
 	@echo "... entity.s"
+	@echo "... entity_behaviour.o"
+	@echo "... entity_behaviour.i"
+	@echo "... entity_behaviour.s"
 	@echo "... entity_factory.o"
 	@echo "... entity_factory.i"
 	@echo "... entity_factory.s"
 	@echo "... entity_launcher.o"
 	@echo "... entity_launcher.i"
 	@echo "... entity_launcher.s"
-	@echo "... entity_type.o"
-	@echo "... entity_type.i"
-	@echo "... entity_type.s"
 	@echo "... game.o"
 	@echo "... game.i"
 	@echo "... game.s"

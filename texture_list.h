@@ -12,6 +12,7 @@ struct texture_list {
     sfTexture* background;
     sfTexture* assault;
     sfTexture* retreat;
+    sfTexture* flag;
 };
 texture_list* texture_list_load();
 int texture_list_destroy(texture_list*);

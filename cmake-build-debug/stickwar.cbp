@@ -122,6 +122,18 @@
 		<Unit filename="/home/pierre/CLionProjects/batonguerre/base.h">
 			<Option target="stickwar"/>
 		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/batonguerre/brigade.c">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/batonguerre/brigade.h">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/batonguerre/command.c">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/batonguerre/command.h">
+			<Option target="stickwar"/>
+		</Unit>
 		<Unit filename="/home/pierre/CLionProjects/batonguerre/controller.c">
 			<Option target="stickwar"/>
 		</Unit>
@@ -146,6 +158,12 @@
 		<Unit filename="/home/pierre/CLionProjects/batonguerre/entity.h">
 			<Option target="stickwar"/>
 		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/batonguerre/entity_behaviour.c">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/batonguerre/entity_behaviour.h">
+			<Option target="stickwar"/>
+		</Unit>
 		<Unit filename="/home/pierre/CLionProjects/batonguerre/entity_factory.c">
 			<Option target="stickwar"/>
 		</Unit>
@@ -156,12 +174,6 @@
 			<Option target="stickwar"/>
 		</Unit>
 		<Unit filename="/home/pierre/CLionProjects/batonguerre/entity_launcher.h">
-			<Option target="stickwar"/>
-		</Unit>
-		<Unit filename="/home/pierre/CLionProjects/batonguerre/entity_type.c">
-			<Option target="stickwar"/>
-		</Unit>
-		<Unit filename="/home/pierre/CLionProjects/batonguerre/entity_type.h">
 			<Option target="stickwar"/>
 		</Unit>
 		<Unit filename="/home/pierre/CLionProjects/batonguerre/game.c">

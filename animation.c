@@ -28,7 +28,7 @@ animation_frame* animation_frame_init(animation* target){
 sfSprite* animation_frame_next(animation_frame* anim, int flip){
     sfSprite* sprite = sfSprite_create();
     sfSprite_setTexture(sprite, anim->anim->texture, sfTrue);
-    sfIntRect target = anim->anim->frames[anim->frame++];
+    sfIntRect target = anim->anim->frames[(int)(anim->frame)];
     if (flip){
         flip_rect(&target);
     }

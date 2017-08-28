@@ -12,7 +12,7 @@ struct arrow {
     int damage;
     int lifetime;
 };
-projectile* arrow_create(int pos, int team, int facing, int damage);
+projectile* arrow_create(int pos, team* team, int facing, int damage);
 
 int arrow_projectile_play(void* arrow, list* entities);
 int arrow_projectile_destroy(projectile* proj);

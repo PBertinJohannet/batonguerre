@@ -15,40 +15,30 @@ archer* archer_init(int level){
 }
 
 void set_archer_class(entity* ent, int level){
-    entity_type* c = malloc(sizeof(entity_type));
+    entity_behaviour* c = malloc(sizeof(entity_behaviour));
+    set_basic_behaviour(c);
     c->type = ARCHER;
-    c->type_stats = archer_init(level);
-    c->play = entity_base_play;
     c->get_current_range = archer_get_current_range;
+    c->get_dying_animation = archer_get_dying_animation;
+    c->get_walking_animation = archer_get_walking_animation;
     c->to_attack = archer_to_attack;
-    c->to_aggro = archer_to_aggro;
-    c->attack = archer_attack;
-    c->to_dying = archer_to_dying;
-    c->retreating = archer_retreating;
+    c->attacking = archer_attacking;
+    c->type_stats = archer_init(level);
     ent->type = c;
 }
 
 
-void archer_retreating(entity* ent, list* entities){
-    if (ent->drawable->anim->anim != get_animations()->archer_walk){
-        animation_frame_destroy(ent->drawable->anim);
-        ent->drawable->anim = animation_frame_init(get_animations()->archer_walk);
-    }
-    if ((int)(abs(ent->pos-ent->team*MAP_SIZE))>RETREAT_PLAYER){
-        ent->facing = !ent->team;
-        ent->pos -= ent->speed * (2 * ent->facing - 1);
-    } else {
-        entity_base_find_target(ent, entities);
-    }
+animation* archer_get_dying_animation(entity* ent){
+    return get_animations()->archer_death;
 }
 
-void archer_to_dying(entity* ent){
-    ent->state = ENTITY_STATE_DYING;
-    ent->drawable->anim = animation_frame_init(get_animations()->archer_death);
+animation* archer_get_walking_animation(entity* ent){
+    return get_animations()->archer_walk;
 }
 
-void archer_attack(entity* ent, game* g){
-    if (!(ent->state == ENTITY_STATE_ATTACK_FAILING) && ent->drawable->anim->frame == 12){
+
+void archer_attacking(entity* ent, game* g){
+    if (!(ent->state == ENTITY_STATE_ATTACK_FAILING) && drawable_entity_get_frame(ent->drawable) == 12){
         switch (((archer*)ent->type->type_stats)->attack_type){
             case ARCHER_SHORT_HIT:
                 ent->target->hp-=((archer*)ent->type->type_stats)->damage + ARCHER_SHORT_HIT_DAMAGE;
@@ -59,6 +49,7 @@ void archer_attack(entity* ent, game* g){
                 game_add_projectile(g,arrow_create(ent->pos, ent->team, ent->facing, ARCHER_NORMAL_DAMAGE));
         }
     }
+    drawable_entity_animation_forward(ent->drawable, ARCHER_BASE_ATTACK_SPEED/FPS);
 }
 
 int archer_get_current_range(entity* ent){
@@ -83,10 +74,4 @@ void archer_to_attack(entity* ent,entity* target){
             ent->drawable->anim = animation_frame_init(get_animations()->archer_critical_hit);
         }
     }
-}
-
-void archer_to_aggro(entity* ent) {
-    ent->state = ENTITY_STATE_ASSAULT;
-    animation_frame_destroy(ent->drawable->anim);
-    ent->drawable->anim = animation_frame_init(get_animations()->archer_walk);
 }

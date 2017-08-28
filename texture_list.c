@@ -8,6 +8,7 @@ texture_list* texture_list_load() {
     t->background = sfTexture_createFromFile("background.png", NULL);
     t->assault = sfTexture_createFromFile("assault.png", NULL);
     t->retreat = sfTexture_createFromFile("retreat.png", NULL);
+    t->flag = sfTexture_createFromFile("flag.png",NULL);
     return t;
 }
 

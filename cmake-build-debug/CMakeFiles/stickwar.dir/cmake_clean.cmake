@@ -6,7 +6,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/stickwar.dir/array_list.c.o"
   "CMakeFiles/stickwar.dir/view.c.o"
   "CMakeFiles/stickwar.dir/entity.c.o"
-  "CMakeFiles/stickwar.dir/entity_type.c.o"
+  "CMakeFiles/stickwar.dir/entity_behaviour.c.o"
   "CMakeFiles/stickwar.dir/game.c.o"
   "CMakeFiles/stickwar.dir/kicker.c.o"
   "CMakeFiles/stickwar.dir/controller.c.o"
@@ -27,6 +27,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/stickwar.dir/arrow.c.o"
   "CMakeFiles/stickwar.dir/global.c.o"
   "CMakeFiles/stickwar.dir/game_interact.c.o"
+  "CMakeFiles/stickwar.dir/brigade.c.o"
+  "CMakeFiles/stickwar.dir/command.c.o"
   "stickwar.pdb"
   "stickwar"
 )

@@ -5,10 +5,11 @@
 #ifndef STICKWAR_KICKER_H
 #define STICKWAR_KICKER_H
 
-#include "entity_type.h"
+#include "entity_behaviour.h"
 typedef struct kicker kicker;
-typedef struct entity_type entity_type;
+typedef struct entity_behaviour entity_type;
 typedef struct entity entity;
+typedef struct game game;
 struct kicker{
     int range;
     int attack_type;
@@ -20,11 +21,9 @@ enum kicker_attack{
 };
 kicker* kicker_init(int level);
 void set_kicker_class(entity*, int level);
-void kicker_retreating(entity* ent, list*);
-void kicker_play(game* g, entity* player, list* entities );
-void kicker_attack(entity* ent, game* g);
-int kicker_get_current_range(entity*);
-void kicker_to_attack(entity* ent,entity* target );
-void kicker_to_dying(entity* ent );
-void kicker_to_aggro(entity* ent );
+animation* kicker_get_dying_animation(entity* ent);
+animation* kicker_get_walking_animation(entity* ent);
+void kicker_attacking(entity* ent, game* g);
+int kicker_get_current_range(entity* ent);
+void kicker_to_attack(entity* ent,entity* target);
 #endif //STICKWAR_KICKER_H

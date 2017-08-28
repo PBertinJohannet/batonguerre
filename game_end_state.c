@@ -27,13 +27,13 @@ void game_end_next_loop(game_end_state* ps){
     if (!game_end_update(ps)) {
         for (int i = 0; i < ps->ended_game->entities->size; i++) {
             entity *ent = list_at(ps->ended_game->entities, i);
-            if (game_get_team(ps->ended_game, ent->team) != ps->winning_team &&
+            if (ent->team != ps->winning_team &&
                 ent->drawable->anim->frame == ent->drawable->anim->anim->nb_frames - 2) {
                 ent->drawable->anim->frame -= 1;
             }
         }
         view_draw_map(ps->ended_game->view);
-        view_draw_launchers(ps->ended_game->view, ps->ended_game->player->spawners);
+        view_draw_launchers(ps->ended_game->view, ps->ended_game->player->brigades);
         game_end_display_message(ps);
         view_draw_entities(ps->ended_game->view, game_get_drawables(ps->ended_game));
     }

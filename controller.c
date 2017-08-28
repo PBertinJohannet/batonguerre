@@ -6,7 +6,14 @@
 #include "view.h"
 #include "game_state.h"
 #include "game_interact.h"
-void controller_process_events( game* g){
+controller* controller_init(game* g){
+    controller* c = malloc(sizeof(controller));
+    c->commanding_brigade = 0;
+    c->game = g;
+    return c;
+}
+void controller_process_events( controller* c){
+    game* g = c->game;
     sfVector2i mouse = sfMouse_getPositionRenderWindow(game_get_view_window(g));
     if (mouse.x>WINDOW_WIDTH-100.0){
         view_move_right(g->view);
@@ -32,7 +39,7 @@ void controller_process_events( game* g){
 
                 break;
             case sfEvtMouseButtonPressed:
-                controller_process_mouse_click(g,mouse);
+                controller_process_mouse_click(c,mouse);
                 break;
             default:
                 break;
@@ -45,16 +52,26 @@ void controller_process_events( game* g){
 }
 
 
-void controller_process_mouse_click(game* g, sfVector2i mouse){
+void controller_process_mouse_click(controller* c, sfVector2i mouse){
+    game* g = c->game;
+    if (c->commanding_brigade){
+        game_command_one(g,g->player,mouse.x*1000/WINDOW_WIDTH+g->view->camera_position, c->selected_brigade);
+        c->commanding_brigade = 0;
+    }
     if (mouse.y>50 && mouse.y<150){
-        team_launch_entity(g->player, g, mouse.x/100);
+        if (sfKeyboard_isKeyPressed(sfKeyLControl)){
+            c->commanding_brigade = 1;
+            c->selected_brigade = mouse.x / 100;
+        } else {
+            team_launch_entity(g->player, g, mouse.x / 100);
+        }
     }
     if ( mouse.y< 150) {
         if (mouse.x > 300 && mouse.x < 350) {
-            game_order_retreat(g, 0);
+            game_order_retreat(g, g->player);
         }
         if (mouse.x > 450 && mouse.x < 550) {
-            game_order_assault(g, 0);
+            game_order_assault(g, g->player);
         }
     }
 }

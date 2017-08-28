@@ -58,7 +58,7 @@ void playing_state_to_game_end_state(game_state* state, team* winner){
     state->next_loop = game_end_state_next_loop;
     for (int i = 0;i<new_state->ended_game->entities->size;i++){
         entity* ent = list_at(new_state->ended_game->entities,i);
-        if (game_get_team(new_state->ended_game, ent->team)!=new_state->winning_team){
+        if (ent->team!=new_state->winning_team){
             ent->type->to_dying(ent);
         }
     }
@@ -74,8 +74,11 @@ void game_end_state_next_loop(void* state){
 void game_end_state_to_playing_state(game_state* state){
     game_end_state* old = state->state;
     game* g = old->ended_game;
+    printf("game destroy \n");
     game_destroy(g);
     free(old);
+    printf("new state \n");
     state->state = game_init(state);
+    printf("next loop \n");
     state->next_loop = playing_state_next_loop;
 }

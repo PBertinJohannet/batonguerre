@@ -5,9 +5,9 @@
 #ifndef STICKWAR_ARCHER_H
 #define STICKWAR_ARCHER_H
 
-#include "entity_type.h"
+#include "entity_behaviour.h"
 typedef struct archer archer;
-typedef struct entity_type entity_type;
+typedef struct entity_behaviour entity_type;
 typedef struct entity entity;
 enum archer_attack {
     ARCHER_NONE,
@@ -23,13 +23,12 @@ struct archer{
     int attack_type;
 };
 archer* archer_init(int level);
-void archer_retreating(entity* ent, list*);
 void set_archer_class(entity*, int level);
-void archer_play(entity* player, list* entities);
-void archer_attack(entity* ent, game* g);
-int archer_get_current_range(entity*);
+
+animation* archer_get_dying_animation(entity* ent);
+animation* archer_get_walking_animation(entity* ent);
+void archer_attacking(entity* ent, game* g);
+int archer_get_current_range(entity* ent);
 void archer_to_attack(entity* ent,entity* target);
-void archer_to_dying(entity* ent);
-void archer_to_aggro(entity* ent);
 
 #endif //STICKWAR_ARCHER_H

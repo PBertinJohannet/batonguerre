@@ -19,7 +19,7 @@ struct animation{
 };
 struct animation_frame{
     animation* anim;
-    int frame;
+    float frame;
 };
 
 animation* animation_init(char* name);

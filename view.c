@@ -5,6 +5,7 @@
 #include "view.h"
 #include "entity_launcher.h"
 #include "global.h"
+#include "brigade.h"
 view* view_init(sfRenderWindow* window){
     view* v = malloc(sizeof(view));
     v->window = window;
@@ -32,11 +33,29 @@ void view_draw_sprite(view* v, sfSprite* sprite, sfVector2f position, sfVector2f
 }
 void view_draw_launchers(view* v, list* launchers){
     for (int i = 0;i<launchers->size;i++){
-        entity_launcher* launcher = list_at(launchers, i);
+        entity_launcher* launcher = ((brigade*)list_at(launchers, i))->launcher;
         sfSprite* icon = entity_launcher_get_icon(launcher);
         sfVector2f position = {(i)*50, 50};
         sfVector2f scale = {100,100};
         view_draw_sprite(v,icon,position,scale,0);
+    }
+}
+
+
+void view_draw_cursor(view* v, int commanding){
+    if (commanding){
+        sfRenderWindow_setMouseCursorVisible(v->window,0);
+        sfSprite* image = sfSprite_create();
+        sfSprite_setTexture(image, get_textures()->flag,0);
+        sfVector2f new_scale = {200.0,200.0};
+        sfVector2i mouse = sfMouse_getPositionRenderWindow(v->window);
+        sfVector2f position = {mouse.x*1000/WINDOW_WIDTH, mouse.y};
+        sfFloatRect bounds = sfSprite_getGlobalBounds(image);
+        sfVector2f origin = {bounds.width/2, bounds.height/2};
+        sfSprite_setOrigin(image, origin);
+        view_draw_sprite(v,image,position,new_scale,0);
+    } else {
+        sfRenderWindow_setMouseCursorVisible(v->window, 1);
     }
 }
 

@@ -225,28 +225,28 @@ CMakeFiles/stickwar.dir/entity.c.o.provides: CMakeFiles/stickwar.dir/entity.c.o.
 CMakeFiles/stickwar.dir/entity.c.o.provides.build: CMakeFiles/stickwar.dir/entity.c.o
 
 
-CMakeFiles/stickwar.dir/entity_type.c.o: CMakeFiles/stickwar.dir/flags.make
-CMakeFiles/stickwar.dir/entity_type.c.o: ../entity_type.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/stickwar.dir/entity_type.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/entity_type.c.o   -c /home/pierre/CLionProjects/batonguerre/entity_type.c
+CMakeFiles/stickwar.dir/entity_behaviour.c.o: CMakeFiles/stickwar.dir/flags.make
+CMakeFiles/stickwar.dir/entity_behaviour.c.o: ../entity_behaviour.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/stickwar.dir/entity_behaviour.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/entity_behaviour.c.o   -c /home/pierre/CLionProjects/batonguerre/entity_behaviour.c
 
-CMakeFiles/stickwar.dir/entity_type.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/stickwar.dir/entity_type.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/batonguerre/entity_type.c > CMakeFiles/stickwar.dir/entity_type.c.i
+CMakeFiles/stickwar.dir/entity_behaviour.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/stickwar.dir/entity_behaviour.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/batonguerre/entity_behaviour.c > CMakeFiles/stickwar.dir/entity_behaviour.c.i
 
-CMakeFiles/stickwar.dir/entity_type.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/stickwar.dir/entity_type.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/batonguerre/entity_type.c -o CMakeFiles/stickwar.dir/entity_type.c.s
+CMakeFiles/stickwar.dir/entity_behaviour.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/stickwar.dir/entity_behaviour.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/batonguerre/entity_behaviour.c -o CMakeFiles/stickwar.dir/entity_behaviour.c.s
 
-CMakeFiles/stickwar.dir/entity_type.c.o.requires:
+CMakeFiles/stickwar.dir/entity_behaviour.c.o.requires:
 
-.PHONY : CMakeFiles/stickwar.dir/entity_type.c.o.requires
+.PHONY : CMakeFiles/stickwar.dir/entity_behaviour.c.o.requires
 
-CMakeFiles/stickwar.dir/entity_type.c.o.provides: CMakeFiles/stickwar.dir/entity_type.c.o.requires
-	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/entity_type.c.o.provides.build
-.PHONY : CMakeFiles/stickwar.dir/entity_type.c.o.provides
+CMakeFiles/stickwar.dir/entity_behaviour.c.o.provides: CMakeFiles/stickwar.dir/entity_behaviour.c.o.requires
+	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/entity_behaviour.c.o.provides.build
+.PHONY : CMakeFiles/stickwar.dir/entity_behaviour.c.o.provides
 
-CMakeFiles/stickwar.dir/entity_type.c.o.provides.build: CMakeFiles/stickwar.dir/entity_type.c.o
+CMakeFiles/stickwar.dir/entity_behaviour.c.o.provides.build: CMakeFiles/stickwar.dir/entity_behaviour.c.o
 
 
 CMakeFiles/stickwar.dir/game.c.o: CMakeFiles/stickwar.dir/flags.make
@@ -729,6 +729,54 @@ CMakeFiles/stickwar.dir/game_interact.c.o.provides: CMakeFiles/stickwar.dir/game
 CMakeFiles/stickwar.dir/game_interact.c.o.provides.build: CMakeFiles/stickwar.dir/game_interact.c.o
 
 
+CMakeFiles/stickwar.dir/brigade.c.o: CMakeFiles/stickwar.dir/flags.make
+CMakeFiles/stickwar.dir/brigade.c.o: ../brigade.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building C object CMakeFiles/stickwar.dir/brigade.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/brigade.c.o   -c /home/pierre/CLionProjects/batonguerre/brigade.c
+
+CMakeFiles/stickwar.dir/brigade.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/stickwar.dir/brigade.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/batonguerre/brigade.c > CMakeFiles/stickwar.dir/brigade.c.i
+
+CMakeFiles/stickwar.dir/brigade.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/stickwar.dir/brigade.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/batonguerre/brigade.c -o CMakeFiles/stickwar.dir/brigade.c.s
+
+CMakeFiles/stickwar.dir/brigade.c.o.requires:
+
+.PHONY : CMakeFiles/stickwar.dir/brigade.c.o.requires
+
+CMakeFiles/stickwar.dir/brigade.c.o.provides: CMakeFiles/stickwar.dir/brigade.c.o.requires
+	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/brigade.c.o.provides.build
+.PHONY : CMakeFiles/stickwar.dir/brigade.c.o.provides
+
+CMakeFiles/stickwar.dir/brigade.c.o.provides.build: CMakeFiles/stickwar.dir/brigade.c.o
+
+
+CMakeFiles/stickwar.dir/command.c.o: CMakeFiles/stickwar.dir/flags.make
+CMakeFiles/stickwar.dir/command.c.o: ../command.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building C object CMakeFiles/stickwar.dir/command.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/command.c.o   -c /home/pierre/CLionProjects/batonguerre/command.c
+
+CMakeFiles/stickwar.dir/command.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/stickwar.dir/command.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/batonguerre/command.c > CMakeFiles/stickwar.dir/command.c.i
+
+CMakeFiles/stickwar.dir/command.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/stickwar.dir/command.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/batonguerre/command.c -o CMakeFiles/stickwar.dir/command.c.s
+
+CMakeFiles/stickwar.dir/command.c.o.requires:
+
+.PHONY : CMakeFiles/stickwar.dir/command.c.o.requires
+
+CMakeFiles/stickwar.dir/command.c.o.provides: CMakeFiles/stickwar.dir/command.c.o.requires
+	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/command.c.o.provides.build
+.PHONY : CMakeFiles/stickwar.dir/command.c.o.provides
+
+CMakeFiles/stickwar.dir/command.c.o.provides.build: CMakeFiles/stickwar.dir/command.c.o
+
+
 # Object files for target stickwar
 stickwar_OBJECTS = \
 "CMakeFiles/stickwar.dir/main.c.o" \
@@ -738,7 +786,7 @@ stickwar_OBJECTS = \
 "CMakeFiles/stickwar.dir/array_list.c.o" \
 "CMakeFiles/stickwar.dir/view.c.o" \
 "CMakeFiles/stickwar.dir/entity.c.o" \
-"CMakeFiles/stickwar.dir/entity_type.c.o" \
+"CMakeFiles/stickwar.dir/entity_behaviour.c.o" \
 "CMakeFiles/stickwar.dir/game.c.o" \
 "CMakeFiles/stickwar.dir/kicker.c.o" \
 "CMakeFiles/stickwar.dir/controller.c.o" \
@@ -758,7 +806,9 @@ stickwar_OBJECTS = \
 "CMakeFiles/stickwar.dir/projectile.c.o" \
 "CMakeFiles/stickwar.dir/arrow.c.o" \
 "CMakeFiles/stickwar.dir/global.c.o" \
-"CMakeFiles/stickwar.dir/game_interact.c.o"
+"CMakeFiles/stickwar.dir/game_interact.c.o" \
+"CMakeFiles/stickwar.dir/brigade.c.o" \
+"CMakeFiles/stickwar.dir/command.c.o"
 
 # External object files for target stickwar
 stickwar_EXTERNAL_OBJECTS =
@@ -770,7 +820,7 @@ stickwar: CMakeFiles/stickwar.dir/drawable_entity.c.o
 stickwar: CMakeFiles/stickwar.dir/array_list.c.o
 stickwar: CMakeFiles/stickwar.dir/view.c.o
 stickwar: CMakeFiles/stickwar.dir/entity.c.o
-stickwar: CMakeFiles/stickwar.dir/entity_type.c.o
+stickwar: CMakeFiles/stickwar.dir/entity_behaviour.c.o
 stickwar: CMakeFiles/stickwar.dir/game.c.o
 stickwar: CMakeFiles/stickwar.dir/kicker.c.o
 stickwar: CMakeFiles/stickwar.dir/controller.c.o
@@ -791,9 +841,11 @@ stickwar: CMakeFiles/stickwar.dir/projectile.c.o
 stickwar: CMakeFiles/stickwar.dir/arrow.c.o
 stickwar: CMakeFiles/stickwar.dir/global.c.o
 stickwar: CMakeFiles/stickwar.dir/game_interact.c.o
+stickwar: CMakeFiles/stickwar.dir/brigade.c.o
+stickwar: CMakeFiles/stickwar.dir/command.c.o
 stickwar: CMakeFiles/stickwar.dir/build.make
 stickwar: CMakeFiles/stickwar.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Linking C executable stickwar"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Linking C executable stickwar"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/stickwar.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -808,7 +860,7 @@ CMakeFiles/stickwar.dir/requires: CMakeFiles/stickwar.dir/drawable_entity.c.o.re
 CMakeFiles/stickwar.dir/requires: CMakeFiles/stickwar.dir/array_list.c.o.requires
 CMakeFiles/stickwar.dir/requires: CMakeFiles/stickwar.dir/view.c.o.requires
 CMakeFiles/stickwar.dir/requires: CMakeFiles/stickwar.dir/entity.c.o.requires
-CMakeFiles/stickwar.dir/requires: CMakeFiles/stickwar.dir/entity_type.c.o.requires
+CMakeFiles/stickwar.dir/requires: CMakeFiles/stickwar.dir/entity_behaviour.c.o.requires
 CMakeFiles/stickwar.dir/requires: CMakeFiles/stickwar.dir/game.c.o.requires
 CMakeFiles/stickwar.dir/requires: CMakeFiles/stickwar.dir/kicker.c.o.requires
 CMakeFiles/stickwar.dir/requires: CMakeFiles/stickwar.dir/controller.c.o.requires
@@ -829,6 +881,8 @@ CMakeFiles/stickwar.dir/requires: CMakeFiles/stickwar.dir/projectile.c.o.require
 CMakeFiles/stickwar.dir/requires: CMakeFiles/stickwar.dir/arrow.c.o.requires
 CMakeFiles/stickwar.dir/requires: CMakeFiles/stickwar.dir/global.c.o.requires
 CMakeFiles/stickwar.dir/requires: CMakeFiles/stickwar.dir/game_interact.c.o.requires
+CMakeFiles/stickwar.dir/requires: CMakeFiles/stickwar.dir/brigade.c.o.requires
+CMakeFiles/stickwar.dir/requires: CMakeFiles/stickwar.dir/command.c.o.requires
 
 .PHONY : CMakeFiles/stickwar.dir/requires
 

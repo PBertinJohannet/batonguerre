@@ -12,59 +12,42 @@ kicker* kicker_init(int level){
 }
 
 void set_kicker_class(entity* ent, int level){
-    entity_type* c = malloc(sizeof(entity_type));
-    c->type = KICKER;
-    c->type_stats = kicker_init(level);
-    c->play = entity_base_play;
+    entity_behaviour* c = malloc(sizeof(entity_behaviour));
+    set_basic_behaviour(c);
+    c->type =KICKER;
     c->get_current_range = kicker_get_current_range;
+    c->get_dying_animation = kicker_get_dying_animation;
+    c->get_walking_animation = kicker_get_walking_animation;
     c->to_attack = kicker_to_attack;
-    c->to_aggro = kicker_to_aggro;
-    c->attack = kicker_attack;
-    c->to_dying = kicker_to_dying;
-    c->retreating = kicker_retreating;
+    c->attacking = kicker_attacking;
+    c->type_stats = kicker_init(level);
     ent->type = c;
 }
 
-void kicker_retreating(entity* ent, list* entities ){
-    if (ent->drawable->anim->anim !=  get_animations()->stick_walk){
-        animation_frame_destroy(ent->drawable->anim);
-        ent->drawable->anim = animation_frame_init( get_animations()->stick_walk);
-    }
-    //int team_coeff = 1000*ent->team - (2*ent->team+1)*RETREAT_PLAYER;
-    if ((int)(abs(ent->pos-ent->team*MAP_SIZE))>RETREAT_PLAYER){
-        ent->facing = !ent->team;
-        ent->pos -= ent->speed * (2 * ent->facing - 1) ;
-    } else {
-        entity_base_find_target(ent, entities);
-    }
-}
-
-
-void kicker_to_dying(entity* ent ){
-    ent->state = ENTITY_STATE_DYING;
-    animation_frame* new_anim;
+animation* kicker_get_dying_animation(entity* ent){
     if (ent->state == ENTITY_STATE_ASSAULT
         || ent->drawable->anim->frame < 6
         || ent->drawable->anim->frame > 16){
-        new_anim = animation_frame_init( get_animations()->stick_walk_death);
-        ent->pos += 60 * (ent->facing * 2 - 1);
-    } else {
-        new_anim = animation_frame_init( get_animations()->stick_kick_death);
-        new_anim->frame = ent->drawable->anim->frame;
+        return get_animations()->stick_walk_death;
     }
-    animation_frame_destroy(ent->drawable->anim);
-    ent->drawable->anim = new_anim;
+    return get_animations()->stick_kick_death;
 }
 
-void kicker_attack(entity* ent, game* g){
-    if (!(ent->state == ENTITY_STATE_ATTACK_FAILING) && ent->drawable->anim->frame == 11){
+animation* kicker_get_walking_animation(entity* ent){
+    return get_animations()->stick_walk;
+}
+
+
+void kicker_attacking(entity* ent, game* g){
+    float base_attack_speed = (((kicker*)ent->type->type_stats)->attack_type == PUNCH)?KICKER_PUNCH_SPEED:KICKER_BASE_ATTACK_SPEED;
+    if (!(ent->state == ENTITY_STATE_ATTACK_FAILING) && drawable_entity_get_frame(ent->drawable) == 11){
         int damage = KICKER_KICK_DAMAGE;
         if (((kicker*)ent->type->type_stats)->attack_type == PUNCH){
             damage = KICKER_PUNCH_DAMAGE;
         }
         ent->target->hp-= damage;
-
     }
+    drawable_entity_animation_forward(ent->drawable, base_attack_speed/FPS);
 }
 
 int kicker_get_current_range(entity* ent){
@@ -83,10 +66,4 @@ void kicker_to_attack(entity* ent,entity* target){
         ((kicker *) (ent->type->type_stats))->attack_type = KICK;
         ent->drawable->anim = animation_frame_init( get_animations()->stick_kick);
     }
-}
-
-void kicker_to_aggro(entity* ent){
-    ent->state = ENTITY_STATE_ASSAULT;
-    animation_frame_destroy(ent->drawable->anim);
-    ent->drawable->anim = animation_frame_init( get_animations()->stick_walk);
 }

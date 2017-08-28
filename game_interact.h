@@ -7,10 +7,11 @@
 
 #include "game.h"
 
-
-void game_order_retreat(game* g, int team_id);
-void game_order_assault(game* g, int team_id);
-void game_command_one(game* g, int team_id, int entity_type, int target);
-void game_command_all(game* g, int team_id, int target);
+#include "team.h"
+typedef struct team team;
+void game_order_retreat(game* g, team* t);
+void game_order_assault(game* g, team* t);
+void game_command_one(game* g, team* t, int entity_type, int target);
+void game_command_all(game* g, team* t, int target);
 
 #endif //STICKWAR_GAME_INTERACT_H

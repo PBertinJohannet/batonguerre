@@ -20,6 +20,7 @@ struct view{
 };
 view* view_init(sfRenderWindow*);
 void view_play_music(view* v, char* name);
+void view_draw_cursor(view* v, int commanding);
 void view_draw_sprite(view* v, sfSprite* sprite, sfVector2f position, sfVector2f size, int rel);
 void view_draw_launchers(view* v, list* launchers);
 void view_sprite_center(sfSprite* sprite);
