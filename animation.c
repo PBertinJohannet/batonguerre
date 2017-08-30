@@ -14,6 +14,8 @@ animation* animation_init(char* name){
     animation* anim = malloc(sizeof(animation));
     read_frames(json_name, anim);
     anim->texture = sfTexture_createFromFile(img_name,NULL);
+    free(img_name);
+    free(json_name);
     return anim;
 }
 
