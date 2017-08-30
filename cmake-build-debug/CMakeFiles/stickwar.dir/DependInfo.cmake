@@ -37,6 +37,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/home/pierre/CLionProjects/batonguerre/texture_list.c" "/home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles/stickwar.dir/texture_list.c.o"
   "/home/pierre/CLionProjects/batonguerre/utils.c" "/home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles/stickwar.dir/utils.c.o"
   "/home/pierre/CLionProjects/batonguerre/view.c" "/home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles/stickwar.dir/view.c.o"
+  "/home/pierre/CLionProjects/batonguerre/window_conf_reader.c" "/home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles/stickwar.dir/window_conf_reader.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

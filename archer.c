@@ -5,6 +5,7 @@
 #include "global.h"
 #include "archer.h"
 #include "arrow.h"
+#include "window_conf_reader.h"
 archer* archer_init(int level){
     archer* k = malloc(sizeof(archer));
     k->range = ARCHER_LONG_RANGE;
@@ -49,7 +50,7 @@ void archer_attacking(entity* ent, game* g){
                 game_add_projectile(g,arrow_create(ent->pos, ent->team, ent->facing, ARCHER_NORMAL_DAMAGE));
         }
     }
-    drawable_entity_animation_forward(ent->drawable, ARCHER_BASE_ATTACK_SPEED/FPS);
+    drawable_entity_animation_forward(ent->drawable, ARCHER_BASE_ATTACK_SPEED/get_window_config()->fps);
 }
 
 int archer_get_current_range(entity* ent){

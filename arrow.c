@@ -3,11 +3,12 @@
 //
 #include "arrow.h"
 #include "entity.h"
+#include "window_conf_reader.h"
 projectile* arrow_create(int pos, team* team, int facing, int damage){
     arrow* arrow = malloc(sizeof(arrow));
     projectile* proj = projectile_create(pos, team, facing);
     arrow->damage = damage;
-    arrow->lifetime = ARCHER_LONG_RANGE*FPS/ARROW_SPEED;
+    arrow->lifetime = ARCHER_LONG_RANGE*get_window_config()->fps/ARROW_SPEED + get_window_config()->fps;
     arrow->parent = proj;
     proj->drawable = drawable_entity_init(animation_frame_init(animation_init("arrow")),&proj->pos, &proj->facing,ARROW_SIZE);
     proj->play = arrow_projectile_play;
@@ -30,7 +31,7 @@ int arrow_projectile_play(void* proj, list* entities){
                 return 1;
         }
     }
-    pj->pos-=(2*pj->facing-1)*ARROW_SPEED/FPS;
+    pj->pos-=(2*pj->facing-1)*ARROW_SPEED/get_window_config()->fps;
     p_arr->lifetime--;
     if (p_arr->lifetime<1){
         return 1;

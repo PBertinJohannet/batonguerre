@@ -6,6 +6,7 @@
 #include "view.h"
 #include "game_state.h"
 #include "game_interact.h"
+#include "window_conf_reader.h"
 controller* controller_init(game* g){
     controller* c = malloc(sizeof(controller));
     c->commanding_brigade = 0;
@@ -15,7 +16,7 @@ controller* controller_init(game* g){
 void controller_process_events( controller* c){
     game* g = c->game;
     sfVector2i mouse = sfMouse_getPositionRenderWindow(game_get_view_window(g));
-    if (mouse.x>WINDOW_WIDTH-100.0){
+    if (mouse.x>get_window_config()->window_width-100.0){
         view_move_right(g->view);
     } if (mouse.x<50.0) {
         view_move_left(g->view);
@@ -55,7 +56,7 @@ void controller_process_events( controller* c){
 void controller_process_mouse_click(controller* c, sfVector2i mouse){
     game* g = c->game;
     if (c->commanding_brigade){
-        game_command_one(g,g->player,mouse.x*1000/WINDOW_WIDTH+g->view->camera_position, c->selected_brigade);
+        game_command_one(g,g->player,mouse.x*1000/get_window_config()->window_width+g->view->camera_position, c->selected_brigade);
         c->commanding_brigade = 0;
     }
     if (mouse.y>50 && mouse.y<150){

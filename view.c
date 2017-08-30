@@ -7,11 +7,11 @@
 #include "global.h"
 #include "brigade.h"
 #include "level_reader.h"
+#include "window_conf_reader.h"
 view* view_init(sfRenderWindow* window, battle_config* battle_conf){
     view* v = malloc(sizeof(view));
     v->window = window;
     v->battle_config = battle_conf;
-    sfRenderWindow_setFramerateLimit(v->window, FPS);
     v->font = sfFont_createFromFile("fonts/OpenSans-Bold.ttf");
     v->text = sfText_create();
     v->camera_position = 50;
@@ -29,7 +29,7 @@ void view_draw_sprite(view* v, sfSprite* sprite, sfVector2f position, sfVector2f
     sfFloatRect bounds = sfSprite_getGlobalBounds(sprite);
     sfVector2f scale = {size.x/bounds.height, size.y/bounds.height};
     sfSprite_setScale(sprite,scale);
-    position.x *=WINDOW_WIDTH/1000.0;
+    position.x *=get_window_config()->window_width/1000.0;
     sfSprite_setPosition(sprite, position);
     sfRenderWindow_drawSprite(v->window, sprite, NULL);
 }
@@ -51,7 +51,7 @@ void view_draw_cursor(view* v, int commanding){
         sfSprite_setTexture(image, get_textures()->flag,0);
         sfVector2f new_scale = {200.0,200.0};
         sfVector2i mouse = sfMouse_getPositionRenderWindow(v->window);
-        sfVector2f position = {mouse.x*1000/WINDOW_WIDTH, mouse.y};
+        sfVector2f position = {mouse.x*1000/get_window_config()->window_width, mouse.y};
         sfFloatRect bounds = sfSprite_getGlobalBounds(image);
         sfVector2f origin = {bounds.width/2, bounds.height/2};
         sfSprite_setOrigin(image, origin);
@@ -63,7 +63,7 @@ void view_draw_cursor(view* v, int commanding){
 
 void view_draw_entity(view* v, drawable_entity* dw){
     sfSprite* to_draw = animation_frame_next(dw->anim, *dw->facing);
-    sfVector2f pos = {*dw->pos, v->ground_position};
+    sfVector2f pos = {*dw->pos, v->battle_config->ground_pos};
     sfVector2f scale = {dw->size*100.f, dw->size*100.f};
     view_draw_sprite(v,to_draw,pos,scale,1);
 }
@@ -78,7 +78,7 @@ void view_draw_map(view* v){
 void view_draw_background(view* v){
     sfSprite* image = sfSprite_create();
     sfSprite_setTexture(image, get_textures()->background,0);
-    sfVector2f new_scale = {v->battle_config->map_size/1.75,WINDOW_HEIGHT};
+    sfVector2f new_scale = {v->battle_config->map_size/1.75,get_window_config()->window_height};
     sfVector2f position = {0 - v->camera_position, 0};
     view_draw_sprite(v,image,position,new_scale,0);
 }

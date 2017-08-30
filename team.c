@@ -5,6 +5,7 @@
 #include "entity_launcher.h"
 #include "global.h"
 #include "brigade.h"
+#include "window_conf_reader.h"
 team* team_init(int team_number,int pop, int gold_start, int gold_per_sec){
     team* t = malloc(sizeof(team));
     t->id = team_number;
@@ -17,9 +18,9 @@ team* team_init(int team_number,int pop, int gold_start, int gold_per_sec){
 
 
 void team_init_brigades(team* t){
-    list_add(t->brigades,brigade_init(KICKER,2,KICKER_COST,KICKER_COOLDOWN*FPS,get_animations()->kicker_icon,t));
-    list_add(t->brigades,brigade_init(NINJA,2,NINJA_COST,NINJA_COOLDOWN*FPS,get_animations()->ninja_icon,t));
-    list_add(t->brigades,brigade_init(ARCHER,2,ARCHER_COST,ARCHER_COOLDOWN*FPS,get_animations()->kicker_icon,t));
+    list_add(t->brigades,brigade_init(KICKER,2,KICKER_COST,KICKER_COOLDOWN*get_window_config()->fps,get_animations()->kicker_icon,t));
+    list_add(t->brigades,brigade_init(NINJA,2,NINJA_COST,NINJA_COOLDOWN*get_window_config()->fps,get_animations()->ninja_icon,t));
+    list_add(t->brigades,brigade_init(ARCHER,2,ARCHER_COST,ARCHER_COOLDOWN*get_window_config()->fps,get_animations()->kicker_icon,t));
 }
 
 
@@ -39,7 +40,7 @@ void team_order_entity(team* t,game* g, int id){
 }
 
 void team_play(team* t, int frame){
-    if (!(frame%FPS)) {
+    if (!(frame%get_window_config()->fps)) {
         t->gold += t->gold_per_sec;
     }
     for (int i = 0;i<t->brigades->size;i++){

@@ -19,7 +19,6 @@ struct view{
     sfFont* font;
     sfText* text;
     int camera_position;
-    int ground_position;
     battle_config* battle_config;
 };
 view* view_init(sfRenderWindow*, battle_config* battle_config);

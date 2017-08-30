@@ -3,7 +3,7 @@
 //
 
 #include "game_end_state.h"
-
+#include "window_conf_reader.h"
 void game_end_display_message(game_end_state* g){
     view* v = g->ended_game->view;
     char* text = "Defeat  \n press SPACE to restart";
@@ -13,7 +13,7 @@ void game_end_display_message(game_end_state* g){
     sfText_destroy(v->text);
     v->text = sfText_create();
     sfText_setString(v->text, text);
-    sfVector2f position = {WINDOW_HEIGHT/4, WINDOW_WIDTH/4};
+    sfVector2f position = {get_window_config()->window_height/4, get_window_config()->window_width/4};
     sfText_setPosition(v->text, position);
     sfText_setFont(v->text, v->font);
     sfText_setCharacterSize(v->text, 75);

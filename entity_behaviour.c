@@ -7,7 +7,7 @@
 #include "math.h"
 #include "command.h"
 #include "brigade.h"
-
+#include "window_conf_reader.h"
 
 void set_basic_behaviour(entity_behaviour* behaviour){
     behaviour->attack_failing = entity_base_attack_failing;
@@ -31,7 +31,7 @@ void entity_base_assaulting(entity* player, list* entities){
             player->facing = player->team->id;
             player->pos = entity_get_command(player)->target;
         }
-        drawable_entity_animation_forward(player->drawable, 25.0/FPS);
+        drawable_entity_animation_forward(player->drawable, 25.0/get_window_config()->fps);
     }
 }
 
@@ -62,7 +62,7 @@ void entity_base_dying(entity* player){
     if (drawable_entity_get_frame(player->drawable)== player->drawable->anim->anim->nb_frames - 1){
         player->state = ENTITY_STATE_DEAD;
     }
-    drawable_entity_animation_forward(player->drawable, 20.0/FPS);
+    drawable_entity_animation_forward(player->drawable, 20.0/get_window_config()->fps);
 }
 
 
@@ -71,7 +71,7 @@ void entity_base_attack_failing(entity* player, list* entities){
     if (drawable_entity_get_frame(player->drawable) == player->drawable->anim->anim->nb_frames - 1) {
         player->type->to_assault(player);
     }
-    drawable_entity_animation_forward(player->drawable, 25.0/FPS);
+    drawable_entity_animation_forward(player->drawable, 25.0/get_window_config()->fps);
 }
 
 void entity_base_to_retreat(entity* player){
@@ -82,14 +82,14 @@ void entity_base_to_retreat(entity* player){
 
 
 void entity_base_retreating(entity* player, list* entities){
-    if ((int)(abs(player->pos-player->team->id*player->team->pop))>RETREAT_PLAYER){
+    if ((int)(abs(player->pos-player->team->id*player->team->pop))>50){
         player->facing = !player->team->id;
         player->pos -= player->speed * (2 * player->facing - 1) ;
     } else {
         player->facing = player->team->id;
         entity_base_find_target(player, entities);
     }
-    drawable_entity_animation_forward(player->drawable, 25.0/FPS);
+    drawable_entity_animation_forward(player->drawable, 25.0/get_window_config()->fps);
 }
 
 void entity_base_to_dying(entity* player){

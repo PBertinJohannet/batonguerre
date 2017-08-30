@@ -4,10 +4,13 @@
 #include "game_state.h"
 #include "paused_state.h"
 #include "game_end_state.h"
+#include "window_conf_reader.h"
 game_state* playing_state_init(){
     game_state* state = malloc(sizeof(game_state));
-    sfVideoMode mode = {WINDOW_WIDTH, WINDOW_HEIGHT, 16};
+    window_config* win_conf = get_window_config();
+    sfVideoMode mode = {win_conf->window_width, win_conf->window_height, 16};
     state->window = sfRenderWindow_create(mode, "Stickwar",  sfResize | sfClose, NULL);
+    sfRenderWindow_setFramerateLimit(state->window, win_conf->fps);
     state->state = game_from_level(state, "mm0");
     state->next_loop = playing_state_next_loop;
     return state;

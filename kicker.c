@@ -4,6 +4,7 @@
 #include "kicker.h"
 #include "time.h"
 #include "global.h"
+#include "window_conf_reader.h"
 kicker* kicker_init(int level){
     kicker* k = malloc(sizeof(kicker));
     k->range = KICKER_RANGE;
@@ -47,7 +48,7 @@ void kicker_attacking(entity* ent, game* g){
         }
         ent->target->hp-= damage;
     }
-    drawable_entity_animation_forward(ent->drawable, base_attack_speed/FPS);
+    drawable_entity_animation_forward(ent->drawable, base_attack_speed/get_window_config()->fps);
 }
 
 int kicker_get_current_range(entity* ent){

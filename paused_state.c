@@ -2,13 +2,14 @@
 // Created by pierre on 23/08/17.
 //
 #include "paused_state.h"
-
+#include "window_conf_reader.h"
 void paused_game_display_message(paused_state* g){
     view* v = g->paused_game->view;
     sfText_destroy(v->text);
     v->text = sfText_create();
     sfText_setString(v->text, " PAUSED \n press SPACE to continue ");
-    sfVector2f position = {WINDOW_HEIGHT/4, WINDOW_WIDTH/4};
+    window_config* win_conf = get_window_config();
+    sfVector2f position = {win_conf->window_height/4, win_conf->window_width/4};
     sfText_setPosition(v->text, position);
     sfText_setFont(v->text, v->font);
     sfText_setCharacterSize(v->text, 75);

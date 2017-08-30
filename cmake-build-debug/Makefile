@@ -1014,6 +1014,33 @@ view.c.s:
 	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/view.c.s
 .PHONY : view.c.s
 
+window_conf_reader.o: window_conf_reader.c.o
+
+.PHONY : window_conf_reader.o
+
+# target to build an object file
+window_conf_reader.c.o:
+	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/window_conf_reader.c.o
+.PHONY : window_conf_reader.c.o
+
+window_conf_reader.i: window_conf_reader.c.i
+
+.PHONY : window_conf_reader.i
+
+# target to preprocess a source file
+window_conf_reader.c.i:
+	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/window_conf_reader.c.i
+.PHONY : window_conf_reader.c.i
+
+window_conf_reader.s: window_conf_reader.c.s
+
+.PHONY : window_conf_reader.s
+
+# target to generate assembly for a file
+window_conf_reader.c.s:
+	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/window_conf_reader.c.s
+.PHONY : window_conf_reader.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -1122,6 +1149,9 @@ help:
 	@echo "... view.o"
 	@echo "... view.i"
 	@echo "... view.s"
+	@echo "... window_conf_reader.o"
+	@echo "... window_conf_reader.i"
+	@echo "... window_conf_reader.s"
 .PHONY : help
 
 

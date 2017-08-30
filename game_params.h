@@ -6,10 +6,6 @@
 #define STICKWAR_GAME_PARAMS_H
 
 #include "stdlib.h"
-#define RETREAT_PLAYER 100
-#define WINDOW_WIDTH 1800
-#define WINDOW_HEIGHT 1000
-#define FPS 55
 
 
 

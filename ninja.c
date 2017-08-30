@@ -4,6 +4,7 @@
 
 #include "ninja.h"
 #include "global.h"
+#include "window_conf_reader.h"
 ninja* ninja_init(int level){
     ninja* k = malloc(sizeof(ninja));
     k->range = NINJA_RANGE;
@@ -57,7 +58,7 @@ void ninja_attacking(entity* ent, game* g) {
         default:
             break;
     }
-    drawable_entity_animation_forward(ent->drawable, NINJA_BASE_ATTACK_SPEED/FPS);
+    drawable_entity_animation_forward(ent->drawable, NINJA_BASE_ATTACK_SPEED/get_window_config()->fps);
 }
 
 void ninja_jumping(entity* ent){
@@ -76,7 +77,7 @@ void ninja_jumping(entity* ent){
         }
         ((ninja *) ent->type->type_stats)->will_jump = rand() % 2;
     }
-    drawable_entity_animation_forward(ent->drawable, NINJA_BASE_ATTACK_SPEED/FPS);
+    drawable_entity_animation_forward(ent->drawable, NINJA_BASE_ATTACK_SPEED/get_window_config()->fps);
 }
 
 int ninja_get_current_range(entity* ent){

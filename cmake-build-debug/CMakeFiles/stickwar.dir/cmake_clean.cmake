@@ -32,6 +32,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/stickwar.dir/level_reader.c.o"
   "CMakeFiles/stickwar.dir/ai.c.o"
   "CMakeFiles/stickwar.dir/utils.c.o"
+  "CMakeFiles/stickwar.dir/window_conf_reader.c.o"
   "stickwar.pdb"
   "stickwar"
 )

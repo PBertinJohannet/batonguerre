@@ -284,6 +284,12 @@
 		<Unit filename="/home/pierre/CLionProjects/batonguerre/view.h">
 			<Option target="stickwar"/>
 		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/batonguerre/window_conf_reader.c">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/batonguerre/window_conf_reader.h">
+			<Option target="stickwar"/>
+		</Unit>
 		<Unit filename="/home/pierre/CLionProjects/batonguerre/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

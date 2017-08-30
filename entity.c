@@ -2,11 +2,12 @@
 // Created by pierre on 21/08/17.
 //
 #include "entity.h"
+#include "window_conf_reader.h"
 entity* entity_init(int hp, float speed, team* team, float size, float pos,  animation_frame* frame){
     entity* ent = malloc(sizeof(entity));
     ent->pos = pos;
     ent->hp = hp;
-    ent->speed = speed / (float)FPS;
+    ent->speed = speed / (float)get_window_config()->fps;
     ent->team = team;
     ent->facing = team->id;
     ent->drawable = drawable_entity_init(frame,&ent->pos,&ent->facing,size);
