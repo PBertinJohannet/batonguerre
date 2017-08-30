@@ -777,6 +777,78 @@ CMakeFiles/stickwar.dir/command.c.o.provides: CMakeFiles/stickwar.dir/command.c.
 CMakeFiles/stickwar.dir/command.c.o.provides.build: CMakeFiles/stickwar.dir/command.c.o
 
 
+CMakeFiles/stickwar.dir/level_reader.c.o: CMakeFiles/stickwar.dir/flags.make
+CMakeFiles/stickwar.dir/level_reader.c.o: ../level_reader.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building C object CMakeFiles/stickwar.dir/level_reader.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/level_reader.c.o   -c /home/pierre/CLionProjects/batonguerre/level_reader.c
+
+CMakeFiles/stickwar.dir/level_reader.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/stickwar.dir/level_reader.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/batonguerre/level_reader.c > CMakeFiles/stickwar.dir/level_reader.c.i
+
+CMakeFiles/stickwar.dir/level_reader.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/stickwar.dir/level_reader.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/batonguerre/level_reader.c -o CMakeFiles/stickwar.dir/level_reader.c.s
+
+CMakeFiles/stickwar.dir/level_reader.c.o.requires:
+
+.PHONY : CMakeFiles/stickwar.dir/level_reader.c.o.requires
+
+CMakeFiles/stickwar.dir/level_reader.c.o.provides: CMakeFiles/stickwar.dir/level_reader.c.o.requires
+	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/level_reader.c.o.provides.build
+.PHONY : CMakeFiles/stickwar.dir/level_reader.c.o.provides
+
+CMakeFiles/stickwar.dir/level_reader.c.o.provides.build: CMakeFiles/stickwar.dir/level_reader.c.o
+
+
+CMakeFiles/stickwar.dir/ai.c.o: CMakeFiles/stickwar.dir/flags.make
+CMakeFiles/stickwar.dir/ai.c.o: ../ai.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building C object CMakeFiles/stickwar.dir/ai.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/ai.c.o   -c /home/pierre/CLionProjects/batonguerre/ai.c
+
+CMakeFiles/stickwar.dir/ai.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/stickwar.dir/ai.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/batonguerre/ai.c > CMakeFiles/stickwar.dir/ai.c.i
+
+CMakeFiles/stickwar.dir/ai.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/stickwar.dir/ai.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/batonguerre/ai.c -o CMakeFiles/stickwar.dir/ai.c.s
+
+CMakeFiles/stickwar.dir/ai.c.o.requires:
+
+.PHONY : CMakeFiles/stickwar.dir/ai.c.o.requires
+
+CMakeFiles/stickwar.dir/ai.c.o.provides: CMakeFiles/stickwar.dir/ai.c.o.requires
+	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/ai.c.o.provides.build
+.PHONY : CMakeFiles/stickwar.dir/ai.c.o.provides
+
+CMakeFiles/stickwar.dir/ai.c.o.provides.build: CMakeFiles/stickwar.dir/ai.c.o
+
+
+CMakeFiles/stickwar.dir/utils.c.o: CMakeFiles/stickwar.dir/flags.make
+CMakeFiles/stickwar.dir/utils.c.o: ../utils.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building C object CMakeFiles/stickwar.dir/utils.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/stickwar.dir/utils.c.o   -c /home/pierre/CLionProjects/batonguerre/utils.c
+
+CMakeFiles/stickwar.dir/utils.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/stickwar.dir/utils.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pierre/CLionProjects/batonguerre/utils.c > CMakeFiles/stickwar.dir/utils.c.i
+
+CMakeFiles/stickwar.dir/utils.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/stickwar.dir/utils.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pierre/CLionProjects/batonguerre/utils.c -o CMakeFiles/stickwar.dir/utils.c.s
+
+CMakeFiles/stickwar.dir/utils.c.o.requires:
+
+.PHONY : CMakeFiles/stickwar.dir/utils.c.o.requires
+
+CMakeFiles/stickwar.dir/utils.c.o.provides: CMakeFiles/stickwar.dir/utils.c.o.requires
+	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/utils.c.o.provides.build
+.PHONY : CMakeFiles/stickwar.dir/utils.c.o.provides
+
+CMakeFiles/stickwar.dir/utils.c.o.provides.build: CMakeFiles/stickwar.dir/utils.c.o
+
+
 # Object files for target stickwar
 stickwar_OBJECTS = \
 "CMakeFiles/stickwar.dir/main.c.o" \
@@ -808,7 +880,10 @@ stickwar_OBJECTS = \
 "CMakeFiles/stickwar.dir/global.c.o" \
 "CMakeFiles/stickwar.dir/game_interact.c.o" \
 "CMakeFiles/stickwar.dir/brigade.c.o" \
-"CMakeFiles/stickwar.dir/command.c.o"
+"CMakeFiles/stickwar.dir/command.c.o" \
+"CMakeFiles/stickwar.dir/level_reader.c.o" \
+"CMakeFiles/stickwar.dir/ai.c.o" \
+"CMakeFiles/stickwar.dir/utils.c.o"
 
 # External object files for target stickwar
 stickwar_EXTERNAL_OBJECTS =
@@ -843,9 +918,12 @@ stickwar: CMakeFiles/stickwar.dir/global.c.o
 stickwar: CMakeFiles/stickwar.dir/game_interact.c.o
 stickwar: CMakeFiles/stickwar.dir/brigade.c.o
 stickwar: CMakeFiles/stickwar.dir/command.c.o
+stickwar: CMakeFiles/stickwar.dir/level_reader.c.o
+stickwar: CMakeFiles/stickwar.dir/ai.c.o
+stickwar: CMakeFiles/stickwar.dir/utils.c.o
 stickwar: CMakeFiles/stickwar.dir/build.make
 stickwar: CMakeFiles/stickwar.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Linking C executable stickwar"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pierre/CLionProjects/batonguerre/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Linking C executable stickwar"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/stickwar.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -883,6 +961,9 @@ CMakeFiles/stickwar.dir/requires: CMakeFiles/stickwar.dir/global.c.o.requires
 CMakeFiles/stickwar.dir/requires: CMakeFiles/stickwar.dir/game_interact.c.o.requires
 CMakeFiles/stickwar.dir/requires: CMakeFiles/stickwar.dir/brigade.c.o.requires
 CMakeFiles/stickwar.dir/requires: CMakeFiles/stickwar.dir/command.c.o.requires
+CMakeFiles/stickwar.dir/requires: CMakeFiles/stickwar.dir/level_reader.c.o.requires
+CMakeFiles/stickwar.dir/requires: CMakeFiles/stickwar.dir/ai.c.o.requires
+CMakeFiles/stickwar.dir/requires: CMakeFiles/stickwar.dir/utils.c.o.requires
 
 .PHONY : CMakeFiles/stickwar.dir/requires
 

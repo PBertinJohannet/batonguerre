@@ -3,7 +3,7 @@
 //
 
 #include "json_frame.h"
-
+#include "utils.h"
 void read_frames(char* source, animation* anim){
     json_t* json = start_json(source);
     json_t* frames  = read_elem(json,"frames","reading frames array",JSON_ARRAY);

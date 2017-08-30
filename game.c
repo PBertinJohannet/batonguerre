@@ -7,25 +7,28 @@
 #include "stdio.h"
 #include "stdlib.h"
 #include "projectile.h"
-
-game* game_init(game_state* state){
+#include "level_reader.h"
+game* game_from_level(game_state* state, char* level_name){
     game* g = malloc(sizeof(game));
     g->state = state;
-    g->player = team_init(0);
-    g->ennemy = team_init(1);
-    g->view = view_init(state->window);
+    level_reader* lvl = level_reader_init(level_name);
+    battle_config* conf = level_reader_read_conf(lvl);
+    g->player = level_reader_read_team(lvl,0);
+    g->ennemy = level_reader_read_team(lvl,1);
+    g->view = view_init(state->window, conf);
     g->entities = list_create();
     g->projectiles = list_create();
     g->frame = 0;
+    g->map_size = conf->map_size;
     g->controller = controller_init(g);
     game_init_teams(g);
+    g->ennemy_ai = level_reader_read_ai(lvl,g->ennemy);
     return g;
 }
 
 void game_init_teams(game* g){
     game_init_team(g,g->player);
     game_init_team(g,g->ennemy);
-    g->ennemy_ai = dumb_ai_init(g->ennemy);
 }
 void game_init_team(game* g, team* t){
     team_init_brigades(t);
@@ -79,10 +82,10 @@ team* game_get_team(game* g, int team_id){
 
 void game_update(game* g){
     g->frame+=1;
-    dumb_ai_play(g->ennemy_ai, g);
     team_play(g->player, g->frame);
     team_play(g->ennemy, g->frame);
     controller_process_events( g->controller);
+    g->ennemy_ai->play(g->ennemy_ai, g);
     for (int i =0;i<g->entities->size;i++){
         entity *ent = (entity *) (list_at(g->entities, i));
         ent->type->play(g, ent,g->entities);
@@ -106,5 +109,5 @@ void game_destroy(game* g){
     team_destroy(g->ennemy);
     list_free(g->entities, entity_destroy_void);
     view_destroy(g->view);
-    dumb_ai_destroy(g->ennemy_ai);
+    //dumb_ai_destroy(g->ennemy_ai);
 }

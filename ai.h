@@ -5,4 +5,16 @@
 #ifndef STICKWAR_AI_H
 #define STICKWAR_AI_H
 
+#include "game.h"
+#include "team.h"
+typedef struct team team;
+typedef struct game game;
+typedef struct ai ai;
+struct ai {
+    void (*play)(ai*,game*);
+    void* ai;
+};
+
+ai* get_ai_by_name(char* name, team* t);
+
 #endif //STICKWAR_AI_H

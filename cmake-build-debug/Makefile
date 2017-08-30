@@ -123,6 +123,33 @@ stickwar/fast:
 	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/build
 .PHONY : stickwar/fast
 
+ai.o: ai.c.o
+
+.PHONY : ai.o
+
+# target to build an object file
+ai.c.o:
+	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/ai.c.o
+.PHONY : ai.c.o
+
+ai.i: ai.c.i
+
+.PHONY : ai.i
+
+# target to preprocess a source file
+ai.c.i:
+	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/ai.c.i
+.PHONY : ai.c.i
+
+ai.s: ai.c.s
+
+.PHONY : ai.s
+
+# target to generate assembly for a file
+ai.c.s:
+	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/ai.c.s
+.PHONY : ai.c.s
+
 animation.o: animation.c.o
 
 .PHONY : animation.o
@@ -744,6 +771,33 @@ kicker.c.s:
 	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/kicker.c.s
 .PHONY : kicker.c.s
 
+level_reader.o: level_reader.c.o
+
+.PHONY : level_reader.o
+
+# target to build an object file
+level_reader.c.o:
+	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/level_reader.c.o
+.PHONY : level_reader.c.o
+
+level_reader.i: level_reader.c.i
+
+.PHONY : level_reader.i
+
+# target to preprocess a source file
+level_reader.c.i:
+	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/level_reader.c.i
+.PHONY : level_reader.c.i
+
+level_reader.s: level_reader.c.s
+
+.PHONY : level_reader.s
+
+# target to generate assembly for a file
+level_reader.c.s:
+	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/level_reader.c.s
+.PHONY : level_reader.c.s
+
 main.o: main.c.o
 
 .PHONY : main.o
@@ -906,6 +960,33 @@ texture_list.c.s:
 	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/texture_list.c.s
 .PHONY : texture_list.c.s
 
+utils.o: utils.c.o
+
+.PHONY : utils.o
+
+# target to build an object file
+utils.c.o:
+	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/utils.c.o
+.PHONY : utils.c.o
+
+utils.i: utils.c.i
+
+.PHONY : utils.i
+
+# target to preprocess a source file
+utils.c.i:
+	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/utils.c.i
+.PHONY : utils.c.i
+
+utils.s: utils.c.s
+
+.PHONY : utils.s
+
+# target to generate assembly for a file
+utils.c.s:
+	$(MAKE) -f CMakeFiles/stickwar.dir/build.make CMakeFiles/stickwar.dir/utils.c.s
+.PHONY : utils.c.s
+
 view.o: view.c.o
 
 .PHONY : view.o
@@ -942,6 +1023,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... stickwar"
+	@echo "... ai.o"
+	@echo "... ai.i"
+	@echo "... ai.s"
 	@echo "... animation.o"
 	@echo "... animation.i"
 	@echo "... animation.s"
@@ -1011,6 +1095,9 @@ help:
 	@echo "... kicker.o"
 	@echo "... kicker.i"
 	@echo "... kicker.s"
+	@echo "... level_reader.o"
+	@echo "... level_reader.i"
+	@echo "... level_reader.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
@@ -1029,6 +1116,9 @@ help:
 	@echo "... texture_list.o"
 	@echo "... texture_list.i"
 	@echo "... texture_list.s"
+	@echo "... utils.o"
+	@echo "... utils.i"
+	@echo "... utils.s"
 	@echo "... view.o"
 	@echo "... view.i"
 	@echo "... view.s"

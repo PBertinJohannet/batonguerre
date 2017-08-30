@@ -6,9 +6,11 @@
 #include "entity_launcher.h"
 #include "global.h"
 #include "brigade.h"
-view* view_init(sfRenderWindow* window){
+#include "level_reader.h"
+view* view_init(sfRenderWindow* window, battle_config* battle_conf){
     view* v = malloc(sizeof(view));
     v->window = window;
+    v->battle_config = battle_conf;
     sfRenderWindow_setFramerateLimit(v->window, FPS);
     v->font = sfFont_createFromFile("fonts/OpenSans-Bold.ttf");
     v->text = sfText_create();
@@ -61,7 +63,7 @@ void view_draw_cursor(view* v, int commanding){
 
 void view_draw_entity(view* v, drawable_entity* dw){
     sfSprite* to_draw = animation_frame_next(dw->anim, *dw->facing);
-    sfVector2f pos = {*dw->pos, GROUND_POS};
+    sfVector2f pos = {*dw->pos, v->ground_position};
     sfVector2f scale = {dw->size*100.f, dw->size*100.f};
     view_draw_sprite(v,to_draw,pos,scale,1);
 }
@@ -76,7 +78,7 @@ void view_draw_map(view* v){
 void view_draw_background(view* v){
     sfSprite* image = sfSprite_create();
     sfSprite_setTexture(image, get_textures()->background,0);
-    sfVector2f new_scale = {MAP_SIZE/1.75,WINDOW_HEIGHT};
+    sfVector2f new_scale = {v->battle_config->map_size/1.75,WINDOW_HEIGHT};
     sfVector2f position = {0 - v->camera_position, 0};
     view_draw_sprite(v,image,position,new_scale,0);
 }
@@ -124,7 +126,7 @@ void view_draw_gold(view* v, int gold){
 }
 
 void view_move_right(view* v){
-    if (v->camera_position < MAP_SIZE-900-POP_PLAYER_ONE){
+    if (v->camera_position < v->battle_config->map_size-900-50){
         v->camera_position+=30;
     }
 }

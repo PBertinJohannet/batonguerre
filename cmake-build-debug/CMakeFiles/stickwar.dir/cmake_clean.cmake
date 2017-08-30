@@ -29,6 +29,9 @@ file(REMOVE_RECURSE
   "CMakeFiles/stickwar.dir/game_interact.c.o"
   "CMakeFiles/stickwar.dir/brigade.c.o"
   "CMakeFiles/stickwar.dir/command.c.o"
+  "CMakeFiles/stickwar.dir/level_reader.c.o"
+  "CMakeFiles/stickwar.dir/ai.c.o"
+  "CMakeFiles/stickwar.dir/utils.c.o"
   "stickwar.pdb"
   "stickwar"
 )

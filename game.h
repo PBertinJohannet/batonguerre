@@ -17,6 +17,8 @@
 #include "dumb_ai.h"
 #include "game_state.h"
 #include "projectile.h"
+#include "ai.h"
+typedef struct ai ai;
 typedef struct game game;
 typedef struct game_state game_state;
 typedef struct entity entity;
@@ -33,10 +35,12 @@ struct game{
     list* entities;
     list* projectiles;
     int frame;
-    dumb_ai* ennemy_ai;
+    ai* ennemy_ai;
+    int map_size;
 };
 
-game* game_init(game_state* state);
+game* game_from_level(game_state* state, char* level_name);
+game* game_load_saved(game_state* state);
 sfRenderWindow* game_get_view_window(game* g);
 void game_test(game* g);
 void game_init_teams(game* g);

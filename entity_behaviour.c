@@ -82,7 +82,7 @@ void entity_base_to_retreat(entity* player){
 
 
 void entity_base_retreating(entity* player, list* entities){
-    if ((int)(abs(player->pos-player->team->id*MAP_SIZE))>RETREAT_PLAYER){
+    if ((int)(abs(player->pos-player->team->id*player->team->pop))>RETREAT_PLAYER){
         player->facing = !player->team->id;
         player->pos -= player->speed * (2 * player->facing - 1) ;
     } else {

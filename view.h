@@ -11,14 +11,18 @@
 #include "array_list.h"
 #include "game_params.h"
 #include "texture_list.h"
+#include "level_reader.h"
+typedef struct battle_config battle_config;
 typedef struct view view;
 struct view{
     sfRenderWindow* window;
     sfFont* font;
     sfText* text;
     int camera_position;
+    int ground_position;
+    battle_config* battle_config;
 };
-view* view_init(sfRenderWindow*);
+view* view_init(sfRenderWindow*, battle_config* battle_config);
 void view_play_music(view* v, char* name);
 void view_draw_cursor(view* v, int commanding);
 void view_draw_sprite(view* v, sfSprite* sprite, sfVector2f position, sfVector2f size, int rel);

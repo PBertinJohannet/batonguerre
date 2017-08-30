@@ -8,7 +8,7 @@ game_state* playing_state_init(){
     game_state* state = malloc(sizeof(game_state));
     sfVideoMode mode = {WINDOW_WIDTH, WINDOW_HEIGHT, 16};
     state->window = sfRenderWindow_create(mode, "Stickwar",  sfResize | sfClose, NULL);
-    state->state = game_init(state);
+    state->state = game_from_level(state, "mm0");
     state->next_loop = playing_state_next_loop;
     return state;
 }
@@ -78,7 +78,7 @@ void game_end_state_to_playing_state(game_state* state){
     game_destroy(g);
     free(old);
     printf("new state \n");
-    state->state = game_init(state);
+    state->state = game_from_level(state, "mm0");
     printf("next loop \n");
     state->next_loop = playing_state_next_loop;
 }

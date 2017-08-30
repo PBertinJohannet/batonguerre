@@ -86,6 +86,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/pierre/CLionProjects/batonguerre/ai.c">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/batonguerre/ai.h">
+			<Option target="stickwar"/>
+		</Unit>
 		<Unit filename="/home/pierre/CLionProjects/batonguerre/animation.c">
 			<Option target="stickwar"/>
 		</Unit>
@@ -224,6 +230,15 @@
 		<Unit filename="/home/pierre/CLionProjects/batonguerre/kicker.h">
 			<Option target="stickwar"/>
 		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/batonguerre/level_reader.c">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/batonguerre/level_reader.h">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/batonguerre/loader.h">
+			<Option target="stickwar"/>
+		</Unit>
 		<Unit filename="/home/pierre/CLionProjects/batonguerre/main.c">
 			<Option target="stickwar"/>
 		</Unit>
@@ -255,6 +270,12 @@
 			<Option target="stickwar"/>
 		</Unit>
 		<Unit filename="/home/pierre/CLionProjects/batonguerre/texture_list.h">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/batonguerre/utils.c">
+			<Option target="stickwar"/>
+		</Unit>
+		<Unit filename="/home/pierre/CLionProjects/batonguerre/utils.h">
 			<Option target="stickwar"/>
 		</Unit>
 		<Unit filename="/home/pierre/CLionProjects/batonguerre/view.c">

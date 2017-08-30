@@ -10,7 +10,8 @@
 #include "team.h"
 #include "entity_launcher.h"
 #include "game_interact.h"
-
+#include "ai.h"
+typedef struct ai ai;
 typedef struct team team;
 typedef struct dumb_ai dumb_ai;
 
@@ -46,7 +47,7 @@ int choose_mode(dumb_ai* ai, list* entities);
  * @param dai : the ai.
  * @param g : the game.
  */
-void dumb_ai_play(dumb_ai* dai, game* g);
+void dumb_ai_play(ai* dai, game* g);
 
 
 /**

@@ -5,4 +5,8 @@
 #ifndef STICKWAR_LOADER_H
 #define STICKWAR_LOADER_H
 
+struct loader {
+
+};
+
 #endif //STICKWAR_LOADER_H

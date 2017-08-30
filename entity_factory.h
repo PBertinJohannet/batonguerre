@@ -14,6 +14,7 @@
 #include "team.h"
 typedef struct team team;
 typedef struct game game;
+typedef struct entity entity;
 enum entity_class{
     KICKER,
     NINJA,

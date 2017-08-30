@@ -5,10 +5,12 @@
 #include "entity_launcher.h"
 #include "global.h"
 #include "brigade.h"
-team* team_init(int team_number){
+team* team_init(int team_number,int pop, int gold_start, int gold_per_sec){
     team* t = malloc(sizeof(team));
     t->id = team_number;
-    t->gold = GOLD_START;
+    t->gold = gold_start;
+    t->pop = pop;
+    t->gold_per_sec = gold_per_sec;
     t->brigades = list_create();
     return t;
 }
@@ -19,6 +21,7 @@ void team_init_brigades(team* t){
     list_add(t->brigades,brigade_init(NINJA,2,NINJA_COST,NINJA_COOLDOWN*FPS,get_animations()->ninja_icon,t));
     list_add(t->brigades,brigade_init(ARCHER,2,ARCHER_COST,ARCHER_COOLDOWN*FPS,get_animations()->kicker_icon,t));
 }
+
 
 void team_launch_entity(team* t,game* g, int id){
     if (id>=t->brigades->size){
@@ -37,7 +40,7 @@ void team_order_entity(team* t,game* g, int id){
 
 void team_play(team* t, int frame){
     if (!(frame%FPS)) {
-        t->gold += GOLD_PER_SEC;
+        t->gold += t->gold_per_sec;
     }
     for (int i = 0;i<t->brigades->size;i++){
         entity_launcher_update(((brigade*)list_at(t->brigades,i))->launcher);

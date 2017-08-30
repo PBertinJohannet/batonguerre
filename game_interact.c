@@ -11,7 +11,7 @@ void game_order_retreat(game* g, team* t){
 }
 
 void game_order_assault(game* g, team* t){
-    game_command_all(g,t,MAP_SIZE*!t->id);
+    game_command_all(g,t,g->map_size*!t->id);
 }
 void game_command_all(game* g, team* t, int target){
     for (int i = 0;i<t->brigades->size;i++){

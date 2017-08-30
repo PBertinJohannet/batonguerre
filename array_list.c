@@ -31,6 +31,10 @@ void list_reserve(list* l,int size){
 }
 
 void* list_at(list* l,int index){
+    if (index>=l->size){
+        printf("error at : \n    list_at : index out of bound\n      list size is %d but index is %d\n\n     exiting \n",l->size, index);
+        exit(0);
+    }
     return l->list[index];
 }
 void* list_last(list* l){
@@ -48,6 +52,10 @@ void list_free(list* l, int (*destructor)(void*)){
     free(l);
 }
 void* list_rm_at(list* l, int index){
+    if (index>=l->size){
+        printf("error at : \n    list_remove_at : index out of bound\n      list size is %d but index is %d\n\n     exiting \n",l->size, index);
+        exit(0);
+    }
     void* temp = l->list[index];
     l->size-=1;
     for (int i = index;i<l->size;i++){

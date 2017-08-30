@@ -6,10 +6,12 @@
 #ifndef UTILS_H
 #define UTILS_H
 
+#include "jansson.h"
+#include "string.h"
 char* string_concat(char* a, char* b);
 
 
-json_t* start_json(char* source);
+json_t* start_json(char *source);
 json_t* read_elem(json_t* parent, char* elem, char* message, json_type desired);
 json_t* read_index(json_t* parent, int index, char* message, json_type desired);
 #endif /* UTILS_H */
