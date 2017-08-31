@@ -5,13 +5,13 @@
 #include <SFML/Graphics/Rect.h>
 #include "animation.h"
 animation* animation_init(char* name){
-    char* img_name = malloc((strlen(name)+4)*sizeof(char));
+    animation* anim = malloc(sizeof(animation));
+    char* img_name = malloc((strlen(name)+strlen(".png"))*sizeof(char));
     strcpy(img_name,name);
     strcat(img_name,".png");
-    char* json_name = malloc((strlen(name)+5)*sizeof(char));
+    char* json_name = malloc((strlen(name)+strlen(".json")+2)*sizeof(char));
     strcpy(json_name,name);
     strcat(json_name,".json");
-    animation* anim = malloc(sizeof(animation));
     read_frames(json_name, anim);
     anim->texture = sfTexture_createFromFile(img_name,NULL);
     return anim;

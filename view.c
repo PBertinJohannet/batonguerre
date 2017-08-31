@@ -114,8 +114,6 @@ void view_draw_entities(view* v, list* entities){
 }
 
 void view_draw_gold(view* v, int gold){
-    sfText_destroy(v->text);
-    v->text = sfText_create();
     char nb[12];
     sprintf(nb, "Gold : %d", gold);
     sfText_setString(v->text, nb);

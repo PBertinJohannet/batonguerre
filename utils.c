@@ -13,6 +13,7 @@ json_t* start_json(char* source){
     json = json_load_file(source, 0, &error);
     if (!json_is_object(json)){
         printf("error reading json for : %s\n",source);
+        fprintf(stderr,"     on line %d: %s\n", error.line, error.text);
         json_decref(json);
     }
     return json;
