@@ -21,26 +21,26 @@ level_reader* level_reader_init(char* lvl_name){
 
 battle_config* level_reader_read_conf(level_reader* reader){
     battle_config* btl = malloc(sizeof(battle_config));
-    btl->map_size = (int)json_integer_value(read_elem(reader->config, "map_size", "reading config mpsize", JSON_INTEGER));
-    btl->ground_pos = (int)json_integer_value(read_elem(reader->config, "ground_pos", "reading config ground", JSON_INTEGER));
-    btl->nb_teams = (int)json_integer_value(read_elem(reader->config, "nb_teams", "reading config nbteam", JSON_INTEGER));
-    btl->player_team = (int)json_integer_value(read_elem(reader->config, "player_team", "reading config tmplyer", JSON_INTEGER));
+    btl->map_size = json_read_int(reader->config, "map_size");
+    btl->ground_pos = json_read_int(reader->config, "ground_pos");
+    btl->nb_teams = json_read_int(reader->config, "nb_teams");
+    btl->player_team = json_read_int(reader->config, "player_team");
     return btl;
 }
 
 team* level_reader_read_team(level_reader* reader, int number) {
-    json_t *teams = read_elem(reader->config, "teams", "reading teams", JSON_ARRAY);
-    json_t *team = read_index(teams, number, "reading team", JSON_OBJECT);
+    json_t *teams = json_read_elem(reader->config, "teams", "reading teams", JSON_ARRAY);
+    json_t *team = json_read_index(teams, number, "reading team", JSON_OBJECT);
     return team_init(number,
-                     (int) json_integer_value(read_elem(team, "pop", "reading pop", JSON_INTEGER)),
-                     (int) json_integer_value(read_elem(team, "gold_start", "reading gold_start", JSON_INTEGER)),
-                     (int) json_integer_value(read_elem(team, "gold_per_sec", "reading gold_per_sec", JSON_INTEGER)));
+                     json_read_int(team, "pop"),
+                     json_read_int(team, "gold_start"),
+                     json_read_int(team, "gold_per_sec"));
 }
 
 ai* level_reader_read_ai(level_reader* reader, team* t){
-    json_t *teams = read_elem(reader->config, "teams", "reading teams", JSON_ARRAY);
-    json_t *team = read_index(teams, t->id, "reading team", JSON_OBJECT);
-    return get_ai_by_name((char*)json_string_value(read_elem(team, "ai", "reading ai", JSON_STRING)),t);
+    json_t *teams = json_read_elem(reader->config, "teams", "reading teams", JSON_ARRAY);
+    json_t *team = json_read_index(teams, t->id, "reading team", JSON_OBJECT);
+    return get_ai_by_name(json_read_string(team, "ai"),t);
 }
 
 list* level_reader_read_rmys(level_reader* reader){
