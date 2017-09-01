@@ -1,0 +1,8 @@
+//
+// Created by pierre on 31/08/17.
+//
+
+#ifndef STICKWAR_BRIGADE_READER_H
+#define STICKWAR_BRIGADE_READER_H
+
+#endif //STICKWAR_BRIGADE_READER_H
