@@ -1,4 +1,11 @@
 # TODO
+
+code quality:
+	install cppcheck
+	install valgrind
+	launch with the dev.sh script then with release.sh
+	install sonarqube maybe
+
 refac :
 	read conf
 	json read int/char/etc...
