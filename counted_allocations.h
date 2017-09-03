@@ -1,0 +1,8 @@
+//
+// Created by pierre on 02/09/17.
+//
+
+#ifndef STICKWAR_COUNTED_ALLOCATIONS_H
+#define STICKWAR_COUNTED_ALLOCATIONS_H
+
+#endif //STICKWAR_COUNTED_ALLOCATIONS_H
