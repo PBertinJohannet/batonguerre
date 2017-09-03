@@ -4,15 +4,16 @@
 #include "arrow.h"
 #include "entity.h"
 #include "window_conf_reader.h"
-projectile* arrow_create(int pos, team* team, int facing, int damage){
-    arrow* arrow = malloc(sizeof(arrow));
+#include "counted_allocations.h"
+projectile* arrow_create(int pos, team* team, unsigned int facing, int damage){
+    arrow* arr = counted_malloc(sizeof(arrow), "create arrow");
     projectile* proj = projectile_create(pos, team, facing);
-    arrow->damage = damage;
-    arrow->lifetime = ARCHER_LONG_RANGE*get_window_config()->fps/ARROW_SPEED + get_window_config()->fps;
-    arrow->parent = proj;
+    arr->damage = damage;
+    arr->lifetime = ARCHER_LONG_RANGE*get_window_config()->fps/ARROW_SPEED + get_window_config()->fps;
+    arr->parent = proj;
     proj->drawable = drawable_entity_init(animation_frame_init(animation_init("arrow")),&proj->pos, &proj->facing,ARROW_SIZE);
     proj->play = arrow_projectile_play;
-    proj->self = arrow;
+    proj->self = arr;
     proj->facing = facing;
     proj->destroy = arrow_projectile_destroy;
     return proj;
@@ -22,7 +23,7 @@ projectile* arrow_create(int pos, team* team, int facing, int damage){
 int arrow_projectile_play(void* proj, list* entities){
     projectile* pj = proj;
     arrow* p_arr = pj->self;
-    for (int i = 0;i<entities->size;i++){
+    for (unsigned int i = 0;i<entities->size;i++){
         entity* ent = list_at(entities,i);
         if (ent->team != pj->team
                 && ent->hp>0
@@ -31,7 +32,7 @@ int arrow_projectile_play(void* proj, list* entities){
                 return 1;
         }
     }
-    pj->pos-=(2*pj->facing-1)*ARROW_SPEED/get_window_config()->fps;
+    pj->pos-=(2*pj->facing-1)*ARROW_SPEED/(get_window_config()->fps);
     p_arr->lifetime--;
     if (p_arr->lifetime<1){
         return 1;
@@ -43,7 +44,7 @@ int arrow_projectile_destroy(projectile* proj){
     projectile* pj = proj;
     arrow* p_arr = pj->self;
     drawable_entity_destroy(pj->drawable);
-    free(p_arr);
-    free(proj);
+    counted_free(p_arr, "freeing arrow");
+    counted_free(proj, "freeing projectile containing arrow");
     return 0;
 }

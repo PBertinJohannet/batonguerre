@@ -8,8 +8,9 @@
 #include "brigade.h"
 #include "level_reader.h"
 #include "window_conf_reader.h"
+#include "counted_allocations.h"
 view* view_init(sfRenderWindow* window, battle_config* battle_conf){
-    view* v = malloc(sizeof(view));
+    view* v = counted_malloc(sizeof(view), "view create");
     v->window = window;
     v->battle_config = battle_conf;
     v->font = sfFont_createFromFile("fonts/OpenSans-Bold.ttf");
@@ -17,7 +18,7 @@ view* view_init(sfRenderWindow* window, battle_config* battle_conf){
     v->camera_position = 50;
     return v;
 }
-void view_play_music(view* v, char* name){
+void view_play_music(__attribute__ ((unused)) view* v, char* name){
     sfMusic* music = sfMusic_createFromFile(name);
     sfMusic_play(music);
 }
@@ -34,7 +35,7 @@ void view_draw_sprite(view* v, sfSprite* sprite, sfVector2f position, sfVector2f
     sfRenderWindow_drawSprite(v->window, sprite, NULL);
 }
 void view_draw_launchers(view* v, list* launchers){
-    for (int i = 0;i<launchers->size;i++){
+    for (unsigned int i = 0;i<launchers->size;i++){
         entity_launcher* launcher = ((brigade*)list_at(launchers, i))->launcher;
         sfSprite* icon = entity_launcher_get_icon(launcher);
         sfVector2f position = {(i)*50, 50};
@@ -44,14 +45,14 @@ void view_draw_launchers(view* v, list* launchers){
 }
 
 
-void view_draw_cursor(view* v, int commanding){
+void view_draw_cursor(view* v, unsigned int commanding){
     if (commanding){
         sfRenderWindow_setMouseCursorVisible(v->window,0);
         sfSprite* image = sfSprite_create();
         sfSprite_setTexture(image, get_textures()->flag,0);
         sfVector2f new_scale = {200.0,200.0};
         sfVector2i mouse = sfMouse_getPositionRenderWindow(v->window);
-        sfVector2f position = {mouse.x*1000/get_window_config()->window_width, mouse.y};
+        sfVector2f position = {(unsigned int)(mouse.x)*1000/get_window_config()->window_width, mouse.y};
         sfFloatRect bounds = sfSprite_getGlobalBounds(image);
         sfVector2f origin = {bounds.width/2, bounds.height/2};
         sfSprite_setOrigin(image, origin);
@@ -78,8 +79,8 @@ void view_draw_map(view* v){
 void view_draw_background(view* v){
     sfSprite* image = sfSprite_create();
     sfSprite_setTexture(image, get_textures()->background,0);
-    sfVector2f new_scale = {v->battle_config->map_size/1.75,get_window_config()->window_height};
-    sfVector2f position = {0 - v->camera_position, 0};
+    sfVector2f new_scale = {((float)v->battle_config->map_size)/1.75f,(float)get_window_config()->window_height};
+    sfVector2f position = {0.f - (float)v->camera_position, 0.f};
     view_draw_sprite(v,image,position,new_scale,0);
 }
 void view_draw_assault(view* v){
@@ -106,7 +107,7 @@ void view_sprite_center(sfSprite* sprite){
 }
 
 void view_draw_entities(view* v, list* entities){
-    for (int i =0;i<entities->size;i++){
+    for (unsigned int i =0;i<entities->size;i++){
         drawable_entity* dw = (drawable_entity*)list_at(entities,i);
         view_draw_entity(v,dw);
     }
@@ -165,5 +166,5 @@ void win_screen(view* v) {
 void view_destroy(view* v){
     sfText_destroy(v->text);
     sfFont_destroy(v->font);
-    free(v);
+    counted_free(v, "freeing view");
 }

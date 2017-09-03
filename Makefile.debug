@@ -1,11 +1,11 @@
 TARGET = game
 LIBS = -lm -lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio -ljansson
 CC = gcc
-CFLAGS = -g -Og -Wall -std=c11  -Wextra -fstrict-aliasing -Wstrict-aliasing=3 -Werror -Wpedantic -Wchkp -Wformat -Wformat-overflow=2 -Wnull-dereference -Winit-self \
--Wuninitialized -Wimplicit-fallthrough -Wmisleading-indentation -Wmissing-include-dirs -Wunused -Wunused-parameter -Wunused -Wuninitialized -Wmaybe-uninitialized \
--Wstringop-overflow=4 -Wsuggest-attribute=pure -Wsuggest-attribute=const -Wsuggest-attribute=noreturn -Warray-bounds=2 -Wduplicated-branches -Wduplicated-cond \
--Wtrampolines -Wfloat-equal -Wshadow=global -Wshadow=compatible-local -Wplacement-new=2 -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wdangling-else \
--Wparentheses -Wenum-compare -Wsign-conversion -Wsizeof-pointer-memaccess -Wsizeof-array-argument -Waddress -Wlogical-op -Wlogical-not-parentheses -Waggregate-return \
+CFLAGS = -g -Og -Wall -std=c11  -Wextra -fstrict-aliasing -Wstrict-aliasing=3 -Werror -Wpedantic -Wchkp -Wformat -Wstrict-overflow -Wnull-dereference -Winit-self \
+-Wuninitialized -Wmisleading-indentation -Wmissing-include-dirs -Wunused -Wunused-parameter -Wunused -Wuninitialized -Wmaybe-uninitialized \
+-Wstrict-overflow=4 -Wsuggest-attribute=pure -Wsuggest-attribute=const -Wsuggest-attribute=noreturn -Warray-bounds=2 -Wduplicated-cond -Wduplicated-cond \
+-Wtrampolines -Wfloat-equal -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align \
+-Wparentheses -Wenum-compare -Wsign-conversion -Wsizeof-pointer-memaccess -Wsizeof-array-argument -Waddress -Wlogical-op -Wlogical-not-parentheses \
 -Wstrict-prototypes -Wmissing-prototypes  -Wmissing-declarations -Wmissing-field-initializers -Woverride-init-side-effects -Wredundant-decls -Winvalid-pch -fstack-protector# -O0 -v -da -Q
 
 .PHONY: default all clean

@@ -23,6 +23,16 @@ typedef struct game game;
 struct brigade {
     command* command;
     entity_launcher* launcher;
+    int entity_type;
+    team* team;
+    int cooldown;
+    int cost;
+    int base_life;
+    int base_speed;
+    int random_speed;
+    float base_size;
+    int base_armor;
+    void* specific_stats;
 };
 /**
  * Creates the brigade.
@@ -33,12 +43,9 @@ struct brigade {
  * @param  anim : the anim to give to that entity.
  * @param  team : the team of the brigade.
  */
-brigade* brigade_init(int ent_type, int level, int cost, int cd, animation* anim, team* team);
+brigade* brigade_init(int, int, int, int, int, float, int, team*);
 
+void brigade_set_type(brigade* b, int type, void* stats);
 
-/**
- * change the order.
- */
-void brigade_change_order(game* g, int order);
 
 #endif //STICKWAR_BRIGADE_H

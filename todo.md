@@ -1,16 +1,16 @@
 # TODO
 
 code quality:
-	install cppcheck
-	install valgrind
-	launch with the dev.sh script then with release.sh
+d	install cppcheck
+d	install valgrind
+d	launch with the dev.sh script then with release.sh
 	install sonarqube maybe
 
 refac :
-	read conf
-	json read int/char/etc...
-	ent pointer -> brigade
-	team list brigade ent->brigade stop
+d	read conf
+d	json read int/char/etc...
+d	ent pointer -> brigade
+d	team list brigade ent->brigade stop
 	upd and evt in state
 	game ->battle
 	type -> behaviour
@@ -20,7 +20,7 @@ mnu :
 	load
 	save
 gme :
-	armor
+d	armor
 	lif bar  when hit
 	nnja jmp fix when wrong side stop.
 	retrear base
@@ -32,27 +32,9 @@ after :
 	
 	
 ##Toconf
-	rename json read elem and put it in utils
-	team init with read,
-	team contains gld, gps, pop.
+d	rename json read elem and put it in utils
+d	team init with read,
+d	team contains gld, gps, pop.
 	create base in team -> add later to list.
 	
 	
-##Final conf
-should look like that :
-conf/
-    lvls/
-        mrmy
-        btl/
-            rmy
-            ent
-            btlcnf
-    saves/
-        btl/
-            rmy
-            ent
-            btlcnf
-        rmy
-        stts
-    bscs/
-        ents/

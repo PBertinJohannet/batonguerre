@@ -10,7 +10,6 @@
 #include "game.h"
 typedef struct entity_behaviour entity_behaviour;
 typedef struct entity entity;
-typedef enum entity_class entity_class;
 typedef struct game game;
 typedef struct animation_list animation_list;
 /**
@@ -74,7 +73,7 @@ typedef struct animation_list animation_list;
  *
  */
 struct entity_behaviour {
-    int type;
+    unsigned int type;
     int (*get_current_range)(entity*);
     animation* (*get_dying_animation)(entity*);
     struct animation* (*get_walking_animation)(entity*);
@@ -88,7 +87,7 @@ struct entity_behaviour {
     void (*retreating)(entity*, list*);
     void (*assaulting)(entity*, list*);
     void (*dying)(entity*);
-    void* type_stats;
+    void* current_state;
 };
 void set_basic_behaviour(entity_behaviour* b);
 

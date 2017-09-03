@@ -15,6 +15,6 @@ struct ai {
     void* ai;
 };
 
-ai* get_ai_by_name(char* name, team* t);
+ai* get_ai_by_name(const char* name, team* t);
 
 #endif //STICKWAR_AI_H

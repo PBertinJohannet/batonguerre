@@ -15,10 +15,10 @@ typedef struct battle_config battle_config;
  * the struct containing the temporary conf.
  */
 struct battle_config {
-    int map_size;
-    int ground_pos;
-    int nb_teams;
-    int player_team;
+    unsigned int map_size;
+    unsigned int ground_pos;
+    unsigned int nb_teams;
+    unsigned int player_team;
 };
 /**
  * This is the structure used to store the battle infos and the json_t pointer.
@@ -32,7 +32,7 @@ struct level_reader {
 
 level_reader* level_reader_init(char* lvl_name);
 battle_config* level_reader_read_conf(level_reader* reader);
-team* level_reader_read_team(level_reader* reader, int team_number);
+team* level_reader_read_team(level_reader* reader, unsigned int team_number);
 list* level_reader_read_armies(level_reader* reader);
 ai* level_reader_read_ai(level_reader* reader, team* t);
 

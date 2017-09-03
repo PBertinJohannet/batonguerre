@@ -5,11 +5,11 @@
 #ifndef STICKWAR_GAME_PARAMS_H
 #define STICKWAR_GAME_PARAMS_H
 
-#include "stdlib.h"
 
 
 
 // kicker
+/*
 #define KICKER_RANGE 40
 #define KICKER_PUNCH_CHANCE 4
 #define KICKER_PUNCH_DAMAGE 20
@@ -20,8 +20,9 @@
 #define KICKER_COST 20
 #define KICKER_COOLDOWN 1
 #define KICKER_BASE_ATTACK_SPEED 25.0
-#define KICKER_PUNCH_SPEED 30.0
+#define KICKER_PUNCH_SPEED 30.0*/
 // ninja
+/*
 #define NINJA_RANGE 80
 #define NINJA_HIT_CHANCE 4
 #define NINJA_HIT_DAMAGE 60
@@ -33,8 +34,8 @@
 #define NINJA_COOLDOWN 5
 #define NINJA_JUMP_RANGE NINJA_BASE_SPEED*3
 #define NINJA_BASE_ATTACK_SPEED 25.0
-// archer
-#define ARCHER_LONG_RANGE 400
+archer*/
+#define ARCHER_LONG_RANGE (unsigned int )(400)
 #define ARCHER_SHORT_RANGE 40
 #define ARCHER_BASE_LIFE 50
 #define ARCHER_BASE_SPEED 30+rand()%3
@@ -45,7 +46,7 @@
 #define ARCHER_CRIT_CHANCE 5
 #define ARCHER_COST 60
 #define ARCHER_COOLDOWN 3
-#define ARROW_SPEED 400
+#define ARROW_SPEED (unsigned int)(400)
 #define ARROW_SIZE 2.5
 #define ARCHER_BASE_ATTACK_SPEED 25.0
 

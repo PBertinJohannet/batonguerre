@@ -24,7 +24,7 @@ typedef struct dumb_ai dumb_ai;
 struct dumb_ai{
     team* team;
     int last_ass;
-    int target_id;
+    unsigned int target_id;
 };
 
 /**

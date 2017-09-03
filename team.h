@@ -12,17 +12,17 @@
 typedef struct team team;
 typedef struct animation_list animation_list;
 struct team {
-    int id;
+    unsigned int id;
     int gold;
     int pop;
     int gold_per_sec;
     list* brigades;
     entity* base;
 };
-team* team_init(int team_number, int pop, int gold_start, int gold_per_sec);
-void team_init_brigades(team* t);
-void team_launch_entity(team* t,struct game* g, int id);
-void team_play(team* t, int frame);
-void team_order_entity(team* t,game* g, int id);
+team* team_init(unsigned int team_number, int pop, int gold_start, int gold_per_sec);
+void team_set_brigades(team* t, list* l);
+void team_launch_entity(team* t,struct game* g, unsigned int id);
+void team_play(team* t, unsigned int frame);
+void team_order_entity(team* t,game* g, unsigned int id);
 void team_destroy(team* t);
 #endif //STICKWAR_TEAM_H

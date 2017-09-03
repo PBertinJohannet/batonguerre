@@ -3,14 +3,16 @@
 //
 #include "entity.h"
 #include "window_conf_reader.h"
-entity* entity_init(int hp, float speed, team* team, float size, float pos,  animation_frame* frame){
-    entity* ent = malloc(sizeof(entity));
-    ent->pos = pos;
-    ent->hp = hp;
-    ent->speed = speed / (float)get_window_config()->fps;
-    ent->team = team;
-    ent->facing = team->id;
-    ent->drawable = drawable_entity_init(frame,&ent->pos,&ent->facing,size);
+#include "counted_allocations.h"
+entity* entity_init(brigade* b){
+    entity* ent = counted_malloc(sizeof(entity), "entity init");
+    ent->pos = b->team->pop;
+    ent->hp = b->base_life;
+    ent->speed = (b->base_speed + rand()%b->random_speed) / (float)get_window_config()->fps;
+    ent->team = b->team;
+    ent->facing = ent->team->id;
+    ent->brigade = b;
+    ent->state = ent->brigade->command->entity_state;
     return ent;
 }
 
@@ -21,7 +23,7 @@ void set_entity_type(entity* ent, struct entity_behaviour* type){
 void entity_destroy(entity* ent){
     drawable_entity_destroy(ent->drawable);
     entity_behaviour_destroy(ent->type);
-    free(ent);
+    counted_free(ent, "freeing entity ");
 }
 
 

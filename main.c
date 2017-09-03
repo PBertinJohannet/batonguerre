@@ -2,7 +2,7 @@
 #include <SFML/Graphics.h>
 #include "game_state.h"
 #define GAME
-int main()
+int main(void)
 {
 #ifdef GAME
     game_state * state = playing_state_init();

@@ -1,0 +1,34 @@
+{"brigades" :
+	 [{
+		"type": "kicker",
+		"cooldown": 2,
+		"cost": 25,
+		"base_life": 300,
+		"base_speed": 40,
+		"random_speed": 20,
+		"base_size": 1.8,
+		"base_armor": 0,
+		"range": 40,
+		"punch_damage": 20,
+		"punch_chance": 4,
+		"kick_damage": 40,
+		"base_attack_speed": 25,
+		"punch_attack_speed": 30
+	},
+	{
+		"type": "kicker",
+		"cooldown": 4,
+		"cost": 55,
+		"base_life": 500,
+		"base_speed": 30,
+		"random_speed": 10,
+		"base_size": 2.1,
+		"base_armor": 3,
+		"range": 60,
+		"punch_damage": 40,
+		"punch_chance": 4,
+		"kick_damage": 80,
+		"base_attack_speed": 12,
+		"punch_attack_speed": 15
+	}]
+}

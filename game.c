@@ -5,16 +5,20 @@
 #include "game.h"
 #include "entity_factory.h"
 #include "stdio.h"
-#include "stdlib.h"
 #include "projectile.h"
 #include "level_reader.h"
-game* game_from_level(game_state* state, char* level_name){
-    game* g = malloc(sizeof(game));
+#include "brigade_reader.h"
+#include "base.h"
+#include "counted_allocations.h"
+game* game_from_level(game_state* state, char* level_name,__attribute__ ((unused)) char* saved_game){
+    game* g = counted_malloc(sizeof(game), "game create");
     g->state = state;
     level_reader* lvl = level_reader_init(level_name);
     battle_config* conf = level_reader_read_conf(lvl);
-    g->player = level_reader_read_team(lvl,0);
     g->ennemy = level_reader_read_team(lvl,1);
+    g->player = level_reader_read_team(lvl,0);
+    json_t* player_save_brigades = start_json("confs/saves/01/army.json");
+    team_set_brigades(g->player, brigades_reader_get_brigades(player_save_brigades, g->player));
     g->view = view_init(state->window, conf);
     g->entities = list_create();
     g->projectiles = list_create();
@@ -31,8 +35,8 @@ void game_init_teams(game* g){
     game_init_team(g,g->ennemy);
 }
 void game_init_team(game* g, team* t){
-    team_init_brigades(t);
-    entity* base = factory_new_entity(BASE,t,1,g);
+    entity* base = base_init(t->pop, 250, t);
+    set_base_class(base);
     t->base = base;
     list_add(g->entities,base);
 }
@@ -43,17 +47,17 @@ void game_add_projectile(game* g, projectile* proj){
     list_add(g->projectiles,proj);
 }
 
-sfRenderWindow* game_get_view_window(game* g){
+__attribute__ ((pure)) sfRenderWindow* game_get_view_window(game* g){
     return g->view->window;
 }
 
 list* game_get_drawables(game* g){
     list* drawables = list_create();
-    for (int i =0;i<g->entities->size;i++){
+    for (unsigned int i =0;i<g->entities->size;i++){
         entity* ent = (entity*)(list_at(g->entities,i));
         list_add(drawables,ent->drawable);
     }
-    for (int i =0;i<g->projectiles->size;i++){
+    for (unsigned int i =0;i<g->projectiles->size;i++){
         projectile* ent = (projectile*)(list_at(g->projectiles,i));
         list_add(drawables,ent->drawable);
     }
@@ -76,17 +80,13 @@ void game_next_loop(game* g) {
 }
 
 
-team* game_get_team(game* g, int team_id){
-    return !team_id?g->player:g->ennemy;
-}
-
 void game_update(game* g){
     g->frame+=1;
     team_play(g->player, g->frame);
     team_play(g->ennemy, g->frame);
     controller_process_events( g->controller);
     g->ennemy_ai->play(g->ennemy_ai, g);
-    for (int i =0;i<g->entities->size;i++){
+    for (unsigned int i =0;i<g->entities->size;i++){
         entity *ent = (entity *) (list_at(g->entities, i));
         ent->type->play(g, ent,g->entities);
         if (ent->state == ENTITY_STATE_DEAD){
@@ -95,7 +95,7 @@ void game_update(game* g){
             i--;
         }
     }
-    for (int i =0;i<g->projectiles->size;i++){
+    for (unsigned int i =0;i<g->projectiles->size;i++){
         projectile* ent = (projectile*)(list_at(g->projectiles,i));
         if (ent->play(ent,g->entities)){
             list_rm_at(g->projectiles,i);

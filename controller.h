@@ -24,8 +24,8 @@ typedef struct game game;
  */
 struct controller {
     game* game;
-    int selected_brigade;
-    int commanding_brigade;
+    unsigned int selected_brigade;
+    unsigned int commanding_brigade;
     entity* selected_unit;
 };
 /*

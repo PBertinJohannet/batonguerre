@@ -34,12 +34,12 @@ struct game{
     struct view * view;
     list* entities;
     list* projectiles;
-    int frame;
+    unsigned int frame;
     ai* ennemy_ai;
-    int map_size;
+    unsigned int map_size;
 };
 
-game* game_from_level(game_state* state, char* level_name);
+game* game_from_level(game_state* state, char* level_name, char* saved_game);
 game* game_load_saved(game_state* state);
 sfRenderWindow* game_get_view_window(game* g);
 void game_test(game* g);

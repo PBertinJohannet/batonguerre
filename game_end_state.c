@@ -4,6 +4,7 @@
 
 #include "game_end_state.h"
 #include "window_conf_reader.h"
+#include "counted_allocations.h"
 void game_end_display_message(game_end_state* g){
     view* v = g->ended_game->view;
     char* text = "Defeat  \n press SPACE to restart";
@@ -25,10 +26,10 @@ void game_end_display_message(game_end_state* g){
 
 void game_end_next_loop(game_end_state* ps){
     if (!game_end_update(ps)) {
-        for (int i = 0; i < ps->ended_game->entities->size; i++) {
+        for (unsigned int i = 0; i < ps->ended_game->entities->size; i++) {
             entity *ent = list_at(ps->ended_game->entities, i);
             if (ent->team != ps->winning_team &&
-                ent->drawable->anim->frame == ent->drawable->anim->anim->nb_frames - 2) {
+                drawable_entity_get_frame(ent->drawable) == ent->drawable->anim->anim->nb_frames - 2) {
                 ent->drawable->anim->frame -= 1;
             }
         }
@@ -42,7 +43,7 @@ void game_end_next_loop(game_end_state* ps){
 int game_end_update(game_end_state* es) {
     game* g = es->ended_game;
     int to_game = 0;
-    sfEvent *event = malloc(sizeof(sfEvent));
+    sfEvent *event = counted_malloc(sizeof(sfEvent), "game end create sfevent ");
     while (sfRenderWindow_pollEvent(game_get_view_window(g), event)) {
         switch (event->type) {
             case sfEvtClosed:
@@ -57,7 +58,7 @@ int game_end_update(game_end_state* es) {
                 break;
         }
     }
-    free(event);
+    counted_free(event, "freeing event in end state");
     if (to_game) {
         game_end_state_to_playing_state(es->ended_game->state);
         return 1;

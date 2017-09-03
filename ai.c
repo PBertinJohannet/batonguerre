@@ -5,8 +5,9 @@
 #include "ai.h"
 #include "dumb_ai.h"
 #include "team.h"
-ai* get_ai_by_name(char* name, team* t){
-    ai* to_ret = malloc(sizeof(ai));
+#include "counted_allocations.h"
+ai* get_ai_by_name(const char* name, team* t){
+    ai* to_ret = counted_malloc(sizeof(ai), "init ai by name");
     if (strcmp(name, "dumb")==0){
         to_ret->play = dumb_ai_play;
         to_ret->ai = dumb_ai_init(t);

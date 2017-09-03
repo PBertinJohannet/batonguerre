@@ -10,9 +10,9 @@ typedef struct arrow arrow;
 struct arrow {
     projectile* parent;
     int damage;
-    int lifetime;
+    unsigned int lifetime;
 };
-projectile* arrow_create(int pos, team* team, int facing, int damage);
+projectile* arrow_create(int pos, team* team, unsigned int facing, int damage);
 
 int arrow_projectile_play(void* arrow, list* entities);
 int arrow_projectile_destroy(projectile* proj);

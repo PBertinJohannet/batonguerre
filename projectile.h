@@ -16,14 +16,14 @@ enum projectile_type {
 
 struct projectile {
     float pos;
-    int facing;
+    unsigned int facing;
     team* team;
     int(*play)(void* ,list*);
     int(*destroy)(projectile*);
     drawable_entity* drawable;
     void* self;
 };
-projectile* projectile_create(int pos, team* team, int facing);
+projectile* projectile_create(int pos, team* team, unsigned int facing);
 
 
 #endif //STICKWAR_PROJECTILE_H

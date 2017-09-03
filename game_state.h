@@ -14,7 +14,7 @@ struct game_state {
     void (*next_loop)(void* state);
 };
 
-game_state* playing_state_init();
+game_state* playing_state_init(void);
 void game_state_loop(game_state*);
 void playing_state_next_loop(void* state);
 

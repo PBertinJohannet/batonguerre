@@ -5,13 +5,13 @@
  "player_team"   : 0,
  "teams" : [ {
 				"pop" : 50,
-				"gold_start" : 2000,
+				"gold_start" : 200,
 				"gold_per_sec" : 4,
               "ai"  : "plyer"},
 			{
 				"pop" : 2350,
-				"gold_start" : 220,
-				"gold_per_sec" :14,
+				"gold_start" : 320,
+				"gold_per_sec" :10,
 				"ai"  : "dumb"}
 			]
 }

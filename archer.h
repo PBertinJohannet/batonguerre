@@ -16,14 +16,7 @@ enum archer_attack {
     ARCHER_NORMAL,
 };
 
-struct archer{
-    int range;
-    int range_short;
-    int damage;
-    int attack_type;
-};
-archer* archer_init(int level);
-void set_archer_class(entity*, int level);
+void set_archer_class(entity*);
 
 animation* archer_get_dying_animation(entity* ent);
 animation* archer_get_walking_animation(entity* ent);

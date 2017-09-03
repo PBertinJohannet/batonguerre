@@ -1,3 +1,4 @@
 rm -f *.o
-make
+make -f Makefile.debug clean
+make -f Makefile.debug
 ./game

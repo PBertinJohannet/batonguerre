@@ -8,7 +8,7 @@
 #include "command.h"
 #include "brigade.h"
 #include "window_conf_reader.h"
-
+#include "counted_allocations.h"
 void set_basic_behaviour(entity_behaviour* behaviour){
     behaviour->attack_failing = entity_base_attack_failing;
     behaviour->dying = entity_base_dying;
@@ -23,10 +23,10 @@ void set_basic_behaviour(entity_behaviour* behaviour){
 
 void entity_base_assaulting(entity* player, list* entities){
     if (!entity_base_find_target(player, entities)) {
-        int target = entity_get_command(player)->target;
+        unsigned int target = entity_get_command(player)->target;
         if ((int)(abs(player->pos-target))>player->speed){
-            player->facing = player->pos>target;
-            player->pos -= player->speed * (2 * player->facing - 1);
+            player->facing = (unsigned int)(player->pos > target);
+            player->pos -= player->speed * (2.0 * (float)player->facing - 1.0);
         } else {
             player->facing = player->team->id;
             player->pos = entity_get_command(player)->target;
@@ -39,7 +39,7 @@ void entity_base_assaulting(entity* player, list* entities){
 int entity_base_find_target(entity* player, list* entities){
     int range = player->type->get_current_range(player);
     list* in_range = list_create();
-    for (int i = 0; i < entities->size; i++) {
+    for (unsigned int i = 0; i < entities->size; i++) {
         entity *ent = (entity *) list_at(entities, i);
         if (player->team != ent->team
             && abs(player->pos - ent->pos) < range
@@ -67,7 +67,7 @@ void entity_base_dying(entity* player){
 
 
 
-void entity_base_attack_failing(entity* player, list* entities){
+void entity_base_attack_failing(entity* player,__attribute__ ((unused)) list* entities){
     if (drawable_entity_get_frame(player->drawable) == player->drawable->anim->anim->nb_frames - 1) {
         player->type->to_assault(player);
     }
@@ -82,7 +82,7 @@ void entity_base_to_retreat(entity* player){
 
 
 void entity_base_retreating(entity* player, list* entities){
-    if ((int)(abs(player->pos-player->team->id*player->team->pop))>50){
+    if ((int)(abs(player->pos-(int)(player->team->id)*player->team->pop))>50){
         player->facing = !player->team->id;
         player->pos -= player->speed * (2 * player->facing - 1) ;
     } else {
@@ -154,6 +154,8 @@ void entity_base_play(game* g, entity* player, list* entities){
 
 
 void entity_behaviour_destroy(entity_behaviour* ent){
-    free(ent->type_stats);
-    free(ent);
+    char* infos = malloc(sizeof(char)*(size_t)(strlen("freeing behaviour state for ent of type : ..")+1));
+    sprintf(infos, "freeing behaviour state for ent of type : %u", ent->type);
+    counted_free(ent->current_state, infos);
+    counted_free(ent, "freeing behaviout");
 }

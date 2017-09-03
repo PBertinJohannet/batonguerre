@@ -6,30 +6,21 @@
 #include "ninja.h"
 #include "base.h"
 #include "archer.h"
-entity* factory_new_entity(int type, team* team, int level, game* g){
-    entity* ent;
-    animation_frame* walking;
-    switch (type)
+entity* factory_new_entity(brigade* brigade){
+    entity* ent = entity_init(brigade);
+    switch (brigade->entity_type)
     {
         case KICKER :
-            walking = animation_frame_init(get_animations()->stick_walk);
-            ent = entity_init(KICKER_BASE_LIFE, KICKER_BASE_SPEED, team, KICKER_BASE_SIZE, team->pop, walking);
-            set_kicker_class(ent,level);
+            set_kicker_class(ent);
             break;
         case NINJA :
-            walking = animation_frame_init(get_animations()->ninja_walk);
-            ent = entity_init(NINJA_BASE_LIFE, NINJA_BASE_SPEED, team, NINJA_BASE_SIZE, team->pop,  walking);
-            set_ninja_class(ent,level);
+            set_ninja_class(ent);
             break;
         case ARCHER :
-            walking = animation_frame_init(get_animations()->archer_walk);
-            ent = entity_init(ARCHER_BASE_LIFE, ARCHER_BASE_SPEED, team, ARCHER_BASE_SIZE, team->pop,  walking);
-            set_archer_class(ent,level);
+            set_archer_class(ent);
             break;
         case BASE :
-            walking = animation_frame_init(get_animations()->stick_walk);
-            ent = entity_init(250, 0, team, 3.8, team->pop, walking);
-            set_base_class(ent,level);
+            exit(0);
             break;
         default:
             break;

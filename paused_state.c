@@ -3,6 +3,7 @@
 //
 #include "paused_state.h"
 #include "window_conf_reader.h"
+#include "counted_allocations.h"
 void paused_game_display_message(paused_state* g){
     view* v = g->paused_game->view;
     sfText_destroy(v->text);
@@ -27,7 +28,7 @@ void paused_game_next_loop(paused_state* ps) {
 void paused_game_update(paused_state* ps) {
     game* g = ps->paused_game;
     int to_game = 0;
-    sfEvent *event = malloc(sizeof(sfEvent));
+    sfEvent *event = counted_malloc(sizeof(sfEvent), "event created in pause controller");
     while (sfRenderWindow_pollEvent(game_get_view_window(g), event)) {
         switch (event->type) {
             case sfEvtClosed:
@@ -42,7 +43,7 @@ void paused_game_update(paused_state* ps) {
                 break;
         }
     }
-    free(event);
+    counted_free(event, "free paused state event");
     if (to_game) {
         paused_state_to_playing_state(g->state);
     }
