@@ -43,11 +43,11 @@ __attribute_pure__ int can_launch(entity_launcher* ent){
     return ((int)ent->curr_cd) == ent->cd && ent->brigade->team->gold > ent->cost;
 }
 
-void entity_launcher_launch(entity_launcher* launcher, game* g){
+void entity_launcher_launch(entity_launcher* launcher, battle* g){
     if (can_launch(launcher)) {
         launcher->curr_cd = 0;
         launcher->brigade->team->gold-=launcher->cost;
-        game_add_entity(g, factory_new_entity(launcher->brigade));
+        battle_add_entity(g, factory_new_entity(launcher->brigade));
     } else {
         // refused
     }

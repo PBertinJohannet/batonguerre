@@ -20,7 +20,7 @@ void set_archer_class(entity*);
 
 animation* archer_get_dying_animation(entity* ent);
 animation* archer_get_walking_animation(entity* ent);
-void archer_attacking(entity* ent, game* g);
+void archer_attacking(entity* ent, battle* g);
 int archer_get_current_range(entity* ent);
 void archer_to_attack(entity* ent,entity* target);
 

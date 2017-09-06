@@ -11,7 +11,7 @@
 #include "command.h"
 #include "brigade.h"
 typedef struct command command;
-typedef struct game game;
+typedef struct battle battle;
 typedef struct entity entity;
 typedef struct team team;
 typedef struct brigade brigade;

@@ -137,7 +137,7 @@ void view_move_left(view* v){
 
 
 
-void game_over_screen(view* v) {
+void battle_over_screen(view* v) {
     sfRenderWindow_clear(v->window, sfBlack);
     sfText_destroy(v->text);
     v->text = sfText_create();

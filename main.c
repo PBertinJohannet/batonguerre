@@ -1,15 +1,14 @@
 
 #include <SFML/Graphics.h>
 #include "game_state.h"
-#define GAME
+#define battle
 int main(void)
 {
-#ifdef GAME
-    game_state * state = playing_state_init();
-    game_state_loop(state);
+#ifdef battle
+    game_state_start(battle_init());
 #endif
 #ifdef CONFIG
-#include "game_saver.h"
+#include "battle_saver.h"
 #include "global.h"
 #include "array_list.h"
 #include "entity_factory.h"

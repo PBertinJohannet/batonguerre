@@ -12,7 +12,7 @@
 typedef struct brigade brigade;
 typedef struct team team;
 typedef struct entity_launcher entity_launcher;
-typedef struct game game;
+typedef struct battle battle;
 struct entity_launcher{
     int cost;
     int cd;
@@ -26,7 +26,7 @@ struct entity_launcher{
 entity_launcher* entity_launcher_init(brigade* ,int cost, int cd);
 void entity_launcher_set_type(entity_launcher*, int);
 sfSprite* entity_launcher_get_icon(entity_launcher* ent);
-void entity_launcher_launch(entity_launcher* launcher, game* g);
+void entity_launcher_launch(entity_launcher* launcher, battle* g);
 void entity_launcher_update(entity_launcher* ent);
 int can_launch(entity_launcher* ent);
 int entity_launcher_destroy(void* ent);

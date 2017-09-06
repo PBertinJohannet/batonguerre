@@ -35,20 +35,21 @@ animation* archer_get_walking_animation(__attribute__ ((unused))entity* ent){
 }
 
 
-void archer_attacking(entity* ent, game* g){
+void archer_attacking(entity* ent, battle* g){
     int* current_state = ent->type->current_state;
+    archer_stats* stats = ent->brigade->specific_stats;
     if (!(ent->state == ENTITY_STATE_ATTACK_FAILING) && drawable_entity_get_frame(ent->drawable) == 12){
         switch (*current_state){
             case ARCHER_SHORT_HIT:
-                ent->target->hp-=((archer_stats*)(ent->brigade->specific_stats))->short_range_damage;
+                ent->target->type->take_damage(ent->target,((archer_stats*)(ent->brigade->specific_stats))->short_range_damage;
                 break;
             case ARCHER_CRIT:
-                game_add_projectile(g,arrow_create(ent->pos, ent->team, ent->facing, ARCHER_CRIT_DAMAGE));
+                battle_add_projectile(g,arrow_create((int)ent->pos,(unsigned int)stats->range, (unsigned int)stats->arrow_speed,stats->arrow_size, ent->team, ent->facing, stats->critical_damage));
             case ARCHER_NORMAL:
-                game_add_projectile(g,arrow_create(ent->pos, ent->team, ent->facing, ARCHER_NORMAL_DAMAGE));
+                battle_add_projectile(g,arrow_create((int)ent->pos,(unsigned int)stats->range, (unsigned int)stats->arrow_speed,stats->arrow_size, ent->team, ent->facing, stats->normal_damage));
         }
     }
-    drawable_entity_animation_forward(ent->drawable, ARCHER_BASE_ATTACK_SPEED/get_window_config()->fps);
+    drawable_entity_animation_forward(ent->drawable, (unsigned int)stats->basic_attack_speed/get_window_config()->fps);
 }
 
 __attribute__ ((pure)) int archer_get_current_range(entity* ent){
@@ -57,15 +58,16 @@ __attribute__ ((pure)) int archer_get_current_range(entity* ent){
 }
 
 void archer_to_attack(entity* ent,entity* target){
+    archer_stats* stats = ent->brigade->specific_stats;
     int* current_state = ent->type->current_state;
     ent->state = ENTITY_STATE_ATTACKING;
     animation_frame_destroy(ent->drawable->anim);
     ent->target = target;
-    if (abs(ent->pos  - target->pos)<ARCHER_SHORT_RANGE){
+    if (abs(ent->pos  - target->pos)<stats->range_short){
         *current_state = ARCHER_SHORT_HIT;
         ent->drawable->anim = animation_frame_init(get_animations()->archer_short_hit);
     } else {
-        if ((rand() % ARCHER_CRIT_CHANCE)) {
+        if ((rand() % stats->critical_chance)) {
             *current_state = ARCHER_NORMAL;
             ent->drawable->anim = animation_frame_init(get_animations()->archer_hit);
         } else {

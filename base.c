@@ -41,11 +41,11 @@ animation* base_get_walking_animation(__attribute__ ((unused))entity* ent){
 }
 
 
-void base_play(__attribute__ ((unused))game* g, entity* player,__attribute__ ((unused)) list* entities){
+void base_play(__attribute__ ((unused))battle* g, entity* player,__attribute__ ((unused)) list* entities){
     player->drawable->anim->frame =player->drawable->anim->anim->nb_frames-3;
 }
 
-void base_attacking(entity* ent,__attribute__ ((unused)) game* g){
+void base_attacking(entity* ent,__attribute__ ((unused)) battle* g){
     ent->drawable->anim->frame = 0;
 }
 

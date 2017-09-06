@@ -3,7 +3,7 @@
 //
 
 #include "entity_behaviour.h"
-#include "game.h"
+#include "game_state.h"
 #include "math.h"
 #include "command.h"
 #include "brigade.h"
@@ -18,6 +18,13 @@ void set_basic_behaviour(entity_behaviour* behaviour){
     behaviour->to_retreat = entity_base_to_retreat;
     behaviour->play = entity_base_play;
     behaviour->to_dying = entity_base_to_dying;
+    behaviour->take_damage = entity_base_take_damage;
+}
+
+void entity_base_take_damage(entity* ent, int damages){
+    if (ent->brigade->base_armor<damages){
+        ent->hp-=(damages - ent->brigade->base_armor);
+    }
 }
 
 
@@ -107,7 +114,7 @@ void entity_base_to_assault(entity* player){
 
 
 
-void entity_base_play(game* g, entity* player, list* entities){
+void entity_base_play(battle* g, entity* player, list* entities){
     if (player->state != ENTITY_STATE_DYING && player->hp<1){
         player->type->to_dying(player);
         return;

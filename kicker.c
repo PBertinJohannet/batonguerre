@@ -38,7 +38,7 @@ animation* kicker_get_walking_animation(__attribute__ ((unused))entity* ent){
 }
 
 
-void kicker_attacking(entity* ent,__attribute__ ((unused)) game* g){
+void kicker_attacking(entity* ent,__attribute__ ((unused)) battle* g){
     int* current_state = ent->type->current_state;
     kicker_stats* stats = ent->brigade->specific_stats;
     float base_attack_speed = ( *current_state == PUNCH)?stats->punch_attack_speed:stats->base_attack_speed;
@@ -47,7 +47,7 @@ void kicker_attacking(entity* ent,__attribute__ ((unused)) game* g){
         if (*current_state == PUNCH){
             damage = stats->kick_damage;
         }
-        ent->target->hp-= damage;
+        ent->target->type->take_damage(ent->target, damage);
     }
     drawable_entity_animation_forward(ent->drawable, base_attack_speed/get_window_config()->fps);
 }

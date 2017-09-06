@@ -1,4 +1,4 @@
-TARGET = game
+TARGET = battle
 LIBS = -lm -lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio -ljansson
 CC = gcc
 CFLAGS = -g -Og -Wall -std=c11  -Wextra -fstrict-aliasing -Wstrict-aliasing=3 -Werror -Wpedantic -Wchkp -Wformat -Wstrict-overflow -Wnull-dereference -Winit-self \

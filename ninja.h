@@ -29,7 +29,7 @@ ninja* ninja_init(ninja_stats*);
 void set_ninja_class(entity*);
 animation* ninja_get_dying_animation(entity* ent);
 animation* ninja_get_walking_animation(entity* ent);
-void ninja_attacking(entity* ent, game* g);
+void ninja_attacking(entity* ent, battle* g);
 
 void ninja_jumping(entity* ent);
 int ninja_get_current_range(entity* ent);

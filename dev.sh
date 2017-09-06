@@ -11,6 +11,6 @@ case $yn in
 esac
 read -p "do you want to run the programm without valgrind ? " y
 case $y in 
-	[Yy]* ) ./game;;
+	[Yy]* ) ./battle;;
 	* ) echo "see you later then";;
 esac

@@ -38,7 +38,7 @@ animation* ninja_get_walking_animation(__attribute__ ((unused)) entity* ent){
 }
 
 
-void ninja_attacking(entity* ent, __attribute__ ((unused)) game* g) {
+void ninja_attacking(entity* ent, __attribute__ ((unused)) battle* g) {
     ninja* current_state = ent->type->current_state;
     ninja_stats* stats = ent->brigade->specific_stats;
     unsigned int curr_frame = drawable_entity_get_frame(ent->drawable);

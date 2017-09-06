@@ -2,14 +2,14 @@
 // Created by pierre on 22/08/17.
 //
 
-#ifndef STICKWAR_GAME_PARAMS_H
-#define STICKWAR_GAME_PARAMS_H
+/*
+#ifndef STICKWAR_battle_PARAMS_H
+#define STICKWAR_battle_PARAMS_H
 
 
 
 
 // kicker
-/*
 #define KICKER_RANGE 40
 #define KICKER_PUNCH_CHANCE 4
 #define KICKER_PUNCH_DAMAGE 20
@@ -34,7 +34,7 @@
 #define NINJA_COOLDOWN 5
 #define NINJA_JUMP_RANGE NINJA_BASE_SPEED*3
 #define NINJA_BASE_ATTACK_SPEED 25.0
-archer*/
+archer
 #define ARCHER_LONG_RANGE (unsigned int )(400)
 #define ARCHER_SHORT_RANGE 40
 #define ARCHER_BASE_LIFE 50
@@ -50,4 +50,5 @@ archer*/
 #define ARROW_SIZE 2.5
 #define ARCHER_BASE_ATTACK_SPEED 25.0
 
-#endif //STICKWAR_GAME_PARAMS_H
+#endif //STICKWAR_battle_PARAMS_H
+*/

@@ -10,12 +10,13 @@
 #include "brigade_reader.h"
 #include "base.h"
 #include "counted_allocations.h"
+#include "battle.h"
 #include "battle_state.h"
-battle_state* battle_state_from_level(game_state* state, char* level_name,__attribute__ ((unused)) char* saved_battle_state){
-    battle_state* g = counted_malloc(sizeof(battle_state), "battle_state create");
+battle* battle_from_level(game_state* state, char* level_name,__attribute__ ((unused)) char* saved_battle){
+    battle* g = counted_malloc(sizeof(battle), "battle create");
     g->state = state;
     level_reader* lvl = level_reader_init(level_name);
-    battle_state_config* conf = level_reader_read_conf(lvl);
+    battle_config* conf = level_reader_read_conf(lvl);
     g->ennemy = level_reader_read_team(lvl,1);
     g->player = level_reader_read_team(lvl,0);
     json_t* player_save_brigades = start_json("confs/saves/01/army.json");
@@ -26,33 +27,33 @@ battle_state* battle_state_from_level(game_state* state, char* level_name,__attr
     g->frame = 0;
     g->map_size = conf->map_size;
     g->controller = controller_init(g);
-    battle_state_init_teams(g);
+    battle_init_teams(g);
     g->ennemy_ai = level_reader_read_ai(lvl,g->ennemy);
     return g;
 }
 
-void battle_state_init_teams(battle_state* g){
-    battle_state_init_team(g,g->player);
-    battle_state_init_team(g,g->ennemy);
+void battle_init_teams(battle* g){
+    battle_init_team(g,g->player);
+    battle_init_team(g,g->ennemy);
 }
-void battle_state_init_team(battle_state* g, team* t){
+void battle_init_team(battle* g, team* t){
     entity* base = base_init(t->pop, 250, t);
     set_base_class(base);
     t->base = base;
     list_add(g->entities,base);
 }
-void battle_state_add_entity(battle_state* g, entity* ent){
+void battle_add_entity(battle* g, entity* ent){
     list_add(g->entities,ent);
 }
-void battle_state_add_projectile(battle_state* g, projectile* proj){
+void battle_add_projectile(battle* g, projectile* proj){
     list_add(g->projectiles,proj);
 }
 
-__attribute__ ((pure)) sfRenderWindow* battle_state_get_view_window(battle_state* g){
+__attribute__ ((pure)) sfRenderWindow* battle_get_view_window(battle* g){
     return g->view->window;
 }
 
-list* battle_state_get_drawables(battle_state* g){
+list* battle_get_drawables(battle* g){
     list* drawables = list_create();
     for (unsigned int i =0;i<g->entities->size;i++){
         entity* ent = (entity*)(list_at(g->entities,i));
@@ -65,17 +66,17 @@ list* battle_state_get_drawables(battle_state* g){
     return drawables;
 }
 
-void battle_state_draw(battle_state* g) {
-    battle_state_update(g);
+void battle_draw(battle* g) {
+    battle_update(g);
     view_draw_map(g->view);
     view_draw_launchers(g->view, g->player->brigades);
     view_draw_gold(g->view, g->player->gold);
     view_draw_cursor(g->view, g->controller->commanding_brigade);
-    view_draw_entities(g->view, battle_state_get_drawables(g));
+    view_draw_entities(g->view, battle_get_drawables(g));
 }
 
 
-void battle_state_update(battle_state* g){
+void battle_update(battle* g){
     g->frame+=1;
     team_play(g->player, g->frame);
     team_play(g->ennemy, g->frame);
@@ -97,17 +98,20 @@ void battle_state_update(battle_state* g){
         }
     }
     if (g->player->base->hp < 1 ){
-        battle_state_to_battle_state(g->state, g->ennemy);
+        battle_state_to_end_state(g->state->current_state);
     }
     if (g->ennemy->base->hp < 1) {
-        battle_state_to_battle_state(g->state, g->player);
+        battle_state_to_end_state(g->state->current_state);
     }
 }
 
 
+void battle_process_event(battle* b, sfEvent* e){
+    controller_process_event(b->controller, e);
+}
 
 
-void battle_state_destroy(battle_state* g){
+void battle_destroy(battle* g){
     team_destroy(g->player);
     team_destroy(g->ennemy);
     list_free(g->entities, entity_destroy_void);

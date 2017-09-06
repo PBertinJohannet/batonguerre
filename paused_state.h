@@ -5,14 +5,19 @@
 #ifndef STICKWAR_PAUSED_STATE_H
 #define STICKWAR_PAUSED_STATE_H
 
-#include "game.h"
+#include "game_state.h"
+#include "battle_state.h"
 typedef struct paused_state paused_state;
+typedef struct battle_state battle_state;
 
 struct paused_state{
-    game* paused_game;
+    game_state* super;
+    battle* paused_battle;
 };
+paused_state* paused_state_init(battle_state* );
+void paused_state_draw(void* state);
+void paused_state_update(void* ps);
+void paused_state_process_event(void* state, sfEvent* event);
 
-void paused_game_display_message(paused_state* g);
-void paused_game_next_loop(paused_state* ps);
-void paused_game_update(paused_state* ps);
+void paused_state_to_battle(paused_state* ps);
 #endif //STICKWAR_PAUSED_STATE_H

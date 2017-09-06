@@ -13,7 +13,7 @@
 typedef struct brigade brigade;
 typedef struct command command;
 typedef struct entity_launcher entity_launcher;
-typedef struct game game;
+typedef struct battle battle;
 /**
  * The brigade struct.
  * Contains :

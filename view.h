@@ -9,7 +9,7 @@
 #include <SFML/Audio.h>
 #include "drawable_entity.h"
 #include "array_list.h"
-#include "game_params.h"
+
 #include "texture_list.h"
 #include "level_reader.h"
 typedef struct battle_config battle_config;
@@ -36,7 +36,7 @@ void view_draw_entities(view* v, list* entities);
 void view_move_right(view* v);
 void view_move_left(view* v);
 void view_draw_gold(view* v, int gold);
-void game_over_screen(view* v);
+void battle_over_screen(view* v);
 void win_screen(view* v);
 void view_destroy(view* v);
 #endif //STICKWAR_DRAWER_H

@@ -22,14 +22,14 @@ void team_set_brigades(team* t, list* l){
 }
 
 
-void team_launch_entity(team* t,game* g, unsigned int id){
+void team_launch_entity(team* t,battle* g, unsigned int id){
     if (id>=t->brigades->size){
         return;
     }
     brigade* b = list_at(t->brigades, id);
     entity_launcher_launch(b->launcher, g);
 }
-void team_order_entity(team* t,game* g, unsigned int id){
+void team_order_entity(team* t,battle* g, unsigned int id){
     if (id>=t->brigades->size){
         return;
     }

@@ -4,8 +4,17 @@
 #include "paused_state.h"
 #include "window_conf_reader.h"
 #include "counted_allocations.h"
-void paused_game_display_message(paused_state* g){
-    view* v = g->paused_game->view;
+#include "battle_state.h"
+
+paused_state* paused_state_init(battle_state* bs){
+    paused_state* ps = counted_malloc(sizeof(paused_state), "creating paused state");
+    ps->super = bs->super;
+    ps->paused_battle = bs->battle;
+    return ps;
+}
+
+void paused_state_draw(void* state){
+    view* v =( (paused_state*) state)->paused_battle->view;
     sfText_destroy(v->text);
     v->text = sfText_create();
     sfText_setString(v->text, " PAUSED \n press SPACE to continue ");
@@ -18,33 +27,29 @@ void paused_game_display_message(paused_state* g){
     sfRenderWindow_drawText(v->window, v->text, NULL);
     sfRenderWindow_display(v->window);
 }
+__attribute_const__ void paused_state_update(__attribute__ ((unused)) void* ps){
 
-void paused_game_next_loop(paused_state* ps) {
-    paused_game_display_message(ps);
-    paused_game_update(ps);
+}
+void paused_state_process_event(void* state, sfEvent* event){
+    paused_state* ps = state;
+    switch (event->type) {
+        case sfEvtClosed:
+            sfRenderWindow_close(ps->super->window);
+            break;
+        case sfEvtKeyPressed:
+            if (sfKeyboard_isKeyPressed(sfKeySpace)) {
+                paused_state_to_battle(ps);
+            }
+            break;
+        default:
+            break;
+    }
 }
 
-
-void paused_game_update(paused_state* ps) {
-    game* g = ps->paused_game;
-    int to_game = 0;
-    sfEvent *event = counted_malloc(sizeof(sfEvent), "event created in pause controller");
-    while (sfRenderWindow_pollEvent(game_get_view_window(g), event)) {
-        switch (event->type) {
-            case sfEvtClosed:
-                sfRenderWindow_close(game_get_view_window(g));
-                break;
-            case sfEvtKeyPressed:
-                if (sfKeyboard_isKeyPressed(sfKeySpace)) {
-                    to_game = 1;
-                }
-                break;
-            default:
-                break;
-        }
-    }
-    counted_free(event, "free paused state event");
-    if (to_game) {
-        paused_state_to_playing_state(g->state);
-    }
+void paused_state_to_battle(paused_state* ps){
+    ps->super->current_state = battle_state_init_from_pause(ps);
+    ps->super->draw = battle_state_draw;
+    ps->super->update = battle_state_update;
+    ps->super->process_event = battle_state_process_event;
+    counted_free(ps, "freeing paused state to battle ! ");
 }

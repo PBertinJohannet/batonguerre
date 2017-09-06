@@ -13,7 +13,7 @@ dumb_ai* dumb_ai_init(team* t){
     return dai;
 }
 
-void dumb_ai_play(ai* my_ai, game* g){
+void dumb_ai_play(ai* my_ai, battle* g){
     dumb_ai* dai = my_ai->ai;
     entity_launcher* launcher_target = ((brigade*)list_at(dai->team->brigades, dai->target_id))->launcher;
     if (can_launch(launcher_target)){
@@ -22,12 +22,12 @@ void dumb_ai_play(ai* my_ai, game* g){
     }
     if (!choose_mode(dai, g->entities)){
         dai->last_ass = 0;
-        //game_command_one(g,dai->team,g->map_size-500,ARCHER);
-        game_command_one(dai->team,((unsigned int)g->map_size-550),KICKER);
-        //game_command_one(g,dai->team,g->map_size-450,NINJA);
+        //battle_command_one(g,dai->team,g->map_size-500,ARCHER);
+        battle_command_one(dai->team,((unsigned int)g->map_size-550),KICKER);
+        //battle_command_one(g,dai->team,g->map_size-450,NINJA);
     } else {
         if (!dai->last_ass) {
-            game_order_assault(g, dai->team);
+            battle_order_assault(g, dai->team);
         }
         dai->last_ass = 1;
     }

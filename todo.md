@@ -11,10 +11,10 @@ d	read conf
 d	json read int/char/etc...
 d	ent pointer -> brigade
 d	team list brigade ent->brigade stop
-	upd and evt in state
-	game ->battle
-	type -> behaviour
-	view create with pointer to config ?
+d	upd and evt in state
+d	battle ->battle
+d	type -> behaviour
+d	view create with pointer to config ?
 mnu :
 	state menu
 	load

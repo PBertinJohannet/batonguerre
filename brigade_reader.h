@@ -40,7 +40,8 @@ struct archer_stats {
     int critical_chance;
     int number_of_arrows;
     int arrow_speed;
-    int arrow_size;
+    float arrow_size;
+    int basic_attack_speed;
 };
 
 

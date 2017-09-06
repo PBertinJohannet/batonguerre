@@ -34,7 +34,8 @@ archer_stats* brigades_reader_read_archer(json_t* obj){
     a->critical_chance = json_read_int(obj, "critical_chance");
     a->number_of_arrows = json_read_int(obj, "number_of_arrows");
     a->arrow_speed = json_read_int(obj, "arrow_speed");
-    a->arrow_size = json_read_int(obj, "arrow_size");
+    a->arrow_size = json_read_float(obj, "arrow_size");
+    a->basic_attack_speed = json_read_int(obj, "basic_attack_speed");
     return a;
 }
 
