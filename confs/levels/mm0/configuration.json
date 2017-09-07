@@ -11,7 +11,7 @@
 			{
 				"pop" : 2350,
 				"gold_start" : 320,
-				"gold_per_sec" :10,
+				"gold_per_sec" :6,
 				"ai"  : "dumb"}
 			]
 }

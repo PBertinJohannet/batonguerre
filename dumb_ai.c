@@ -22,9 +22,9 @@ void dumb_ai_play(ai* my_ai, battle* g){
     }
     if (!choose_mode(dai, g->entities)){
         dai->last_ass = 0;
-        //battle_command_one(g,dai->team,g->map_size-500,ARCHER);
+        battle_command_one(dai->team,(unsigned int)g->map_size-500,ARCHER);
         battle_command_one(dai->team,((unsigned int)g->map_size-550),KICKER);
-        //battle_command_one(g,dai->team,g->map_size-450,NINJA);
+        battle_command_one(dai->team,(unsigned int)g->map_size-450,NINJA);
     } else {
         if (!dai->last_ass) {
             battle_order_assault(g, dai->team);
@@ -46,8 +46,7 @@ int choose_mode(dumb_ai* ai, list* entities){
             my_units++;
         }
     }
-    printf("choose mode \n");
-    return (my_units-5) > his_units;
+    return (my_units/2) > his_units;
 }
 
 
