@@ -94,6 +94,9 @@ __attribute_pure__ int ninja_get_current_range(entity* ent){
 }
 
 void ninja_to_attack(entity* ent,entity* target){
+    if (ent->pos > target->pos){
+        ent->facing = 1;
+    }
     ninja_stats* stats = ent->brigade->specific_stats;
     ent->state = ENTITY_STATE_ATTACKING;
     if (abs(ent->pos-target->pos)>stats->range){

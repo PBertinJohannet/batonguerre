@@ -47,7 +47,7 @@ __attribute_const__ void end_state_draw(__attribute__ ((unused)) void* state){
     sfRenderWindow_display(v->window);
 }
 __attribute_const__ void end_state_update(__attribute__ ((unused)) void* ps){
-
+    printf("end state update \n");
 }
 void end_state_process_event(void* state, sfEvent* event){
     end_state* ps = state;

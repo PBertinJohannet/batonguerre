@@ -21,8 +21,10 @@ mnu :
 	save
 gme :
 d	armor
+	miners
 	lif bar  when hit
-	nnja jmp fix when wrong side stop.
+m	everyone wrong side hit stop de ouf
+m	nnja jmp fix when wrong side stop.
 	retrear base
 	multiple plyrs:
 		plyrs have sides (int)

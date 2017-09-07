@@ -12,66 +12,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e4190c2-7e9a-447d-8741-9ed714d298e7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/battle.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/battle_interact.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/battle_state.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/battle_state.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/end_state.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/end_state.h" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/game" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/game.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/game_end_state.c" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/game_end_state.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/game_interact.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/game_params.h" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/game.c" afterPath="$PROJECT_DIR$/battle.c" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/game_interact.c" afterPath="$PROJECT_DIR$/battle_interact.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/battle" afterPath="$PROJECT_DIR$/battle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CMakeLists.txt" afterPath="$PROJECT_DIR$/CMakeLists.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Makefile" afterPath="$PROJECT_DIR$/Makefile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Makefile.debug" afterPath="$PROJECT_DIR$/Makefile.debug" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Makefile.release" afterPath="$PROJECT_DIR$/Makefile.release" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ai.h" afterPath="$PROJECT_DIR$/ai.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/archer.c" afterPath="$PROJECT_DIR$/archer.c" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/archer.h" afterPath="$PROJECT_DIR$/archer.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/arrow.c" afterPath="$PROJECT_DIR$/arrow.c" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/arrow.h" afterPath="$PROJECT_DIR$/arrow.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/base.c" afterPath="$PROJECT_DIR$/base.c" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/base.h" afterPath="$PROJECT_DIR$/base.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/brigade.h" afterPath="$PROJECT_DIR$/brigade.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/brigade_reader.c" afterPath="$PROJECT_DIR$/brigade_reader.c" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/brigade_reader.h" afterPath="$PROJECT_DIR$/brigade_reader.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/check_result.txt" afterPath="$PROJECT_DIR$/check_result.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/check_results.txt" afterPath="$PROJECT_DIR$/check_results.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller.c" afterPath="$PROJECT_DIR$/controller.c" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller.h" afterPath="$PROJECT_DIR$/controller.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dev.sh" afterPath="$PROJECT_DIR$/dev.sh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dumb_ai.c" afterPath="$PROJECT_DIR$/dumb_ai.c" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dumb_ai.h" afterPath="$PROJECT_DIR$/dumb_ai.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/entity.h" afterPath="$PROJECT_DIR$/entity.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/entity_behaviour.c" afterPath="$PROJECT_DIR$/entity_behaviour.c" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/entity_behaviour.h" afterPath="$PROJECT_DIR$/entity_behaviour.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/entity_factory.h" afterPath="$PROJECT_DIR$/entity_factory.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/entity_launcher.c" afterPath="$PROJECT_DIR$/entity_launcher.c" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/entity_launcher.h" afterPath="$PROJECT_DIR$/entity_launcher.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/game_state.c" afterPath="$PROJECT_DIR$/game_state.c" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/game_state.h" afterPath="$PROJECT_DIR$/game_state.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/battle.c" afterPath="$PROJECT_DIR$/battle.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/battle_state.c" afterPath="$PROJECT_DIR$/battle_state.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/end_state.c" afterPath="$PROJECT_DIR$/end_state.c" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/kicker.c" afterPath="$PROJECT_DIR$/kicker.c" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/kicker.h" afterPath="$PROJECT_DIR$/kicker.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.c" afterPath="$PROJECT_DIR$/main.c" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ninja.c" afterPath="$PROJECT_DIR$/ninja.c" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ninja.h" afterPath="$PROJECT_DIR$/ninja.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/paused_state.c" afterPath="$PROJECT_DIR$/paused_state.c" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/paused_state.h" afterPath="$PROJECT_DIR$/paused_state.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/release.sh" afterPath="$PROJECT_DIR$/release.sh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/run" afterPath="$PROJECT_DIR$/run" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/team.c" afterPath="$PROJECT_DIR$/team.c" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/team.h" afterPath="$PROJECT_DIR$/team.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todo.md" afterPath="$PROJECT_DIR$/todo.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/valdebug" afterPath="$PROJECT_DIR$/valdebug" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view.c" afterPath="$PROJECT_DIR$/view.c" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view.h" afterPath="$PROJECT_DIR$/view.h" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -83,23 +32,45 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="end_state.c" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/end_state.c">
+      <file leaf-file-name="battle.c" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/battle.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="687">
-              <caret line="55" column="52" lean-forward="false" selection-start-line="55" selection-start-column="52" selection-end-line="55" selection-end-column="52" />
+            <state relative-caret-position="327">
+              <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
               <folding>
-                <element signature="e#41#63#0" expanded="true" />
+                <element signature="e#41#64#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="archer.c" pinned="false" current-in-tab="true">
+      <file leaf-file-name="archer.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/archer.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="45" column="29" lean-forward="true" selection-start-line="45" selection-start-column="29" selection-end-line="45" selection-end-column="29" />
+            <state relative-caret-position="511">
+              <caret line="63" column="49" lean-forward="false" selection-start-line="63" selection-start-column="49" selection-end-line="66" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="drawable_entity.c" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/drawable_entity.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="14" column="5" lean-forward="false" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+              <folding>
+                <element signature="e#40#68#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="brigade_reader.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/brigade_reader.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="579">
+              <caret line="43" column="8" lean-forward="false" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -118,7 +89,7 @@
       <file leaf-file-name="kicker.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/kicker.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="403">
+            <state relative-caret-position="381">
               <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
               <folding>
                 <element signature="e#40#59#0" expanded="true" />
@@ -127,44 +98,36 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="entity_behaviour.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/entity_behaviour.h">
+      <file leaf-file-name="battle_state.c" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/battle_state.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="748">
-              <caret line="114" column="55" lean-forward="false" selection-start-line="114" selection-start-column="55" selection-end-line="114" selection-end-column="55" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="brigade.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/brigade.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="entity.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/entity.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="21" column="11" lean-forward="false" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="entity.c" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/entity.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="13" column="21" lean-forward="false" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
+            <state relative-caret-position="532">
+              <caret line="49" column="30" lean-forward="false" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="30" />
               <folding>
-                <element signature="e#40#59#0" expanded="true" />
+                <element signature="e#40#65#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="end_state.c" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/end_state.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="579">
+              <caret line="49" column="34" lean-forward="false" selection-start-line="49" selection-start-column="34" selection-end-line="49" selection-end-column="34" />
+              <folding>
+                <element signature="e#41#63#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ninja.c" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ninja.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="309">
+              <caret line="98" column="5" lean-forward="false" selection-start-line="98" selection-start-column="5" selection-end-line="98" selection-end-column="5" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -172,21 +135,11 @@
       <file leaf-file-name="entity_behaviour.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/entity_behaviour.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
-              <caret line="25" column="8" lean-forward="false" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="15" />
+            <state relative-caret-position="290">
+              <caret line="57" column="31" lean-forward="false" selection-start-line="57" selection-start-column="25" selection-end-line="57" selection-end-column="31" />
               <folding>
                 <element signature="e#41#70#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base.c" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/base.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="29" column="74" lean-forward="false" selection-start-line="29" selection-start-column="74" selection-end-line="29" selection-end-column="74" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -195,8 +148,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>to_re</find>
-      <find>curs</find>
       <find>list_reserve</find>
       <find>malloc</find>
       <find>counted_malloc</find>
@@ -224,6 +175,8 @@
       <find>state</find>
       <find>battle_to_</find>
       <find>paused</find>
+      <find>to_at</find>
+      <find>attack</find>
       <find>hp</find>
     </findStrings>
     <replaceStrings>
@@ -332,7 +285,6 @@
         <option value="$PROJECT_DIR$/entity_factory.c" />
         <option value="$PROJECT_DIR$/entity_launcher.c" />
         <option value="$PROJECT_DIR$/dumb_ai.c" />
-        <option value="$PROJECT_DIR$/ninja.c" />
         <option value="$PROJECT_DIR$/game.c" />
         <option value="$PROJECT_DIR$/game.h" />
         <option value="$PROJECT_DIR$/view.h" />
@@ -348,21 +300,22 @@
         <option value="$PROJECT_DIR$/battle.h" />
         <option value="$PROJECT_DIR$/paused_state.c" />
         <option value="$PROJECT_DIR$/paused_state.h" />
-        <option value="$PROJECT_DIR$/end_state.c" />
         <option value="$PROJECT_DIR$/end_state.h" />
-        <option value="$PROJECT_DIR$/battle_state.c" />
         <option value="$PROJECT_DIR$/brigade_reader.c" />
         <option value="$PROJECT_DIR$/brigade_reader.h" />
         <option value="$PROJECT_DIR$/game_state.c" />
         <option value="$PROJECT_DIR$/view.c" />
-        <option value="$PROJECT_DIR$/battle.c" />
         <option value="$PROJECT_DIR$/battle_state.h" />
         <option value="$PROJECT_DIR$/entity.h" />
         <option value="$PROJECT_DIR$/entity_behaviour.h" />
         <option value="$PROJECT_DIR$/entity_behaviour.c" />
-        <option value="$PROJECT_DIR$/kicker.c" />
         <option value="$PROJECT_DIR$/arrow.c" />
         <option value="$PROJECT_DIR$/archer.c" />
+        <option value="$PROJECT_DIR$/ninja.c" />
+        <option value="$PROJECT_DIR$/kicker.c" />
+        <option value="$PROJECT_DIR$/end_state.c" />
+        <option value="$PROJECT_DIR$/battle_state.c" />
+        <option value="$PROJECT_DIR$/battle.c" />
       </list>
     </option>
   </component>
@@ -474,12 +427,12 @@
       <workItem from="1503947387987" duration="11000" />
       <workItem from="1503947635384" duration="23200000" />
       <workItem from="1504199888942" duration="52610000" />
-      <workItem from="1504462991353" duration="18305000" />
+      <workItem from="1504462991353" duration="20186000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="273503000" />
+    <option name="totallyTimeSpent" value="275384000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-152" y="99" width="1857" height="1092" extended-state="6" />
@@ -559,13 +512,6 @@
           <folding>
             <element signature="e#40#58#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/drawable_entity.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="27" column="46" lean-forward="false" selection-start-line="27" selection-start-column="46" selection-end-line="27" selection-end-column="46" />
         </state>
       </provider>
     </entry>
@@ -720,14 +666,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ninja.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="70" column="11" lean-forward="false" selection-start-line="70" selection-start-column="11" selection-end-line="70" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/arrow.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -788,14 +726,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/brigade_reader.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="36" column="22" lean-forward="false" selection-start-line="36" selection-start-column="22" selection-end-line="36" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/brigade_reader.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="481">
@@ -840,26 +770,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/battle_state.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="694">
-          <caret line="53" column="55" lean-forward="false" selection-start-line="53" selection-start-column="55" selection-end-line="53" selection-end-column="55" />
-          <folding>
-            <element signature="e#40#65#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/battle.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="118" column="6" lean-forward="false" selection-start-line="118" selection-start-column="6" selection-end-line="118" selection-end-column="6" />
-          <folding>
-            <element signature="e#41#64#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/battle_state.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="522">
@@ -876,16 +786,6 @@
           <caret line="15" column="40" lean-forward="false" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
           <folding>
             <element signature="e#102#125#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/end_state.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="687">
-          <caret line="55" column="52" lean-forward="false" selection-start-line="55" selection-start-column="52" selection-end-line="55" selection-end-column="52" />
-          <folding>
-            <element signature="e#41#63#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -924,31 +824,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/entity_behaviour.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="25" column="8" lean-forward="false" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="15" />
-          <folding>
-            <element signature="e#41#70#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/base.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="468">
           <caret line="29" column="74" lean-forward="false" selection-start-line="29" selection-start-column="74" selection-end-line="29" selection-end-column="74" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kicker.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-          <folding>
-            <element signature="e#40#59#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -960,11 +840,87 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/brigade_reader.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="579">
+          <caret line="43" column="8" lean-forward="false" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/drawable_entity.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="14" column="5" lean-forward="false" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+          <folding>
+            <element signature="e#40#68#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/entity_behaviour.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="57" column="31" lean-forward="false" selection-start-line="57" selection-start-column="25" selection-end-line="57" selection-end-column="31" />
+          <folding>
+            <element signature="e#41#70#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/archer.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="45" column="29" lean-forward="true" selection-start-line="45" selection-start-column="29" selection-end-line="45" selection-end-column="29" />
+        <state relative-caret-position="511">
+          <caret line="63" column="49" lean-forward="false" selection-start-line="63" selection-start-column="49" selection-end-line="66" selection-end-column="5" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ninja.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="98" column="5" lean-forward="false" selection-start-line="98" selection-start-column="5" selection-end-line="98" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kicker.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+          <folding>
+            <element signature="e#40#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/end_state.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="579">
+          <caret line="49" column="34" lean-forward="false" selection-start-line="49" selection-start-column="34" selection-end-line="49" selection-end-column="34" />
+          <folding>
+            <element signature="e#41#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/battle_state.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="49" column="30" lean-forward="false" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="30" />
+          <folding>
+            <element signature="e#40#65#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/battle.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+          <folding>
+            <element signature="e#41#64#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -58,6 +58,9 @@ __attribute__ ((pure))int kicker_get_current_range(entity* ent){
 }
 
 void kicker_to_attack(entity* ent,entity* target){
+    if (ent->pos > target->pos){
+        ent->facing = 1;
+    }
     kicker_stats* stats = ent->brigade->specific_stats;
     int* current_state = ent->type->current_state;
     ent->state = ENTITY_STATE_ATTACKING;

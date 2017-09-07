@@ -67,7 +67,6 @@ list* battle_get_drawables(battle* g){
 }
 
 void battle_draw(battle* g) {
-    battle_update(g);
     view_draw_map(g->view);
     view_draw_launchers(g->view, g->player->brigades);
     view_draw_gold(g->view, g->player->gold);

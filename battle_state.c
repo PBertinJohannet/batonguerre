@@ -48,10 +48,15 @@ void battle_state_to_paused_state(game_state* state){
 }
 
 void battle_state_to_end_state(game_state* state){
+    printf("to game \n"    );
     battle_state* bs = state->current_state;
+    printf("to game 1\n"    );
     bs->super->current_state = end_state_init(bs);
+    printf("to game 2\n"    );
     bs->super->update = end_state_update;
+    printf("to game 3\n"    );
     bs->super->process_event = end_state_process_event;
+    printf("to game 4\n"    );
     bs->super->draw = end_state_draw;
     counted_free(bs, "destoying battle state going into end");
 }
