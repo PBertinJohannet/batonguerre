@@ -1,0 +1,54 @@
+//
+// Created by pierre on 22/08/17.
+//
+
+/*
+#ifndef STICKWAR_battle_PARAMS_H
+#define STICKWAR_battle_PARAMS_H
+
+
+
+
+// kicker
+#define KICKER_RANGE 40
+#define KICKER_PUNCH_CHANCE 4
+#define KICKER_PUNCH_DAMAGE 20
+#define KICKER_KICK_DAMAGE 40
+#define KICKER_BASE_LIFE 300+3*level
+#define KICKER_BASE_SPEED 40+rand()%20
+#define KICKER_BASE_SIZE 1.8
+#define KICKER_COST 20
+#define KICKER_COOLDOWN 1
+#define KICKER_BASE_ATTACK_SPEED 25.0
+#define KICKER_PUNCH_SPEED 30.0*/
+// ninja
+/*
+#define NINJA_RANGE 80
+#define NINJA_HIT_CHANCE 4
+#define NINJA_HIT_DAMAGE 60
+#define NINJA_SLASH_DAMAGE 150
+#define NINJA_BASE_LIFE 150+2*level
+#define NINJA_BASE_SPEED 120+rand()%60
+#define NINJA_BASE_SIZE 1.8
+#define  NINJA_COST 50
+#define NINJA_COOLDOWN 5
+#define NINJA_JUMP_RANGE NINJA_BASE_SPEED*3
+#define NINJA_BASE_ATTACK_SPEED 25.0
+archer
+#define ARCHER_LONG_RANGE (unsigned int )(400)
+#define ARCHER_SHORT_RANGE 40
+#define ARCHER_BASE_LIFE 50
+#define ARCHER_BASE_SPEED 30+rand()%3
+#define ARCHER_BASE_SIZE 1.8
+#define ARCHER_NORMAL_DAMAGE 10
+#define ARCHER_SHORT_HIT_DAMAGE 15
+#define ARCHER_CRIT_DAMAGE 40
+#define ARCHER_CRIT_CHANCE 5
+#define ARCHER_COST 60
+#define ARCHER_COOLDOWN 3
+#define ARROW_SPEED (unsigned int)(400)
+#define ARROW_SIZE 2.5
+#define ARCHER_BASE_ATTACK_SPEED 25.0
+
+#endif //STICKWAR_battle_PARAMS_H
+*/

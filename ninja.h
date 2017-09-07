@@ -6,6 +6,7 @@
 #define STICKWAR_NINJA_H
 
 #include "entity_behaviour.h"
+#include "brigade_reader.h"
 
 /**
  * ninja jump from 23 to 33  = 10 frames at 4* speed
@@ -21,15 +22,14 @@ enum ninja_attack {
 };
 
 struct ninja{
-    int range;
     int attack_type;
     int will_jump;
 };
-ninja* ninja_init(int level);
-void set_ninja_class(entity*, int level);
+ninja* ninja_init(ninja_stats*);
+void set_ninja_class(entity*);
 animation* ninja_get_dying_animation(entity* ent);
 animation* ninja_get_walking_animation(entity* ent);
-void ninja_attacking(entity* ent, game* g);
+void ninja_attacking(entity* ent, battle* g);
 
 void ninja_jumping(entity* ent);
 int ninja_get_current_range(entity* ent);

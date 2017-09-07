@@ -5,7 +5,6 @@
 #ifndef STICKWAR_TEXTURES_H
 #define STICKWAR_TEXTURES_H
 
-#include "stdlib.h"
 #include <SFML/Graphics.h>
 typedef struct texture_list texture_list;
 struct texture_list {
@@ -14,6 +13,6 @@ struct texture_list {
     sfTexture* retreat;
     sfTexture* flag;
 };
-texture_list* texture_list_load();
+texture_list* texture_list_load(void);
 int texture_list_destroy(texture_list*);
 #endif //STICKWAR_TEXTURES_H

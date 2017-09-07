@@ -9,10 +9,10 @@
 #include "texture_list.h"
 // anims
 animation_list * loaded_animations;
-animation_list* get_animations();
+animation_list* get_animations(void);
 // textures
 texture_list* loaded_textures;
-texture_list* get_textures();
+texture_list* get_textures(void);
 
 #endif //STICKWAR_GLOBAL_H
 

@@ -4,30 +4,29 @@
 
 #include <SFML/Graphics/Rect.h>
 #include "animation.h"
+#include "counted_allocations.h"
 animation* animation_init(char* name){
-    char* img_name = malloc((strlen(name)+4)*sizeof(char));
+    animation* anim = counted_malloc(sizeof(animation), "creating animation in animation init");
+    char* img_name = counted_malloc((strlen(name)+strlen(".png"))*sizeof(char), "creating img name in animation init");
     strcpy(img_name,name);
     strcat(img_name,".png");
-    char* json_name = malloc((strlen(name)+5)*sizeof(char));
+    char* json_name = counted_malloc((strlen(name)+strlen(".json")+2)*sizeof(char), "creating json name in animation init");
     strcpy(json_name,name);
     strcat(json_name,".json");
-    animation* anim = malloc(sizeof(animation));
     read_frames(json_name, anim);
     anim->texture = sfTexture_createFromFile(img_name,NULL);
-    free(img_name);
-    free(json_name);
     return anim;
 }
 
 animation_frame* animation_frame_init(animation* target){
-    animation_frame* anim = malloc(sizeof(animation_frame));
+    animation_frame* anim = counted_malloc(sizeof(animation_frame), "creating animation frame from animation");
     anim->anim = target;
     anim->frame = 0;
     return anim;
 }
 
 
-sfSprite* animation_frame_next(animation_frame* anim, int flip){
+sfSprite* animation_frame_next(animation_frame* anim, unsigned int flip){
     sfSprite* sprite = sfSprite_create();
     sfSprite_setTexture(sprite, anim->anim->texture, sfTrue);
     sfIntRect target = anim->anim->frames[(int)(anim->frame)];
@@ -35,7 +34,7 @@ sfSprite* animation_frame_next(animation_frame* anim, int flip){
         flip_rect(&target);
     }
     sfSprite_setTextureRect(sprite, target);
-    if (anim->frame==anim->anim->nb_frames){
+    if (((unsigned int)anim->frame)==anim->anim->nb_frames){
         anim->frame = 0;
     }
     return sprite;
@@ -48,12 +47,12 @@ void flip_rect(sfIntRect* rect){
 
 
 void animation_frame_destroy(animation_frame* an){
-    free(an);
+    counted_free(an, "destroy animation frame");
 }
 
 
 void animation_destroy(animation* anim){
     sfTexture_destroy(anim->texture);
-    free(anim->frames);
-    free(anim);
+    counted_free(anim->frames, "destroy frames in animation");
+    counted_free(anim, "destroy animation");
 }

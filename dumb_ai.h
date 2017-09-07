@@ -6,11 +6,12 @@
 #ifndef STICKWAR_DUMB_AI_H
 #define STICKWAR_DUMB_AI_H
 
-#include "game.h"
+#include "game_state.h"
 #include "team.h"
 #include "entity_launcher.h"
-#include "game_interact.h"
-
+#include "battle_interact.h"
+#include "ai.h"
+typedef struct ai ai;
 typedef struct team team;
 typedef struct dumb_ai dumb_ai;
 
@@ -23,7 +24,7 @@ typedef struct dumb_ai dumb_ai;
 struct dumb_ai{
     team* team;
     int last_ass;
-    int target_id;
+    unsigned int target_id;
 };
 
 /**
@@ -44,9 +45,9 @@ int choose_mode(dumb_ai* ai, list* entities);
 /**
  * Play, creates a random unit and decides to attack, advance or retreat.
  * @param dai : the ai.
- * @param g : the game.
+ * @param g : the battle.
  */
-void dumb_ai_play(dumb_ai* dai, game* g);
+void dumb_ai_play(ai* dai, battle* g);
 
 
 /**

@@ -11,9 +11,8 @@
 #include "command.h"
 #include "brigade.h"
 typedef struct command command;
-typedef struct game game;
+typedef struct battle battle;
 typedef struct entity entity;
-typedef enum entity_state entity_state;
 typedef struct team team;
 typedef struct brigade brigade;
 struct entity {
@@ -24,8 +23,9 @@ struct entity {
     float speed;
     team* team;
     float pos;
-    int facing;
-    int state;
+    unsigned int facing;
+    unsigned int state;
+    brigade* brigade;
 };
 enum entity_state{
     ENTITY_STATE_ASSAULT,
@@ -35,7 +35,7 @@ enum entity_state{
     ENTITY_STATE_DYING,
     ENTITY_STATE_DEAD,
 };
-entity* entity_init(int hp, float speed, team* team, float size, float pos, animation_frame* frame);
+entity* entity_init(brigade* b);
 void set_entity_type(entity* ent, struct entity_behaviour* type);
 void entity_destroy(entity* ent);
 int entity_destroy_void(void* ent);

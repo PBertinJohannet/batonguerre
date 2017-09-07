@@ -2,28 +2,34 @@
 // Created by pierre on 23/08/17.
 //
 
-#ifndef STICKWAR_GAME_STATE_H
-#define STICKWAR_GAME_STATE_H
+#ifndef STICKWAR_game_state_H
+#define STICKWAR_game_state_H
 
-#include "game.h"
-#include "game_end_state.h"
+#include "game_state.h"
+#include "battle.h"
+#include "end_state.h"
+#include <SFML/Graphics.h>
+typedef struct battle_end battle_end;
 typedef struct game_state game_state;
+
+
+
 struct game_state {
     sfRenderWindow* window;
-    void* state;
-    void (*next_loop)(void* state);
+    void* current_state;
+    void (*update)(void* state);
+    void (*process_event)(void* state, sfEvent* event);
+    void (*draw)(void* state);
 };
 
-game_state* playing_state_init();
-void game_state_loop(game_state*);
-void playing_state_next_loop(void* state);
-
-void playing_state_to_paused_state(game_state*);
-void paused_state_to_playing_state(game_state*);
-void paused_state_next_loop(void* state);
 
 
-void playing_state_to_game_end_state(game_state* state, team* winner);
-void game_end_state_next_loop(void* state);
-void game_end_state_to_playing_state(game_state* state);
-#endif //STICKWAR_GAME_STATE_H
+
+
+void game_state_start(game_state* state);
+
+game_state* battle_init(void);
+
+
+
+#endif //STICKWAR_game_state_H

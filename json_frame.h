@@ -9,10 +9,8 @@
 
 #include <jansson.h>
 #include "animation.h"
+#include "utils.h"
 typedef struct animation animation;
-json_t* read_elem(json_t* parent, char* elem, char* message, json_type desired);
-json_t* read_index(json_t* parent, int index, char* message, json_type desired);
-json_t* start_json(char* source);
 void read_frames(char* source, animation* anim);
 
 

@@ -8,7 +8,6 @@
 #ifndef STICKWAR_COMMAND_H
 #define STICKWAR_COMMAND_H
 
-#include "stdlib.h"
 #include "entity.h"
 
 typedef struct command command;
@@ -21,16 +20,15 @@ typedef struct command command;
  * entity_type : the type of the brigade.
  */
 struct command {
-    int target;
-    int entity_state;
-    int entity_type;
+    unsigned int target;
+    unsigned int entity_state;
 };
 
 /**
  * Creates the command.
  * @param entity_type : the type of the brigade.
  */
-command* command_init(int entity_type);
+command* command_init(void);
 
 /**
  * update the command.

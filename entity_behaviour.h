@@ -7,11 +7,10 @@
 
 #include "entity.h"
 #include "array_list.h"
-#include "game.h"
+#include "game_state.h"
 typedef struct entity_behaviour entity_behaviour;
 typedef struct entity entity;
-typedef enum entity_class entity_class;
-typedef struct game game;
+typedef struct battle battle;
 typedef struct animation_list animation_list;
 /**
  * This is where the entity behaviour is implemented.
@@ -33,7 +32,7 @@ typedef struct animation_list animation_list;
  *      returns the walking animation of the unit, used when the unit needs to walk.
  * play :
  *      this is the main function :
- *      it will make the entity performs all of his actions according to the game state and team orders.
+ *      it will make the entity performs all of his actions according to the battle state and team orders.
  *
  * to attack :
  *      this functions will be called when the unit wasnt attacking and starts attacking an ennemy unit.
@@ -74,21 +73,22 @@ typedef struct animation_list animation_list;
  *
  */
 struct entity_behaviour {
-    int type;
+    unsigned int type;
     int (*get_current_range)(entity*);
     animation* (*get_dying_animation)(entity*);
     struct animation* (*get_walking_animation)(entity*);
-    void (*play) (game* g, entity*, list*);
+    void (*play) (battle* g, entity*, list*);
     void (*to_attack)(entity*,entity*);
     void (*to_assault)(entity*);
     void (*to_dying)(entity*);
     void (*to_retreat)(entity*);
-    void (*attacking)( entity*, game*);
+    void (*attacking)( entity*, battle*);
     void (*attack_failing)( entity*, list*);
     void (*retreating)(entity*, list*);
     void (*assaulting)(entity*, list*);
     void (*dying)(entity*);
-    void* type_stats;
+    void (*take_damage)(entity*, int dmg);
+    void* current_state;
 };
 void set_basic_behaviour(entity_behaviour* b);
 
@@ -108,8 +108,9 @@ void entity_base_to_dying(entity* player);
 
 void entity_base_to_assault(entity* player);
 
-void entity_base_play(game* g, entity* player, list* entities);
+void entity_base_play(battle* g, entity* player, list* entities);
 
 void entity_behaviour_destroy(entity_behaviour* ent);
 
+void entity_base_take_damage(entity* ent, int damages);
 #endif //STICKWAR_TYPE_H

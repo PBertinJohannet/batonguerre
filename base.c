@@ -3,16 +3,22 @@
 //
 
 #include "base.h"
+#include "window_conf_reader.h"
 #include "global.h"
-base* base_init(int level){
-    base* k = malloc(sizeof(base));
-    k->range = 0;
-    k->damage = 0;
-    return k;
+#include "counted_allocations.h"
+entity* base_init(int pos, int hp, team* team){
+    entity* ent = counted_malloc(sizeof(entity), "create base init");
+    ent->pos = pos;
+    ent->hp = hp;
+    ent->speed = 0;
+    ent->team = team;
+    ent->facing = ent->team->id;
+    ent->drawable = drawable_entity_init(animation_frame_init(get_animations()->stick_walk), &ent->pos, &ent->facing, 4);
+    ent->state = ENTITY_STATE_ATTACKING;
+    return ent;
 }
-
-void set_base_class(entity* ent, int level){
-    entity_behaviour* c = malloc(sizeof(entity_behaviour));
+void set_base_class(entity* ent){
+    entity_behaviour* c = counted_malloc(sizeof(entity_behaviour), "create base behaviour");
     set_basic_behaviour(c);
     c->type =BASE;
     c->get_current_range = base_get_current_range;
@@ -21,32 +27,32 @@ void set_base_class(entity* ent, int level){
     c->play = base_play;
     c->to_attack = base_to_attack;
     c->attacking = base_attacking;
-    c->type_stats = base_init(level);
+    c->current_state = counted_malloc(0, "allocated current state for base");
     ent->type = c;
 }
 
 
-animation* base_get_dying_animation(entity* ent){
+animation* base_get_dying_animation(__attribute__ ((unused))entity* ent){
     return get_animations()->stick_walk_death;
 }
 
-animation* base_get_walking_animation(entity* ent){
+animation* base_get_walking_animation(__attribute__ ((unused))entity* ent){
     return get_animations()->stick_walk;
 }
 
 
-void base_play(game* g, entity* player, list* entities){
+void base_play(__attribute__ ((unused))battle* g, entity* player,__attribute__ ((unused)) list* entities){
     player->drawable->anim->frame =player->drawable->anim->anim->nb_frames-3;
 }
 
-void base_attacking(entity* ent, game* g){
+void base_attacking(entity* ent,__attribute__ ((unused)) battle* g){
     ent->drawable->anim->frame = 0;
 }
 
-int base_get_current_range(entity* ent){
+__attribute__ ((const)) int base_get_current_range(__attribute__ ((unused))entity* ent){
     return 0;
 }
 
-void base_to_attack(entity* ent,entity* target){
+__attribute__ ((const)) void base_to_attack(__attribute__ ((unused))entity* ent,__attribute__ ((unused))entity* target){
 
 }

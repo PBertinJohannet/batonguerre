@@ -8,12 +8,15 @@
 #include "entity_behaviour.h"
 #include "entity.h"
 #include "kicker.h"
-#include "game.h"
+#include "game_state.h"
 #include "animation.h"
 #include "time.h"
 #include "team.h"
+#include "brigade.h"
+typedef struct brigade brigade;
 typedef struct team team;
-typedef struct game game;
+typedef struct battle battle;
+typedef struct entity entity;
 enum entity_class{
     KICKER,
     NINJA,
@@ -21,5 +24,5 @@ enum entity_class{
     BASE,
     NUMBER_OF_CLASSES,
 };
-entity* factory_new_entity(int type, team* team, int level, game* g);
+entity* factory_new_entity(brigade*);
 #endif //STICKWAR_ENTITY_FACTORY_H

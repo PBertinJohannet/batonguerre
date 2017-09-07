@@ -4,7 +4,6 @@
 #include "stdio.h"
 #include "stdlib.h"
 #include "array_list.h"
-void list_reserve(list* l,int size);
 list* list_create(){
     list* l = malloc(sizeof(list));
     l->size = 0;
@@ -20,9 +19,10 @@ void list_add(list* l,void* elem){
     l->size+=1;
 }
 
-void list_reserve(list* l,int size){
+
+void list_reserve(list *l, unsigned int size) {
     void** new_res = malloc((size+l->max_size)*sizeof(void*));
-    for (int i =0;i<l->size;i++){
+    for (unsigned int i =0;i<l->size;i++){
         new_res[i] = l->list[i];
     }
     free(l->list);
@@ -30,7 +30,11 @@ void list_reserve(list* l,int size){
     l->max_size+=size;
 }
 
-void* list_at(list* l,int index){
+void* list_at(list* l,unsigned int index){
+    if (index>=l->size){
+        printf("error at : \n    list_at : index out of bound\n      list size is %u but index is %u\n\n     exiting \n",l->size, index);
+        exit(0);
+    }
     return l->list[index];
 }
 void* list_last(list* l){
@@ -41,33 +45,29 @@ void* list_last(list* l){
     return l->list[l->size-1];
 }
 void list_free(list* l, int (*destructor)(void*)){
-    for (int i =0;i<l->size;i++){
+    for (unsigned int i =0;i<l->size;i++){
         (*destructor)(l->list[i]);
     }
     free(l->list);
     free(l);
 }
-void* list_rm_at(list* l, int index){
+void* list_rm_at(list* l, unsigned int index){
+    if (index>=l->size){
+        printf("error at : \n    list_remove_at : index out of bound\n      list size is %u but index is %u\n\n     exiting \n",l->size, index);
+        exit(0);
+    }
     void* temp = l->list[index];
     l->size-=1;
-    for (int i = index;i<l->size;i++){
+    for (unsigned int i = index;i<l->size;i++){
         l->list[i] = l->list[i+1];
     }
     return temp;
-}
-int list_find_by_key(list* l, int key, int(*compare)(void*,int)){
-    for (int i= 0;i<l->size;i++){
-        if ((*compare)(l->list[i],key)){
-            return i;
-        }
-    }
-    return -1;
 }
 
 
 
 void* list_random(list* l){
-    return list_at(l,rand()%l->size);
+    return list_at(l,((unsigned int)rand())%l->size);
 }
 void list_destroy(list* l){
     free(l->list);

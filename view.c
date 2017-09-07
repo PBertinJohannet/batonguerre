@@ -6,16 +6,19 @@
 #include "entity_launcher.h"
 #include "global.h"
 #include "brigade.h"
-view* view_init(sfRenderWindow* window){
-    view* v = malloc(sizeof(view));
+#include "level_reader.h"
+#include "window_conf_reader.h"
+#include "counted_allocations.h"
+view* view_init(sfRenderWindow* window, battle_config* battle_conf){
+    view* v = counted_malloc(sizeof(view), "view create");
     v->window = window;
-    sfRenderWindow_setFramerateLimit(v->window, FPS);
+    v->battle_config = battle_conf;
     v->font = sfFont_createFromFile("fonts/OpenSans-Bold.ttf");
     v->text = sfText_create();
     v->camera_position = 50;
     return v;
 }
-void view_play_music(view* v, char* name){
+void view_play_music(__attribute__ ((unused)) view* v, char* name){
     sfMusic* music = sfMusic_createFromFile(name);
     sfMusic_play(music);
 }
@@ -27,12 +30,12 @@ void view_draw_sprite(view* v, sfSprite* sprite, sfVector2f position, sfVector2f
     sfFloatRect bounds = sfSprite_getGlobalBounds(sprite);
     sfVector2f scale = {size.x/bounds.height, size.y/bounds.height};
     sfSprite_setScale(sprite,scale);
-    position.x *=WINDOW_WIDTH/1000.0;
+    position.x *=get_window_config()->window_width/1000.0;
     sfSprite_setPosition(sprite, position);
     sfRenderWindow_drawSprite(v->window, sprite, NULL);
 }
 void view_draw_launchers(view* v, list* launchers){
-    for (int i = 0;i<launchers->size;i++){
+    for (unsigned int i = 0;i<launchers->size;i++){
         entity_launcher* launcher = ((brigade*)list_at(launchers, i))->launcher;
         sfSprite* icon = entity_launcher_get_icon(launcher);
         sfVector2f position = {(i)*50, 50};
@@ -42,14 +45,14 @@ void view_draw_launchers(view* v, list* launchers){
 }
 
 
-void view_draw_cursor(view* v, int commanding){
+void view_draw_cursor(view* v, unsigned int commanding){
     if (commanding){
         sfRenderWindow_setMouseCursorVisible(v->window,0);
         sfSprite* image = sfSprite_create();
         sfSprite_setTexture(image, get_textures()->flag,0);
         sfVector2f new_scale = {200.0,200.0};
         sfVector2i mouse = sfMouse_getPositionRenderWindow(v->window);
-        sfVector2f position = {mouse.x*1000/WINDOW_WIDTH, mouse.y};
+        sfVector2f position = {(unsigned int)(mouse.x)*1000/get_window_config()->window_width, mouse.y};
         sfFloatRect bounds = sfSprite_getGlobalBounds(image);
         sfVector2f origin = {bounds.width/2, bounds.height/2};
         sfSprite_setOrigin(image, origin);
@@ -61,7 +64,7 @@ void view_draw_cursor(view* v, int commanding){
 
 void view_draw_entity(view* v, drawable_entity* dw){
     sfSprite* to_draw = animation_frame_next(dw->anim, *dw->facing);
-    sfVector2f pos = {*dw->pos, GROUND_POS};
+    sfVector2f pos = {*dw->pos, v->battle_config->ground_pos};
     sfVector2f scale = {dw->size*100.f, dw->size*100.f};
     view_draw_sprite(v,to_draw,pos,scale,1);
 }
@@ -76,8 +79,8 @@ void view_draw_map(view* v){
 void view_draw_background(view* v){
     sfSprite* image = sfSprite_create();
     sfSprite_setTexture(image, get_textures()->background,0);
-    sfVector2f new_scale = {MAP_SIZE/1.75,WINDOW_HEIGHT};
-    sfVector2f position = {0 - v->camera_position, 0};
+    sfVector2f new_scale = {((float)v->battle_config->map_size)/1.75f,(float)get_window_config()->window_height};
+    sfVector2f position = {0.f - (float)v->camera_position, 0.f};
     view_draw_sprite(v,image,position,new_scale,0);
 }
 void view_draw_assault(view* v){
@@ -104,7 +107,7 @@ void view_sprite_center(sfSprite* sprite){
 }
 
 void view_draw_entities(view* v, list* entities){
-    for (int i =0;i<entities->size;i++){
+    for (unsigned int i =0;i<entities->size;i++){
         drawable_entity* dw = (drawable_entity*)list_at(entities,i);
         view_draw_entity(v,dw);
     }
@@ -112,8 +115,6 @@ void view_draw_entities(view* v, list* entities){
 }
 
 void view_draw_gold(view* v, int gold){
-    sfText_destroy(v->text);
-    v->text = sfText_create();
     char nb[12];
     sprintf(nb, "Gold : %d", gold);
     sfText_setString(v->text, nb);
@@ -124,7 +125,7 @@ void view_draw_gold(view* v, int gold){
 }
 
 void view_move_right(view* v){
-    if (v->camera_position < MAP_SIZE-900-POP_PLAYER_ONE){
+    if (v->camera_position < v->battle_config->map_size-900-50){
         v->camera_position+=30;
     }
 }
@@ -136,7 +137,7 @@ void view_move_left(view* v){
 
 
 
-void game_over_screen(view* v) {
+void battle_over_screen(view* v) {
     sfRenderWindow_clear(v->window, sfBlack);
     sfText_destroy(v->text);
     v->text = sfText_create();
@@ -165,5 +166,5 @@ void win_screen(view* v) {
 void view_destroy(view* v){
     sfText_destroy(v->text);
     sfFont_destroy(v->font);
-    free(v);
+    counted_free(v, "freeing view");
 }

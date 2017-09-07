@@ -2,9 +2,9 @@
 // Created by pierre on 21/08/17.
 //
 #include "drawable_entity.h"
-
-drawable_entity* drawable_entity_init(animation_frame* anim_frame, float* pos, int* facing, float size){
-    drawable_entity* ent = malloc(sizeof(drawable_entity));
+#include "counted_allocations.h"
+drawable_entity* drawable_entity_init(animation_frame* anim_frame, float* pos, unsigned int* facing, float size){
+    drawable_entity* ent = counted_malloc(sizeof(drawable_entity), "create drawable entity");
     ent->anim = anim_frame;
     ent->pos = pos;
     ent->facing = facing;
@@ -19,11 +19,11 @@ void drawable_entity_animation_forward(drawable_entity* ent, float forward){
     }
 }
 
-int drawable_entity_get_frame(drawable_entity* ent){
-    return (int)(ent->anim->frame);
+__attribute__ ((pure)) unsigned int drawable_entity_get_frame(drawable_entity* ent){
+    return (unsigned int)(ent->anim->frame);
 }
 
 void drawable_entity_destroy(drawable_entity* ent){
     animation_frame_destroy(ent->anim);
-    free(ent);
+    counted_free(ent, "destroy drawable entity");
 }

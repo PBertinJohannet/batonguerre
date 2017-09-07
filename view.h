@@ -9,18 +9,21 @@
 #include <SFML/Audio.h>
 #include "drawable_entity.h"
 #include "array_list.h"
-#include "game_params.h"
+
 #include "texture_list.h"
+#include "level_reader.h"
+typedef struct battle_config battle_config;
 typedef struct view view;
 struct view{
     sfRenderWindow* window;
     sfFont* font;
     sfText* text;
-    int camera_position;
+    unsigned int camera_position;
+    battle_config* battle_config;
 };
-view* view_init(sfRenderWindow*);
+view* view_init(sfRenderWindow*, battle_config* battle_config);
 void view_play_music(view* v, char* name);
-void view_draw_cursor(view* v, int commanding);
+void view_draw_cursor(view* v, unsigned int commanding);
 void view_draw_sprite(view* v, sfSprite* sprite, sfVector2f position, sfVector2f size, int rel);
 void view_draw_launchers(view* v, list* launchers);
 void view_sprite_center(sfSprite* sprite);
@@ -33,7 +36,7 @@ void view_draw_entities(view* v, list* entities);
 void view_move_right(view* v);
 void view_move_left(view* v);
 void view_draw_gold(view* v, int gold);
-void game_over_screen(view* v);
+void battle_over_screen(view* v);
 void win_screen(view* v);
 void view_destroy(view* v);
 #endif //STICKWAR_DRAWER_H

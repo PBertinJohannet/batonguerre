@@ -1,4 +1,4 @@
-TARGET = game
+TARGET = battle
 LIBS = -lm -lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio -ljansson
 CC = gcc
 CFLAGS = -g -Wall -std=c99 # -O0 -v -da -Q

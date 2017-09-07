@@ -3,16 +3,16 @@
 //
 
 #include "animation_list.h"
-
+#include "counted_allocations.h"
 
 animation_list* animation_list_load(){
-    animation_list* anim = malloc(sizeof(animation_list));
+    animation_list* anim = counted_malloc(sizeof(animation_list), "animation list load");
     anim->stick_walk = animation_init("walk_stick");
     anim->stick_kick = animation_init("kick_stick");
     anim->stick_kick_death = animation_init("kick_death");
     anim->stick_walk_death = animation_init("walk_death");
     anim->ninja_walk = animation_init("ninja_walk");
-    anim->ninja_strike = animation_init("ninja_strike");
+    anim->ninja_strike = animation_init("ninja_strike"); // err here !
     anim->ninja_death = animation_init("ninja_death");
     anim->ninja_icon = animation_init("ninja_icon");
     anim->kicker_icon = animation_init("kicker_icon");

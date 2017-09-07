@@ -4,15 +4,11 @@
 #include "kicker.h"
 #include "time.h"
 #include "global.h"
-kicker* kicker_init(int level){
-    kicker* k = malloc(sizeof(kicker));
-    k->range = KICKER_RANGE;
-    k->attack_type = KICKER_NONE;
-    return k;
-}
-
-void set_kicker_class(entity* ent, int level){
-    entity_behaviour* c = malloc(sizeof(entity_behaviour));
+#include "window_conf_reader.h"
+#include "brigade_reader.h"
+#include "counted_allocations.h"
+void set_kicker_class(entity* ent){
+    entity_behaviour* c = counted_malloc(sizeof(entity_behaviour), "create kicker behaviour");
     set_basic_behaviour(c);
     c->type =KICKER;
     c->get_current_range = kicker_get_current_range;
@@ -20,8 +16,12 @@ void set_kicker_class(entity* ent, int level){
     c->get_walking_animation = kicker_get_walking_animation;
     c->to_attack = kicker_to_attack;
     c->attacking = kicker_attacking;
-    c->type_stats = kicker_init(level);
+    int * curr_state = counted_malloc(sizeof(int), "create kicker state");
+    *curr_state = KICKER_NONE;
+    c->current_state = curr_state;
     ent->type = c;
+    ent->drawable = drawable_entity_init(animation_frame_init(get_animations()->stick_walk),
+                                         &ent->pos, &ent->facing, ent->brigade->base_size);
 }
 
 animation* kicker_get_dying_animation(entity* ent){
@@ -33,37 +33,44 @@ animation* kicker_get_dying_animation(entity* ent){
     return get_animations()->stick_kick_death;
 }
 
-animation* kicker_get_walking_animation(entity* ent){
+animation* kicker_get_walking_animation(__attribute__ ((unused))entity* ent){
     return get_animations()->stick_walk;
 }
 
 
-void kicker_attacking(entity* ent, game* g){
-    float base_attack_speed = (((kicker*)ent->type->type_stats)->attack_type == PUNCH)?KICKER_PUNCH_SPEED:KICKER_BASE_ATTACK_SPEED;
+void kicker_attacking(entity* ent,__attribute__ ((unused)) battle* g){
+    int* current_state = ent->type->current_state;
+    kicker_stats* stats = ent->brigade->specific_stats;
+    float base_attack_speed = ( *current_state == PUNCH)?stats->punch_attack_speed:stats->base_attack_speed;
     if (!(ent->state == ENTITY_STATE_ATTACK_FAILING) && drawable_entity_get_frame(ent->drawable) == 11){
-        int damage = KICKER_KICK_DAMAGE;
-        if (((kicker*)ent->type->type_stats)->attack_type == PUNCH){
-            damage = KICKER_PUNCH_DAMAGE;
+        int damage = stats->punch_damage;
+        if (*current_state == PUNCH){
+            damage = stats->kick_damage;
         }
-        ent->target->hp-= damage;
+        ent->target->type->take_damage(ent->target, damage);
     }
-    drawable_entity_animation_forward(ent->drawable, base_attack_speed/FPS);
+    drawable_entity_animation_forward(ent->drawable, base_attack_speed/get_window_config()->fps);
 }
 
-int kicker_get_current_range(entity* ent){
-    kicker* k = (kicker*)(ent->type->type_stats);
+__attribute__ ((pure))int kicker_get_current_range(entity* ent){
+    kicker_stats* k = (kicker_stats*)(ent->brigade->specific_stats);
     return k->range;
 }
 
 void kicker_to_attack(entity* ent,entity* target){
+    if (ent->pos > target->pos){
+        ent->facing = 1;
+    }
+    kicker_stats* stats = ent->brigade->specific_stats;
+    int* current_state = ent->type->current_state;
     ent->state = ENTITY_STATE_ATTACKING;
     animation_frame_destroy(ent->drawable->anim);
     ent->target = target;
-    if (rand()%KICKER_PUNCH_CHANCE) {
-        ((kicker *) (ent->type->type_stats))->attack_type = PUNCH;
+    if (rand()%stats->punch_chance) {
+        *current_state = PUNCH;
         ent->drawable->anim = animation_frame_init( get_animations()->kicker_punch);
     } else {
-        ((kicker *) (ent->type->type_stats))->attack_type = KICK;
+        *current_state = KICK;
         ent->drawable->anim = animation_frame_init( get_animations()->stick_kick);
     }
 }
