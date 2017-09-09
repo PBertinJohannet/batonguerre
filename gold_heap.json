@@ -1,0 +1,39 @@
+{"frames": [
+
+{
+	"filename": "state 1.png",
+	"frame": {"x":0,"y":0,"w":550,"h":400},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":550,"h":400},
+	"sourceSize": {"w":550,"h":400},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "state 2.png",
+	"frame": {"x":550,"y":0,"w":550,"h":400},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":550,"h":400},
+	"sourceSize": {"w":550,"h":400},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "state 3.png",
+	"frame": {"x":1100,"y":0,"w":550,"h":400},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":550,"h":400},
+	"sourceSize": {"w":550,"h":400},
+	"pivot": {"x":0.5,"y":0.5}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "gold_heap.png",
+	"format": "RGBA8888",
+	"size": {"w":1650,"h":400},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:937996806ec873f8697459a3fc5bc89f:daf7bd4ef5d1ad116cdf896e4b0b7ef4:d614861cb77b1da16a101699b489cf65$"
+}
+}

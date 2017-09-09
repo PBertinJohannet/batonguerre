@@ -6,12 +6,15 @@
  "teams" : [ {
 				"pop" : 50,
 				"gold_start" : 200,
-				"gold_per_sec" : 4,
+				"gold_per_sec" : 1,
               "ai"  : "plyer"},
 			{
 				"pop" : 2350,
 				"gold_start" : 320,
-				"gold_per_sec" :6,
+				"gold_per_sec" :1,
 				"ai"  : "dumb"}
-			]
+			],
+"entities" : [{"number": 20,
+		"team": 0,
+		"brigade_id":0}]
 }

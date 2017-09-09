@@ -30,6 +30,19 @@ battle_config* level_reader_read_conf(level_reader* reader){
     return btl;
 }
 
+list* level_reader_read_entities(level_reader* reader, battle* b){
+    list* entities_list = list_create();
+    json_t* entities_json = json_read_elem(reader->config,"entities", "reading entities", JSON_ARRAY);
+    for (unsigned int i = 0;i<json_array_size(entities_json); i++){
+        json_t* group = json_read_index(entities_json, i, "reading index of entities", JSON_OBJECT);
+        int team_number = json_read_int(group, "team");
+        brigade* brig =list_at(battle_get_team(b, team_number)->brigades, json_read_uint(group, "brigade_id"));
+        for (int j=0;j<json_read_int(group, "number");j++){
+            list_add(entities_list, factory_new_entity(brig));
+        }
+    }
+    return entities_list;
+}
 team* level_reader_read_team(level_reader* reader, unsigned int number) {
     json_t *teams = json_read_elem(reader->config, "teams", "reading teams", JSON_ARRAY);
     json_t *json_team = json_read_index(teams, number, "reading team", JSON_OBJECT);

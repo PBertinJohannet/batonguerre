@@ -22,7 +22,7 @@ battle* battle_from_level(game_state* state, char* level_name,__attribute__ ((un
     json_t* player_save_brigades = start_json("confs/saves/01/army.json");
     team_set_brigades(g->player, brigades_reader_get_brigades(player_save_brigades, g->player));
     g->view = view_init(state->window, conf);
-    g->entities = list_create();
+    g->entities = level_reader_read_entities(lvl, g);
     g->projectiles = list_create();
     g->frame = 0;
     g->map_size = conf->map_size;
@@ -109,6 +109,9 @@ void battle_process_event(battle* b, sfEvent* e){
     controller_process_event(b->controller, e);
 }
 
+__attribute_pure__ team* battle_get_team(battle* g, int team_id){
+    return (team_id)?g->player:g->ennemy;
+}
 
 void battle_destroy(battle* g){
     team_destroy(g->player);

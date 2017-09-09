@@ -35,5 +35,6 @@ battle_config* level_reader_read_conf(level_reader* reader);
 team* level_reader_read_team(level_reader* reader, unsigned int team_number);
 list* level_reader_read_armies(level_reader* reader);
 ai* level_reader_read_ai(level_reader* reader, team* t);
+list* level_reader_read_entities(level_reader* reader, battle* b);
 
 #endif
