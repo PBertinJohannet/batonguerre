@@ -5,7 +5,7 @@
 #include "game_state.h"
 #include "entity_factory.h"
 #include "stdio.h"
-#include "projectile.h"
+#include "object.h"
 #include "level_reader.h"
 #include "brigade_reader.h"
 #include "base.h"
@@ -22,10 +22,10 @@ battle* battle_from_level(game_state* state, char* level_name,__attribute__ ((un
     json_t* player_save_brigades = start_json("confs/saves/01/army.json");
     team_set_brigades(g->player, brigades_reader_get_brigades(player_save_brigades, g->player));
     g->view = view_init(state->window, conf);
-    g->entities = level_reader_read_entities(lvl, g);
-    g->projectiles = list_create();
     g->frame = 0;
     g->map_size = conf->map_size;
+    g->entities = level_reader_read_entities(lvl, g);
+    g->objects = level_reader_read_gold(lvl, g);
     g->controller = controller_init(g);
     battle_init_teams(g);
     g->ennemy_ai = level_reader_read_ai(lvl,g->ennemy);
@@ -45,8 +45,8 @@ void battle_init_team(battle* g, team* t){
 void battle_add_entity(battle* g, entity* ent){
     list_add(g->entities,ent);
 }
-void battle_add_projectile(battle* g, projectile* proj){
-    list_add(g->projectiles,proj);
+void battle_add_object(battle* g, object* proj){
+    list_add(g->objects,proj);
 }
 
 __attribute__ ((pure)) sfRenderWindow* battle_get_view_window(battle* g){
@@ -59,8 +59,8 @@ list* battle_get_drawables(battle* g){
         entity* ent = (entity*)(list_at(g->entities,i));
         list_add(drawables,ent->drawable);
     }
-    for (unsigned int i =0;i<g->projectiles->size;i++){
-        projectile* ent = (projectile*)(list_at(g->projectiles,i));
+    for (unsigned int i =0;i<g->objects->size;i++){
+        object* ent = (object*)(list_at(g->objects,i));
         list_add(drawables,ent->drawable);
     }
     return drawables;
@@ -89,18 +89,17 @@ void battle_update(battle* g){
             i--;
         }
     }
-    for (unsigned int i =0;i<g->projectiles->size;i++){
-        projectile* ent = (projectile*)(list_at(g->projectiles,i));
+    for (unsigned int i =0;i<g->objects->size;i++){
+        object* ent = (object*)(list_at(g->objects,i));
         if (ent->play(ent,g->entities)){
-            list_rm_at(g->projectiles,i);
+            list_rm_at(g->objects,i);
             i--;
         }
     }
     if (g->player->base->hp < 1 ){
-        battle_state_to_end_state(g->state->current_state);
-    }
-    if (g->ennemy->base->hp < 1) {
-        battle_state_to_end_state(g->state->current_state);
+        battle_state_to_end_state(g->state);
+    }    else if (g->ennemy->base->hp < 1) {
+        battle_state_to_end_state(g->state);
     }
 }
 

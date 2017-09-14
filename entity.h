@@ -27,6 +27,7 @@ struct entity {
     unsigned int state;
     brigade* brigade;
 };
+
 enum entity_state{
     ENTITY_STATE_ASSAULT,
     ENTITY_STATE_ATTACKING,

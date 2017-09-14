@@ -33,6 +33,8 @@ void list_reserve(list *l, unsigned int size) {
 void* list_at(list* l,unsigned int index){
     if (index>=l->size){
         printf("error at : \n    list_at : index out of bound\n      list size is %u but index is %u\n\n     exiting \n",l->size, index);
+        list* a = (void*)(12);
+        a->size++;
         exit(0);
     }
     return l->list[index];

@@ -44,9 +44,9 @@ void archer_attacking(entity* ent, battle* g){
                 ent->target->type->take_damage(ent->target,((archer_stats*)(ent->brigade->specific_stats))->short_range_damage);
                 break;
             case ARCHER_CRIT:
-                battle_add_projectile(g,arrow_create((int)ent->pos,(unsigned int)stats->range, (unsigned int)stats->arrow_speed,stats->arrow_size, ent->team, ent->facing, stats->critical_damage));
+                battle_add_object(g,arrow_create((int)ent->pos,(unsigned int)stats->range, (unsigned int)stats->arrow_speed,stats->arrow_size, ent->team, ent->facing, stats->critical_damage));
             case ARCHER_NORMAL:
-                battle_add_projectile(g,arrow_create((int)ent->pos,(unsigned int)stats->range, (unsigned int)stats->arrow_speed,stats->arrow_size, ent->team, ent->facing, stats->normal_damage));
+                battle_add_object(g,arrow_create((int)ent->pos,(unsigned int)stats->range, (unsigned int)stats->arrow_speed,stats->arrow_size, ent->team, ent->facing, stats->normal_damage));
         }
     }
     drawable_entity_animation_forward(ent->drawable, (float)stats->basic_attack_speed/(float)get_window_config()->fps);

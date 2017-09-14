@@ -3,6 +3,14 @@
 //
 #include "brigade_reader.h"
 #include "counted_allocations.h"
+mineworker_stats* brigades_reader_read_mineworker(json_t* obj){
+    mineworker_stats* k = counted_malloc(sizeof(kicker_stats), "create kicker stats");
+    k->range = json_read_int(obj, "range");
+    k->gold_harvested = json_read_int(obj, "gold_harvested");
+    k->max_gold = json_read_int(obj, "max_gold");
+    k->harvesting_speed = json_read_int(obj, "harvesting_speed");
+    return k;
+}
 kicker_stats* brigades_reader_read_kicker(json_t* obj){
     kicker_stats* k = counted_malloc(sizeof(kicker_stats), "create kicker stats");
     k->range = json_read_int(obj, "range");
@@ -47,6 +55,8 @@ void brigades_reader_set_specific_stats(json_t* obj, brigade* brig){
         brigade_set_type(brig, NINJA, brigades_reader_read_ninja(obj));
     } else if (strcmp(type, "archer")==0){
         brigade_set_type(brig, ARCHER, brigades_reader_read_archer(obj));
+    } else if (strcmp(type, "mineworker")==0){
+        brigade_set_type(brig, MINEWORKER, brigades_reader_read_mineworker(obj));
     } else {
         printf("error : entity type not found %s \n   exiting \n",type);
         exit(0);

@@ -31,8 +31,9 @@ end_state* end_state_init(battle_state* bs){
     return ps;
 }
 
-__attribute_const__ void end_state_draw(__attribute__ ((unused)) void* state){
-    battle* b = ((end_state*)state)->ended_battle;
+__attribute_const__ void end_state_draw(__attribute__ ((unused)) game_state_union* state){
+    printf("end draw ! \n");
+    battle* b = state->end->ended_battle;
     view* v =b->view;
     sfText_destroy(v->text);
     v->text = sfText_create();
@@ -46,11 +47,11 @@ __attribute_const__ void end_state_draw(__attribute__ ((unused)) void* state){
     sfRenderWindow_drawText(v->window, v->text, NULL);
     sfRenderWindow_display(v->window);
 }
-__attribute_const__ void end_state_update(__attribute__ ((unused)) void* ps){
+__attribute_const__ void end_state_update(__attribute__ ((unused)) game_state_union* ps){
     printf("end state update \n");
 }
-void end_state_process_event(void* state, sfEvent* event){
-    end_state* ps = state;
+void end_state_process_event(game_state_union* state, sfEvent* event){
+    end_state* ps = state->end;
     switch (event->type) {
         case sfEvtClosed:
             sfRenderWindow_close(ps->super->window);

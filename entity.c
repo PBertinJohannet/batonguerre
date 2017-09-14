@@ -27,11 +27,11 @@ void entity_destroy(entity* ent){
 }
 
 
-command* entity_get_command(entity* ent){
+__attribute_pure__ command* entity_get_command(entity* ent){
     return entity_get_brigade(ent)->command;
 }
-brigade* entity_get_brigade(entity* ent){
-    return ((brigade*)list_at(ent->team->brigades,ent->type->type));
+__attribute_pure__ brigade* entity_get_brigade(entity* ent){
+    return ent->brigade;
 }
 
 int entity_destroy_void(void* ent){

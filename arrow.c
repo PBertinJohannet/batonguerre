@@ -5,31 +5,25 @@
 #include "entity.h"
 #include "window_conf_reader.h"
 #include "counted_allocations.h"
-projectile* arrow_create(int pos,unsigned int range, unsigned int speed, float size, team* team, unsigned int facing, int damage){
+#include "global.h"
+object* arrow_create(int pos,unsigned int range, unsigned int speed, float size, team* team, unsigned int facing, int damage){
     arrow* arr = counted_malloc(sizeof(arrow), "create arrow");
-    if (team->id ==0){
-        printf("added arrow for me ! \n");
-    }
-    projectile* proj = projectile_create(pos, team, facing);
+    object* obj = object_create(pos, team, facing, OBJECT_ARROW);
     arr->damage = damage;
     arr->speed = speed;
-    printf("speed : %u, lifetime : %u\n",speed,  range*get_window_config()->fps/speed);
     arr->lifetime = range*get_window_config()->fps/speed;
-    arr->parent = proj;
-    proj->drawable = drawable_entity_init(animation_frame_init(animation_init("arrow")),&proj->pos, &proj->facing,size);
-    proj->play = arrow_projectile_play;
-    proj->self = arr;
-    proj->facing = facing;
-    proj->destroy = arrow_projectile_destroy;
-    if (team->id ==0){
-        printf("playing arrow for me ! face : %u\n",proj->facing );
-    }
-    return proj;
+    arr->parent = obj;
+    obj->drawable = drawable_entity_init(animation_frame_init(get_animations()->arrow),&obj->pos, &obj->facing,size);
+    obj->play = arrow_object_play;
+    obj->self = arr;
+    obj->facing = facing;
+    obj->destroy = arrow_object_destroy;
+    return obj;
 }
 
 
-int arrow_projectile_play(void* proj, list* entities){
-    projectile* pj = proj;
+int arrow_object_play(void* obj, list* entities){
+    object* pj = obj;
     arrow* p_arr = pj->self;
     for (unsigned int i = 0;i<entities->size;i++){
         entity* ent = list_at(entities,i);
@@ -48,11 +42,11 @@ int arrow_projectile_play(void* proj, list* entities){
     return 0;
 }
 
-int arrow_projectile_destroy(projectile* proj){
-    projectile* pj = proj;
+int arrow_object_destroy(object* obj){
+    object* pj = obj;
     arrow* p_arr = pj->self;
     drawable_entity_destroy(pj->drawable);
     counted_free(p_arr, "freeing arrow");
-    counted_free(proj, "freeing projectile containing arrow");
+    counted_free(obj, "freeing object containing arrow");
     return 0;
 }

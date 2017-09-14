@@ -17,10 +17,16 @@ void entity_launcher_set_type(entity_launcher* ent, int type){
     switch (type){
         case KICKER:
             ent->anim = animation_frame_init(get_animations()->kicker_icon);
+            break;
         case NINJA:
             ent->anim = animation_frame_init(get_animations()->ninja_icon);
+            break;
         case ARCHER:
             ent->anim = animation_frame_init(get_animations()->kicker_icon);
+            break;
+        case MINEWORKER:
+            ent->anim = animation_frame_init(get_animations()->kicker_icon);
+            break;
     }
 }
 void entity_launcher_update(entity_launcher* ent){

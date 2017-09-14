@@ -13,6 +13,15 @@
 typedef struct ninja_stats ninja_stats;
 typedef struct kicker_stats kicker_stats;
 typedef struct archer_stats archer_stats;
+typedef struct mineworker_stats mineworker_stats;
+
+struct mineworker_stats {
+    int range;
+    int gold_harvested;
+    int max_gold;
+    int harvesting_speed;
+};
+
 struct kicker_stats {
     int range;
     int punch_chance;
@@ -46,6 +55,7 @@ struct archer_stats {
 
 
 brigade* brigades_reader_read_brigade(json_t* obj, team*);
+mineworker_stats* brigades_reader_read_mineworker(json_t* obj);
 kicker_stats* brigades_reader_read_kicker(json_t* obj);
 ninja_stats* brigades_reader_read_ninja(json_t* obj);
 archer_stats* brigades_reader_read_archer(json_t* obj);

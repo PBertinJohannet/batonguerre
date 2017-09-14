@@ -26,6 +26,8 @@ animation_list* animation_list_load(){
     anim->arrow = animation_init("arrow");
     anim->ninja_jump = animation_init("ninja_jump");
     anim->gold_heap = animation_init("gold_heap");
+    anim->mining = animation_init("mining");
+    anim->mineworker_walk = animation_init("mineworker_walk");
     return anim;
 }
 

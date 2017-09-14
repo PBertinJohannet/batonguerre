@@ -28,7 +28,7 @@ void entity_base_take_damage(entity* ent, int damages){
 }
 
 
-void entity_base_assaulting(entity* player, list* entities){
+void entity_base_assaulting(entity* player, list* entities, __attribute__ ((unused))list* objects){
     if (!entity_base_find_target(player, entities)) {
         unsigned int target = entity_get_command(player)->target;
         if ((int)(abs(player->pos-target))>player->speed){
@@ -139,7 +139,7 @@ void entity_base_play(battle* g, entity* player, list* entities){
             player->type->retreating(player, entities);
             break;
         case ENTITY_STATE_ASSAULT:
-            player->type->assaulting(player, entities);
+            player->type->assaulting(player, entities, g->objects);
             break;
         case ENTITY_STATE_ATTACKING:
             if (drawable_entity_get_frame(player->drawable)== player->drawable->anim->anim->nb_frames - 1) {

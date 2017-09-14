@@ -13,8 +13,8 @@ paused_state* paused_state_init(battle_state* bs){
     return ps;
 }
 
-void paused_state_draw(void* state){
-    view* v =( (paused_state*) state)->paused_battle->view;
+void paused_state_draw(game_state_union* state){
+    view* v =state->paused->paused_battle->view;
     sfText_destroy(v->text);
     v->text = sfText_create();
     sfText_setString(v->text, " PAUSED \n press SPACE to continue ");
@@ -27,11 +27,11 @@ void paused_state_draw(void* state){
     sfRenderWindow_drawText(v->window, v->text, NULL);
     sfRenderWindow_display(v->window);
 }
-__attribute_const__ void paused_state_update(__attribute__ ((unused)) void* ps){
+__attribute_const__ void paused_state_update(__attribute__ ((unused)) game_state_union* ps){
 
 }
-void paused_state_process_event(void* state, sfEvent* event){
-    paused_state* ps = state;
+void paused_state_process_event(game_state_union* state, sfEvent* event){
+    paused_state* ps = state->paused;
     switch (event->type) {
         case sfEvtClosed:
             sfRenderWindow_close(ps->super->window);
@@ -47,7 +47,7 @@ void paused_state_process_event(void* state, sfEvent* event){
 }
 
 void paused_state_to_battle(paused_state* ps){
-    ps->super->current_state = battle_state_init_from_pause(ps);
+    ps->super->current_state->battle = battle_state_init_from_pause(ps);
     ps->super->draw = battle_state_draw;
     ps->super->update = battle_state_update;
     ps->super->process_event = battle_state_process_event;

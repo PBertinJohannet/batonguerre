@@ -19,7 +19,7 @@
 		"type": "ninja",
 		"cooldown": 5,
 		"cost": 50,
-		"base_life": 80,
+		"base_life": 120,
 		"base_speed": 150,
 		"random_speed": 30,
 		"base_size": 1.8,
@@ -51,7 +51,20 @@
 		"arrow_speed": 400,
 		"arrow_size": 2.5,
 		"basic_attack_speed": 25
+	},
+	{
+		"type": "mineworker",
+		"cooldown": 3,
+		"cost": 30,
+		"base_life": 20,
+		"base_speed": 30,
+		"random_speed": 5,
+		"base_size": 1.8,
+		"base_armor": 0,
+		"range": 40,
+		"gold_harvested": 10,
+		"max_gold": 150,
+		"harvesting_speed": 20
 	}
-	
 	]
 }

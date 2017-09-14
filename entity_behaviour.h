@@ -85,14 +85,14 @@ struct entity_behaviour {
     void (*attacking)( entity*, battle*);
     void (*attack_failing)( entity*, list*);
     void (*retreating)(entity*, list*);
-    void (*assaulting)(entity*, list*);
+    void (*assaulting)(entity*, list*, list*);
     void (*dying)(entity*);
     void (*take_damage)(entity*, int dmg);
     void* current_state;
 };
 void set_basic_behaviour(entity_behaviour* b);
 
-void entity_base_assaulting(entity* player, list* entities);
+void entity_base_assaulting(entity* player, list* entities, list* objects);
 
 int entity_base_find_target(entity* player, list* entities);
 

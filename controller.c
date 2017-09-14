@@ -64,6 +64,7 @@ void controller_process_mouse_click(controller* c, sfVector2i mouse){
             c->commanding_brigade = 1;
             c->selected_brigade = (unsigned int)mouse.x / 100;
         } else {
+            printf("lainch ent : %u\n", (unsigned int)mouse.x/100);
             team_launch_entity(g->player, g, (unsigned int)mouse.x / 100);
         }
     }

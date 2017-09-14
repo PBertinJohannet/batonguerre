@@ -53,6 +53,9 @@ float json_read_float(json_t* parent, char* elem){
     counted_free(error_message, "freeing error message float read int json");
     return to_ret;
 }
+float json_read_float_index(json_t* parent, unsigned int elem, char* message){
+    return (float)json_real_value(json_read_index(parent, elem, message, JSON_REAL));
+}
 const char* json_read_string(json_t* parent, char* elem){
     char* error_message = counted_malloc(sizeof(char)*(strlen("error reading ")+strlen(elem)+1), "read string json");
     sprintf(error_message, "error reading %s",elem);

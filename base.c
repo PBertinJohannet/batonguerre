@@ -28,8 +28,16 @@ void set_base_class(entity* ent){
     c->to_attack = base_to_attack;
     c->attacking = base_attacking;
     c->current_state = counted_malloc(0, "allocated current state for base");
+    c->take_damage = base_take_damage;
     ent->type = c;
 }
+
+void base_take_damage(entity* ent, int damages){
+    if (2<damages){
+        ent->hp-=(damages - 2);
+    }
+}
+
 
 
 animation* base_get_dying_animation(__attribute__ ((unused))entity* ent){

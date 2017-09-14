@@ -6,6 +6,7 @@
 #include "ninja.h"
 #include "base.h"
 #include "archer.h"
+#include "mineworker.h"
 entity* factory_new_entity(brigade* brigade){
     entity* ent = entity_init(brigade);
     switch (brigade->entity_type)
@@ -21,6 +22,9 @@ entity* factory_new_entity(brigade* brigade){
             break;
         case BASE :
             exit(0);
+            break;
+        case MINEWORKER :
+            set_mineworker_class(ent);
             break;
         default:
             break;

@@ -5,16 +5,16 @@
 #ifndef STICKWAR_ARROW_H
 #define STICKWAR_ARROW_H
 
-#include "projectile.h"
+#include "object.h"
 typedef struct arrow arrow;
 struct arrow {
     unsigned int speed;
-    projectile* parent;
+    object* parent;
     int damage;
     unsigned int lifetime;
 };
-projectile* arrow_create(int pos,unsigned int range, unsigned int speed, float size, team* team, unsigned int facing, int damage);
+object* arrow_create(int pos,unsigned int range, unsigned int speed, float size, team* team, unsigned int facing, int damage);
 
-int arrow_projectile_play(void* arrow, list* entities);
-int arrow_projectile_destroy(projectile* proj);
+int arrow_object_play(void* object, list* entities);
+int arrow_object_destroy(object* proj);
 #endif //STICKWAR_ARROW_H

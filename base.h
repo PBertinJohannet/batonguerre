@@ -17,4 +17,5 @@ void base_play(battle* g, entity* player, list* entities);
 void base_attacking(entity* ent, battle* g);
 int base_get_current_range(entity* ent);
 void base_to_attack(entity* ent,entity* target);
+void base_take_damage(entity* ent, int damage);
 #endif //STICKWAR_BASE_H

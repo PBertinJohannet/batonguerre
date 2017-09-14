@@ -22,6 +22,7 @@ enum entity_class{
     NINJA,
     ARCHER,
     BASE,
+    MINEWORKER,
     NUMBER_OF_CLASSES,
 };
 entity* factory_new_entity(brigade*);
