@@ -34,7 +34,6 @@ __attribute_pure__ brigade* entity_get_brigade(entity* ent){
     return ent->brigade;
 }
 
-int entity_destroy_void(void* ent){
+void entity_destroy_void(void* ent){
     entity_destroy(ent);
-    return 0;
 }

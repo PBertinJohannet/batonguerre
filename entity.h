@@ -39,7 +39,7 @@ enum entity_state{
 entity* entity_init(brigade* b);
 void set_entity_type(entity* ent, struct entity_behaviour* type);
 void entity_destroy(entity* ent);
-int entity_destroy_void(void* ent);
+void entity_destroy_void(void* ent);
 command* entity_get_command(entity* ent);
 brigade* entity_get_brigade(entity* ent);
 #endif //STICKWAR_ENTITY_H

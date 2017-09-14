@@ -13,26 +13,16 @@ view* view_init(sfRenderWindow* window, battle_config* battle_conf){
     view* v = counted_malloc(sizeof(view), "view create");
     v->window = window;
     v->battle_config = battle_conf;
-    v->font = sfFont_createFromFile("fonts/OpenSans-Bold.ttf");
-    v->text = sfText_create();
+    v->drawer = screen_drawer_init(window);
     v->camera_position = 50;
     return v;
-}
-void view_play_music(__attribute__ ((unused)) view* v, char* name){
-    sfMusic* music = sfMusic_createFromFile(name);
-    sfMusic_play(music);
 }
 void view_draw_sprite(view* v, sfSprite* sprite, sfVector2f position, sfVector2f size, int rel){
     if (rel){
         position.x -= v->camera_position;
-        view_sprite_center(sprite);
+        screen_drawer_sprite_center(sprite);
     }
-    sfFloatRect bounds = sfSprite_getGlobalBounds(sprite);
-    sfVector2f scale = {size.x/bounds.height, size.y/bounds.height};
-    sfSprite_setScale(sprite,scale);
-    position.x *=get_window_config()->window_width/1000.0;
-    sfSprite_setPosition(sprite, position);
-    sfRenderWindow_drawSprite(v->window, sprite, NULL);
+    screen_drawer_draw_sprite(v->drawer, sprite, position, size);
 }
 void view_draw_launchers(view* v, list* launchers){
     for (unsigned int i = 0;i<launchers->size;i++){
@@ -99,13 +89,6 @@ void view_draw_retreat(view* v){
 }
 
 
-void view_sprite_center(sfSprite* sprite){
-    sfFloatRect bounds = sfSprite_getGlobalBounds(sprite);
-    sfVector2f origin = {bounds.width/2, bounds.height};
-    sfSprite_setOrigin(sprite, origin);
-
-}
-
 void view_draw_entities(view* v, list* entities){
     for (unsigned int i =0;i<entities->size;i++){
         drawable_entity* dw = (drawable_entity*)list_at(entities,i);
@@ -117,11 +100,8 @@ void view_draw_entities(view* v, list* entities){
 void view_draw_gold(view* v, int gold){
     char nb[12];
     sprintf(nb, "Gold : %d", gold);
-    sfText_setString(v->text, nb);
-    sfText_setFont(v->text, v->font);
-    sfText_setCharacterSize(v->text, 20);
-    sfText_setColor(v->text, sfRed);
-    sfRenderWindow_drawText(v->window, v->text,NULL);
+    sfVector2f position = {0,0};
+    screen_drawer_write_text(v->drawer, nb, sfRed, 20, position);
 }
 
 void view_move_right(view* v){
@@ -136,35 +116,7 @@ void view_move_left(view* v){
 }
 
 
-
-void battle_over_screen(view* v) {
-    sfRenderWindow_clear(v->window, sfBlack);
-    sfText_destroy(v->text);
-    v->text = sfText_create();
-    sfText_setString(v->text, " DEFEAT ");
-    sfText_setFont(v->text, v->font);
-    sfText_setCharacterSize(v->text, 50);
-    sfText_setColor(v->text, sfRed);
-    sfRenderWindow_drawText(v->window, v->text, NULL);
-    sfRenderWindow_display(v->window);
-}
-
-void win_screen(view* v) {
-    sfRenderWindow_clear(v->window, sfBlack);
-    sfText_destroy(v->text);
-    v->text = sfText_create();
-    sfText_setString(v->text, " VICTORY ");
-    sfText_setFont(v->text, v->font);
-    sfText_setCharacterSize(v->text, 50);
-    sfText_setColor(v->text, sfRed);
-    sfRenderWindow_drawText(v->window, v->text, NULL);
-    sfRenderWindow_display(v->window);
-}
-
-
-
 void view_destroy(view* v){
-    sfText_destroy(v->text);
-    sfFont_destroy(v->font);
+    screen_drawer_destroy(v->drawer);
     counted_free(v, "freeing view");
 }

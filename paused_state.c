@@ -15,16 +15,10 @@ paused_state* paused_state_init(battle_state* bs){
 
 void paused_state_draw(game_state_union* state){
     view* v =state->paused->paused_battle->view;
-    sfText_destroy(v->text);
-    v->text = sfText_create();
-    sfText_setString(v->text, " PAUSED \n press SPACE to continue ");
+    screen_drawer_clear(v->drawer);
     window_config* win_conf = get_window_config();
     sfVector2f position = {win_conf->window_height/4, win_conf->window_width/4};
-    sfText_setPosition(v->text, position);
-    sfText_setFont(v->text, v->font);
-    sfText_setCharacterSize(v->text, 75);
-    sfText_setColor(v->text, sfRed);
-    sfRenderWindow_drawText(v->window, v->text, NULL);
+    screen_drawer_write_text(v->drawer, " PAUSED \n press SPACE to continue ", sfRed, 75, position);
     sfRenderWindow_display(v->window);
 }
 __attribute_const__ void paused_state_update(__attribute__ ((unused)) game_state_union* ps){

@@ -29,5 +29,5 @@ sfSprite* entity_launcher_get_icon(entity_launcher* ent);
 void entity_launcher_launch(entity_launcher* launcher, battle* g);
 void entity_launcher_update(entity_launcher* ent);
 int can_launch(entity_launcher* ent);
-int entity_launcher_destroy(void* ent);
+void entity_launcher_destroy(void* ent);
 #endif //STICKWAR_ENTITY_LAUNCHER_H

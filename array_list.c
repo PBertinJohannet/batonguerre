@@ -46,12 +46,15 @@ void* list_last(list* l){
     }
     return l->list[l->size-1];
 }
-void list_free(list* l, int (*destructor)(void*)){
+void list_free(list* l, void (*destructor)(void*)){
+    list_clear(l, destructor);
+    free(l->list);
+    free(l);
+}
+void list_clear(list* l, void (*destructor)(void*)){
     for (unsigned int i =0;i<l->size;i++){
         (*destructor)(l->list[i]);
     }
-    free(l->list);
-    free(l);
 }
 void* list_rm_at(list* l, unsigned int index){
     if (index>=l->size){
