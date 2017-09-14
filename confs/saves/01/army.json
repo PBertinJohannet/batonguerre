@@ -45,7 +45,7 @@
 		"base_size": 1.8,
 		"base_armor": 0,
 		"range": 40,
-		"gold_harvested": 10,
+		"gold_harvested": 5,
 		"max_gold": 150,
 		"harvesting_speed": 20
 	}]

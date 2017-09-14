@@ -43,7 +43,7 @@ void screen_drawer_write_text(screen_drawer* sc, char* to_write, sfColor color, 
 }
 
 void screen_drawer_clear(screen_drawer* sc){
-    list_free(sc->texts, (void (*)(void*))sfText_destroy);
+    list_clear(sc->texts, (void (*)(void*))sfText_destroy);
 }
 
 void screen_drawer_destroy(screen_drawer* v){

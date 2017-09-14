@@ -55,6 +55,7 @@ void list_clear(list* l, void (*destructor)(void*)){
     for (unsigned int i =0;i<l->size;i++){
         (*destructor)(l->list[i]);
     }
+    l->size = 0;
 }
 void* list_rm_at(list* l, unsigned int index){
     if (index>=l->size){
