@@ -16,6 +16,7 @@ typedef union game_state_union game_state_union;
 struct battle_state {
     game_state* super;
     battle* battle;
+    char* current_save;
 };
 
 battle_state* battle_state_init_from_level(game_state* super, char* level, char* army);

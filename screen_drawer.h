@@ -5,12 +5,12 @@
 #ifndef STICKWAR_SCREEN_DRAWER_H
 #define STICKWAR_SCREEN_DRAWER_H
 
+typedef struct screen_drawer screen_drawer;
 #include <SFML/Graphics.h>
 #include <SFML/Audio.h>
 #include "array_list.h"
 #include "counted_allocations.h"
 #include "window_conf_reader.h"
-typedef struct screen_drawer screen_drawer;
 struct screen_drawer {
     sfRenderWindow* window;
     sfFont* font;

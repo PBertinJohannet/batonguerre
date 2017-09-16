@@ -8,6 +8,7 @@
 #include "brigade_reader.h"
 #include "counted_allocations.h"
 #include "gold_heap.h"
+#include "math.h"
 level_reader* level_reader_init(char* lvl_name){
     level_reader* lv = counted_malloc(sizeof(level_reader), "level reader init");
     char * conf_path = counted_malloc(sizeof(char)*(strlen(lvl_name)+strlen("confs/levels//configuration.json")), "level configuration path");
@@ -53,7 +54,7 @@ list* level_reader_read_gold(level_reader* lvl, battle* b){
     int gold_size = json_read_int(lvl->config, "gold_heaps_size");
     for (unsigned int i = 0;i<json_array_size(gold_list); i++){
         float pos = json_read_float_index(gold_list, i, "reading gold heap index");
-        list_add(objects, gold_heap_create((int)(b->map_size*pos), gold_size, gold_size*0.1));
+        list_add(objects, gold_heap_create((int)(b->map_size*pos), gold_size, 0.5*log(gold_size)));
     }
     printf("gold read \n");
     return objects;

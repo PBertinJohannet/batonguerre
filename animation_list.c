@@ -30,6 +30,7 @@ animation_list* animation_list_load(){
     anim->gold_heap = animation_init("gold_heap");
     anim->mining = animation_init("mining");
     anim->mineworker_walk = animation_init("mineworker_walk");
+    anim->button = animation_init("button");
     return anim;
 }
 

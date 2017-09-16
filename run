@@ -1,4 +1,4 @@
 rm -f *.o
-make -f Makefile.debug clean
-make -f Makefile.debug
+make -f Makefile.run clean
+make -f Makefile.run
 ./battle

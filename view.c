@@ -53,14 +53,13 @@ void view_draw_cursor(view* v, unsigned int commanding){
 }
 
 void view_draw_entity(view* v, drawable_entity* dw){
-    sfSprite* to_draw = animation_frame_next(dw->anim, *dw->facing);
+    sfSprite* to_draw = animation_frame_get_sprite(dw->anim, *dw->facing);
     sfVector2f pos = {*dw->pos, v->battle_config->ground_pos};
     sfVector2f scale = {dw->size*100.f, dw->size*100.f};
     view_draw_sprite(v,to_draw,pos,scale,1);
 }
 
 void view_draw_map(view* v){
-    sfRenderWindow_clear(v->window, sfBlack);
     view_draw_background(v);
     view_draw_assault(v);
     view_draw_retreat(v);
@@ -94,7 +93,6 @@ void view_draw_entities(view* v, list* entities){
         drawable_entity* dw = (drawable_entity*)list_at(entities,i);
         view_draw_entity(v,dw);
     }
-    sfRenderWindow_display(v->window);
 }
 
 void view_draw_gold(view* v, int gold){

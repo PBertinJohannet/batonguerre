@@ -5,7 +5,7 @@
 int main(void)
 {
 #ifdef battle
-    game_state_start(battle_init());
+    game_state_start(menu_init());
 #endif
 #ifdef CONFIG
 #include "battle_saver.h"

@@ -11,7 +11,9 @@
 
 void game_state_start(game_state* state){
     while (sfRenderWindow_isOpen(state->window)) {
+        sfRenderWindow_clear(state->window, sfBlack);
         state->draw(state->current_state);
+        sfRenderWindow_display(state->window);
         state->update(state->current_state);
         sfEvent* event = counted_malloc(sizeof(sfEvent), "sfevent init in controller process");
         while (sfRenderWindow_pollEvent(state->window, event)) {

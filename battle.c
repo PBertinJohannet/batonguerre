@@ -55,19 +55,19 @@ __attribute__ ((pure)) sfRenderWindow* battle_get_view_window(battle* g){
 
 list* battle_get_drawables(battle* g){
     list* drawables = list_create();
-    for (unsigned int i =0;i<g->entities->size;i++){
-        entity* ent = (entity*)(list_at(g->entities,i));
-        list_add(drawables,ent->drawable);
-    }
     for (unsigned int i =0;i<g->objects->size;i++){
         object* ent = (object*)(list_at(g->objects,i));
+        list_add(drawables,ent->drawable);
+    }
+    for (unsigned int i =0;i<g->entities->size;i++){
+        entity* ent = (entity*)(list_at(g->entities,i));
         list_add(drawables,ent->drawable);
     }
     return drawables;
 }
 
 void battle_draw(battle* g) {
-    screen_drawer_clear(g->view->drawer);
+    //screen_drawer_clear(g->view->drawer);
     view_draw_map(g->view);
     view_draw_launchers(g->view, g->player->brigades);
     view_draw_gold(g->view, g->player->gold);

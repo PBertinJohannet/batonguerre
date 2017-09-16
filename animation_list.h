@@ -29,6 +29,7 @@ struct animation_list{
     animation* gold_heap;
     animation* mining;
     animation* mineworker_walk;
+    animation* button;
 
 };
 animation_list* animation_list_load(void);

@@ -8,6 +8,7 @@
 #include "game_state.h"
 #include "battle_state.h"
 #include "clickable_menu.h"
+#include "screen_drawer.h"
 typedef struct main_menu_state main_menu_state;
 typedef struct battle_state battle_state;
 typedef union game_state_union game_state_union;
@@ -15,6 +16,7 @@ typedef struct clickable_menu clickable_menu;
 struct main_menu_state{
     game_state* super;
     clickable_menu* menu;
+    screen_drawer* drawer;
 };
 main_menu_state* main_menu_state_init(game_state* );
 void main_menu_state_draw(game_state_union* state);
@@ -24,7 +26,7 @@ void main_menu_state_to_battle(main_menu_state* ps);
 
 
 
-void test_suck_button(clickable_menu* menu);
-void test_print_pos(__attribute__((unused))void* integer);
+void test_suck_button(main_menu_state* state);
+void test_print_pos(void* state);
 
 #endif //STICKWAR_MAIN_MENU_STATE_H

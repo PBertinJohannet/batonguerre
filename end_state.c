@@ -38,7 +38,6 @@ __attribute_const__ void end_state_draw(__attribute__ ((unused)) game_state_unio
     window_config* win_conf = get_window_config();
     sfVector2f position = {win_conf->window_height/4, win_conf->window_width/4};
     screen_drawer_write_text(v->drawer, " END \n press SPACE to continue ", sfRed, 75, position);
-    sfRenderWindow_display(v->window);
 }
 __attribute_const__ void end_state_update(__attribute__ ((unused)) game_state_union* ps){
     printf("end state update \n");

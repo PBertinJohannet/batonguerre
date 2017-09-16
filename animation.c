@@ -26,9 +26,8 @@ animation_frame* animation_frame_init(animation* target){
 }
 
 
-sfSprite* animation_frame_next(animation_frame* anim, unsigned int flip){
+sfSprite* animation_frame_get_sprite(animation_frame* anim, unsigned int flip){
     sfSprite* sprite = sfSprite_create();
-    printf("texture : %p\n", (void*)anim->anim);
     sfSprite_setTexture(sprite, anim->anim->texture, sfTrue);
     sfIntRect target = anim->anim->frames[(int)(anim->frame)];
     if (flip){

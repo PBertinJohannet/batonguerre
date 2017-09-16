@@ -2,7 +2,7 @@
 	 [{
 		"type": "kicker",
 		"cooldown": 2,
-		"cost": 25,
+		"cost": 40,
 		"base_life": 300,
 		"base_speed": 40,
 		"random_speed": 20,
@@ -18,7 +18,7 @@
 	{
 		"type": "archer",
 		"cooldown": 3,
-		"cost": 30,
+		"cost": 50,
 		"base_life": 20,
 		"base_speed": 30,
 		"random_speed": 5,
@@ -46,7 +46,8 @@
 		"base_armor": 0,
 		"range": 40,
 		"gold_harvested": 5,
-		"max_gold": 150,
+		"max_gold": 50,
 		"harvesting_speed": 20
-	}]
+	}
+	]
 }

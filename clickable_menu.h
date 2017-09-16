@@ -7,6 +7,7 @@
 
 #include "button.h"
 #include "view.h"
+#include "screen_drawer.h"
 typedef struct view view;
 typedef struct clickable_menu clickable_menu;
 struct clickable_menu {
@@ -16,6 +17,7 @@ struct clickable_menu {
 clickable_menu* clickable_menu_init(void);
 void clickable_menu_add_button(clickable_menu* menu, button* b);
 void clickable_menu_click_event(clickable_menu* menu, sfVector2i mouse);
-void clickable_menu_draw(clickable_menu* menu, sfVector2i mouse, view* v);
+void clickable_menu_draw(clickable_menu* menu, screen_drawer* sd);
+void clickable_menu_destroy(clickable_menu* menu);
 
 #endif //STICKWAR_CLICKABLE_MENU_H
