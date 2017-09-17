@@ -1,22 +1,6 @@
 {"brigades" :
 	 [
-	{
-		"type": "ninja",
-		"cooldown": 5,
-		"cost": 60,
-		"base_life": 120,
-		"base_speed": 150,
-		"random_speed": 30,
-		"base_size": 1.8,
-		"base_armor": 0,
-		"range": 80,
-		"hit_chance": 4,
-		"slash_damage": 150,
-		"hit_damage": 60,
-		"jump_chance": 50,
-		"jump_range": 250,
-		"basic_attack_speed": 15
-	},
+
 	{
 		"type": "mineworker",
 		"cooldown": 3,

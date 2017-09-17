@@ -1,0 +1,8 @@
+//
+// Created by pierre on 16/09/17.
+//
+
+#ifndef STICKWAR_CAMPAIGN_STATE_H
+#define STICKWAR_CAMPAIGN_STATE_H
+
+#endif //STICKWAR_CAMPAIGN_STATE_H
