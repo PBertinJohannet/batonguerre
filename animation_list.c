@@ -8,9 +8,7 @@
 animation_list* animation_list_load(){
     animation_list* anim = counted_malloc(sizeof(animation_list), "animation list load");
     anim->stick_walk = animation_init("walk_stick");
-    printf("texture stwalk: %p\n", (void*)anim->stick_walk);
     anim->stick_kick = animation_init("kick_stick");
-    printf("texture : %p\n", (void*)anim->stick_kick);
     anim->stick_kick_death = animation_init("kick_death");
     anim->stick_walk_death = animation_init("walk_death");
     anim->ninja_walk = animation_init("ninja_walk");
@@ -35,6 +33,8 @@ animation_list* animation_list_load(){
 }
 
 
+
+
 void animation_list_destroy(animation_list* anims){
     animation_destroy(anims->stick_walk);
     animation_destroy(anims->stick_kick);
@@ -52,4 +52,11 @@ void animation_list_destroy(animation_list* anims){
     animation_destroy(anims->archer_hit);
     animation_destroy(anims->archer_walk);
     animation_destroy(anims->archer_short_hit);
+    animation_destroy(anims->arrow);
+    animation_destroy(anims->ninja_jump);
+    animation_destroy(anims->gold_heap);
+    animation_destroy(anims->mining);
+    animation_destroy(anims->mineworker_walk);
+    animation_destroy(anims->button);
+    counted_free(anims, "remove animation list");
 }

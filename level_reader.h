@@ -37,4 +37,6 @@ list* level_reader_read_armies(level_reader* reader);
 ai* level_reader_read_ai(level_reader* reader, team* t);
 list* level_reader_read_entities(level_reader* reader, battle* b);
 list* level_reader_read_gold(level_reader* lvl, battle* b);
+void level_reader_destroy(level_reader* lvl);
+void battle_config_destroy(battle_config* lvl);
 #endif

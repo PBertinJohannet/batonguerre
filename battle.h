@@ -36,9 +36,10 @@ struct battle{
     unsigned int frame;
     ai* ennemy_ai;
     unsigned int map_size;
+    char* campaign_id;
 };
 
-battle* battle_from_level(game_state* state, char* level_name, char* saved_battle);
+battle* battle_from_level(game_state* state, char* level_name, char* camp_id);
 sfRenderWindow* battle_get_view_window(battle* g);
 void battle_test(battle* g);
 void battle_init_teams(battle* g);

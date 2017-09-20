@@ -11,9 +11,9 @@
 #include "math.h"
 level_reader* level_reader_init(char* lvl_name){
     level_reader* lv = counted_malloc(sizeof(level_reader), "level reader init");
-    char * conf_path = counted_malloc(sizeof(char)*(strlen(lvl_name)+strlen("confs/levels//configuration.json")), "level configuration path");
+    char * conf_path = counted_malloc(sizeof(char)*(strlen(lvl_name)+strlen("confs/levels//configuration.json")+1), "level configuration path");
     sprintf(conf_path, "confs/levels/%s/configuration.json",lvl_name);
-    char * army_path = counted_malloc(sizeof(char)*(strlen(lvl_name)+strlen("confs/levels//army.json")), "create army path");
+    char * army_path = counted_malloc(sizeof(char)*(strlen(lvl_name)+strlen("confs/levels//army.json")+1), "create army path");
     sprintf(army_path, "confs/levels/%s/army.json",lvl_name);
     printf("%s\n",conf_path);
     lv->config = start_json(conf_path);
@@ -48,7 +48,6 @@ list* level_reader_read_entities(level_reader* reader, battle* b){
 
 
 list* level_reader_read_gold(level_reader* lvl, battle* b){
-    printf("read gold \n");
     list* objects = list_create();
     json_t* gold_list = json_read_elem(lvl->config, "gold_heaps", "reading gold heaps", JSON_ARRAY);
     int gold_size = json_read_int(lvl->config, "gold_heaps_size");
@@ -56,7 +55,6 @@ list* level_reader_read_gold(level_reader* lvl, battle* b){
         float pos = json_read_float_index(gold_list, i, "reading gold heap index");
         list_add(objects, gold_heap_create((int)(b->map_size*pos), gold_size, 0.5*log(gold_size)));
     }
-    printf("gold read \n");
     return objects;
 }
 
@@ -78,4 +76,11 @@ ai* level_reader_read_ai(level_reader* reader, team* t){
     json_t *teams = json_read_elem(reader->config, "teams", "reading teams", JSON_ARRAY);
     json_t *team = json_read_index(teams, t->id, "reading team", JSON_OBJECT);
     return get_ai_by_name(json_read_string(team, "ai"),t);
+}
+
+void level_reader_destroy(level_reader* lvl){
+    counted_free(lvl, "destroying lvl reader");
+}
+void battle_config_destroy(battle_config* lvl){
+    counted_free(lvl, "destroying lvl reader");
 }

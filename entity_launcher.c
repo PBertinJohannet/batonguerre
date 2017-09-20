@@ -60,5 +60,6 @@ void entity_launcher_launch(entity_launcher* launcher, battle* g){
 }
 
 void entity_launcher_destroy(void* ent){
+    animation_frame_destroy(((entity_launcher*)ent)->anim);
     counted_free(ent, "freeing entity launcher");
 }

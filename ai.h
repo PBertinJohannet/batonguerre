@@ -13,8 +13,9 @@ typedef struct ai ai;
 struct ai {
     void (*play)(ai*,battle*);
     void* ai;
+    void (*destroy)(void*);
 };
 
 ai* get_ai_by_name(const char* name, team* t);
-
+void ai_destroy(ai*);
 #endif //STICKWAR_AI_H

@@ -14,6 +14,8 @@ typedef struct ninja_stats ninja_stats;
 typedef struct kicker_stats kicker_stats;
 typedef struct archer_stats archer_stats;
 typedef struct mineworker_stats mineworker_stats;
+typedef struct brigade brigade;
+typedef struct team team;
 
 struct mineworker_stats {
     int range;

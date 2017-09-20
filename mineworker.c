@@ -68,7 +68,9 @@ int mineworker_find_target(entity* player, list* objects){
     for (unsigned int i = 0; i < objects->size; i++) {
         object *obj = (object *) list_at(objects, i);
         if (obj->object_type == OBJECT_GOLD_HEAP && abs(obj->pos - player->pos)<range) {
-            list_add(in_range,obj);
+            if (((gold_heap*)(obj->self))->dying==HEAP_DYING_FRAMES) {
+                list_add(in_range, obj);
+            }
         }
     }
     if (in_range->size>0){
@@ -99,8 +101,9 @@ void mineworker_harvesting(entity* ent){
     mineworker_current_state* state = ent->type->current_state;
     mineworker_stats* stats = ent->brigade->specific_stats;
     gold_heap* heap = state->targeted_heap->self;
-    if (heap->gold_current<0 ||
-        (unsigned int) (ent->drawable->anim->frame) == ent->drawable->anim->anim->nb_frames-1 ){
+    if (heap->gold_current<1 ||
+        (unsigned int) (ent->drawable->anim->frame) == ent->drawable->anim->anim->nb_frames-1 ||
+            heap->dying<HEAP_DYING_FRAMES){
         state->is_harvesting = 0;
         state->targeted_heap = 0;
         animation_frame_destroy(ent->drawable->anim);
@@ -126,7 +129,6 @@ void mineworker_to_harvest(entity* ent,object* target){
     state->targeted_heap = target;
     animation_frame_destroy(ent->drawable->anim);
     ent->drawable->anim = animation_frame_init(get_animations()->mining);
-    printf("mineworker to_harvest ! \n");
 }
 __attribute__((noreturn))void mineworker_to_attack(__attribute__ ((unused))entity* ent,__attribute__ ((unused))entity* target){
     printf("mineworker cant attack ! \n");

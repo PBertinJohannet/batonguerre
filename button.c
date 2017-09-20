@@ -18,18 +18,19 @@ button* button_init(void(*callback)(void*), void* args, sfVector2i* position, sf
     return b;
 }
 
-button* button_inline_init(void(*callback)(void*), void* args, int pos_x, int pos_y, int size_x, int size_y, char* txt, animation* anim){
+button* button_inline_init(void(*callback)(void*), void* args, int pos_x, int pos_y, int size_char, char* txt, animation* anim){
     sfVector2i* position = counted_malloc(sizeof(sfVector2i), "creating vector2i for button");
     position->y = pos_y;
     position->x = pos_x;
     sfVector2i* size = counted_malloc(sizeof(sfVector2i), "creating vector2i for button");
-    size->y = size_y;
-    size->x = size_x;
+    size->y = size_char;
+    size->x = (int)strlen(txt)*size_char;
     return button_init(callback, args, position, size, txt, anim);
 }
 
 void button_destroy(button* b){
-    free(b->position);
-    free(b->size);
-    free(b);
+    animation_frame_destroy(b->anim);
+    counted_free(b->position, "freeing button pos");
+    counted_free(b->size, "freeing button size");
+    counted_free(b, "freeing button");
 }

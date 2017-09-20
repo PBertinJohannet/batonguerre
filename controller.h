@@ -48,4 +48,8 @@ void controller_process_event( controller* c, sfEvent*);
  * @param mouse : the coordinates of the mouse.
  */
 void controller_process_mouse_click(controller* , sfVector2i mouse);
+
+
+
+void controller_destroy(controller* c);
 #endif //STICKWAR_CONTROLLER_H

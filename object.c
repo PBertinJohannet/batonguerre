@@ -11,3 +11,10 @@ object* object_create(int pos, team* team, unsigned int facing, int type){
     proj->facing = facing;
     return proj;
 }
+
+
+void object_destroy(object* obj){
+    drawable_entity_destroy(obj->drawable);
+    obj->destroy(obj);
+    counted_free(obj, "freeing object");
+}

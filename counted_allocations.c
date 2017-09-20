@@ -64,11 +64,10 @@ int counted_free(void* to_free, const char* message){
     }
 }
 void counted_show_allocateds(){
+    printf("%u still allocated : \n", allocateds->size);
     printf("allocations are : \n");
-    int next;
     for (unsigned int i=0; i<allocateds->size;i++){
         allocation* all = list_at(allocateds, i);
-        next = scanf("next : %d\n", &next);
         allocation_show(all);
     }
 }

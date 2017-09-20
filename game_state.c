@@ -15,7 +15,7 @@ void game_state_start(game_state* state){
         state->draw(state->current_state);
         sfRenderWindow_display(state->window);
         state->update(state->current_state);
-        sfEvent* event = counted_malloc(sizeof(sfEvent), "sfevent init in controller process");
+        sfEvent* event = counted_malloc(sizeof(sfEvent), "sfevent init in game state start");
         while (sfRenderWindow_pollEvent(state->window, event)) {
             state->process_event(state->current_state, event);
         }
@@ -40,7 +40,7 @@ game_state* battle_init(){
 }
 
 game_state* menu_init(){
-    game_state* state = counted_malloc(sizeof(game_state), "playing state init");
+    game_state* state = counted_malloc(sizeof(game_state), "menu state init");
     window_config* win_conf = get_window_config();
     sfVideoMode mode = {win_conf->window_width, win_conf->window_height, 16};
     state->window = sfRenderWindow_create(mode, "Stickwar",  sfResize | sfClose, NULL);

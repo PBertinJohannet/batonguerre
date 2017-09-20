@@ -1,0 +1,20 @@
+{
+ "map_size" : 1400,
+ "ground_pos"     : 950,
+ "nb_teams"    : 2,
+ "player_team"   : 0,
+ "teams" : [ {
+				"pop" : 50,
+				"gold_start" : 62,
+				"gold_per_sec" : 0,
+              "ai"  : "plyer"},
+			{
+				"pop" : 1350,
+				"gold_start" : 2,
+				"gold_per_sec" :0,
+				"ai"  : "dumb"}
+			],
+"entities" : [],
+"gold_heaps": [0.15,0.3,0.49,0.51,0.7,0.75],
+"gold_heaps_size": 10
+}

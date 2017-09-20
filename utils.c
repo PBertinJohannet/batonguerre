@@ -1,5 +1,6 @@
 #include "utils.h"
 #include "counted_allocations.h"
+#include "math.h"
 char* string_concat(char* a, char* b){
     char* nouv = counted_malloc(sizeof(char)*(strlen(a)+strlen(b)), "concat string new");
     sprintf(nouv,"%s%s",a,b);
@@ -7,6 +8,12 @@ char* string_concat(char* a, char* b){
     return a;
 }
 
+char* int_to_str(int to_conv){
+    int len = snprintf(NULL, 0, "%d", to_conv);
+    char* to_ret = malloc(sizeof(char)*(len+1));
+    snprintf(to_ret, len+1, "%d", to_conv);
+    return to_ret;
+}
 
 json_t* start_json(char* source){
     json_t *json;
@@ -62,4 +69,12 @@ const char* json_read_string(json_t* parent, char* elem){
     const char* to_ret =  json_string_value(json_read_elem(parent, elem, error_message, JSON_STRING));
     counted_free(error_message, "freeing error message string read int json");
     return to_ret;
+}
+
+void json_copy_from_to(char* source, char* dest){
+    json_t* source_json = start_json(source);
+    if ((json_dump_file(source_json, dest, JSON_INDENT(4)))){
+        printf("error on file dump\n    source : %s\n    dest : %s\n", source, dest);
+        exit(0);
+    }
 }

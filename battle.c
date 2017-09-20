@@ -12,14 +12,14 @@
 #include "counted_allocations.h"
 #include "battle.h"
 #include "battle_state.h"
-battle* battle_from_level(game_state* state, char* level_name,__attribute__ ((unused)) char* saved_battle){
+battle* battle_from_level(game_state* state, char* level_name, char* camp_id){
     battle* g = counted_malloc(sizeof(battle), "battle create");
     g->state = state;
     level_reader* lvl = level_reader_init(level_name);
     battle_config* conf = level_reader_read_conf(lvl);
     g->ennemy = level_reader_read_team(lvl,1);
     g->player = level_reader_read_team(lvl,0);
-    json_t* player_save_brigades = start_json("confs/saves/01/army.json");
+    json_t* player_save_brigades = start_json(campaign_state_get_army_path(camp_id));
     team_set_brigades(g->player, brigades_reader_get_brigades(player_save_brigades, g->player));
     g->view = view_init(state->window, conf);
     g->frame = 0;
@@ -29,6 +29,8 @@ battle* battle_from_level(game_state* state, char* level_name,__attribute__ ((un
     g->controller = controller_init(g);
     battle_init_teams(g);
     g->ennemy_ai = level_reader_read_ai(lvl,g->ennemy);
+    level_reader_destroy(lvl);
+    g->campaign_id = camp_id;
     return g;
 }
 
@@ -93,14 +95,15 @@ void battle_update(battle* g){
     for (unsigned int i =0;i<g->objects->size;i++){
         object* ent = (object*)(list_at(g->objects,i));
         if (ent->play(ent,g->entities)){
+            object_destroy(ent);
             list_rm_at(g->objects,i);
             i--;
         }
     }
     if (g->player->base->hp < 1 ){
-        battle_state_to_end_state(g->state);
+        battle_state_to_end_state(g->state, 0);
     }    else if (g->ennemy->base->hp < 1) {
-        battle_state_to_end_state(g->state);
+        battle_state_to_end_state(g->state, 1);
     }
 }
 
@@ -117,6 +120,9 @@ void battle_destroy(battle* g){
     team_destroy(g->player);
     team_destroy(g->ennemy);
     list_free(g->entities, entity_destroy_void);
+    list_free(g->objects, (void(*)(void*))object_destroy);
     view_destroy(g->view);
-    //dumb_ai_destroy(g->ennemy_ai);
+    controller_destroy(g->controller);
+    ai_destroy(g->ennemy_ai);
+    counted_free(g, "freeing battle");
 }

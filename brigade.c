@@ -21,3 +21,10 @@ void brigade_set_type(brigade* b, int type, void* stats){
     b->specific_stats = stats;
     entity_launcher_set_type(b->launcher, type);
 }
+
+void brigade_destroy(brigade* b){
+    counted_free(b->command, "freeing command");
+    entity_launcher_destroy(b->launcher);
+    counted_free(b->specific_stats, "freeing specific stats");
+    counted_free(b, "freeing brigade");
+}

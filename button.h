@@ -21,7 +21,7 @@ struct button {
 
 
 button* button_init(void(*)(void*), void*, sfVector2i*, sfVector2i*, char*, animation*);
-button* button_inline_init(void(*)(void*), void*, int, int, int, int, char*, animation*);
+button* button_inline_init(void(*)(void*), void*, int, int, int, char*, animation*);
 
 void button_destroy(button* b);
 

@@ -1,0 +1,71 @@
+{
+    "brigades": [
+        {
+            "type": "ninja",
+            "cooldown": 5,
+            "cost": 60,
+            "base_life": 120,
+            "base_speed": 450,
+            "random_speed": 30,
+            "base_size": 1.8,
+            "base_armor": 0,
+            "range": 80,
+            "hit_chance": 4,
+            "slash_damage": 150,
+            "hit_damage": 60,
+            "jump_chance": 50,
+            "jump_range": 250,
+            "basic_attack_speed": 15
+        },
+        {
+            "type": "kicker",
+            "cooldown": 2,
+            "cost": 40,
+            "base_life": 300,
+            "base_speed": 40,
+            "random_speed": 20,
+            "base_size": 1.8,
+            "base_armor": 0,
+            "range": 40,
+            "punch_damage": 20,
+            "punch_chance": 4,
+            "kick_damage": 40,
+            "base_attack_speed": 25,
+            "punch_attack_speed": 30
+        },
+        {
+            "type": "archer",
+            "cooldown": 3,
+            "cost": 50,
+            "base_life": 20,
+            "base_speed": 30,
+            "random_speed": 5,
+            "base_size": 1.8,
+            "base_armor": 0,
+            "range": 400,
+            "range_short": 40,
+            "normal_damage": 10,
+            "short_range_damage": 15,
+            "critical_chance": 5,
+            "critical_damage": 20,
+            "number_of_arrows": 1,
+            "arrow_speed": 400,
+            "arrow_size": 2.5,
+            "basic_attack_speed": 25
+        },
+        {
+            "type": "mineworker",
+            "cooldown": 3,
+            "cost": 30,
+            "base_life": 20,
+            "base_speed": 30,
+            "random_speed": 5,
+            "base_size": 1.8,
+            "base_armor": 0,
+            "range": 40,
+            "gold_harvested": 5,
+            "max_gold": 50,
+            "harvesting_speed": 20
+        }
+    ]
+}

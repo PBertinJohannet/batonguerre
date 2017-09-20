@@ -15,6 +15,8 @@ animation* animation_init(char* name){
     strcat(json_name,".json");
     read_frames(json_name, anim);
     anim->texture = sfTexture_createFromFile(img_name,NULL);
+    counted_free(img_name, "freeing img name in animation init");
+    counted_free(json_name, "freeing json name in animation init");
     return anim;
 }
 

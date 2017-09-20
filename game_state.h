@@ -10,11 +10,13 @@
 #include "end_state.h"
 #include <SFML/Graphics.h>
 #include "main_menu_state.h"
+#include "campaign_state.h"
 typedef struct game_state game_state;
 typedef struct battle_state battle_state;
 typedef struct paused_state paused_state;
 typedef struct end_state end_state;
 typedef struct main_menu_state main_menu_state;
+typedef struct campaign_state campaign_state;
 typedef union game_state_union game_state_union;
 
 union game_state_union {
@@ -22,6 +24,7 @@ union game_state_union {
     paused_state* paused;
     end_state* end;
     main_menu_state* main_menu;
+    campaign_state* campaign;
 };
 
 struct game_state {

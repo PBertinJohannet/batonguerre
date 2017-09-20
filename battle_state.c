@@ -4,10 +4,10 @@
 #include "battle_state.h"
 #include "end_state.h"
 #include "paused_state.h"
-battle_state* battle_state_init_from_level(game_state* super, char* level, char* army){
+battle_state* battle_state_init_from_level(game_state* super, char* level, char* campaign_id){
     battle_state* bs = counted_malloc(sizeof(battle_state), "creating battle state");
     bs->super = super;
-    bs->battle = battle_from_level(super, level, army);
+    bs->battle = battle_from_level(super, level, campaign_id);
     super->current_state->battle = bs;
     super->process_event = battle_state_process_event;
     super->update = battle_state_update;
@@ -44,9 +44,9 @@ void battle_state_to_paused_state(game_state* state){
     counted_free(bs, "destoying battle state going into pause");
 }
 
-void battle_state_to_end_state(game_state* state){
+void battle_state_to_end_state(game_state* state, int won){
     battle_state* bs = state->current_state->battle;
-    bs->super->current_state->end = end_state_init(bs);
+    bs->super->current_state->end = end_state_init(bs, won);
     bs->super->update = end_state_update;
     bs->super->process_event = end_state_process_event;
     bs->super->draw = end_state_draw;

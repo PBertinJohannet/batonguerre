@@ -4,6 +4,7 @@
 
 #ifndef STICKWAR_GOLD_HEAP_H
 #define STICKWAR_GOLD_HEAP_H
+#define HEAP_DYING_FRAMES 5
 #include "counted_allocations.h"
 #include "global.h"
 #include "object.h"
@@ -12,6 +13,7 @@ struct gold_heap{
     object* parent;
     int gold_start;
     int gold_current;
+    int dying;
 };
 
 object* gold_heap_create(int pos, int gold, float size);

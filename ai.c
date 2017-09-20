@@ -10,10 +10,15 @@ ai* get_ai_by_name(const char* name, team* t){
     ai* to_ret = counted_malloc(sizeof(ai), "init ai by name");
     if (strcmp(name, "dumb")==0){
         to_ret->play = dumb_ai_play;
+        to_ret->destroy = (void(*)(void*))dumb_ai_destroy;
         to_ret->ai = dumb_ai_init(t);
         return to_ret;
     } else {
         printf("error no ai with name : %s\n",name);
         exit(0);
     }
+}
+void ai_destroy(ai* a){
+    a->destroy(a->ai);
+    counted_free(a, "destroying ai");
 }

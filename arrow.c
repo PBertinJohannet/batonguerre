@@ -43,10 +43,6 @@ int arrow_object_play(void* obj, list* entities){
 }
 
 int arrow_object_destroy(object* obj){
-    object* pj = obj;
-    arrow* p_arr = pj->self;
-    drawable_entity_destroy(pj->drawable);
-    counted_free(p_arr, "freeing arrow");
-    counted_free(obj, "freeing object containing arrow");
+    counted_free(obj->self, "freeing arrow");
     return 0;
 }

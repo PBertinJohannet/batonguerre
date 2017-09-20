@@ -47,7 +47,7 @@ void team_play(team* t, unsigned int frame){
 }
 
 void team_destroy(team* t){
-    list_free(t->brigades, entity_launcher_destroy);
+    list_free(t->brigades, (void(*)(void*))brigade_destroy);
     counted_free(t, "freeing team");
 }
 

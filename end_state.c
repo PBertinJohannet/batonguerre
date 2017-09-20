@@ -24,23 +24,34 @@ void battle_end_next_loop(battle* ps){
     }
 }*/
 
-end_state* end_state_init(battle_state* bs){
-    end_state* ps = counted_malloc(sizeof(end_state), "creating end state");
-    ps->super = bs->super;
-    ps->ended_battle = bs->battle;
-    return ps;
+end_state* end_state_init(battle_state* bs, int won){
+    end_state* end = counted_malloc(sizeof(end_state), "creating end state");
+    if (!won){
+        end->text = "DEFEAT";
+    } else {
+        end ->text = "VICTORY";
+    }
+    end->won = won;
+    end->super = bs->super;
+    end->ended_battle = bs->battle;
+    end->timer = 100;
+    return end;
 }
 
 __attribute_const__ void end_state_draw(__attribute__ ((unused)) game_state_union* state){
     battle* b = state->end->ended_battle;
+    battle_draw(b);
     view* v =b->view;
     screen_drawer_clear(v->drawer);
     window_config* win_conf = get_window_config();
     sfVector2f position = {win_conf->window_height/4, win_conf->window_width/4};
-    screen_drawer_write_text(v->drawer, " END \n press SPACE to continue ", sfRed, 75, position);
+    screen_drawer_write_text(v->drawer, state->end->text, sfRed, 75, position);
 }
-__attribute_const__ void end_state_update(__attribute__ ((unused)) game_state_union* ps){
-    printf("end state update \n");
+void end_state_update(game_state_union* ps){
+    ps->end->timer-=1;
+    if (ps->end->timer==0){
+        end_state_to_campaign_state(ps->end);
+    }
 }
 void end_state_process_event(game_state_union* state, sfEvent* event){
     end_state* ps = state->end;
@@ -51,4 +62,18 @@ void end_state_process_event(game_state_union* state, sfEvent* event){
         default:
             break;
     }
+}
+
+void end_state_to_campaign_state(end_state* end){
+    game_state* super = end->super;
+    if (end->won) {
+        super->current_state->campaign = campaign_state_next_level(super, end->ended_battle->campaign_id);
+    } else {
+        super->current_state->campaign = campaign_state_load(super, end->ended_battle->campaign_id);
+    }
+    super->draw = campaign_state_draw;
+    super->process_event = campaign_state_process_event;
+    super->update = campaign_state_update;
+    battle_destroy(end->ended_battle);
+    counted_free(end, "freeing menu");
 }

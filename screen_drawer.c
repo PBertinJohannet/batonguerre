@@ -38,6 +38,7 @@ void screen_drawer_write_text(screen_drawer* sc, char* to_write, sfColor color, 
     sfText_setFont(text, sc->font);
     sfText_setCharacterSize(text, size);
     sfText_setColor(text, color);
+    position.x *=get_window_config()->window_width/1000.0;
     sfText_setPosition(text, position);
     sfRenderWindow_drawText(sc->window, text, NULL);
 }

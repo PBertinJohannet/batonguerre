@@ -48,6 +48,6 @@ struct object {
  * @return the newly created object
  */
 object* object_create(int pos, team* team, unsigned int facing, int type);
-
+void object_destroy(object* obj);
 
 #endif //STICKWAR_object_H

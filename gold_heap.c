@@ -9,6 +9,7 @@ object* gold_heap_create(int pos, int gold, float size){
     heap->gold_current = gold;
     heap->gold_start = gold;
     heap->parent = obj;
+    heap->dying = HEAP_DYING_FRAMES;
     obj->self = heap;
     obj->drawable = drawable_entity_init(animation_frame_init(get_animations()->gold_heap),&obj->pos, &obj->facing,size);
     obj->play = gold_heap_play;
@@ -26,9 +27,13 @@ int gold_heap_play(void* obj, __attribute__ ((unused)) list* entities){
                                             (float)heap->parent->drawable->anim->anim->nb_frames
                                           *(float)heap->gold_current/(float)heap->gold_start);
     if (heap->gold_current<1){
-        return 1;
-    } else return 0;
+        if (heap->dying==0){
+            return 1;
+        }
+        heap->dying-=1;
+    }
+    return 0;
 }
 int gold_heap_destroy(object* obj){
-    return counted_free(obj, "freeing gold heap object");
+    return counted_free(obj->self, "freeing gold heap self");
 }

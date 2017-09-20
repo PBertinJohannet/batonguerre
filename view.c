@@ -116,5 +116,6 @@ void view_move_left(view* v){
 
 void view_destroy(view* v){
     screen_drawer_destroy(v->drawer);
+    battle_config_destroy(v->battle_config);
     counted_free(v, "freeing view");
 }

@@ -13,6 +13,7 @@ animation_list* get_animations(void);
 // textures
 texture_list* loaded_textures;
 texture_list* get_textures(void);
+void free_ressources(void);
 
 #endif //STICKWAR_GLOBAL_H
 

@@ -46,6 +46,6 @@ struct brigade {
 brigade* brigade_init(int, int, int, int, int, float, int, team*);
 
 void brigade_set_type(brigade* b, int type, void* stats);
-
+void brigade_destroy(brigade* b);
 
 #endif //STICKWAR_BRIGADE_H

@@ -52,7 +52,6 @@ void controller_process_mouse_click(controller* c, sfVector2i mouse){
     if (mouse.x < 0 || mouse.y <0){
         return;
     }
-    printf("command : coef : %f then : %u\n", (1000.f/(float)get_window_config()->window_width),((unsigned int)(mouse.x*(1000.f/(float)get_window_config()->window_width)))+g->view->camera_position );
     if (c->commanding_brigade){
         battle_command_one(g->player,
                          (unsigned int)(mouse.x*(1000.f/(float)get_window_config()->window_width))+g->view->camera_position,
@@ -76,4 +75,10 @@ void controller_process_mouse_click(controller* c, sfVector2i mouse){
             battle_order_assault(g, g->player);
         }
     }
+}
+
+
+
+void controller_destroy(controller* c){
+    counted_free(c, "destroying controller");
 }

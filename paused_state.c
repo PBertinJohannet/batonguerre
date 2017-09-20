@@ -11,12 +11,13 @@ paused_state* paused_state_init(battle_state* bs){
     ps->super = bs->super;
     ps->paused_battle = bs->battle;
     ps->menu = clickable_menu_init();
-    int xpos = (float)(get_window_config()->window_width*0.4);
+    ps->switch_to = DONT_SWITCH;
+    int xpos = 400;
     printf("xpos : %d\n", xpos);
-    clickable_menu_add_button(ps->menu, button_inline_init((void(*)(void*))paused_state_to_battle,
-                                                           (void*)ps, xpos, 200, 300,50, "resume game", NULL));
-    clickable_menu_add_button(ps->menu, button_inline_init((void(*)(void*))paused_state_to_main_menu,
-                                                           (void*)ps, xpos, 300, 300,50, "main menu", NULL));
+    clickable_menu_add_button(ps->menu, button_inline_init((void(*)(void*))paused_state_switch_to_battle,
+                                                           (void*)ps, xpos, 200, 25, "resume game", NULL));
+    clickable_menu_add_button(ps->menu, button_inline_init((void(*)(void*))paused_state_switch_to_main,
+                                                           (void*)ps, xpos, 300, 25, "main menu", NULL));
     return ps;
 }
 
@@ -31,8 +32,12 @@ void paused_state_draw(game_state_union* state){
 }
 
 
-__attribute_const__ void paused_state_update(__attribute__ ((unused)) game_state_union* ps){
-
+__attribute_const__ void paused_state_update(game_state_union* ps){
+    if (ps->paused->switch_to == SWITCH_TO_MENU){
+        paused_state_to_main_menu(ps->paused);
+    } else if (ps->paused->switch_to == SWITCH_TO_BATTLE){
+        paused_state_to_battle(ps->paused);
+    }
 }
 void paused_state_process_event(game_state_union* state, sfEvent* event){
     paused_state* ps = state->paused;
@@ -61,6 +66,13 @@ void paused_state_to_battle(paused_state* ps){
     clickable_menu_destroy(ps->menu);
     counted_free(ps, "freeing paused state to battle ! ");
 }
+void paused_state_switch_to_main(paused_state* ps){
+    ps->switch_to = SWITCH_TO_MENU;
+}
+void paused_state_switch_to_battle(paused_state* ps){
+    ps->switch_to = SWITCH_TO_BATTLE;
+}
+
 void paused_state_to_main_menu(paused_state* ps){
     ps->super->current_state->main_menu = main_menu_state_init(ps->super);
     clickable_menu_destroy(ps->menu);
