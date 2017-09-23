@@ -27,41 +27,36 @@ int allocation_destroy(allocation* all){
 void* counted_malloc(size_t size, const char* message){
     void* to_ret;
     if (!allocateds_inited){
-        allocateds = list_create();
+        allocateds = list_init();
         allocateds_inited = 1;
     }
     to_ret = malloc(size);
     list_add(allocateds, allocation_init(size, to_ret, message));
     return to_ret;
 }
-
-int counted_free(void* to_free, const char* message){
-    int error = 1;
+int counted_free_check(void* to_free, const char* message){
+    char* error_mes = "error on list allocation";
     if (to_free != NULL) {
         for (unsigned int i = 0; i < allocateds->size; i++) {
             allocation *all = list_at(allocateds, i);
             if (to_free == all->pointer) {
-                //printf("freeing : %s\n", message);
-                list_rm_at(allocateds, i);
-                free(to_free);
-                error = 0;
-                break;
+                return i;
             }
         }
-    }
-    if (error) {
-        printf("error on counted_free :\n    message : %s\n        exiting\n", message);
-        int wait = 0;
-        while (!wait){
-            if (scanf("%d",&wait)){
-                printf("pls error gut");
-            }
-        }
-        counted_show_allocateds();
-        exit(0);
+        error_mes = "pointer not found";
     } else {
-        return 1;
+        error_mes = "pointer is null";
     }
+    printf("error on counted_free :\n    with message : %s\n    at : %s\n        exiting\n", error_mes, message);
+    counted_show_allocateds();
+    exit(0);
+}
+void counted_free(void* to_free, const char* message){
+    int to_free_id = counted_free_check(to_free, message);
+    allocation *all = list_at(allocateds, to_free_id);
+    list_rm_at(allocateds, to_free_id);
+    free(all->pointer);
+    all->pointer = 0;
 }
 void counted_show_allocateds(){
     printf("%u still allocated : \n", allocateds->size);
@@ -70,4 +65,39 @@ void counted_show_allocateds(){
         allocation* all = list_at(allocateds, i);
         allocation_show(all);
     }
+}
+
+sfText* sfText_counted_malloc(char* message){
+    sfText* to_ret;
+    if (!allocateds_inited){
+        allocateds = list_init();
+        allocateds_inited = 1;
+    }
+    to_ret = sfText_create();
+    list_add(allocateds, allocation_init(0, to_ret, message));
+    return to_ret;
+}
+void sfText_counted_free(sfText* text, char* message){
+    int to_free_id = counted_free_check(text, message);
+    allocation *all = list_at(allocateds, to_free_id);
+    list_rm_at(allocateds, to_free_id);
+    sfText_destroy(all->pointer);
+    all->pointer = 0;
+}
+sfSprite* sfSprite_counted_malloc(char* message){
+    sfSprite* to_ret;
+    if (!allocateds_inited){
+        allocateds = list_init();
+        allocateds_inited = 1;
+    }
+    to_ret = sfSprite_create();
+    list_add(allocateds, allocation_init(0, to_ret, message));
+    return to_ret;
+}
+void sfSprite_counted_free(sfSprite* sprite,  char* message){
+    int to_free_id = counted_free_check(sprite, message);
+    allocation *all = list_at(allocateds, to_free_id);
+    list_rm_at(allocateds, to_free_id);
+    sfSprite_destroy(all->pointer);
+    all->pointer = 0;
 }

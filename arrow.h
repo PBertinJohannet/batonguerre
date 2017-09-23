@@ -13,8 +13,8 @@ struct arrow {
     int damage;
     unsigned int lifetime;
 };
-object* arrow_create(int pos,unsigned int range, unsigned int speed, float size, team* team, unsigned int facing, int damage);
+object* arrow_init(int pos,unsigned int range, unsigned int speed, float size, team* team, unsigned int facing, int damage);
 
 int arrow_object_play(void* object, list* entities);
-int arrow_object_destroy(object* proj);
+void arrow_object_destroy(object* proj);
 #endif //STICKWAR_ARROW_H

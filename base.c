@@ -33,8 +33,8 @@ void set_base_class(entity* ent){
 }
 
 void base_take_damage(entity* ent, int damages){
-    if (2<damages){
-        ent->hp-=(damages - 2);
+    if (6<damages){
+        ent->hp-=(damages - 6);
     }
 }
 

@@ -6,9 +6,10 @@
 #include "window_conf_reader.h"
 #include "counted_allocations.h"
 #include "global.h"
-object* arrow_create(int pos,unsigned int range, unsigned int speed, float size, team* team, unsigned int facing, int damage){
+#include "math.h"
+object* arrow_init(int pos,unsigned int range, unsigned int speed, float size, team* team, unsigned int facing, int damage){
     arrow* arr = counted_malloc(sizeof(arrow), "create arrow");
-    object* obj = object_create(pos, team, facing, OBJECT_ARROW);
+    object* obj = object_init(pos, team, facing, OBJECT_ARROW);
     arr->damage = damage;
     arr->speed = speed;
     arr->lifetime = range*get_window_config()->fps/speed;
@@ -42,7 +43,6 @@ int arrow_object_play(void* obj, list* entities){
     return 0;
 }
 
-int arrow_object_destroy(object* obj){
+void arrow_object_destroy(object* obj){
     counted_free(obj->self, "freeing arrow");
-    return 0;
 }

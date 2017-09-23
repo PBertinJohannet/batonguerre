@@ -16,9 +16,9 @@ struct gold_heap{
     int dying;
 };
 
-object* gold_heap_create(int pos, int gold, float size);
+object* gold_heap_init(int pos, int gold, float size);
 
 
 int gold_heap_play(void* self, list* entities);
-int gold_heap_destroy(object* obj);
+void gold_heap_destroy(object* obj);
 #endif //STICKWAR_GOLD_HEAP_H

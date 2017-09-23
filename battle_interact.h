@@ -11,7 +11,7 @@
 typedef struct team team;
 void battle_order_retreat(team* t);
 void battle_order_assault(battle* g, team* t);
-void battle_command_one(team* t, unsigned int target,unsigned int entity_type);
+void battle_command_one(team* t, unsigned int target,unsigned int brigade_id);
 void battle_command_all(team* t, unsigned int target);
 
 #endif //STICKWAR_battle_INTERACT_H

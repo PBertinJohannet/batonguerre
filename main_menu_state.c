@@ -33,6 +33,7 @@ main_menu_state* main_menu_state_init(game_state* super){
 
 void main_menu_state_draw(game_state_union* state){
     main_menu_state* menu = state->main_menu;
+    screen_drawer_clear(menu->drawer);
     clickable_menu_draw(menu->menu, menu->drawer);
 }
 __attribute_const__ void main_menu_state_update(game_state_union* ps){
@@ -81,3 +82,4 @@ __attribute__((noreturn)) void main_menu_state_quit(main_menu_state* menu){
     counted_show_allocateds();
     exit(0);
 }
+

@@ -45,7 +45,7 @@ void entity_base_assaulting(entity* player, list* entities, __attribute__ ((unus
 
 int entity_base_find_target(entity* player, list* entities){
     int range = player->type->get_current_range(player);
-    list* in_range = list_create();
+    list* in_range = list_init();
     for (unsigned int i = 0; i < entities->size; i++) {
         entity *ent = (entity *) list_at(entities, i);
         if (player->team != ent->team
@@ -55,6 +55,7 @@ int entity_base_find_target(entity* player, list* entities){
         }
     }
     if (in_range->size>0){
+        player->facing = player->team->id;
         player->type->to_attack(player, list_random(in_range));
         list_destroy(in_range);
         return 1;
@@ -161,8 +162,10 @@ void entity_base_play(battle* g, entity* player, list* entities){
 
 
 void entity_behaviour_destroy(entity_behaviour* ent){
-    char* infos = malloc(sizeof(char)*(size_t)(strlen("freeing behaviour state for ent of type : ..")+1));
+    char* infos = counted_malloc(sizeof(char)*(size_t)(strlen("freeing behaviour state for ent of type : ..")+1),
+                                 "infos for entity free");
     sprintf(infos, "freeing behaviour state for ent of type : %u", ent->type);
     counted_free(ent->current_state, infos);
+    counted_free(infos, "freeing infos for entity behaviour free");
     counted_free(ent, "freeing behaviout");
 }

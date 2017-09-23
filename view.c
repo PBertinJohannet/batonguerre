@@ -38,7 +38,7 @@ void view_draw_launchers(view* v, list* launchers){
 void view_draw_cursor(view* v, unsigned int commanding){
     if (commanding){
         sfRenderWindow_setMouseCursorVisible(v->window,0);
-        sfSprite* image = sfSprite_create();
+        sfSprite* image = sfSprite_counted_malloc("creating sprite in view draw cursor");
         sfSprite_setTexture(image, get_textures()->flag,0);
         sfVector2f new_scale = {200.0,200.0};
         sfVector2i mouse = sfMouse_getPositionRenderWindow(v->window);
@@ -66,21 +66,21 @@ void view_draw_map(view* v){
 }
 
 void view_draw_background(view* v){
-    sfSprite* image = sfSprite_create();
+    sfSprite* image = sfSprite_counted_malloc("creating sprite for background");
     sfSprite_setTexture(image, get_textures()->background,0);
     sfVector2f new_scale = {((float)v->battle_config->map_size)/1.75f,(float)get_window_config()->window_height};
     sfVector2f position = {0.f - (float)v->camera_position, 0.f};
     view_draw_sprite(v,image,position,new_scale,0);
 }
 void view_draw_assault(view* v){
-    sfSprite* image = sfSprite_create();
+    sfSprite* image = sfSprite_counted_malloc("creating sprite for assault");
     sfSprite_setTexture(image, get_textures()->assault,0);
     sfVector2f new_scale = {200.0,200.0};
     sfVector2f position = {200,-50};
     view_draw_sprite(v,image,position,new_scale,0);
 }
 void view_draw_retreat(view* v){
-    sfSprite* image = sfSprite_create();
+    sfSprite* image = sfSprite_counted_malloc("creating sprite for retreat");
     sfSprite_setTexture(image, get_textures()->retreat,0);
     sfVector2f new_scale = {200.0,200.0};
     sfVector2f position = {100,-50};

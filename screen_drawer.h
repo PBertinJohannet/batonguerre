@@ -15,6 +15,7 @@ struct screen_drawer {
     sfRenderWindow* window;
     sfFont* font;
     list* texts;
+    list* sprites;
 };
 screen_drawer* screen_drawer_init(sfRenderWindow* window);
 void screen_drawer_play_music(__attribute__ ((unused)) screen_drawer* v, char* name);

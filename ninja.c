@@ -7,6 +7,7 @@
 #include "window_conf_reader.h"
 #include "brigade_reader.h"
 #include "counted_allocations.h"
+#include "time.h"
 ninja* ninja_init(ninja_stats* stats){
     ninja* k = counted_malloc(sizeof(ninja), "create ninja stats");
     k->attack_type = NINJA_NONE;

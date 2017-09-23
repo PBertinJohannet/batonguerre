@@ -5,6 +5,7 @@
 #include "dumb_ai.h"
 #include "brigade.h"
 #include "counted_allocations.h"
+#include "time.h"
 dumb_ai* dumb_ai_init(team* t){
     dumb_ai* dai = counted_malloc(sizeof(dumb_ai), "dumb ai create");
     dai->team = t;

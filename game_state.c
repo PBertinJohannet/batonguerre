@@ -25,7 +25,7 @@ void game_state_start(game_state* state){
 
 
 
-game_state* battle_init(){
+/*game_state* battle_init(){
     game_state* state = counted_malloc(sizeof(game_state), "playing state init");
     window_config* win_conf = get_window_config();
     sfVideoMode mode = {win_conf->window_width, win_conf->window_height, 16};
@@ -37,7 +37,7 @@ game_state* battle_init(){
     state->process_event = battle_state_process_event;
     state->update = battle_state_update;
     return state;
-}
+}*/
 
 game_state* menu_init(){
     game_state* state = counted_malloc(sizeof(game_state), "menu state init");
@@ -55,22 +55,3 @@ game_state* menu_init(){
 
 
 
-
-/*
-
-// battle end
-void battle_to_battle(game_state* state, team* winner){
-    battle* new_state = counted_malloc(sizeof(paused_state), "battle end state create");
-    new_state->ended_battle = state->state;
-    new_state->winning_team = winner;
-    battle_end_display_message(new_state);
-    state->state = new_state;
-    state->next_loop = battle_next_loop;
-    for (unsigned int i = 0;i<new_state->ended_battle->entities->size;i++){
-        entity* ent = list_at(new_state->ended_battle->entities,i);
-        if (ent->team!=new_state->winning_team){
-            ent->type->to_dying(ent);
-        }
-    }
-}
-*/

@@ -39,21 +39,29 @@ end_state* end_state_init(battle_state* bs, int won){
 }
 
 __attribute_const__ void end_state_draw(__attribute__ ((unused)) game_state_union* state){
+    printf("end state draw \n");
     battle* b = state->end->ended_battle;
+    printf("got battle \n");
+    screen_drawer_clear(b->view->drawer);
+    printf("cleared screen \n");
     battle_draw(b);
-    view* v =b->view;
-    screen_drawer_clear(v->drawer);
+    printf("drawed battle\n");
     window_config* win_conf = get_window_config();
+    printf("got window config\n");
     sfVector2f position = {win_conf->window_height/4, win_conf->window_width/4};
-    screen_drawer_write_text(v->drawer, state->end->text, sfRed, 75, position);
+    printf("calculated position\n");
+    screen_drawer_write_text(b->view->drawer, state->end->text, sfRed, 75, position);
+    printf("wrote text \n");
 }
 void end_state_update(game_state_union* ps){
+    printf("end update\n");
     ps->end->timer-=1;
     if (ps->end->timer==0){
         end_state_to_campaign_state(ps->end);
     }
 }
 void end_state_process_event(game_state_union* state, sfEvent* event){
+    printf("end process event \n");
     end_state* ps = state->end;
     switch (event->type) {
         case sfEvtClosed:

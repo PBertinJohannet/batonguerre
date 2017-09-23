@@ -1,5 +1,5 @@
 TARGET = release
-LIBS = -lm -lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio -ljansson
+LIBS = -lm -lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio
 CC = gcc
 CFLAGS = -g -Wall -std=c11 -O3 # -O0 -v -da -Q
 

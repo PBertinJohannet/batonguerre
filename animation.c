@@ -7,10 +7,10 @@
 #include "counted_allocations.h"
 animation* animation_init(char* name){
     animation* anim = counted_malloc(sizeof(animation), "creating animation in animation init");
-    char* img_name = counted_malloc((strlen(name)+strlen(".png"))*sizeof(char), "creating img name in animation init");
+    char* img_name = counted_malloc((strlen(name)+strlen(".png")+1)*sizeof(char), "creating img name in animation init");
     strcpy(img_name,name);
     strcat(img_name,".png");
-    char* json_name = counted_malloc((strlen(name)+strlen(".json")+2)*sizeof(char), "creating json name in animation init");
+    char* json_name = counted_malloc((strlen(name)+strlen(".json")+1)*sizeof(char), "creating json name in animation init");
     strcpy(json_name,name);
     strcat(json_name,".json");
     read_frames(json_name, anim);
@@ -29,7 +29,7 @@ animation_frame* animation_frame_init(animation* target){
 
 
 sfSprite* animation_frame_get_sprite(animation_frame* anim, unsigned int flip){
-    sfSprite* sprite = sfSprite_create();
+    sfSprite* sprite = sfSprite_counted_malloc("creating sprite for animation");
     sfSprite_setTexture(sprite, anim->anim->texture, sfTrue);
     sfIntRect target = anim->anim->frames[(int)(anim->frame)];
     if (flip){

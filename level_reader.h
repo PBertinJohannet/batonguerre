@@ -4,10 +4,10 @@
 //
 #ifndef LEVEL_READER_H
 #define LEVEL_READER_H
-#include "jansson.h"
 #include "team.h"
 #include "array_list.h"
 #include "ai.h"
+#include "parson.h"
 typedef struct level_reader level_reader;
 typedef struct ai ai;
 typedef struct battle_config battle_config;
@@ -21,13 +21,13 @@ struct battle_config {
     unsigned int player_team;
 };
 /**
- * This is the structure used to store the battle infos and the json_t pointer.
+ * This is the structure used to store the battle infos and the JSON_Object pointer.
  * config : the json element containing the config.
  * ennemy_army : the json element containing the e.a
  */
 struct level_reader {
-    json_t* config;
-    json_t* armys;
+    JSON_Object* config;
+    JSON_Object* armys;
 };
 
 level_reader* level_reader_init(char* lvl_name);

@@ -19,6 +19,7 @@ void set_mineworker_class(entity*);
 animation* mineworker_get_dying_animation(entity* ent);
 animation* mineworker_get_walking_animation(entity* ent);
 void mineworker_attacking(entity* ent, battle* g);
+void mineworker_retreating(entity* player,__attribute__ ((unused))list* entities );
 int mineworker_get_current_range(entity* ent);
 void mineworker_to_attack(entity* ent,entity* target);
 void mineworker_assaulting(entity* player, list* entities, list* objects);

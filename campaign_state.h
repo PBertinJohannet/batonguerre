@@ -8,8 +8,7 @@
 #include "array_list.h"
 #include "brigade.h"
 #include "game_state.h"
-#include "utils.h"
-#include "jansson.h"
+
 typedef struct campaign_state campaign_state;
 struct campaign_state{
     game_state* super;

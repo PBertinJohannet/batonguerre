@@ -21,8 +21,8 @@ void battle_command_all(team* t, unsigned int target){
     }
 }
 
-void battle_command_one(team* t, unsigned int target, unsigned int ent_type){
-    brigade* b = list_at(t->brigades,ent_type);
+void battle_command_one(team* t, unsigned int target, unsigned int brigade_id){
+    brigade* b = list_at(t->brigades,brigade_id);
     b->command->target = target;
     b->command->entity_state = ENTITY_STATE_ASSAULT;
 }

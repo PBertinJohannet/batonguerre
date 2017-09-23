@@ -35,7 +35,7 @@ struct object {
     unsigned int facing;
     team* team;
     int(*play)(void* ,list*);
-    int(*destroy)(object*);
+    void(*destroy)(object*);
     drawable_entity* drawable;
     void* self;
 };
@@ -47,7 +47,7 @@ struct object {
  * @param facing : the side the object is facing
  * @return the newly created object
  */
-object* object_create(int pos, team* team, unsigned int facing, int type);
+object* object_init(int pos, team* team, unsigned int facing, int type);
 void object_destroy(object* obj);
 
 #endif //STICKWAR_object_H

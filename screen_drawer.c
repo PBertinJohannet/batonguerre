@@ -8,7 +8,8 @@ screen_drawer* screen_drawer_init(sfRenderWindow* window){
     screen_drawer* s = counted_malloc(sizeof(screen_drawer), "screen_drawer create");
     s->window = window;
     s->font = sfFont_createFromFile("fonts/OpenSans-Bold.ttf");
-    s->texts = list_create();
+    s->texts = list_init();
+    s->sprites = list_init();
     return s;
 }
 void screen_drawer_play_music(__attribute__ ((unused)) screen_drawer* v, char* name){
@@ -16,6 +17,7 @@ void screen_drawer_play_music(__attribute__ ((unused)) screen_drawer* v, char* n
     sfMusic_play(music);
 }
 void screen_drawer_draw_sprite(screen_drawer* v, sfSprite* sprite, sfVector2f position, sfVector2f size){
+    list_add(v->sprites, sprite);
     sfFloatRect bounds = sfSprite_getGlobalBounds(sprite);
     sfVector2f scale = {size.x/bounds.height, size.y/bounds.height};
     sfSprite_setScale(sprite,scale);
@@ -32,7 +34,7 @@ void screen_drawer_sprite_center(sfSprite* sprite){
 }
 
 void screen_drawer_write_text(screen_drawer* sc, char* to_write, sfColor color, unsigned int size, sfVector2f position) {
-    sfText* text = sfText_create();
+    sfText* text = sfText_counted_malloc("create text in screen drawer");
     list_add(sc->texts, text);
     sfText_setString(text, to_write);
     sfText_setFont(text, sc->font);
@@ -44,7 +46,16 @@ void screen_drawer_write_text(screen_drawer* sc, char* to_write, sfColor color, 
 }
 
 void screen_drawer_clear(screen_drawer* sc){
-    list_clear(sc->texts, (void (*)(void*))sfText_destroy);
+    for (unsigned int i = 0; i<sc->texts->size; i++) {
+        sfText* text = list_at(sc->texts, i);
+        sfText_counted_free(text, "clearing list screen drawer");
+    }
+    for (unsigned int i = 0; i<sc->sprites->size; i++) {
+        sfSprite* sprite = list_at(sc->sprites, i);
+        sfSprite_counted_free(sprite, "clearing list screen drawer");
+    }
+    list_clear_no_free(sc->texts);
+    list_clear_no_free(sc->sprites);
 }
 
 void screen_drawer_destroy(screen_drawer* v){

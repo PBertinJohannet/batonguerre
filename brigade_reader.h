@@ -8,8 +8,8 @@
 
 #include "array_list.h"
 #include "brigade.h"
-#include "utils.h"
-#include "jansson.h"
+#include "parson.h"
+
 typedef struct ninja_stats ninja_stats;
 typedef struct kicker_stats kicker_stats;
 typedef struct archer_stats archer_stats;
@@ -56,12 +56,12 @@ struct archer_stats {
 };
 
 
-brigade* brigades_reader_read_brigade(json_t* obj, team*);
-mineworker_stats* brigades_reader_read_mineworker(json_t* obj);
-kicker_stats* brigades_reader_read_kicker(json_t* obj);
-ninja_stats* brigades_reader_read_ninja(json_t* obj);
-archer_stats* brigades_reader_read_archer(json_t* obj);
-void brigades_reader_set_specific_stats(json_t* obj, brigade* brg);
-list* brigades_reader_get_brigades(json_t* brigades, team* t);
+brigade* brigades_reader_read_brigade(JSON_Object* obj, team*);
+mineworker_stats* brigades_reader_read_mineworker(JSON_Object* obj);
+kicker_stats* brigades_reader_read_kicker(JSON_Object* obj);
+ninja_stats* brigades_reader_read_ninja(JSON_Object* obj);
+archer_stats* brigades_reader_read_archer(JSON_Object* obj);
+void brigades_reader_set_specific_stats(JSON_Object* obj, brigade* brg);
+list* brigades_reader_get_brigades(JSON_Object* brigades, team* t);
 
 #endif //STICKWAR_BRIGADE_READER_H

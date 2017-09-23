@@ -19,7 +19,7 @@ battle* battle_from_level(game_state* state, char* level_name, char* camp_id){
     battle_config* conf = level_reader_read_conf(lvl);
     g->ennemy = level_reader_read_team(lvl,1);
     g->player = level_reader_read_team(lvl,0);
-    json_t* player_save_brigades = start_json(campaign_state_get_army_path(camp_id));
+    JSON_Object* player_save_brigades = json_value_get_object(json_parse_file(campaign_state_get_army_path(camp_id)));
     team_set_brigades(g->player, brigades_reader_get_brigades(player_save_brigades, g->player));
     g->view = view_init(state->window, conf);
     g->frame = 0;
@@ -39,7 +39,7 @@ void battle_init_teams(battle* g){
     battle_init_team(g,g->ennemy);
 }
 void battle_init_team(battle* g, team* t){
-    entity* base = base_init(t->pop, 250, t);
+    entity* base = base_init(t->pop, 1250, t);
     set_base_class(base);
     t->base = base;
     list_add(g->entities,base);
@@ -56,7 +56,7 @@ __attribute__ ((pure)) sfRenderWindow* battle_get_view_window(battle* g){
 }
 
 list* battle_get_drawables(battle* g){
-    list* drawables = list_create();
+    list* drawables = list_init();
     for (unsigned int i =0;i<g->objects->size;i++){
         object* ent = (object*)(list_at(g->objects,i));
         list_add(drawables,ent->drawable);
@@ -69,7 +69,7 @@ list* battle_get_drawables(battle* g){
 }
 
 void battle_draw(battle* g) {
-    //screen_drawer_clear(g->view->drawer);
+    screen_drawer_clear(g->view->drawer);
     view_draw_map(g->view);
     view_draw_launchers(g->view, g->player->brigades);
     view_draw_gold(g->view, g->player->gold);

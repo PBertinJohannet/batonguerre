@@ -8,6 +8,7 @@
 #include "entity.h"
 #include "array_list.h"
 #include "game_state.h"
+#include "math.h"
 typedef struct entity_behaviour entity_behaviour;
 typedef struct entity entity;
 typedef struct battle battle;

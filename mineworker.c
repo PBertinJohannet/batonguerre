@@ -6,6 +6,8 @@
 #include "brigade_reader.h"
 #include "counted_allocations.h"
 #include "gold_heap.h"
+#include "math.h"
+#include "stdlib.h"
 void set_mineworker_class(entity* ent){
     entity_behaviour* c = counted_malloc(sizeof(entity_behaviour), "create mineworker behaviour");
     set_basic_behaviour(c);
@@ -16,6 +18,7 @@ void set_mineworker_class(entity* ent){
     c->to_attack = mineworker_to_attack;
     c->attacking = mineworker_attacking;
     c->assaulting = mineworker_assaulting;
+    c->retreating = mineworker_retreating;
     mineworker_current_state* current_state = counted_malloc(sizeof(mineworker_current_state), "creating mineworker gold_state");
     current_state->gold_harvested = 0;
     current_state->is_harvesting = 0;
@@ -24,6 +27,12 @@ void set_mineworker_class(entity* ent){
     ent->type = c;
     ent->drawable = drawable_entity_init(animation_frame_init(get_animations()->mineworker_walk),
                                          &ent->pos, &ent->facing, ent->brigade->base_size);
+}
+
+
+
+void mineworker_retreating(entity* player,__attribute__ ((unused))list* entities ){
+    mineworker_returning_gold(player);
 }
 
 
@@ -64,7 +73,7 @@ void mineworker_returning_gold(entity* player){
 
 int mineworker_find_target(entity* player, list* objects){
     int range = player->type->get_current_range(player);
-    list* in_range = list_create();
+    list* in_range = list_init();
     for (unsigned int i = 0; i < objects->size; i++) {
         object *obj = (object *) list_at(objects, i);
         if (obj->object_type == OBJECT_GOLD_HEAP && abs(obj->pos - player->pos)<range) {

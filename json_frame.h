@@ -7,9 +7,8 @@
 
 #include <SFML/Graphics/Rect.h>
 
-#include <jansson.h>
 #include "animation.h"
-#include "utils.h"
+
 typedef struct animation animation;
 void read_frames(char* source, animation* anim);
 

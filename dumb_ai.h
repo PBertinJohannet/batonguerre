@@ -11,6 +11,8 @@
 #include "entity_launcher.h"
 #include "battle_interact.h"
 #include "ai.h"
+#include "time.h"
+#include "stdlib.h"
 typedef struct ai ai;
 typedef struct team team;
 typedef struct dumb_ai dumb_ai;

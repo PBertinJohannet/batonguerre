@@ -5,7 +5,7 @@
 #ifndef STICKWAR_WINDOW_CONF_READER_H
 #define STICKWAR_WINDOW_CONF_READER_H
 
-#include "utils.h"
+
 typedef struct window_config window_config;
 struct window_config{
     unsigned int window_width;

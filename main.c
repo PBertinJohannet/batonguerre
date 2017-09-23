@@ -13,7 +13,7 @@ int main(void)
 #include "array_list.h"
 #include "entity_factory.h"
 #include "entity.h"
-    list * entities = list_create();
+    list * entities = list_init();
 
     animation_frame* walking = animation_frame_init(get_animations()->stick_walk);
     entity* ent = entity_init(KICKER_BASE_LIFE, KICKER_BASE_SPEED, team, KICKER_BASE_SIZE, 50.0, RETREATING, walking);

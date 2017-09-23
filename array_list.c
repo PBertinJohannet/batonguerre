@@ -4,10 +4,10 @@
 #include "stdio.h"
 #include "stdlib.h"
 #include "array_list.h"
-list* list_create(){
+list* list_init(){
     list* l = malloc(sizeof(list));
     l->size = 0;
-    l->list = malloc(5*sizeof(list));
+    l->list = malloc(5*sizeof(void*));
     l->max_size = 5;
     return l;
 }
@@ -55,6 +55,9 @@ void list_clear(list* l, void (*destructor)(void*)){
     for (unsigned int i =0;i<l->size;i++){
         (*destructor)(l->list[i]);
     }
+    l->size = 0;
+}
+void list_clear_no_free(list* l){
     l->size = 0;
 }
 void* list_rm_at(list* l, unsigned int index){

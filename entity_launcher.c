@@ -37,7 +37,7 @@ void entity_launcher_update(entity_launcher* ent){
 
 
 sfSprite* entity_launcher_get_icon(entity_launcher* ent){
-    sfSprite* sprite = sfSprite_create();
+    sfSprite* sprite = sfSprite_counted_malloc("creating sprite for entity launcher");
     sfSprite_setTexture(sprite, ent->anim->anim->texture, sfTrue);
     int frame = (int)((ent->curr_cd/(float)ent->cd)
                       * (float)ent->anim->anim->nb_frames) -1 ;

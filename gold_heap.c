@@ -3,9 +3,9 @@
 //
 #include "gold_heap.h"
 
-object* gold_heap_create(int pos, int gold, float size){
+object* gold_heap_init(int pos, int gold, float size){
     gold_heap* heap = counted_malloc(sizeof(gold_heap), "creating gold heap struct");
-    object* obj = object_create(pos, NULL, 0, OBJECT_GOLD_HEAP);
+    object* obj = object_init(pos, NULL, 0, OBJECT_GOLD_HEAP);
     heap->gold_current = gold;
     heap->gold_start = gold;
     heap->parent = obj;
@@ -34,6 +34,6 @@ int gold_heap_play(void* obj, __attribute__ ((unused)) list* entities){
     }
     return 0;
 }
-int gold_heap_destroy(object* obj){
-    return counted_free(obj->self, "freeing gold heap self");
+void gold_heap_destroy(object* obj){
+    counted_free(obj->self, "freeing gold heap self");
 }

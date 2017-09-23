@@ -6,6 +6,14 @@
 #define STICKWAR_DRAWABLE_ENTITY_H
 
 #include "animation.h"
+enum drawable_enum {
+    ANIM,
+    RECTANGLE,
+};
+union drawable_union {
+    animation_frame* anim;
+    sfRectangleShape* rectangle;
+};
 typedef struct drawable_entity drawable_entity;
 struct drawable_entity {
     float* pos;

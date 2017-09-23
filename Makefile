@@ -1,5 +1,5 @@
 TARGET = battle
-LIBS = -lm -lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio -ljansson
+LIBS = -lm -lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio
 CC = gcc
 CFLAGS = -g -Wall -std=c99 # -O0 -v -da -Q
 

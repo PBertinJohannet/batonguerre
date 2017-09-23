@@ -2,25 +2,25 @@
 // Created by pierre on 16/09/17.
 //
 #include "campaign_state.h"
-
+#include "parson.h"
+#include "utils.h"
 campaign_state* campaign_state_new_game(game_state* super, char* game_id){
     campaign_state_copy_base_stats(game_id);
     return campaign_state_load(super, game_id);
 }
 
 campaign_state* campaign_state_next_level(game_state* super, char* game_id){
-    json_t* save = start_json(campaign_state_get_camp_path(game_id));
-    int curr_level = json_read_int(save, "level");
-    json_t* next_level = json_integer(curr_level+1);
-    json_object_set_new(save, "level", next_level);
-    json_dump_file(save, campaign_state_get_camp_path(game_id), JSON_INDENT(4));
-    printf("write level to %s\n",  campaign_state_get_camp_path(game_id));
+    JSON_Value* val = json_parse_file(campaign_state_get_camp_path(game_id));
+    JSON_Object* save = json_value_get_object(val);
+    int curr_level = (int)json_object_get_number(save, "level");
+    json_object_set_number(save, "level", curr_level+1);
+    json_serialize_to_file_pretty(val, campaign_state_get_camp_path(game_id));
     return campaign_state_load(super, game_id);
 }
 
 int campaign_state_get_current_level(char* game_id){
-    json_t* save = start_json(campaign_state_get_camp_path(game_id));
-    return json_read_int(save, "level");
+    JSON_Object* save = json_value_get_object(json_parse_file(campaign_state_get_camp_path(game_id)));
+    return (int)json_object_get_number(save, "level");
 }
 
 campaign_state* campaign_state_load(game_state* super, char* game_id){
@@ -39,19 +39,19 @@ campaign_state* campaign_state_load(game_state* super, char* game_id){
 
 clickable_menu* campaign_state_menu_init(campaign_state* state){
     clickable_menu* menu = clickable_menu_init();
-    //json_t* camp_json = start_json(campaign_state_get_camp_path(game_id));
-    //int a = json_read_int(camp_json, "level");
+    //JSON_Object* camp_json = json_value_get_object(json_parse_file((campaign_state_get_camp_path(game_id)));
+    //int a = (int)json_object_get_number(camp_json, "level");
     clickable_menu_add_button(menu, button_inline_init((void(*)(void*))campaign_state_switch_to_battle, state, 400, 400, 30, "next level", NULL));
     return menu;
 }
 
 char* campaign_state_get_camp_path(char* game_id){
-    char* camp = counted_malloc(sizeof(char)*strlen("confs/saves/xxx/campaign.jsonxx"), "creating new campaign path for camp");
+    char* camp = counted_malloc(sizeof(char)*(strlen("confs/saves//campaign.json")+strlen(game_id)+1), "creating new campaign path for camp");
     sprintf(camp, "confs/saves/%s/campaign.json", game_id);
     return camp;
 }
 char* campaign_state_get_army_path(char* game_id){
-    char* army = counted_malloc(sizeof(char)*strlen("confs/saves/xxx/army.jsonxx"), "creating new campaign path for camp");
+    char* army = counted_malloc(sizeof(char)*(strlen("confs/saves//army.json")+strlen(game_id)+1), "creating new campaign path for camp");
     sprintf(army, "confs/saves/%s/army.json", game_id);
     return army;
 }
@@ -60,8 +60,8 @@ void campaign_state_copy_base_stats(char* game_id){
     printf("copy base stats wllh \n");
     char* camp = campaign_state_get_camp_path(game_id);
     char* army = campaign_state_get_army_path(game_id);
-    json_copy_from_to("confs/base/army.json", army);
-    json_copy_from_to("confs/base/campaign.json", camp);
+    copy_json_to("confs/base/army.json", army);
+    copy_json_to("confs/base/campaign.json", camp);
     counted_free(army, "freeing army campaign path");
     counted_free(camp, "freeing camp campaign path");
 }
@@ -69,6 +69,7 @@ void campaign_state_copy_base_stats(char* game_id){
 
 void campaign_state_draw(game_state_union* state){
     campaign_state* campaign = state->campaign;
+    screen_drawer_clear(campaign->drawer);
     clickable_menu_draw(campaign->menu, campaign->drawer);
 }
 __attribute_const__ void campaign_state_update(game_state_union* ps){
@@ -97,8 +98,7 @@ void campaign_state_switch_to_battle(campaign_state* camp){
 }
 void campaign_state_to_battle(campaign_state* campaign){
     game_state* state = campaign->super;
-    //json_t* camp_json = start_json(campaign_state_get_camp_path(game_id));
-    printf("%d becomes %s\n", campaign_state_get_current_level(campaign->game_id), int_to_str(campaign_state_get_current_level(campaign->game_id)));
+    //JSON_Object* camp_json = json_value_get_object(json_parse_file((campaign_state_get_camp_path(game_id)));
     state->current_state->battle = battle_state_init_from_level(state,
                                                                 int_to_str(campaign_state_get_current_level(campaign->game_id)),
                                                                 campaign->game_id);

@@ -1,5 +1,7 @@
-make -f Makefile.debug clean
-make -f Makefile.debug
+read -p "do you want to compile first ?" yn
+case $yn in 
+	[Yy]* )make -f Makefile.debug clean;make -f Makefile.debug;;
+esac
 read -p "Do you wish to run a static check ?" yn
 case $yn in
 	[Yy]* ) cppcheck ~/CLionProjects/batonguerre/ --force --enable=warning >check_result.txt;;

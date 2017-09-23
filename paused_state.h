@@ -11,6 +11,8 @@
 typedef struct clickable_menu clickable_menu;
 typedef struct paused_state paused_state;
 typedef struct battle_state battle_state;
+typedef struct game_state game_state;
+typedef struct battle battle;
 typedef union game_state_union game_state_union;
 enum switch_to {
     DONT_SWITCH,
