@@ -31,7 +31,7 @@ void entity_launcher_set_type(entity_launcher* ent, int type){
 }
 void entity_launcher_update(entity_launcher* ent){
     if (ent->curr_cd < ent->cd) {
-        ent->curr_cd +=1.0/(float)get_window_config()->fps;
+        ent->curr_cd +=1.0*get_elapsed_sec();
     }
 }
 

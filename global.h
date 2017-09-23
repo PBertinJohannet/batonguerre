@@ -14,6 +14,7 @@ animation_list* get_animations(void);
 texture_list* loaded_textures;
 texture_list* get_textures(void);
 void free_ressources(void);
-
+void update_time();
+float get_elapsed_sec();
 #endif //STICKWAR_GLOBAL_H
 

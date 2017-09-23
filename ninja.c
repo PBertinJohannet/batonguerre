@@ -65,14 +65,14 @@ void ninja_attacking(entity* ent, __attribute__ ((unused)) battle* g) {
         default:
             break;
     }
-    drawable_entity_animation_forward(ent->drawable, stats->basic_attack_speed/(float)get_window_config()->fps);
+    drawable_entity_animation_forward(ent->drawable, stats->basic_attack_speed*get_elapsed_sec());
 }
 
 void ninja_jumping(entity* ent){
     ninja_stats* stats = ent->brigade->specific_stats;
     unsigned int curr_frame = drawable_entity_get_frame(ent->drawable);
     if (curr_frame > 22 && curr_frame < 33) {
-        float moving_by = ent->speed  * 3;
+        float moving_by = ent->speed *get_elapsed_sec() * 3;
         if (ent->state != ENTITY_STATE_ATTACK_FAILING) {
             unsigned int nb_frame_remaining = 33 - curr_frame;
             moving_by = abs(ent->pos-ent->target->pos)/(float)nb_frame_remaining;
@@ -85,7 +85,7 @@ void ninja_jumping(entity* ent){
         }
         ((ninja *) ent->type->current_state)->will_jump = rand() % 2;
     }
-    drawable_entity_animation_forward(ent->drawable, stats->basic_attack_speed/(float)get_window_config()->fps);
+    drawable_entity_animation_forward(ent->drawable, stats->basic_attack_speed*get_elapsed_sec());
 }
 
 __attribute_pure__ int ninja_get_current_range(entity* ent){

@@ -11,7 +11,7 @@ struct arrow {
     unsigned int speed;
     object* parent;
     int damage;
-    unsigned int lifetime;
+    float lifetime;
 };
 object* arrow_init(int pos,unsigned int range, unsigned int speed, float size, team* team, unsigned int facing, int damage);
 

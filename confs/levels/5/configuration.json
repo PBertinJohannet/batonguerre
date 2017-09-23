@@ -11,7 +11,7 @@
 			{
 				"pop" : 2550,
 				"gold_start" : 100,
-				"gold_per_sec" :0,
+				"gold_per_sec" :7,
 				"ai"  : "final"}
 			],
 "entities" : [
