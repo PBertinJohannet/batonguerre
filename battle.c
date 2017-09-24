@@ -74,6 +74,7 @@ void battle_draw(battle* g) {
     view_draw_gold(g->view, g->player->gold);
     view_draw_cursor(g->view, g->controller->commanding_brigade);
     view_draw_entities(g->view, battle_get_drawables(g));
+    view_draw_perf(g->view, g->entities->size, g->objects->size);
 }
 
 

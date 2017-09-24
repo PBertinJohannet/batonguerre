@@ -47,7 +47,8 @@ void ninja_attacking(entity* ent, __attribute__ ((unused)) battle* g) {
         case HIT :
             if (curr_frame == 12) {
                 if (ent->state != ENTITY_STATE_ATTACK_FAILING){
-                    ent->target->hp -= stats->hit_damage;
+                    ent->target->type->take_damage(ent->target, stats->hit_damage);
+                    ent->state = ENTITY_STATE_ATTACK_FAILING;
                 }
                 current_state->will_jump = rand() % 2;
             }
@@ -55,7 +56,8 @@ void ninja_attacking(entity* ent, __attribute__ ((unused)) battle* g) {
         case SLASH :
             if (curr_frame == 12) {
                 if (ent->state != ENTITY_STATE_ATTACK_FAILING) {
-                    ent->target->hp -= stats->slash_damage;
+                    ent->target->type->take_damage(ent->target, stats->slash_damage);
+                    ent->state = ENTITY_STATE_ATTACK_FAILING;
                 }
                 current_state->will_jump = rand() % 2;
             }
@@ -81,7 +83,8 @@ void ninja_jumping(entity* ent){
     }
     if (drawable_entity_get_frame(ent->drawable) == 33) {
         if (ent->state != ENTITY_STATE_ATTACK_FAILING) {
-            ent->target->hp -= stats->slash_damage;
+            ent->target->type->take_damage(ent->target, stats->jump_damage);
+            ent->state = ENTITY_STATE_ATTACK_FAILING;
         }
         ((ninja *) ent->type->current_state)->will_jump = rand() % 2;
     }

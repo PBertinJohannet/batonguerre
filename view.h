@@ -19,6 +19,7 @@ struct view{
     screen_drawer* drawer;
     unsigned int camera_position;
     battle_config* battle_config;
+    int last_fps;
 };
 view* view_init(sfRenderWindow*, battle_config* battle_config);
 void view_draw_cursor(view* v, unsigned int commanding);
@@ -34,4 +35,6 @@ void view_move_right(view* v);
 void view_move_left(view* v);
 void view_draw_gold(view* v, int gold);
 void view_destroy(view* v);
+void view_draw_perf(view* v, int , int);
+void view_draw_info(view* v, char* title, int to_draw, int x, int y);
 #endif //STICKWAR_DRAWER_H

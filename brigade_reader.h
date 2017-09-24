@@ -41,6 +41,7 @@ struct ninja_stats {
     int jump_chance;
     int jump_range;
     int basic_attack_speed;
+    int jump_damage;
 };
 struct archer_stats {
     int range;

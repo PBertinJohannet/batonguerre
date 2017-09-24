@@ -119,8 +119,9 @@ void mineworker_harvesting(entity* ent){
         ent->drawable->anim = animation_frame_init(get_animations()->mineworker_walk);
         ent->state = ENTITY_STATE_ASSAULT;
     } else {
-        ent->drawable->anim->frame+=(float)stats->harvesting_speed*get_elapsed_sec();
-        if ((int) (ent->drawable->anim->frame) == 35){
+        float advancing_frame = (float)stats->harvesting_speed*get_elapsed_sec();
+        ent->drawable->anim->frame+=advancing_frame;
+        if (ent->drawable->anim->frame-advancing_frame < 35.f && ent->drawable->anim->frame > 35.f){
             state->gold_harvested+=stats->gold_harvested;
             heap->gold_current-=1;
         }
