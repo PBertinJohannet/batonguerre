@@ -13,6 +13,7 @@ team* team_init(unsigned int team_number,int pop, int gold_start, int gold_per_s
     t->gold = gold_start;
     t->pop = pop;
     t->gold_per_sec = gold_per_sec;
+    t->gold_acc = 0;
     return t;
 }
 
@@ -37,9 +38,11 @@ void team_order_entity(team* t,battle* g, unsigned int id){
     entity_launcher_launch(b->launcher, g);
 }
 
-void team_play(team* t, unsigned int frame){
-    if (!(frame%get_window_config()->fps)) {
+void team_play(team* t){
+    t->gold_acc+=get_elapsed_sec();
+    if (t->gold_acc>1.0) {
         t->gold += t->gold_per_sec;
+        t->gold_acc-=1.0;
     }
     for (unsigned int i = 0; i < t->brigades->size; i++) {
         entity_launcher_update(((brigade *) list_at(t->brigades, i))->launcher);

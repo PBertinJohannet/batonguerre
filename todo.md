@@ -18,12 +18,14 @@ d	battle ->battle
 d	type -> behaviour
 d	view create with pointer to config ?
 	make launchers a menu
-	change use of fps and use elapsed time
+d	change use of fps and use elapsed time
 mnu :
 	debug menu on resize
 d	state menudd
 	load
 	save
+	add option menu
+	see campaign state (add buy ?) 
 gme :
 d	armor
 d	miners
@@ -36,6 +38,7 @@ d	retrear base
 	command all flag ? 
 	multiple plyrs:
 		plyrs have sides (int)
+	command with keys ?
 after :
 	comments
 d	memory leak maybe

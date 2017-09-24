@@ -31,6 +31,7 @@ ninja_stats* brigades_reader_read_ninja(JSON_Object* obj){
     n->jump_chance = (int)json_object_get_number(obj, "jump_chance");
     n->jump_range = (int)json_object_get_number(obj, "jump_range");
     n->basic_attack_speed = (int)json_object_get_number(obj, "basic_attack_speed");
+    n->jump_damage = (int)json_object_get_number(obj, "jump_damage");
     return n;
 }
 archer_stats* brigades_reader_read_archer(JSON_Object* obj){

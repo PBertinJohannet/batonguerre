@@ -22,7 +22,6 @@ battle* battle_from_level(game_state* state, char* level_name, char* camp_id){
     JSON_Object* player_save_brigades = json_value_get_object(json_parse_file(campaign_state_get_army_path(camp_id)));
     team_set_brigades(g->player, brigades_reader_get_brigades(player_save_brigades, g->player));
     g->view = view_init(state->window, conf);
-    g->frame = 0;
     g->map_size = conf->map_size;
     g->entities = level_reader_read_entities(lvl, g);
     g->objects = level_reader_read_gold(lvl, g);
@@ -75,13 +74,13 @@ void battle_draw(battle* g) {
     view_draw_gold(g->view, g->player->gold);
     view_draw_cursor(g->view, g->controller->commanding_brigade);
     view_draw_entities(g->view, battle_get_drawables(g));
+    view_draw_perf(g->view, g->entities->size, g->objects->size);
 }
 
 
 void battle_update(battle* g){
-    g->frame+=1;
-    team_play(g->player, g->frame);
-    team_play(g->ennemy, g->frame);
+    team_play(g->player);
+    team_play(g->ennemy);
     g->ennemy_ai->play(g->ennemy_ai, g);
     for (unsigned int i =0;i<g->entities->size;i++){
         entity *ent = (entity *) (list_at(g->entities, i));

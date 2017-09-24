@@ -48,8 +48,9 @@ void kicker_attacking(entity* ent,__attribute__ ((unused)) battle* g){
             damage = stats->kick_damage;
         }
         ent->target->type->take_damage(ent->target, damage);
+        ent->state = ENTITY_STATE_ATTACK_FAILING;
     }
-    drawable_entity_animation_forward(ent->drawable, base_attack_speed/get_window_config()->fps);
+    drawable_entity_animation_forward(ent->drawable, base_attack_speed*get_elapsed_sec());
 }
 
 __attribute__ ((pure))int kicker_get_current_range(entity* ent){

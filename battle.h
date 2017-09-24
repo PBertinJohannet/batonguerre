@@ -33,7 +33,6 @@ struct battle{
     struct view * view;
     list* entities;
     list* objects;
-    unsigned int frame;
     ai* ennemy_ai;
     unsigned int map_size;
     char* campaign_id;

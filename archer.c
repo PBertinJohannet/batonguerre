@@ -49,8 +49,9 @@ void archer_attacking(entity* ent, battle* g){
             case ARCHER_NORMAL:
                 battle_add_object(g,arrow_init((int)ent->pos,(unsigned int)stats->range, (unsigned int)stats->arrow_speed,stats->arrow_size, ent->team, ent->facing, stats->normal_damage));
         }
+        ent->state = ENTITY_STATE_ATTACK_FAILING;
     }
-    drawable_entity_animation_forward(ent->drawable, (float)stats->basic_attack_speed/(float)get_window_config()->fps);
+    drawable_entity_animation_forward(ent->drawable, (float)stats->basic_attack_speed*get_elapsed_sec());
 }
 
 __attribute__ ((pure)) int archer_get_current_range(entity* ent){
