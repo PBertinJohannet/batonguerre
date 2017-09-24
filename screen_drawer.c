@@ -12,16 +12,13 @@ screen_drawer* screen_drawer_init(sfRenderWindow* window){
     s->sprites = list_init();
     return s;
 }
-void screen_drawer_play_music( screen_drawer* v, char* name){
-    sfMusic* music = sfMusic_createFromFile(name);
-    sfMusic_play(music);
-}
 void screen_drawer_draw_sprite(screen_drawer* v, sfSprite* sprite, sfVector2f position, sfVector2f size){
     list_add(v->sprites, sprite);
     sfFloatRect bounds = sfSprite_getGlobalBounds(sprite);
     sfVector2f scale = {size.x/bounds.height, size.y/bounds.height};
     sfSprite_setScale(sprite,scale);
     position.x *=get_window_config()->window_width/1000.0;
+    position.y *=get_window_config()->window_height/1000.0;
     sfSprite_setPosition(sprite, position);
     sfRenderWindow_drawSprite(v->window, sprite, NULL);
 }
@@ -41,6 +38,7 @@ void screen_drawer_write_text(screen_drawer* sc, char* to_write, sfColor color, 
     sfText_setCharacterSize(text, size);
     sfText_setColor(text, color);
     position.x *=get_window_config()->window_width/1000.0;
+    position.y *=get_window_config()->window_height/1000.0;
     sfText_setPosition(text, position);
     sfRenderWindow_drawText(sc->window, text, NULL);
 }

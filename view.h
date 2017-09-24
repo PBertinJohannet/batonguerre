@@ -6,7 +6,6 @@
 #define STICKWAR_DRAWER_H
 
 #include <SFML/Graphics.h>
-#include <SFML/Audio.h>
 #include "drawable_entity.h"
 #include "array_list.h"
 #include "texture_list.h"

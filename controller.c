@@ -1,7 +1,6 @@
 //
 // Created by pierre on 22/08/17.
 //
-#include <SFML/Audio.h>
 #include "controller.h"
 #include "view.h"
 #include "game_state.h"

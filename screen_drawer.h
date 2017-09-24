@@ -7,7 +7,6 @@
 
 typedef struct screen_drawer screen_drawer;
 #include <SFML/Graphics.h>
-#include <SFML/Audio.h>
 #include "array_list.h"
 #include "counted_allocations.h"
 #include "window_conf_reader.h"

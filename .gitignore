@@ -1,4 +1,5 @@
 .idea
+.idea/*
 *.o
 cmake-build-debug/*
 battle
