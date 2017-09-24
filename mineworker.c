@@ -45,22 +45,22 @@ void mineworker_assaulting(entity* player, __attribute__ ((unused))list* entitie
          mineworker_returning_gold(player);
     } else if (!mineworker_find_target(player, objects)) {
         unsigned int target = entity_get_command(player)->target;
-        if ((int)(abs(player->pos-target))>player->speed){
+        if ((int)(abs(player->pos-target))>player->speed*get_elapsed_sec()){
             player->facing = (unsigned int)(player->pos > target);
-            player->pos -= player->speed * (2.0 * (float)player->facing - 1.0);
+            player->pos -= player->speed*get_elapsed_sec() * (2.0 * (float)player->facing - 1.0);
         } else {
             player->facing = player->team->id;
             player->pos = entity_get_command(player)->target;
         }
-        drawable_entity_animation_forward(player->drawable, 25.0/get_window_config()->fps);
+        drawable_entity_animation_forward(player->drawable, 25.0*get_elapsed_sec());
     }
 }
 
 void mineworker_returning_gold(entity* player){
     unsigned int target = player->team->base->pos;
-    if ((int)(abs(player->pos-target))>player->speed){
+    if ((int)(abs(player->pos-target))>player->speed*get_elapsed_sec()){
         player->facing = (unsigned int)(player->pos > target);
-        player->pos -= player->speed * (2.0 * (float)player->facing - 1.0);
+        player->pos -= player->speed*get_elapsed_sec() * (2.0 * (float)player->facing - 1.0);
     } else {
         player->facing = player->team->id;
         player->pos = target;
@@ -68,7 +68,7 @@ void mineworker_returning_gold(entity* player){
         player->team->gold +=  state->gold_harvested;
         state->gold_harvested = 0;
     }
-    drawable_entity_animation_forward(player->drawable, 25.0/get_window_config()->fps);
+    drawable_entity_animation_forward(player->drawable, 25.0*get_elapsed_sec());
 }
 
 int mineworker_find_target(entity* player, list* objects){
@@ -119,8 +119,9 @@ void mineworker_harvesting(entity* ent){
         ent->drawable->anim = animation_frame_init(get_animations()->mineworker_walk);
         ent->state = ENTITY_STATE_ASSAULT;
     } else {
-        ent->drawable->anim->frame+=(float)stats->harvesting_speed/(float)get_window_config()->fps;
-        if ((int) (ent->drawable->anim->frame) == 35){
+        float advancing_frame = (float)stats->harvesting_speed*get_elapsed_sec();
+        ent->drawable->anim->frame+=advancing_frame;
+        if (ent->drawable->anim->frame-advancing_frame < 35.f && ent->drawable->anim->frame > 35.f){
             state->gold_harvested+=stats->gold_harvested;
             heap->gold_current-=1;
         }

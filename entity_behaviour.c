@@ -9,6 +9,7 @@
 #include "brigade.h"
 #include "window_conf_reader.h"
 #include "counted_allocations.h"
+#include "global.h"
 void set_basic_behaviour(entity_behaviour* behaviour){
     behaviour->attack_failing = entity_base_attack_failing;
     behaviour->dying = entity_base_dying;
@@ -31,14 +32,15 @@ void entity_base_take_damage(entity* ent, int damages){
 void entity_base_assaulting(entity* player, list* entities, __attribute__ ((unused))list* objects){
     if (!entity_base_find_target(player, entities)) {
         unsigned int target = entity_get_command(player)->target;
-        if ((int)(abs(player->pos-target))>player->speed){
+        float advancing = player->speed*get_elapsed_sec();
+        if ((int)(abs(player->pos-target))>advancing){
             player->facing = (unsigned int)(player->pos > target);
-            player->pos -= player->speed * (2.0 * (float)player->facing - 1.0);
+            player->pos -= advancing * (2.0 * (float)player->facing - 1.0);
         } else {
             player->facing = player->team->id;
             player->pos = entity_get_command(player)->target;
         }
-        drawable_entity_animation_forward(player->drawable, 25.0/get_window_config()->fps);
+        drawable_entity_animation_forward(player->drawable, 25.0*get_elapsed_sec());
     }
 }
 
@@ -70,7 +72,7 @@ void entity_base_dying(entity* player){
     if (drawable_entity_get_frame(player->drawable)== player->drawable->anim->anim->nb_frames - 1){
         player->state = ENTITY_STATE_DEAD;
     }
-    drawable_entity_animation_forward(player->drawable, 20.0/get_window_config()->fps);
+    drawable_entity_animation_forward(player->drawable, 20.0*get_elapsed_sec());
 }
 
 
@@ -79,7 +81,7 @@ void entity_base_attack_failing(entity* player,__attribute__ ((unused)) list* en
     if (drawable_entity_get_frame(player->drawable) == player->drawable->anim->anim->nb_frames - 1) {
         player->type->to_assault(player);
     }
-    drawable_entity_animation_forward(player->drawable, 25.0/get_window_config()->fps);
+    drawable_entity_animation_forward(player->drawable, 25.0*get_elapsed_sec());
 }
 
 void entity_base_to_retreat(entity* player){
@@ -92,12 +94,12 @@ void entity_base_to_retreat(entity* player){
 void entity_base_retreating(entity* player, list* entities){
     if ((int)(abs(player->pos-(int)(player->team->id)*player->team->pop))>50){
         player->facing = !player->team->id;
-        player->pos -= player->speed * (2 * player->facing - 1) ;
+        player->pos -= player->speed*get_elapsed_sec() * (2 * player->facing - 1) ;
     } else {
         player->facing = player->team->id;
         entity_base_find_target(player, entities);
     }
-    drawable_entity_animation_forward(player->drawable, 25.0/get_window_config()->fps);
+    drawable_entity_animation_forward(player->drawable, 25.0*get_elapsed_sec());
 }
 
 void entity_base_to_dying(entity* player){

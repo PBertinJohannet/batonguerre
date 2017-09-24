@@ -20,6 +20,7 @@ struct entity {
     struct entity_behaviour* type;
     entity* target;
     int hp;
+    int base_hp;
     float speed;
     team* team;
     float pos;

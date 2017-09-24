@@ -10,7 +10,7 @@ typedef struct window_config window_config;
 struct window_config{
     unsigned int window_width;
     unsigned int window_height;
-    unsigned int fps;
+    unsigned int _fps;
 };
 window_config* global_window_config;
 struct window_config* get_window_config(void);

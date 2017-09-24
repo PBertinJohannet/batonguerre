@@ -30,3 +30,17 @@ void free_ressources(void){
         animation_list_destroy(loaded_animations);
     }
 }
+
+unsigned int elapsed_us = 0;
+int clock_started = 0;
+sfClock* clock;
+void update_time(){
+    if (!clock_started){
+        clock = sfClock_create();
+        clock_started = 1;
+    }
+    elapsed_us = sfClock_restart(clock).microseconds;
+}
+float get_elapsed_sec(){
+    return ((float)elapsed_us)/1000000.f;
+}

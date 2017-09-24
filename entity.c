@@ -4,11 +4,13 @@
 #include "entity.h"
 #include "window_conf_reader.h"
 #include "counted_allocations.h"
+#include "global.h"
 entity* entity_init(brigade* b){
     entity* ent = counted_malloc(sizeof(entity), "entity init");
     ent->pos = b->team->pop;
     ent->hp = b->base_life;
-    ent->speed = (b->base_speed + rand()%b->random_speed) / (float)get_window_config()->fps;
+    ent->base_hp = b->base_life;
+    ent->speed = b->base_speed + rand()%b->random_speed;
     ent->team = b->team;
     ent->facing = ent->team->id;
     ent->brigade = b;

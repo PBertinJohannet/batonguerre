@@ -11,7 +11,7 @@ struct window_config* get_window_config(){
         global_window_config = counted_malloc(sizeof(window_config), "create window config");
         global_window_config->window_width =(unsigned int)json_object_get_number(config, "window_width");
         global_window_config->window_height =(unsigned int)json_object_get_number(config, "window_height");
-        global_window_config->fps =(unsigned int)json_object_get_number(config, "fps");
+        global_window_config->_fps =(unsigned int)json_object_get_number(config, "fps");
         window_config_loaded = 1;
     }
     return global_window_config;

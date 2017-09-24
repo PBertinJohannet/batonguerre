@@ -1,7 +1,9 @@
 //
 // Created by pierre on 23/08/17.
 //
+#include <SFML/System/Time.h>
 #include "game_state.h"
+#include "global.h"
 #include "paused_state.h"
 #include "battle_state.h"
 #include "window_conf_reader.h"
@@ -11,6 +13,7 @@
 
 void game_state_start(game_state* state){
     while (sfRenderWindow_isOpen(state->window)) {
+        update_time();
         sfRenderWindow_clear(state->window, sfBlack);
         state->draw(state->current_state);
         sfRenderWindow_display(state->window);
@@ -45,7 +48,7 @@ game_state* menu_init(){
     sfVideoMode mode = {win_conf->window_width, win_conf->window_height, 16};
     state->window = sfRenderWindow_create(mode, "Stickwar",  sfResize | sfClose, NULL);
     state->current_state = counted_malloc(sizeof(union game_state_union), "union state created");
-    sfRenderWindow_setFramerateLimit(state->window, win_conf->fps);
+    sfRenderWindow_setFramerateLimit(state->window, win_conf->_fps);
     state->current_state->main_menu = main_menu_state_init(state);
     state->draw = main_menu_state_draw;
     state->process_event = main_menu_state_process_event;

@@ -15,6 +15,7 @@ view* view_init(sfRenderWindow* window, battle_config* battle_conf){
     v->battle_config = battle_conf;
     v->drawer = screen_drawer_init(window);
     v->camera_position = 50;
+    v->last_fps = -1;
     return v;
 }
 void view_draw_sprite(view* v, sfSprite* sprite, sfVector2f position, sfVector2f size, int rel){
@@ -96,10 +97,7 @@ void view_draw_entities(view* v, list* entities){
 }
 
 void view_draw_gold(view* v, int gold){
-    char nb[12];
-    sprintf(nb, "Gold : %d", gold);
-    sfVector2f position = {0,0};
-    screen_drawer_write_text(v->drawer, nb, sfRed, 20, position);
+    view_draw_info(v, "Gold : %d", gold, 0,0);
 }
 
 void view_move_right(view* v){
@@ -118,4 +116,21 @@ void view_destroy(view* v){
     screen_drawer_destroy(v->drawer);
     battle_config_destroy(v->battle_config);
     counted_free(v, "freeing view");
+}
+void view_draw_info(view* v, char* title, int to_draw, int x, int y){
+    char nb[200];
+    sprintf(nb, title, to_draw);
+    sfVector2f position = {x,y};
+    screen_drawer_write_text(v->drawer, nb, sfRed, 20, position);
+}
+void view_draw_perf(view* v, int entities, int objects){
+    // fps
+    int act_fps = (int)(1.f/get_elapsed_sec());
+    if (v->last_fps==-1){
+        v->last_fps = act_fps;
+    }
+    v->last_fps = (v->last_fps*act_fps+act_fps)/(act_fps+1);
+    view_draw_info(v, "fps : %d", v->last_fps, 920, 0);
+    view_draw_info(v, "entities : %d", entities, 920, 50);
+    view_draw_info(v, "objects : %d", objects, 920, 100);
 }

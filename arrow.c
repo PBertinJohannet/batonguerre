@@ -12,7 +12,7 @@ object* arrow_init(int pos,unsigned int range, unsigned int speed, float size, t
     object* obj = object_init(pos, team, facing, OBJECT_ARROW);
     arr->damage = damage;
     arr->speed = speed;
-    arr->lifetime = range*get_window_config()->fps/speed;
+    arr->lifetime = range;
     arr->parent = obj;
     obj->drawable = drawable_entity_init(animation_frame_init(get_animations()->arrow),&obj->pos, &obj->facing,size);
     obj->play = arrow_object_play;
@@ -35,8 +35,8 @@ int arrow_object_play(void* obj, list* entities){
                 return 1;
         }
     }
-    pj->pos-=(2*(int)pj->facing-1)*(float)p_arr->speed/(float)(get_window_config()->fps);
-    p_arr->lifetime--;
+    pj->pos-=(2*(int)pj->facing-1)*(float)p_arr->speed*get_elapsed_sec();
+    p_arr->lifetime-=(float)p_arr->speed*get_elapsed_sec();
     if (p_arr->lifetime<1){
         return 1;
     }
