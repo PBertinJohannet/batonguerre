@@ -40,27 +40,27 @@ void base_take_damage(entity* ent, int damages){
 
 
 
-animation* base_get_dying_animation(__attribute__ ((unused))entity* ent){
+animation* base_get_dying_animation(entity* ent){
     return get_animations()->stick_walk_death;
 }
 
-animation* base_get_walking_animation(__attribute__ ((unused))entity* ent){
+animation* base_get_walking_animation(entity* ent){
     return get_animations()->stick_walk;
 }
 
 
-void base_play(__attribute__ ((unused))battle* g, entity* player,__attribute__ ((unused)) list* entities){
+void base_play(battle* g, entity* player, list* entities){
     player->drawable->anim->frame =player->drawable->anim->anim->nb_frames-3;
 }
 
-void base_attacking(entity* ent,__attribute__ ((unused)) battle* g){
+void base_attacking(entity* ent, battle* g){
     ent->drawable->anim->frame = 0;
 }
 
-__attribute__ ((const)) int base_get_current_range(__attribute__ ((unused))entity* ent){
+ int base_get_current_range(entity* ent){
     return 0;
 }
 
-__attribute__ ((const)) void base_to_attack(__attribute__ ((unused))entity* ent,__attribute__ ((unused))entity* target){
+ void base_to_attack(entity* ent,entity* target){
 
 }

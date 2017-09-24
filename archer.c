@@ -26,11 +26,11 @@ void set_archer_class(entity* ent){
 }
 
 
-animation* archer_get_dying_animation(__attribute__ ((unused))entity* ent){
+animation* archer_get_dying_animation(entity* ent){
     return get_animations()->archer_death;
 }
 
-animation* archer_get_walking_animation(__attribute__ ((unused))entity* ent){
+animation* archer_get_walking_animation(entity* ent){
     return get_animations()->archer_walk;
 }
 
@@ -54,7 +54,7 @@ void archer_attacking(entity* ent, battle* g){
     drawable_entity_animation_forward(ent->drawable, (float)stats->basic_attack_speed*get_elapsed_sec());
 }
 
-__attribute__ ((pure)) int archer_get_current_range(entity* ent){
+ int archer_get_current_range(entity* ent){
     archer_stats* k = (archer_stats*)(ent->brigade->specific_stats);
     return k->range;
 }

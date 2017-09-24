@@ -50,7 +50,7 @@ void battle_add_object(battle* g, object* proj){
     list_add(g->objects,proj);
 }
 
-__attribute__ ((pure)) sfRenderWindow* battle_get_view_window(battle* g){
+ sfRenderWindow* battle_get_view_window(battle* g){
     return g->view->window;
 }
 
@@ -111,7 +111,7 @@ void battle_process_event(battle* b, sfEvent* e){
     controller_process_event(b->controller, e);
 }
 
-__attribute_pure__ team* battle_get_team(battle* g, int team_id){
+team* battle_get_team(battle* g, int team_id){
     return (team_id)?g->player:g->ennemy;
 }
 

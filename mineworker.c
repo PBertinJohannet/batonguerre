@@ -31,12 +31,12 @@ void set_mineworker_class(entity* ent){
 
 
 
-void mineworker_retreating(entity* player,__attribute__ ((unused))list* entities ){
+void mineworker_retreating(entity* player,list* entities ){
     mineworker_returning_gold(player);
 }
 
 
-void mineworker_assaulting(entity* player, __attribute__ ((unused))list* entities, list* objects){
+void mineworker_assaulting(entity* player, list* entities, list* objects){
     mineworker_current_state* state = player->type->current_state;
     mineworker_stats* stats = player->brigade->specific_stats;
     if (state->is_harvesting){
@@ -92,16 +92,16 @@ int mineworker_find_target(entity* player, list* objects){
 }
 
 
-animation* mineworker_get_dying_animation(__attribute__ ((unused))entity* ent){
+animation* mineworker_get_dying_animation(entity* ent){
     return get_animations()->stick_walk_death;
 }
 
-animation* mineworker_get_walking_animation(__attribute__ ((unused))entity* ent){
+animation* mineworker_get_walking_animation(entity* ent){
     return get_animations()->mineworker_walk;
 }
 
 
-__attribute__((noreturn))void mineworker_attacking(entity* ent,__attribute__ ((unused)) battle* g){
+void mineworker_attacking(entity* ent, battle* g){
     ent->pos = 0;
     printf("mineworker cant attack ! \n");
     exit(0);
@@ -128,7 +128,7 @@ void mineworker_harvesting(entity* ent){
     }
 }
 
-__attribute__ ((pure))int mineworker_get_current_range(entity* ent){
+int mineworker_get_current_range(entity* ent){
     mineworker_stats* k = (mineworker_stats*)(ent->brigade->specific_stats);
     return k->range;
 }
@@ -140,7 +140,7 @@ void mineworker_to_harvest(entity* ent,object* target){
     animation_frame_destroy(ent->drawable->anim);
     ent->drawable->anim = animation_frame_init(get_animations()->mining);
 }
-__attribute__((noreturn))void mineworker_to_attack(__attribute__ ((unused))entity* ent,__attribute__ ((unused))entity* target){
+void mineworker_to_attack(entity* ent,entity* target){
     printf("mineworker cant attack ! \n");
     exit(0);
 }

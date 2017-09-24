@@ -20,7 +20,7 @@ object* gold_heap_init(int pos, int gold, float size){
 
 
 
-int gold_heap_play(void* obj, __attribute__ ((unused)) list* entities){
+int gold_heap_play(void* obj,  list* entities){
     object* pj = obj;
     gold_heap* heap = pj->self;
     heap->parent->drawable->anim->frame = (float)heap->parent->drawable->anim->anim->nb_frames-(

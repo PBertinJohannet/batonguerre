@@ -71,7 +71,7 @@ void campaign_state_draw(game_state_union* state){
     screen_drawer_clear(campaign->drawer);
     clickable_menu_draw(campaign->menu, campaign->drawer);
 }
-__attribute_const__ void campaign_state_update(game_state_union* ps){
+ void campaign_state_update(game_state_union* ps){
     if (ps->campaign->to_main){
         campaign_state_to_battle(ps->campaign);
     }

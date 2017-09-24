@@ -12,7 +12,7 @@ screen_drawer* screen_drawer_init(sfRenderWindow* window){
     s->sprites = list_init();
     return s;
 }
-void screen_drawer_play_music(__attribute__ ((unused)) screen_drawer* v, char* name){
+void screen_drawer_play_music( screen_drawer* v, char* name){
     sfMusic* music = sfMusic_createFromFile(name);
     sfMusic_play(music);
 }

@@ -29,7 +29,7 @@ void entity_base_take_damage(entity* ent, int damages){
 }
 
 
-void entity_base_assaulting(entity* player, list* entities, __attribute__ ((unused))list* objects){
+void entity_base_assaulting(entity* player, list* entities, list* objects){
     if (!entity_base_find_target(player, entities)) {
         unsigned int target = entity_get_command(player)->target;
         float advancing = player->speed*get_elapsed_sec();
@@ -77,7 +77,7 @@ void entity_base_dying(entity* player){
 
 
 
-void entity_base_attack_failing(entity* player,__attribute__ ((unused)) list* entities){
+void entity_base_attack_failing(entity* player, list* entities){
     if (drawable_entity_get_frame(player->drawable) == player->drawable->anim->anim->nb_frames - 1) {
         player->type->to_assault(player);
     }

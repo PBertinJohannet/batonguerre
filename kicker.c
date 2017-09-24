@@ -33,12 +33,12 @@ animation* kicker_get_dying_animation(entity* ent){
     return get_animations()->stick_kick_death;
 }
 
-animation* kicker_get_walking_animation(__attribute__ ((unused))entity* ent){
+animation* kicker_get_walking_animation(entity* ent){
     return get_animations()->stick_walk;
 }
 
 
-void kicker_attacking(entity* ent,__attribute__ ((unused)) battle* g){
+void kicker_attacking(entity* ent, battle* g){
     int* current_state = ent->type->current_state;
     kicker_stats* stats = ent->brigade->specific_stats;
     float base_attack_speed = ( *current_state == PUNCH)?stats->punch_attack_speed:stats->base_attack_speed;
@@ -53,7 +53,7 @@ void kicker_attacking(entity* ent,__attribute__ ((unused)) battle* g){
     drawable_entity_animation_forward(ent->drawable, base_attack_speed*get_elapsed_sec());
 }
 
-__attribute__ ((pure))int kicker_get_current_range(entity* ent){
+int kicker_get_current_range(entity* ent){
     kicker_stats* k = (kicker_stats*)(ent->brigade->specific_stats);
     return k->range;
 }

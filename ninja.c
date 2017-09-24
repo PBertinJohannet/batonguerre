@@ -31,15 +31,15 @@ void set_ninja_class(entity* ent){
                                          &ent->pos, &ent->facing, ent->brigade->base_size);
 }
 
-animation* ninja_get_dying_animation(__attribute__ ((unused)) entity* ent){
+animation* ninja_get_dying_animation( entity* ent){
     return get_animations()->ninja_death;
 }
-animation* ninja_get_walking_animation(__attribute__ ((unused)) entity* ent){
+animation* ninja_get_walking_animation( entity* ent){
     return get_animations()->ninja_walk;
 }
 
 
-void ninja_attacking(entity* ent, __attribute__ ((unused)) battle* g) {
+void ninja_attacking(entity* ent,  battle* g) {
     ninja* current_state = ent->type->current_state;
     ninja_stats* stats = ent->brigade->specific_stats;
     unsigned int curr_frame = drawable_entity_get_frame(ent->drawable);
@@ -91,7 +91,7 @@ void ninja_jumping(entity* ent){
     drawable_entity_animation_forward(ent->drawable, stats->basic_attack_speed*get_elapsed_sec());
 }
 
-__attribute_pure__ int ninja_get_current_range(entity* ent){
+int ninja_get_current_range(entity* ent){
     ninja_stats* stats = ent->brigade->specific_stats;
     ninja* k = (ninja*)(ent->type->current_state);
     return k->will_jump?stats->range:stats->jump_range;

@@ -38,7 +38,7 @@ end_state* end_state_init(battle_state* bs, int won){
     return end;
 }
 
-__attribute_const__ void end_state_draw(__attribute__ ((unused)) game_state_union* state){
+ void end_state_draw( game_state_union* state){
     battle* b = state->end->ended_battle;
     screen_drawer_clear(b->view->drawer);
     battle_draw(b);

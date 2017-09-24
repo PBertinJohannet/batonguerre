@@ -45,7 +45,7 @@ sfSprite* entity_launcher_get_icon(entity_launcher* ent){
     sfSprite_setTextureRect(sprite, target);
     return sprite;
 }
-__attribute_pure__ int can_launch(entity_launcher* ent){
+int can_launch(entity_launcher* ent){
     return ((int)ent->curr_cd) == ent->cd && ent->brigade->team->gold > ent->cost;
 }
 

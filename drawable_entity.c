@@ -19,7 +19,7 @@ void drawable_entity_animation_forward(drawable_entity* ent, float forward){
     }
 }
 
-__attribute__ ((pure)) unsigned int drawable_entity_get_frame(drawable_entity* ent){
+ unsigned int drawable_entity_get_frame(drawable_entity* ent){
     return (unsigned int)(ent->anim->frame);
 }
 

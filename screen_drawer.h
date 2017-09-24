@@ -18,7 +18,7 @@ struct screen_drawer {
     list* sprites;
 };
 screen_drawer* screen_drawer_init(sfRenderWindow* window);
-void screen_drawer_play_music(__attribute__ ((unused)) screen_drawer* v, char* name);
+void screen_drawer_play_music( screen_drawer* v, char* name);
 void screen_drawer_draw_sprite(screen_drawer* v, sfSprite* sprite, sfVector2f position, sfVector2f size);
 void screen_drawer_sprite_center(sfSprite* sprite);
 void screen_drawer_write_text(screen_drawer* sc, char* to_write, sfColor color, unsigned int size, sfVector2f position);

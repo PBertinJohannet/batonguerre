@@ -34,7 +34,7 @@ void main_menu_state_draw(game_state_union* state){
     screen_drawer_clear(menu->drawer);
     clickable_menu_draw(menu->menu, menu->drawer);
 }
-__attribute_const__ void main_menu_state_update(game_state_union* ps){
+ void main_menu_state_update(game_state_union* ps){
     if (ps->main_menu->switch_to){
         main_menu_state_to_campaign(ps->main_menu);
     }
@@ -68,7 +68,7 @@ void main_menu_state_to_campaign(main_menu_state* menu){
     counted_free(menu, "freeing menu");
 }
 
-__attribute__((noreturn)) void main_menu_state_quit(main_menu_state* menu){
+ void main_menu_state_quit(main_menu_state* menu){
     sfRenderWindow_destroy(menu->super->window);
     counted_free(menu->super->current_state,"freeing super state");
     counted_free(menu->super,"freeing super");

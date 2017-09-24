@@ -25,7 +25,7 @@ clickable_menu* campaign_state_menu_init(campaign_state* state);
 char* campaign_state_get_camp_path(char* game_id);
 char* campaign_state_get_army_path(char* game_id);
 void campaign_state_draw(game_state_union* state);
-__attribute_const__ void campaign_state_update(__attribute__((unused))game_state_union* ps);
+ void campaign_state_update(game_state_union* ps);
 void campaign_state_process_event(game_state_union* state, sfEvent* event);
 int campaign_state_get_current_level(char* game_id);
 void campaign_state_to_battle(campaign_state* campaign);

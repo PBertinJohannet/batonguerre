@@ -13,16 +13,25 @@
   <component name="ChangeListManager">
     <list default="true" id="8e4190c2-7e9a-447d-8741-9ed714d298e7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/battle_state.c" afterPath="$PROJECT_DIR$/battle_state.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/archer.c" afterPath="$PROJECT_DIR$/archer.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/base.c" afterPath="$PROJECT_DIR$/base.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/battle.c" afterPath="$PROJECT_DIR$/battle.c" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/campaign_state.c" afterPath="$PROJECT_DIR$/campaign_state.c" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clickable_menu.c" afterPath="$PROJECT_DIR$/clickable_menu.c" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller.c" afterPath="$PROJECT_DIR$/controller.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/campaign_state.h" afterPath="$PROJECT_DIR$/campaign_state.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/drawable_entity.c" afterPath="$PROJECT_DIR$/drawable_entity.c" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/end_state.c" afterPath="$PROJECT_DIR$/end_state.c" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/final_ai.c" afterPath="$PROJECT_DIR$/final_ai.c" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/global.c" afterPath="$PROJECT_DIR$/global.c" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/level_reader.c" afterPath="$PROJECT_DIR$/level_reader.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/entity.c" afterPath="$PROJECT_DIR$/entity.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/entity_behaviour.c" afterPath="$PROJECT_DIR$/entity_behaviour.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/entity_launcher.c" afterPath="$PROJECT_DIR$/entity_launcher.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gold_heap.c" afterPath="$PROJECT_DIR$/gold_heap.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/kicker.c" afterPath="$PROJECT_DIR$/kicker.c" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main_menu_state.c" afterPath="$PROJECT_DIR$/main_menu_state.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mineworker.c" afterPath="$PROJECT_DIR$/mineworker.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mineworker.h" afterPath="$PROJECT_DIR$/mineworker.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ninja.c" afterPath="$PROJECT_DIR$/ninja.c" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/paused_state.c" afterPath="$PROJECT_DIR$/paused_state.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/screen_drawer.c" afterPath="$PROJECT_DIR$/screen_drawer.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/screen_drawer.h" afterPath="$PROJECT_DIR$/screen_drawer.h" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,100 +46,102 @@
       <file leaf-file-name="campaign_state.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/campaign_state.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+            <state relative-caret-position="320">
+              <caret line="80" column="26" lean-forward="false" selection-start-line="80" selection-start-column="26" selection-end-line="80" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="clickable_menu.c" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/clickable_menu.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mineworker.c" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mineworker.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="142" column="42" lean-forward="true" selection-start-line="142" selection-start-column="42" selection-end-line="142" selection-end-column="42" />
-              <folding>
-                <element signature="e#1#24#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="final_ai.c" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/final_ai.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="global.c" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/global.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="level_reader.c" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/level_reader.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="16" column="61" lean-forward="false" selection-start-line="16" selection-start-column="61" selection-end-line="16" selection-end-column="61" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="battle_state.c" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/battle_state.c">
+      <file leaf-file-name="archer.c" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/archer.c">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="428">
+              <caret line="69" column="25" lean-forward="false" selection-start-line="69" selection-start-column="25" selection-end-line="69" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main_menu_state.c" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main_menu_state.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="259">
+              <caret line="70" column="49" lean-forward="false" selection-start-line="70" selection-start-column="49" selection-end-line="70" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.c" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/base.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="403">
+              <caret line="62" column="0" lean-forward="true" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="battle_state.c" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/battle_state.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="954">
               <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="end_state.c" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/end_state.c">
+      <file leaf-file-name="animation_list.c" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/animation_list.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="51" column="45" lean-forward="true" selection-start-line="51" selection-start-column="45" selection-end-line="51" selection-end-column="45" />
+            <state relative-caret-position="108">
+              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="paused_state.c" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/paused_state.c">
+      <file leaf-file-name="view.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/view.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+            <state relative-caret-position="126">
+              <caret line="7" column="9" lean-forward="false" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
+              <folding>
+                <element signature="e#94#120#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="game_state.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/game_state.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="12" column="19" lean-forward="false" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="controller.c" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controller.c">
+      <file leaf-file-name="campaign_state.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/campaign_state.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="313">
-              <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+            <state relative-caret-position="302">
+              <caret line="26" column="50" lean-forward="true" selection-start-line="26" selection-start-column="50" selection-end-line="26" selection-end-column="50" />
+              <folding>
+                <element signature="e#110#133#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="battle.c" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/battle.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="392">
+              <caret line="123" column="38" lean-forward="true" selection-start-line="123" selection-start-column="38" selection-end-line="123" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -140,14 +151,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>json_array_get_</find>
-      <find>json_t</find>
-      <find>start_js</find>
-      <find>start_json</find>
-      <find>json_read_uint</find>
-      <find>json_read_int</find>
-      <find>json_object_get_number</find>
-      <find>JSON_Value</find>
       <find>json_parse_file</find>
       <find>json_read_float_index</find>
       <find>json_array_size</find>
@@ -170,9 +173,16 @@
       <find>xpos</find>
       <find>drawa</find>
       <find>team_pla</find>
+      <find>__attribute_const__</find>
+      <find>__attribute__ ((unused))</find>
+      <find>__attribute_pure</find>
+      <find>__attribute__ ((pure))</find>
+      <find>__attribute__((noreturn))</find>
+      <find>__attribute__ ((const))</find>
+      <find>__attribute__((unused))</find>
+      <find>__</find>
     </findStrings>
     <replaceStrings>
-      <replace>end</replace>
       <replace>object</replace>
       <replace>OBJECT_ARROW</replace>
       <replace>arrow_infos</replace>
@@ -184,7 +194,6 @@
       <replace>campaign</replace>
       <replace>switch_to</replace>
       <replace>main_menu_state_to_campaign</replace>
-      <replace />
       <replace>JSON_Value</replace>
       <replace>json_parse_file</replace>
       <replace>(int)json_object_get_number</replace>
@@ -202,6 +211,8 @@
       <replace>object_init</replace>
       <replace>gold_heap_init</replace>
       <replace>copy_json_to</replace>
+      <replace>= ENTITY_STATE_ATTACK_FAILING</replace>
+      <replace />
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -263,8 +274,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/battle_interact.h" />
-        <option value="$PROJECT_DIR$/paused_state.h" />
         <option value="$PROJECT_DIR$/final_ai.h" />
         <option value="$PROJECT_DIR$/battle_interact.c" />
         <option value="$PROJECT_DIR$/level_reader.h" />
@@ -283,7 +292,6 @@
         <option value="$PROJECT_DIR$/dumb_ai.h" />
         <option value="$PROJECT_DIR$/json_frame.c" />
         <option value="$PROJECT_DIR$/utils.h" />
-        <option value="$PROJECT_DIR$/archer.c" />
         <option value="$PROJECT_DIR$/gold_heap.h" />
         <option value="$PROJECT_DIR$/counted_allocations.h" />
         <option value="$PROJECT_DIR$/object.h" />
@@ -295,7 +303,6 @@
         <option value="$PROJECT_DIR$/screen_drawer.h" />
         <option value="$PROJECT_DIR$/array_list.h" />
         <option value="$PROJECT_DIR$/animation.c" />
-        <option value="$PROJECT_DIR$/main_menu_state.c" />
         <option value="$PROJECT_DIR$/brigade_reader.c" />
         <option value="$PROJECT_DIR$/array_list.c" />
         <option value="$PROJECT_DIR$/counted_allocations.c" />
@@ -303,9 +310,7 @@
         <option value="$PROJECT_DIR$/utils.c" />
         <option value="$PROJECT_DIR$/screen_drawer.c" />
         <option value="$PROJECT_DIR$/drawable_entity.h" />
-        <option value="$PROJECT_DIR$/battle.c" />
         <option value="$PROJECT_DIR$/battle.h" />
-        <option value="$PROJECT_DIR$/campaign_state.c" />
         <option value="$PROJECT_DIR$/controller.c" />
         <option value="$PROJECT_DIR$/clickable_menu.c" />
         <option value="$PROJECT_DIR$/final_ai.c" />
@@ -314,6 +319,12 @@
         <option value="$PROJECT_DIR$/paused_state.c" />
         <option value="$PROJECT_DIR$/level_reader.c" />
         <option value="$PROJECT_DIR$/battle_state.c" />
+        <option value="$PROJECT_DIR$/campaign_state.c" />
+        <option value="$PROJECT_DIR$/archer.c" />
+        <option value="$PROJECT_DIR$/main_menu_state.c" />
+        <option value="$PROJECT_DIR$/base.c" />
+        <option value="$PROJECT_DIR$/campaign_state.h" />
+        <option value="$PROJECT_DIR$/battle.c" />
       </list>
     </option>
   </component>
@@ -330,7 +341,7 @@
     <option name="width" value="1853" />
     <option name="height" value="1076" />
   </component>
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
@@ -352,7 +363,7 @@
         <subPane>
           <expand>
             <path>
-              <item name="stickwar" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
+              <item name="batonguerre" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
               <item name="batonguerre" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -387,6 +398,96 @@
   <component name="RunManager" selected="Application.stickwar">
     <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all">
       <envs />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="stickwar" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="stickwar" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="stickwar" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Nosetests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="stickwar" />
+      <option name="_new_regexPattern" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="stickwar" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="py.test">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="stickwar" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
     <configuration name="stickwar" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="stickwar" TARGET_NAME="stickwar" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="stickwar" RUN_TARGET_NAME="stickwar">
       <envs />
@@ -434,45 +535,36 @@
       <workItem from="1505936247415" duration="746000" />
       <workItem from="1506014737903" duration="14116000" />
       <workItem from="1506100964093" duration="27914000" />
+      <workItem from="1506261760189" duration="147000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="418073000" />
+    <option name="totallyTimeSpent" value="419649000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-152" y="99" width="1857" height="1092" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23327805" sideWeight="0.5" order="0" side_tool="true" content_ui="combo" x="822" y="233" width="341" height="609" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23604201" sideWeight="0.5" order="0" side_tool="true" content_ui="combo" x="822" y="233" width="341" height="609" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32795697" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34408602" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2498618" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32832617" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32795697" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32959184" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959569" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23327805" sideWeight="0.5" order="0" side_tool="true" content_ui="combo" x="822" y="233" width="341" height="609" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34408602" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2498618" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -487,59 +579,28 @@
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/entity_launcher.c</url>
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/game_state.h</url>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="2" />
+      <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/brigade_reader.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="43" column="2" lean-forward="false" selection-start-line="43" selection-start-column="2" selection-end-line="43" selection-end-column="2" />
-          <folding>
-            <marker date="1506255050601" expanded="true" signature="944:1181" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/entity_behaviour.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="16" lean-forward="false" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/entity_behaviour.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="168" column="67" lean-forward="false" selection-start-line="168" selection-start-column="67" selection-end-line="168" selection-end-column="67" />
-          <folding>
-            <element signature="e#41#70#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ai.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="9" column="18" lean-forward="false" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ninja.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="83" column="51" lean-forward="false" selection-start-line="83" selection-start-column="51" selection-end-line="83" selection-end-column="51" />
           <folding>
             <element signature="e#41#59#0" expanded="true" />
-            <marker date="1506255050605" expanded="true" signature="1454:1830" ph="{...}" />
-            <marker date="1506255050605" expanded="true" signature="3350:3354" ph="{...}" />
-            <marker date="1506255050605" expanded="true" signature="3415:3580" ph="{...}" />
-            <marker date="1506255050605" expanded="true" signature="3630:3948" ph="{...}" />
-            <marker date="1506255050605" expanded="true" signature="4005:4538" ph="{...}" />
-            <marker date="1506255050605" expanded="true" signature="4593:4861" ph="{...}" />
+            <marker date="1506261906105" expanded="true" signature="1382:1758" ph="{...}" />
+            <marker date="1506261906105" expanded="true" signature="3523:3527" ph="{...}" />
+            <marker date="1506261906105" expanded="true" signature="3569:3734" ph="{...}" />
+            <marker date="1506261906105" expanded="true" signature="3784:4102" ph="{...}" />
+            <marker date="1506261906105" expanded="true" signature="4159:4692" ph="{...}" />
+            <marker date="1506261906105" expanded="true" signature="4747:5015" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -567,26 +628,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/campaign_state.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="32" column="57" lean-forward="false" selection-start-line="32" selection-start-column="57" selection-end-line="32" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/utils.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="8" column="30" lean-forward="false" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/archer.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="61" column="51" lean-forward="false" selection-start-line="61" selection-start-column="51" selection-end-line="61" selection-end-column="51" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -662,14 +707,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main_menu_state.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="14" column="39" lean-forward="true" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/brigade.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -717,11 +754,10 @@
         <state relative-caret-position="144">
           <caret line="25" column="11" lean-forward="false" selection-start-line="25" selection-start-column="11" selection-end-line="25" selection-end-column="11" />
           <folding>
-            <marker date="1506255050601" expanded="true" signature="1230:1815" ph="{...}" />
-            <marker date="1506255050601" expanded="true" signature="1875:2714" ph="{...}" />
-            <marker date="1506255050601" expanded="true" signature="2788:3430" ph="{...}" />
-            <marker date="1506255050601" expanded="true" signature="3496:4100" ph="{...}" />
-            <marker date="1506255050601" expanded="true" signature="4163:4452" ph="{...}" />
+            <marker date="1506255286206" expanded="true" signature="1230:1885" ph="{...}" />
+            <marker date="1506255286206" expanded="true" signature="1945:2784" ph="{...}" />
+            <marker date="1506255286206" expanded="true" signature="2858:3500" ph="{...}" />
+            <marker date="1506255286206" expanded="true" signature="3566:4170" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -745,7 +781,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="403">
           <caret line="31" column="5" lean-forward="false" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -764,7 +799,7 @@
         <state relative-caret-position="403">
           <caret line="120" column="1" lean-forward="false" selection-start-line="120" selection-start-column="1" selection-end-line="120" selection-end-column="1" />
           <folding>
-            <marker date="1506255050609" expanded="true" signature="318:516" ph="{...}" />
+            <marker date="1506255286214" expanded="true" signature="318:516" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -799,16 +834,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/battle.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="482">
-          <caret line="32" column="29" lean-forward="false" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
-          <folding>
-            <element signature="e#41#64#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/battle.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="388">
@@ -821,14 +846,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-166">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/campaign_state.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -852,16 +869,20 @@
     <entry file="file://$PROJECT_DIR$/mineworker.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="392">
-          <caret line="142" column="42" lean-forward="true" selection-start-line="142" selection-start-column="42" selection-end-line="142" selection-end-column="42" />
+          <caret line="143" column="42" lean-forward="false" selection-start-line="143" selection-start-column="42" selection-end-line="143" selection-end-column="42" />
           <folding>
             <element signature="e#1#24#0" expanded="true" />
+            <marker date="1506261851951" expanded="true" signature="1440:1925" ph="{...}" />
+            <marker date="1506261851951" expanded="true" signature="4914:5027" ph="{...}" />
+            <marker date="1506261851951" expanded="true" signature="5074:5175" ph="{...}" />
+            <marker date="1506261851951" expanded="true" signature="5231:5487" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/final_ai.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
+        <state relative-caret-position="864">
           <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
           <folding />
         </state>
@@ -869,7 +890,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/global.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
+        <state relative-caret-position="432">
           <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding />
         </state>
@@ -877,15 +898,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/end_state.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="51" column="45" lean-forward="true" selection-start-line="51" selection-start-column="45" selection-end-line="51" selection-end-column="45" />
+        <state relative-caret-position="918">
+          <caret line="51" column="45" lean-forward="false" selection-start-line="51" selection-start-column="45" selection-end-line="51" selection-end-column="45" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/paused_state.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
+        <state relative-caret-position="936">
           <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
           <folding />
         </state>
@@ -893,7 +914,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/level_reader.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
+        <state relative-caret-position="288">
           <caret line="16" column="61" lean-forward="false" selection-start-line="16" selection-start-column="61" selection-end-line="16" selection-end-column="61" />
           <folding />
         </state>
@@ -901,8 +922,84 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/battle_state.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
+        <state relative-caret-position="954">
           <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/animation_list.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="9" lean-forward="false" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
+          <folding>
+            <element signature="e#94#120#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/game_state.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="19" lean-forward="false" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/campaign_state.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="80" column="26" lean-forward="false" selection-start-line="80" selection-start-column="26" selection-end-line="80" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/archer.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="428">
+          <caret line="69" column="25" lean-forward="false" selection-start-line="69" selection-start-column="25" selection-end-line="69" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main_menu_state.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="70" column="49" lean-forward="false" selection-start-line="70" selection-start-column="49" selection-end-line="70" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="62" column="0" lean-forward="true" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/campaign_state.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="26" column="50" lean-forward="true" selection-start-line="26" selection-start-column="50" selection-end-line="26" selection-end-column="50" />
+          <folding>
+            <element signature="e#110#133#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/battle.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="123" column="38" lean-forward="true" selection-start-line="123" selection-start-column="38" selection-end-line="123" selection-end-column="38" />
           <folding />
         </state>
       </provider>

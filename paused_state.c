@@ -31,7 +31,7 @@ void paused_state_draw(game_state_union* state){
 }
 
 
-__attribute_const__ void paused_state_update(game_state_union* ps){
+ void paused_state_update(game_state_union* ps){
     if (ps->paused->switch_to == SWITCH_TO_MENU){
         paused_state_to_main_menu(ps->paused);
     } else if (ps->paused->switch_to == SWITCH_TO_BATTLE){
