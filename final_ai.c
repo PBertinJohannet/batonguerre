@@ -24,7 +24,6 @@ void final_ai_play(ai* my_ai, battle* b) {
     if (fai->stamp++ ==2000 && !fai->boss_launched){
         fai->stamp = -100*fai->team->gold_per_sec;
         fai->team->gold_per_sec++;
-        printf("curr gps : %d\n", fai->team->gold_per_sec);
         if (fai->ninjas>10){
             fai->ninjas = 0;
         }
@@ -47,7 +46,6 @@ void final_ai_play(ai* my_ai, battle* b) {
         entity* e = list_at(b->entities, i);
         if (e->type->type == MINEWORKER && e->team == fai->team && e->state == ENTITY_STATE_DYING && fai->boss_launched==0){
             fai->team->gold+=2000;
-            printf("launch boss !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n");
             entity_launcher* launcher_target = ((brigade*)list_at(fai->team->brigades, 2))->launcher;
             entity_launcher_launch(launcher_target, b);
             fai->boss_launched = 1;

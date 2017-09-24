@@ -13,7 +13,6 @@ paused_state* paused_state_init(battle_state* bs){
     ps->menu = clickable_menu_init();
     ps->switch_to = DONT_SWITCH;
     int xpos = 400;
-    printf("xpos : %d\n", xpos);
     clickable_menu_add_button(ps->menu, button_inline_init((void(*)(void*))paused_state_switch_to_battle,
                                                            (void*)ps, xpos, 200, 25, "resume game", NULL));
     clickable_menu_add_button(ps->menu, button_inline_init((void(*)(void*))paused_state_switch_to_main,
@@ -51,7 +50,6 @@ void paused_state_process_event(game_state_union* state, sfEvent* event){
             }
             break;
         case sfEvtMouseButtonPressed:
-            printf("mouse clicked \n");
             clickable_menu_click_event(ps->menu, sfMouse_getPositionRenderWindow(ps->super->window));
         default:
             break;

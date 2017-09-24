@@ -13,11 +13,9 @@ void test_suck_button(main_menu_state* state){
 
 void test_print_pos(void* state){
     main_menu_state_to_campaign(state);
-    printf("I the one who have been chosen\n");
 }
 
 main_menu_state* main_menu_state_init(game_state* super){
-    printf("menu state init\n");
     main_menu_state* menu = counted_malloc(sizeof(main_menu_state), "creating battle state");
     menu->super = super;
     menu->menu = clickable_menu_init();
@@ -49,7 +47,6 @@ void main_menu_state_process_event(game_state_union* state, sfEvent* event){
             break;
         case sfEvtMouseButtonPressed:
             clickable_menu_click_event(menu->menu, sfMouse_getPositionRenderWindow(menu->super->window));
-            printf("mouse clicked\n");
             break;
         default:
             break;

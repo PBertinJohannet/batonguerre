@@ -14,13 +14,10 @@ void clickable_menu_add_button(clickable_menu* menu, button* b){
 }
 void clickable_menu_click_event(clickable_menu* menu, sfVector2i mouse){
     mouse.x /= get_window_config()->window_width/1000.0;
-    printf("mouse : %d\n", mouse.x);
     for (unsigned int i = 0; i<menu->buttons->size; i++){
         button* b = list_at(menu->buttons, i);
         if (b->position->x < mouse.x && b->size->x+b->position->x > mouse.x &&
                 b->position->y < mouse.y && b->size->y+b->position->y > mouse.y){
-            printf("clicked on button at %d, %d\n", b->position->x, b->position->y);
-            printf("mouse at %d, %d\n", mouse.x, mouse.y);
             b->callback(b->args);
         }
     }

@@ -45,12 +45,10 @@ void battle_state_to_paused_state(game_state* state){
 }
 
 void battle_state_to_end_state(game_state* state, int won){
-    printf("battle to end ! \n");
     battle_state* bs = state->current_state->battle;
     bs->super->current_state->end = end_state_init(bs, won);
     bs->super->update = end_state_update;
     bs->super->process_event = end_state_process_event;
     bs->super->draw = end_state_draw;
     counted_free(bs, "destoying battle state going into end");
-    printf("battle to end freed\n");
 }

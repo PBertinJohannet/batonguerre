@@ -57,7 +57,6 @@ char* campaign_state_get_army_path(char* game_id){
 }
 
 void campaign_state_copy_base_stats(char* game_id){
-    printf("copy base stats wllh \n");
     char* camp = campaign_state_get_camp_path(game_id);
     char* army = campaign_state_get_army_path(game_id);
     copy_json_to("confs/base/army.json", army);

@@ -22,7 +22,6 @@ texture_list* get_textures(){
     return loaded_textures;
 }
 void free_ressources(void){
-    printf("free ressources");
     if (text_loaded) {
         texture_list_destroy(loaded_textures);
     }

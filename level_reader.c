@@ -15,8 +15,6 @@ level_reader* level_reader_init(char* lvl_name){
     sprintf(conf_path, "confs/levels/%s/configuration.json",lvl_name);
     char * army_path = counted_malloc(sizeof(char)*(strlen(lvl_name)+strlen("confs/levels//army.json")+1), "create army path");
     sprintf(army_path, "confs/levels/%s/army.json",lvl_name);
-    printf("%s\n",conf_path);
-    printf("%s\n",army_path);
     lv->config = json_value_get_object(json_parse_file(conf_path));
     lv->armys = json_value_get_object(json_parse_file(army_path));
     counted_free(conf_path, "level configuration path destroy");
