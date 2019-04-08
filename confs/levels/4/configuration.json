@@ -5,8 +5,8 @@
  "player_team"   : 0,
  "teams" : [ {
 				"pop" : 50,
-				"gold_start" : 100,
-				"gold_per_sec" : 1,
+				"gold_start" : 200,
+				"gold_per_sec" : 2,
               "ai"  : "plyer"},
 			{
 				"pop" : 3350,

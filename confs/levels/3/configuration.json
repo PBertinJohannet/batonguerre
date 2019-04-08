@@ -10,8 +10,8 @@
               "ai"  : "plyer"},
 			{
 				"pop" : 3350,
-				"gold_start" : 300,
-				"gold_per_sec" :3,
+				"gold_start" : 200,
+				"gold_per_sec" :2,
 				"ai"  : "dumb"}
 			],
 "entities" : [{"number":2, "brigade_id":2}],

@@ -10,8 +10,8 @@
               "ai"  : "plyer"},
 			{
 				"pop" : 1950,
-				"gold_start" : 200,
-				"gold_per_sec" :2,
+				"gold_start" : 50,
+				"gold_per_sec" :1,
 				"ai"  : "dumb"}
 			],
 "entities" : [],
