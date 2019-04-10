@@ -1,5 +1,11 @@
 .idea
 .idea/*
+stickwar
+stickwar/*
+CMakelist.txt
+run
+valdebug
+release
 *.o
 cmake-build-debug/*
 battle

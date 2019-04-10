@@ -1,4 +1,0 @@
-rm -f *.o
-make -f Makefile.run clean
-make -f Makefile.run
-./battle
